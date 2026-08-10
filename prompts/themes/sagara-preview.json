@@ -1,0 +1,24 @@
+{
+  "asset_name": "sagara-preview.png",
+  "target_path": "public/themes/sagara-preview.png",
+  "usage": "Kartu preview tema Sagara. Ditampilkan di hero section landing page sebagai showcase utama. Harus langsung menampilkan dunia Sagara: laut malam 2.5D, kapal besar, dan suasana petualangan.",
+  "canvas": {
+    "width": 1200,
+    "height": 750,
+    "background": "solid dark — #070C18 ke #0A1628",
+    "format": "PNG-32"
+  },
+  "prompt": "Ultra-cinematic 2.5D parallax diorama scene of an anime pirate ocean at night. Deep midnight navy ocean landscape, multiple depth layers visible simultaneously creating a 2.5D parallax depth effect. Layer 1 (sky/far background): deep dark indigo-navy sky #070C18 to #0A1628, scattered glowing stars, 3-4 soft cream-white clouds drifting at different heights, warm and hazy. Layer 2 (far horizon): 2-3 small tropical islands silhouette in cool blue-violet mist on the horizon, barely visible, atmospheric haze. Layer 3 (mid ocean): wide dark teal ocean surface #0E2A3A, glowing phosphorescent cyan foam patterns at wave crests, luminous bioluminescent particles in water. Layer 4 (main ship): massive ornate wooden pirate sailing ship center-right, warm amber lanterns glowing on hull and masts, large cream-white billowing sails with golden trim, a Jolly Roger flag at top mast, visible detailed wooden planks, warm light spilling from portholes. Ship is majestic, heroic, slightly tilted left sailing into frame. Layer 5 (foreground): partial view of a gigantic dark whale breaching bottom-left, deep blue whale with white belly, spectacular foam splash, scale dwarfing the ship. 2 white seagulls mid-flight. Overall: breathtaking anime painterly illustration style, highly detailed, cinematic depth-of-field, warm amber and cold teal color contrast, phosphorescent ocean glow, dramatic scale and atmosphere, ultra high quality, 16:9 widescreen composition.",
+  "negative_prompt": "UI elements, text, watermark, white background, flat design, cartoon, simple, generic, low quality, daytime scene (must be night/dusk), realistic photography style",
+  "style_refs": [
+    "One Piece anime background art",
+    "Makoto Shinkai sky paintings",
+    "Studio Ghibli ocean scenes",
+    "2.5D parallax diorama art"
+  ],
+  "target_dimensions": "1200 × 750 px (16:9 landscape)",
+  "transparency_required": false,
+  "ai_tools": ["Midjourney v6", "DALL-E 3", "Flux Pro"],
+  "midjourney_flags": "--ar 16:9 --v 6 --style raw --q 2",
+  "notes": "Ini adalah kartu showcase tema SAGARA — tema portofolio bertema pelayaran One Piece dengan parallax 2.5D 7 layer. Preview-nya harus mencerminkan kekayaan visual itu: laut dalam, kapal epik, paus raksasa, atmosfer malam yang indah. Warna dominan: midnight navy, teal phosphorescent, amber warm. JANGAN ada UI chrome atau frame device."
+}

@@ -1,0 +1,128 @@
+{
+  "project": "Akalpa Landing Page — Natifly.com",
+  "version": "1.0",
+  "last_updated": "2026-08-04",
+  "description": "Master index semua aset PNG yang perlu di-generate untuk landing page Akalpa. Konsep utama: Art-first landing page dengan estetika 3D/2.5D/2D premium. Bukan landing page biasa — ini halaman seni interaktif.",
+
+  "global_style_guide": {
+    "aesthetic": "Tri-universe showcase — setiap tema punya dunianya sendiri: Sagara (laut 2.5D anime), Nama (anime cinematic book portal), Catur (grand chess hall gothic)",
+    "art_direction": "Ultra-premium showcase card. Tujuan: user melihat preview tema dan langsung WOW. Setiap asset harus merepresentasikan estetika unik temanya dengan kualitas paling tinggi.",
+    "palette_global": {
+      "bg_dark": "#07090e",
+      "accent_cyan": "#06b6d4",
+      "accent_blue": "#3b82f6",
+      "accent_purple": "#8b5cf6",
+      "glass": "rgba(18,24,38,0.75)"
+    },
+    "format": "PNG-32 dengan RGBA (transparent background kecuali yang bertanda 'bg: solid')",
+    "style_keywords_global": ["cinematic", "ultra-detailed", "painterly", "premium", "dramatic lighting", "depth", "stunning"],
+    "negative_global": "no white background, no text, no watermark, no UI chrome, no blurry, no low quality, no generic clipart"
+  },
+
+  "phases": {
+    "fase_1_hero": {
+      "label": "Hero Section — Showcase Theme Preview Cards (TERTINGGI PRIORITAS)",
+      "folder": "prompts/themes/",
+      "output_folder": "public/themes/",
+      "description": "3 kartu preview tema yang menjadi visual utama hero section. Setiap kartu harus mencerminkan dunia unik masing-masing tema dengan kualitas artbook.",
+      "assets": [
+        {
+          "file": "sagara-preview.json",
+          "output": "sagara-preview.png",
+          "dimensions": "1200 × 750 px",
+          "priority": "CRITICAL",
+          "notes": "Panorama laut 2.5D diorama — visual signature tema Sagara"
+        },
+        {
+          "file": "nama-preview.json",
+          "output": "nama-preview.png",
+          "dimensions": "1200 × 750 px",
+          "priority": "CRITICAL",
+          "notes": "Cinematic anime scene Kimi no Na wa — visual signature tema Nama"
+        },
+        {
+          "file": "catur-preview.json",
+          "output": "catur-preview.png",
+          "dimensions": "1200 × 750 px",
+          "priority": "CRITICAL",
+          "notes": "Grand Chess Hall dramatis — visual signature tema Catur"
+        }
+      ]
+    },
+
+    "fase_2_hero_deco": {
+      "label": "Hero Decoration Assets",
+      "folder": "prompts/hero/",
+      "output_folder": "public/hero/",
+      "description": "Elemen dekoratif hero section landing page. Bukan elemen konten, tapi pembentuk ambiance.",
+      "assets": [
+        {
+          "file": "hero-glow-orb.json",
+          "output": "hero-glow-orb.png",
+          "dimensions": "600 × 600 px",
+          "priority": "HIGH",
+          "notes": "Ambient glow orb, dipakai dengan CSS mix-blend-mode: screen"
+        },
+        {
+          "file": "hero-grid-frame.json",
+          "output": "hero-grid-frame.png",
+          "dimensions": "1920 × 1080 px",
+          "priority": "MEDIUM",
+          "notes": "Subtle tech-grid overlay untuk hero background"
+        },
+        {
+          "file": "hero-divider-wave.json",
+          "output": "hero-divider-wave.png",
+          "dimensions": "1920 × 180 px",
+          "priority": "HIGH",
+          "notes": "Section divider antara Hero dan Social Media section"
+        }
+      ]
+    },
+
+    "fase_3_decorations": {
+      "label": "Decorative Accents (Section Separators & Cards)",
+      "folder": "prompts/decorations/",
+      "output_folder": "public/deco/",
+      "description": "Ornamen dan aksen visual untuk memperkaya tampilan section-section landing page.",
+      "assets": [
+        {
+          "file": "akalpa-emblem.json",
+          "output": "akalpa-emblem.png",
+          "dimensions": "400 × 400 px",
+          "priority": "HIGH",
+          "notes": "Logo emblem Akalpa Studio, dipakai di navbar dan footer"
+        },
+        {
+          "file": "download-badge.json",
+          "output": "download-badge.png",
+          "dimensions": "320 × 320 px",
+          "priority": "MEDIUM",
+          "notes": "Floating badge 'Free Download' animated, aksen di hero CTA"
+        },
+        {
+          "file": "natifly-banner.json",
+          "output": "natifly-banner.png",
+          "dimensions": "800 × 200 px",
+          "priority": "LOW",
+          "notes": "Banner dekoratif 'Ready for Natifly.com' di footer section"
+        }
+      ]
+    }
+  },
+
+  "summary": {
+    "total_assets": 9,
+    "highest_impact": ["sagara-preview.png", "nama-preview.png", "catur-preview.png"],
+    "workflow": [
+      "1. Mulai dari fase_1_hero — ketiga preview card adalah nyawa visual landing page ini",
+      "2. Buka setiap .json di folder prompts/themes/, copy nilai 'prompt' ke AI image generator",
+      "3. Gunakan midjourney_flags untuk aspect ratio yang tepat",
+      "4. Output ke public/themes/ sesuai target_path di setiap JSON",
+      "5. Lanjut fase_2 dan fase_3 untuk polish visual"
+    ],
+    "recommended_ai_tool": "Midjourney v6 untuk preview cards (butuh kualitas artbook). Flux Pro untuk transparency assets.",
+    "transparency_tip": "Preview cards (sagara/nama/catur) = solid background gelap. Hero decorations = transparent PNG. Lihat field 'transparency_required' di masing-masing JSON.",
+    "important_note": "Ketiga preview card adalah showcase dari tema nyata yang sudah ada di proyek Akalpa. Visualnya harus sangat epic agar user langsung download."
+  }
+}
