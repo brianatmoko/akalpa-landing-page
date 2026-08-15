@@ -82,7 +82,7 @@ textarea.exportbox{min-height:150px;font-family:'JetBrains Mono',monospace;font-
         <img src="assets/Akalpa-Logos.png" alt="Logo Akalpa Inovasi" style="width:36px;height:36px;border-radius:9px;background:#fff;object-fit:contain;padding:2px;border:2px solid var(--orange)">
         <h1>Studio <span>Curator</span></h1>
       </div>
-      <div class="sub">Kelola template gratis Akalpa | gambar memakai <strong>link HTTP/HTTPS</strong> untuk efisiensi penyimpanan.</div>
+      <div class="sub">Kelola template gratis Akalpa | Perubahan tersimpan secara <strong>realtime di browser lokal</strong> dan dapat diekspor ke repositori.</div>
     </div>
     <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
       <a class="btn ghost mini" href="templates.html" target="_blank" rel="noopener">Katalog Publik ↗</a>
@@ -109,9 +109,6 @@ textarea.exportbox{min-height:150px;font-family:'JetBrains Mono',monospace;font-
       <input type="text" id="f-name" placeholder="Hero Parallax Senja">
       <label>Deskripsi (1–2 kalimat)</label>
       <textarea id="f-desc" placeholder="Jelaskan keunggulan singkat template ini…"></textarea>
-      <label>Gambar | Link URL (https://…)</label>
-      <input type="url" id="f-img" placeholder="https://…/gambar.webp">
-      <div class="hint">Tautan URL gambar eksternal. Jika kosong, fallback gradien + kode.</div>
       <label>Link GitHub (repo template)</label>
       <input type="url" id="f-gh" placeholder="https://github.com/akalpainovasi/…">
       <label>Tags (pisahkan koma)</label>
@@ -249,11 +246,9 @@ function renderList(){
     return;
   }
   $("#list").innerHTML=items.map(function(t){
-    var safeImg=validateUrl(t.image);
     var safeGh=validateUrl(t.github);
     return '<div class="item">'+
       '<div class="it"><span class="code">'+esc(t.code)+'</span><span class="nm">'+esc(t.name)+'</span><span class="ct">'+esc(t.category||"-")+"</span>"+(t.featured?'<span class="ct" style="color:var(--navy);background:var(--orange)">Hot</span>':"")+"</div>"+
-      (safeImg?'<div class="im">🖼 '+esc(safeImg)+"</div>":"")+
       (safeGh?'<div class="im">🔗 '+esc(safeGh)+"</div>":"")+
       '<div class="acts"><button class="btn orange mini" data-edit="'+esc(t.id)+'">✎ Edit</button><button class="btn danger mini" data-del="'+esc(t.id)+'">✕ Hapus</button></div></div>';
   }).join("");
@@ -267,7 +262,6 @@ function formVal(){
     code:($("#f-code").value.trim()||nextCode()),
     category:$("#f-cat").value.trim(),
     description:$("#f-desc").value.trim(),
-    image:validateUrl($("#f-img").value.trim()),
     github:validateUrl($("#f-gh").value.trim()),
     tags:$("#f-tags").value.split(",").map(function(x){return x.trim()}).filter(Boolean),
     featured:$("#f-feat").checked
@@ -280,7 +274,6 @@ function setForm(t){
   $("#f-name").value=t.name||"";
   $("#f-cat").value=t.category||"";
   $("#f-desc").value=t.description||"";
-  $("#f-img").value=t.image||"";
   $("#f-gh").value=t.github||"";
   $("#f-tags").value=(t.tags||[]).join(", ");
   $("#f-feat").checked=!!t.featured;
@@ -291,7 +284,7 @@ function setForm(t){
 function resetForm(){
   editingId=null;
   $("#f-code").value=nextCode();
-  ["#f-name","#f-cat","#f-desc","#f-img","#f-gh","#f-tags"].forEach(function(s){$(s).value="";});
+  ["#f-name","#f-cat","#f-desc","#f-gh","#f-tags"].forEach(function(s){$(s).value="";});
   $("#f-feat").checked=false;
   $("#formTitle").textContent="➕ Tambah Template";
   $("#cancel").hidden=true;

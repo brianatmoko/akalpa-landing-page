@@ -141,7 +141,7 @@ function render(){
   grid.innerHTML=list.map(function(t){
     var hot=t.featured?'<span class="hot">Hot</span>':"";
     return '<article class="card'+(t.featured?" featured":"")+'">'+
-      '<div class="thumb"><div class="ph">'+esc(t.code)+'</div>'+(t.image?'<img loading="lazy" src="'+esc(t.image)+'" alt="'+esc(t.name)+'" onerror="this.style.display=\'none\'">':"")+'<span class="ribbon">'+esc(t.code)+'</span>'+hot+'</div>'+
+      '<div class="thumb"><div class="ph">'+esc(t.code)+'</div><span class="ribbon">'+esc(t.code)+'</span>'+hot+'</div>'+
       '<div class="body"><div class="top"><span class="code">'+esc(t.code)+'</span><span class="cat">'+esc(t.category)+'</span></div>'+
       '<h3>'+esc(t.name)+'</h3><p>'+esc(t.description)+'</p>'+
       '<div class="tags">'+(t.tags||[]).map(function(x){return '<span class="tag">#'+esc(x)+'</span>'}).join("")+'</div>'+
@@ -151,7 +151,7 @@ function render(){
       '</div></div></article>';
   }).join("");
   var shown=list.length;
-  meta.textContent=shown+" dari "+data.length+" template"+(cat!=="ALL"?" · kategori "+cat:"")+(term?" · cari \""+q.value+"\"":"");
+  meta.textContent=shown+" dari "+data.length+" template"+(cat!=="ALL"?" | kategori "+cat:"")+(term?" | cari \""+q.value+"\"":"");
 }
 
 function buildChips(){
@@ -163,13 +163,33 @@ function buildChips(){
 window.WPB={copy:copyCode};
 q.addEventListener("input",render);
 
-fetch("templates/templates.json",{cache:"no-store"}).then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(j){
-  data=(j&&Array.isArray(j.templates))?j.templates:[];
-  buildChips();render();
-}).catch(function(){
-  meta.textContent="Gagal memuat data template | pastikan templates/templates.json tersedia.";
-  grid.innerHTML="";
+function loadData(){
+  var localItems=[];
+  try{localItems=JSON.parse(localStorage.getItem("aka_curator_v1")||"[]");}catch(e){}
+
+  fetch("templates/templates.json",{cache:"no-store"}).then(function(r){
+    if(!r.ok)throw 0;
+    return r.json();
+  }).then(function(j){
+    var remoteItems=(j&&Array.isArray(j.templates))?j.templates:[];
+    data=(localItems&&localItems.length>0)?localItems:remoteItems;
+    buildChips();render();
+  }).catch(function(){
+    data=localItems;
+    if(data.length>0){buildChips();render();}
+    else{
+      meta.textContent="Belum ada template yang dipublikasikan.";
+      empty.hidden=false;
+      grid.innerHTML="";
+    }
+  });
+}
+
+window.addEventListener("storage",function(e){
+  if(e.key==="aka_curator_v1") loadData();
 });
+
+loadData();
 })();
 </script>
 </body>
