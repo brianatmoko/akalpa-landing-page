@@ -1,0 +1,6 @@
+/admin                /honeypot.html 200
+/admin.html           /honeypot.html 200
+/templates-admin      /honeypot.html 200
+/templates-admin.html /honeypot.html 200
+/wp-admin             /honeypot.html 200
+/admin/*              /honeypot.html 200

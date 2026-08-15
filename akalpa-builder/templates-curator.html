@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#182442">
+<title>Studio Curator — Akalpa Inovasi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bone:#f7f3ea;--bg2:#f1ebdd;--navy:#22305c;--deep:#182442;--orange:#f2a35c;--yellow:#f6c96f;--ink:#2b3245;--text2:#5a6478;--border:rgba(34,48,92,.15);--radius:14px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Outfit',system-ui,sans-serif;background:var(--deep);color:#e8ebf2;line-height:1.55}
+.container{max-width:1080px;margin:0 auto;padding:24px 20px 60px}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:22px}
+h1{font-size:1.35rem;font-weight:800}
+h1 span{color:var(--yellow)}
+.sub{color:rgba(247,243,234,.6);font-size:.85rem}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+.panel{background:rgba(247,243,234,.05);border:1px solid rgba(247,243,234,.14);border-radius:var(--radius);padding:20px}
+.panel h2{font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:16px}
+label{display:block;font-size:.8rem;font-weight:600;color:rgba(247,243,234,.85);margin:12px 0 5px}
+input[type=text],input[type=url],textarea,select{width:100%;background:rgba(8,13,28,.5);border:1px solid rgba(247,243,234,.18);color:#fff;border-radius:10px;padding:9px 12px;font-family:inherit;font-size:.92rem;outline:0}
+input:focus,textarea:focus,select:focus{border-color:var(--orange)}
+textarea{min-height:74px;resize:vertical}
+.hint{font-size:.72rem;color:rgba(247,243,234,.5);margin-top:4px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.check{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:.85rem}
+.check input{width:auto}
+.btns{display:flex;gap:10px;margin-top:18px}
+button{cursor:pointer;font-family:inherit;border:0}
+.btn{padding:11px 18px;border-radius:11px;font-weight:700;font-size:.88rem;display:inline-flex;align-items:center;gap:7px;transition:all .2s;touch-action:manipulation}
+.btn.orange{background:var(--orange);color:var(--navy)}
+.btn.orange:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.btn.ghost{background:rgba(247,243,234,.1);color:#fff;border:1px solid rgba(247,243,234,.2)}
+.btn.ghost:hover{background:rgba(247,243,234,.18)}
+.btn.danger{background:rgba(255,90,90,.16);color:#ff8b8b;border:1px solid rgba(255,90,90,.35)}
+.btn.danger:hover{background:rgba(255,90,90,.26)}
+.btn.mini{padding:7px 12px;font-size:.78rem;border-radius:9px}
+.item{background:rgba(8,13,28,.45);border:1px solid rgba(247,243,234,.14);border-radius:12px;padding:14px;margin-bottom:10px}
+.item .it{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.item .code{font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--navy);background:var(--yellow);padding:2px 8px;border-radius:7px}
+.item .nm{font-weight:700;font-size:.95rem;flex:1;min-width:120px}
+.item .ct{font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(247,243,234,.55);border:1px solid rgba(247,243,234,.2);padding:2px 7px;border-radius:7px}
+.item .im{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:rgba(247,243,234,.55);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin:8px 0 4px;max-width:100%}
+.item .acts{display:flex;gap:8px;margin-top:8px}
+.export{margin-top:18px}
+textarea.exportbox{min-height:150px;font-family:'JetBrains Mono',monospace;font-size:.72rem}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--orange);color:var(--navy);font-weight:700;font-size:.88rem;padding:11px 20px;border-radius:12px;box-shadow:0 14px 30px rgba(0,0,0,.35);transition:transform .3s;opacity:0;pointer-events:none;z-index:99}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+.gate{position:fixed;inset:0;background:var(--deep);display:flex;align-items:center;justify-content:center;z-index:100}
+.gatebox{text-align:center;max-width:380px;padding:32px 28px;background:rgba(247,243,234,.06);border:1px solid rgba(247,243,234,.16);border-radius:18px;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+.gatebox h1{font-size:1.35rem;margin-bottom:6px}
+.gatebox p{color:rgba(247,243,234,.65);font-size:.85rem;margin-bottom:18px}
+.gatebox input{width:100%;text-align:center;font-family:'JetBrains Mono',monospace;letter-spacing:.2em;padding:12px;margin-bottom:12px}
+.gatebox .err-msg{color:#ff8b8b;font-size:.78rem;margin-top:8px;font-weight:600;min-height:20px}
+.status-badge{display:inline-block;font-size:.68rem;font-family:'JetBrains Mono',monospace;padding:3px 8px;border-radius:6px;background:rgba(246,201,111,.15);color:var(--yellow);border:1px solid rgba(246,201,111,.3);margin-bottom:12px}
+@media(max-width:820px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="gate" id="gate">
+  <div class="gatebox">
+    <div class="status-badge">VAULT SECURITY GATE</div>
+    <h1>Studio <span>Curator</span></h1>
+    <p>Masukkan kode otorisasi untuk mengelola pustaka template.</p>
+    <input type="password" id="pass" placeholder="KODE AKSES" autocomplete="off">
+    <div class="btns" style="justify-content:center"><button class="btn orange" id="unlock" style="width:100%;justify-content:center">Buka Vault</button></div>
+    <div class="err-msg" id="gateErr"></div>
+    <p style="margin-top:14px;font-size:.72rem;font-family:'JetBrains Mono',monospace;color:rgba(247,243,234,.4)">Proteksi Kriptografik WebCrypto SHA-256</p>
+  </div>
+</div>
+
+<div class="container" id="app" hidden>
+  <header>
+    <div>
+      <div class="status-badge">STUDIO CURATOR PORTAL</div>
+      <h1>Studio <span>Curator</span></h1>
+      <div class="sub">Kelola template gratis Akalpa — gambar memakai <strong>link HTTP/HTTPS</strong> untuk efisiensi penyimpanan.</div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+      <a class="btn ghost mini" href="templates.html" target="_blank" rel="noopener">Katalog Publik ↗</a>
+      <button class="btn ghost mini" id="logout">Kunci Vault</button>
+    </div>
+  </header>
+
+  <div class="grid">
+    <section class="panel">
+      <h2 id="formTitle">➕ Tambah Template</h2>
+      <div class="row">
+        <div>
+          <label>Kode (auto)</label>
+          <input type="text" id="f-code" placeholder="#AKA-005" readonly>
+          <div class="hint">Kode otomatis. Bisa disesuaikan manual.</div>
+        </div>
+        <div>
+          <label>Kategori</label>
+          <input type="text" id="f-cat" list="cats" placeholder="Hero / Section / Halaman">
+          <datalist id="cats"></datalist>
+        </div>
+      </div>
+      <label>Nama Template</label>
+      <input type="text" id="f-name" placeholder="Hero Parallax Senja">
+      <label>Deskripsi (1–2 kalimat)</label>
+      <textarea id="f-desc" placeholder="Jelaskan keunggulan singkat template ini…"></textarea>
+      <label>Gambar — Link URL (https://…)</label>
+      <input type="url" id="f-img" placeholder="https://…/gambar.webp">
+      <div class="hint">Tautan URL gambar eksternal. Jika kosong, fallback gradien + kode.</div>
+      <label>Link GitHub (repo template)</label>
+      <input type="url" id="f-gh" placeholder="https://github.com/akalpainovasi/…">
+      <label>Tags (pisahkan koma)</label>
+      <input type="text" id="f-tags" placeholder="parallax, hero, scroll">
+      <label class="check"><input type="checkbox" id="f-feat"> Tandai sebagai <strong>Hot / Featured</strong></label>
+      <div class="btns">
+        <button class="btn orange" id="save">💾 Simpan Template</button>
+        <button class="btn ghost" id="cancel" hidden>Batal Edit</button>
+        <button class="btn ghost" id="clear">Reset Form</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>📦 Koleksi Template (<span id="count">0</span>)</h2>
+      <div id="list"></div>
+      <div class="export">
+        <h2>⇅ Ekspor / Impor JSON</h2>
+        <div class="btns" style="flex-wrap:wrap">
+          <button class="btn orange" id="exp-dl">⬇ Unduh templates.json</button>
+          <button class="btn ghost" id="exp-copy">Salin JSON</button>
+        </div>
+        <label style="margin-top:14px">Impor (Tempel JSON valid lalu terapkan)</label>
+        <textarea class="exportbox" id="imp" placeholder='{"templates":[…]}'></textarea>
+        <div class="btns"><button class="btn ghost" id="imp-apply">Terapkan Impor</button></div>
+        <div class="hint">Setelah unduh ekspor: perbarui isi <strong>templates/templates.json</strong> di repositori. Perubahan otomatis disinkronkan ke localStorage browser ini.</div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+"use strict";
+
+/* SHA-256 digest of "akalpa_curator_salt_2026:akalpa2026" */
+var SALT="akalpa_curator_salt_2026";
+var EXPECTED_HASH="bedfe3b2190df68b3376b0f206d6f4d828be8eb1f4d43fdc280b66835b873092";
+
+var LS_DATA="aka_curator_v1";
+var SS_AUTH="aka_curator_token";
+var LS_ATTEMPTS="aka_curator_lockout";
+
+var MAX_ATTEMPTS=5;
+var LOCKOUT_TIME_MS=15*60*1000; // 15 menit
+var INACTIVITY_TIMEOUT_MS=30*60*1000; // 30 menit
+
+var $=function(s,c){return (c||document).querySelector(s)};
+var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+
+var items=[],editingId=null,lastActivityTime=Date.now();
+
+function toast(m){
+  var t=$("#toast");t.textContent=m;t.classList.add("show");
+  clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove("show")},1800);
+}
+
+function esc(s){
+  return String(s==null?"":s).replace(/[&<>"']/g,function(m){
+    return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m];
+  });
+}
+
+function validateUrl(url){
+  if(!url)return "";
+  var u=String(url).trim();
+  if(/^https?:\/\/[^\s<>'"]+$/i.test(u)) return u;
+  return "";
+}
+
+async function sha256(text){
+  var enc=new TextEncoder().encode(text);
+  var buf=await crypto.subtle.digest("SHA-256",enc);
+  var arr=Array.from(new Uint8Array(buf));
+  return arr.map(function(b){return b.toString(16).padStart(2,"0")}).join("");
+}
+
+function getLockoutState(){
+  try{
+    var st=JSON.parse(localStorage.getItem(LS_ATTEMPTS)||"{}");
+    if(st.until && Date.now()<st.until) return st;
+    if(st.until && Date.now()>=st.until){
+      localStorage.removeItem(LS_ATTEMPTS);
+      return {fails:0,until:0};
+    }
+    return st;
+  }catch(e){return {fails:0,until:0};}
+}
+
+function recordFailedAttempt(){
+  var st=getLockoutState();
+  st.fails=(st.fails||0)+1;
+  if(st.fails>=MAX_ATTEMPTS){
+    st.until=Date.now()+LOCKOUT_TIME_MS;
+  }
+  localStorage.setItem(LS_ATTEMPTS,JSON.stringify(st));
+  return st;
+}
+
+function clearLockoutState(){
+  localStorage.removeItem(LS_ATTEMPTS);
+}
+
+function load(){
+  try{items=JSON.parse(localStorage.getItem(LS_DATA)||"[]");}catch(e){items=[];}
+  renderList();
+}
+
+function persist(){
+  localStorage.setItem(LS_DATA,JSON.stringify(items));
+}
+
+function nextCode(){
+  var max=0;
+  items.forEach(function(t){
+    var m=String(t.code||"").match(/(\d+)$/);
+    if(m) max=Math.max(max,parseInt(m[1],10));
+  });
+  return "#AKA-"+String(max+1).padStart(3,"0");
+}
+
+function buildCatList(){
+  var cats=Array.from(new Set(items.map(function(t){return t.category}).filter(Boolean)));
+  $("#cats").innerHTML=cats.map(function(c){return '<option value="'+esc(c)+'">'}).join("");
+}
+
+function renderList(){
+  $("#count").textContent=items.length;
+  if(!items.length){
+    $("#list").innerHTML='<div style="color:rgba(247,243,234,.5);font-size:.85rem">Belum ada template. Tambah melalui form di samping.</div>';
+    return;
+  }
+  $("#list").innerHTML=items.map(function(t){
+    var safeImg=validateUrl(t.image);
+    var safeGh=validateUrl(t.github);
+    return '<div class="item">'+
+      '<div class="it"><span class="code">'+esc(t.code)+'</span><span class="nm">'+esc(t.name)+'</span><span class="ct">'+esc(t.category||"-")+"</span>"+(t.featured?'<span class="ct" style="color:var(--navy);background:var(--orange)">Hot</span>':"")+"</div>"+
+      (safeImg?'<div class="im">🖼 '+esc(safeImg)+"</div>":"")+
+      (safeGh?'<div class="im">🔗 '+esc(safeGh)+"</div>":"")+
+      '<div class="acts"><button class="btn orange mini" data-edit="'+esc(t.id)+'">✎ Edit</button><button class="btn danger mini" data-del="'+esc(t.id)+'">✕ Hapus</button></div></div>';
+  }).join("");
+  $$("[data-edit]",$("#list")).forEach(function(b){b.addEventListener("click",function(){edit(b.dataset.edit)});});
+  $$("[data-del]",$("#list")).forEach(function(b){b.addEventListener("click",function(){del(b.dataset.del)});});
+}
+
+function formVal(){
+  return{
+    name:$("#f-name").value.trim(),
+    code:($("#f-code").value.trim()||nextCode()),
+    category:$("#f-cat").value.trim(),
+    description:$("#f-desc").value.trim(),
+    image:validateUrl($("#f-img").value.trim()),
+    github:validateUrl($("#f-gh").value.trim()),
+    tags:$("#f-tags").value.split(",").map(function(x){return x.trim()}).filter(Boolean),
+    featured:$("#f-feat").checked
+  };
+}
+
+function setForm(t){
+  editingId=t.id;
+  $("#f-code").value=t.code||"";
+  $("#f-name").value=t.name||"";
+  $("#f-cat").value=t.category||"";
+  $("#f-desc").value=t.description||"";
+  $("#f-img").value=t.image||"";
+  $("#f-gh").value=t.github||"";
+  $("#f-tags").value=(t.tags||[]).join(", ");
+  $("#f-feat").checked=!!t.featured;
+  $("#formTitle").textContent="✎ Edit Template "+esc(t.code);
+  $("#cancel").hidden=false;
+}
+
+function resetForm(){
+  editingId=null;
+  $("#f-code").value=nextCode();
+  ["#f-name","#f-cat","#f-desc","#f-img","#f-gh","#f-tags"].forEach(function(s){$(s).value="";});
+  $("#f-feat").checked=false;
+  $("#formTitle").textContent="➕ Tambah Template";
+  $("#cancel").hidden=true;
+}
+
+$("#save").addEventListener("click",function(){
+  var v=formVal();
+  if(!v.name){toast("Nama template wajib diisi");return;}
+  var dup=items.filter(function(t){return t.id!==editingId&&t.code===v.code});
+  if(dup.length){toast("Kode "+v.code+" sudah dipakai");return;}
+  
+  if(editingId){
+    items=items.map(function(t){return t.id===editingId?Object.assign({},t,v):t});
+    toast("Template diperbarui: "+v.name);
+  }else{
+    items.push(Object.assign({id:"aka-"+String(Date.now()).slice(-8)},v));
+    toast("Template ditambahkan: "+v.name);
+  }
+  persist();buildCatList();renderList();resetForm();
+});
+
+$("#cancel").addEventListener("click",resetForm);
+$("#clear").addEventListener("click",resetForm);
+
+function edit(id){
+  var t=items.filter(function(x){return x.id===id})[0];
+  if(t) setForm(t);
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function del(id){
+  var t=items.filter(function(x){return x.id===id})[0];
+  if(!t)return;
+  if(!confirm("Hapus template "+t.code+" — "+t.name+"?"))return;
+  items=items.filter(function(x){return x.id!==id});
+  persist();buildCatList();renderList();
+  if(editingId===id) resetForm();
+  toast("Template dihapus");
+}
+
+/* Export / Import */
+function exportJson(){return JSON.stringify({templates:items},null,1);}
+$("#exp-dl").addEventListener("click",function(){
+  var blob=new Blob([exportJson()],{type:"application/json"});
+  var a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="templates.json";a.click();
+  setTimeout(function(){URL.revokeObjectURL(a.href)},2000);
+  toast("templates.json diunduh — perbarui file di repositori");
+});
+
+$("#exp-copy").addEventListener("click",function(){
+  var txt=exportJson();
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(txt).then(function(){toast("JSON disalin ke clipboard")},function(){prompt("Salin manual:",txt);});
+  }else{prompt("Salin manual:",txt);}
+});
+
+$("#imp-apply").addEventListener("click",function(){
+  try{
+    var j=JSON.parse($("#imp").value);
+    if(!Array.isArray(j.templates)) throw new Error("Format JSON harus menyertakan array 'templates'");
+    items=j.templates.map(function(t){
+      return {
+        id: String(t.id||("aka-"+String(Date.now()).slice(-8))),
+        name: String(t.name||"Untitled"),
+        code: String(t.code||""),
+        category: String(t.category||""),
+        description: String(t.description||""),
+        image: validateUrl(t.image),
+        github: validateUrl(t.github),
+        tags: Array.isArray(t.tags)?t.tags.map(String):[],
+        featured: !!t.featured
+      };
+    });
+    persist();buildCatList();renderList();
+    $("#imp").value="";toast("Impor berhasil — "+items.length+" template dimuat");
+  }catch(e){toast("Gagal impor: JSON tidak valid atau struktur salah");}
+});
+
+/* Gate & Security Authentication */
+async function unlockVault(){
+  var gateErr=$("#gateErr");
+  var inputVal=$("#pass").value;
+  gateErr.textContent="";
+
+  var lock=getLockoutState();
+  if(lock.until && Date.now()<lock.until){
+    var remainSec=Math.ceil((lock.until-Date.now())/1000);
+    gateErr.textContent="Akses dibekukan sementara ("+remainSec+"d) karena terlalu banyak percobaan gagal.";
+    return;
+  }
+
+  if(!inputVal){
+    gateErr.textContent="Kode akses tidak boleh kosong";
+    return;
+  }
+
+  var inputHash=await sha256(SALT+":"+inputVal);
+  if(inputHash===EXPECTED_HASH){
+    clearLockoutState();
+    var token="curator_token_"+Date.now()+"_"+Math.random().toString(36).substring(2,10);
+    sessionStorage.setItem(SS_AUTH,token);
+    enter();
+  }else{
+    var updatedLock=recordFailedAttempt();
+    $("#pass").value="";
+    // Artificial delay to prevent brute-forcing
+    await new Promise(function(r){setTimeout(r,1000)});
+    if(updatedLock.fails>=MAX_ATTEMPTS){
+      gateErr.textContent="5x percobaan gagal. Akses dibekukan selama 15 menit.";
+    }else{
+      var rem=MAX_ATTEMPTS-(updatedLock.fails||0);
+      gateErr.textContent="Kode otorisasi salah. Sisa percobaan: "+rem;
+    }
+  }
+}
+
+$("#unlock").addEventListener("click",unlockVault);
+$("#pass").addEventListener("keydown",function(e){if(e.key==="Enter") unlockVault();});
+
+$("#logout").addEventListener("click",function(){
+  sessionStorage.removeItem(SS_AUTH);
+  location.reload();
+});
+
+function enter(){
+  document.getElementById("gate").style.display="none";
+  document.getElementById("app").hidden=false;
+  load();buildCatList();resetForm();
+  lastActivityTime=Date.now();
+}
+
+/* Inactivity Auto-logout */
+["mousemove","keydown","click","touchstart"].forEach(function(evt){
+  window.addEventListener(evt,function(){lastActivityTime=Date.now();},{passive:true});
+});
+
+setInterval(function(){
+  if(sessionStorage.getItem(SS_AUTH) && (Date.now()-lastActivityTime > INACTIVITY_TIMEOUT_MS)){
+    sessionStorage.removeItem(SS_AUTH);
+    alert("Sesi telah berakhir karena tidak ada aktivitas selama 30 menit.");
+    location.reload();
+  }
+},30000);
+
+/* Session check on page load */
+if(sessionStorage.getItem(SS_AUTH)){
+  enter();
+}
+
+})();
+</script>
+</body>
+</html>

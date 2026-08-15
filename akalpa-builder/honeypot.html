@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<title>Internal Core Control Gateway — Access Control</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0f19;--card:rgba(18,24,38,0.85);--border:rgba(255,255,255,0.12);--red:#ff4d4d;--text:#e2e8f0;--muted:#64748b}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;line-height:1.5}
+.box{width:100%;max-width:420px;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:32px;box-shadow:0 25px 50px -12px rgba(0,0,0,0.5);backdrop-filter:blur(12px)}
+.header{text-align:center;margin-bottom:24px}
+.shield{width:48px;height:48px;background:rgba(255,77,77,0.1);border:1px solid rgba(255,77,77,0.3);border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;color:var(--red)}
+.title{font-size:1.25rem;font-weight:700;letter-spacing:-0.02em}
+.sub{font-size:0.8rem;color:var(--muted);margin-top:4px;font-family:'JetBrains Mono',monospace}
+.form-group{margin-bottom:16px}
+label{display:block;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:6px}
+input{width:100%;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:8px;padding:10px 14px;color:#fff;font-family:'JetBrains Mono',monospace;font-size:0.9rem;outline:0;transition:all 0.2s}
+input:focus{border-color:var(--red);box-shadow:0 0 0 2px rgba(255,77,77,0.2)}
+.btn{width:100%;background:var(--red);color:#fff;border:0;padding:12px;border-radius:8px;font-weight:700;font-size:0.9rem;cursor:pointer;margin-top:8px;transition:all 0.2s;display:flex;align-items:center;justify-content:center;gap:8px}
+.btn:hover{filter:brightness(1.1)}
+.btn:disabled{opacity:0.6;cursor:not-allowed}
+.alert{background:rgba(255,77,77,0.08);border:1px solid rgba(255,77,77,0.2);color:#ff8b8b;padding:10px 14px;border-radius:8px;font-size:0.78rem;font-family:'JetBrains Mono',monospace;margin-top:16px;display:none}
+.spinner{width:16px;height:16px;border:2px solid rgba(255,255,255,0.3);border-top-color:#fff;border-radius:50%;animation:spin 0.8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.footer{text-align:center;margin-top:24px;font-size:0.7rem;color:var(--muted);font-family:'JetBrains Mono',monospace}
+</style>
+</head>
+<body>
+
+<div class="box">
+  <div class="header">
+    <div class="shield">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    </div>
+    <div class="title">Restricted System Gateway</div>
+    <div class="sub">INTERNAL MGT // PORT 8443</div>
+  </div>
+
+  <form id="trapForm">
+    <div class="form-group">
+      <label>Operator Identifier</label>
+      <input type="text" id="user" placeholder="sys_operator" required autocomplete="off">
+    </div>
+    <div class="form-group">
+      <label>Secure Passphrase</label>
+      <input type="password" id="pass" placeholder="••••••••••••" required autocomplete="off">
+    </div>
+    <button type="submit" class="btn" id="subBtn">
+      <span id="btnText">Authenticate</span>
+      <span class="spinner" id="btnSpin" style="display:none"></span>
+    </button>
+  </form>
+
+  <div class="alert" id="errBox"></div>
+
+  <div class="footer">
+    SECURE FIREWALL ACTIVE // LOGS AUDITED REALTIME
+  </div>
+</div>
+
+<script>
+(function(){
+  var form = document.getElementById("trapForm");
+  var errBox = document.getElementById("errBox");
+  var btn = document.getElementById("subBtn");
+  var btnText = document.getElementById("btnText");
+  var btnSpin = document.getElementById("btnSpin");
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    btn.disabled = true;
+    btnText.textContent = "Verifying Credentials...";
+    btnSpin.style.display = "inline-block";
+    errBox.style.display = "none";
+
+    // Artificial delay to waste hacker/bot CPU time & resource
+    setTimeout(function(){
+      btn.disabled = false;
+      btnText.textContent = "Authenticate";
+      btnSpin.style.display = "none";
+
+      var incidentId = "INC-" + Math.floor(100000 + Math.random() * 900000);
+      errBox.innerHTML = "[SECURITY WARNING " + incidentId + "] Credential validation failed. Unauthorized attempt logged and flagged for IP inspection.";
+      errBox.style.display = "block";
+
+      // Log fake incident into browser storage for deception
+      try {
+        var logs = JSON.parse(localStorage.getItem("aka_sec_decoy_logs") || "[]");
+        logs.push({
+          id: incidentId,
+          user: document.getElementById("user").value,
+          time: new Date().toISOString(),
+          ip_flag: "logged_firewall_drop"
+        });
+        localStorage.setItem("aka_sec_decoy_logs", JSON.stringify(logs.slice(-20)));
+      } catch(ex){}
+
+      document.getElementById("pass").value = "";
+    }, 2200);
+  });
+})();
+</script>
+</body>
+</html>
