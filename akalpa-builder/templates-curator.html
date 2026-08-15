@@ -125,7 +125,10 @@ textarea.exportbox{min-height:150px;font-family:'JetBrains Mono',monospace;font-
     </section>
 
     <section class="panel">
-      <h2>📦 Koleksi Template (<span id="count">0</span>)</h2>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+        <h2 style="margin-bottom:0">📦 Koleksi Template (<span id="count">0</span>)</h2>
+        <button class="btn danger mini" id="clearAll">🗑️ Kosongkan Semua</button>
+      </div>
       <div id="list"></div>
       <div class="export">
         <h2>⇅ Ekspor / Impor JSON</h2>
@@ -328,6 +331,14 @@ function del(id){
   if(editingId===id) resetForm();
   toast("Template dihapus");
 }
+
+$("#clearAll").addEventListener("click",function(){
+  if(!items.length){toast("Koleksi template sudah kosong");return;}
+  if(!confirm("Apakah Anda yakin ingin menghapus SEMUA template? Seluruh data template akan dikosongkan."))return;
+  items=[];
+  persist();buildCatList();renderList();resetForm();
+  toast("Seluruh template telah dikosongkan");
+});
 
 /* Export / Import */
 function exportJson(){return JSON.stringify({templates:items},null,1);}
