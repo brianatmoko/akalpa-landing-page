@@ -1,15 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html lang="id">
+<html b:version='2' class='v2' expr:dir='data:blog.languageDirection'
+  xmlns='http://www.w3.org/1999/xhtml'
+  xmlns:b='http://www.google.com/2005/gbl'
+  xmlns:data='http://www.google.com/2005/gbl'
+  xmlns:expr='http://www.google.com/2005/gbl'>
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#f7f3ea">
-<title>Free Template | Akalpa Inovasi</title>
-<meta name="description" content="Template website gratis dari Akalpa Inovasi. Cari template berdasarkan kode (contoh #AKA-001), lihat di GitHub, dan klaim via WhatsApp.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<style>
+  <meta content='width=device-width, initial-scale=1' name='viewport'/>
+  <b:include data='blog' name='all-head-content'/>
+  <title><data:blog.pageTitle/></title>
+
+  <!-- Google Fonts -->
+  <link href='https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&amp;family=Outfit:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap' rel='stylesheet'/>
+
+  <b:skin><![CDATA[
+
 :root{--bone:#f7f3ea;--bg2:#f1ebdd;--navy:#22305c;--deep:#182442;--orange:#f2a35c;--yellow:#f6c96f;--ink:#2b3245;--text2:#5a6478;--border:rgba(34,48,92,.13);--radius:16px}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Outfit',system-ui,sans-serif;background:var(--bone);color:var(--ink);line-height:1.6}
@@ -70,8 +76,10 @@ footer .wa{margin-top:6px;display:inline-flex;align-items:center;gap:7px;color:v
 .toast.show{transform:translateX(-50%) translateY(0);opacity:1}
 @media(max-width:920px){.grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.grid{grid-template-columns:1fr}.nav-links{gap:14px}.nav-links .hide-sm{display:none}}
-</style>
+
+  ]]></b:skin>
 </head>
+
 <body>
 
 <header>
@@ -112,7 +120,22 @@ footer .wa{margin-top:6px;display:inline-flex;align-items:center;gap:7px;color:v
 
 <div class="toast" id="toast"></div>
 
-<script>
+
+
+  <b:section class='main' id='main' maxwidgets='1' name='Main' showaddelement='no'>
+    <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='1' visible='false'>
+      <b:widget-settings>
+        <b:widget-setting name='showShareButtons'>false</b:widget-setting>
+      </b:widget-settings>
+      <b:includable id='main' var='top'></b:includable>
+    </b:widget>
+  </b:section>
+
+<script type='text/javascript'>
+//<![CDATA[
+
+var GAS_URL = "https://script.google.com/macros/s/PLACEHOLDER_URL/exec";
+
 (function(){
 "use strict";
 var $=function(s,c){return (c||document).querySelector(s)};
@@ -188,7 +211,7 @@ function loadData(){
     else{
       // Fallback terakhir ke templates.json statis (jika GAS gagal)
       if(isGAS){
-        fetch("templates/templates.json",{cache:"no-store"}).then(function(r2){return r2.json();}).then(function(j2){
+        fetch("https://script.google.com/macros/s/PLACEHOLDER_URL/exec", {cache:"no-store"}).then(function(r2){return r2.json();}).then(function(j2){
           data=(j2&&Array.isArray(j2.templates))?j2.templates:[];
           if(data.length>0){buildChips();render();}
           else{meta.textContent="Belum ada template yang dipublikasikan.";empty.hidden=false;}
@@ -208,7 +231,9 @@ window.addEventListener("storage",function(e){
 
 loadData();
 })();
+
+//]]>
 </script>
+
 </body>
 </html>
-
