@@ -1,6 +1,6 @@
-# Akalpa Inovasi — Landing Page (Vanilla)
+# Akalpa Inovasi | Landing Page (Vanilla)
 
-Website studio **Akalpa Inovasi** (custom website studio) — vanilla HTML/CSS/JS murni,
+Website studio **Akalpa Inovasi** (custom website studio) | vanilla HTML/CSS/JS murni,
 tema terang elegan **bone + navy + light orange**, dengan aset nyata dari proyek
 referensi: **130 frame background** + **12 pose maskot (karakter)**.
 
@@ -19,7 +19,7 @@ python3 -m http.server 8377
 | Salin frame + kompres maskot + generate ikon | `python3 prep_assets.py` |
 | Expand placeholder ikon `{{ic:...}}` → SVG | `python3 build.py` |
 
-`index.html` TIDAK diedit manual — edit `index.src.html`, lalu `python3 build.py`.
+`index.html` TIDAK diedit manual | edit `index.src.html`, lalu `python3 build.py`.
 
 ## Struktur
 
@@ -42,14 +42,14 @@ websites/akalpa-builder/
 ## Aset
 
 - **Frame background**: diambil dari proyek referensi akalpa-landing-page
-  (`frame motion/`, `section2/`, `section3/`) — dipakai HANYA sebagai aset
+  (`frame motion/`, `section2/`, `section3/`) | dipakai HANYA sebagai aset
   background, bukan menyalin struktur situsnya.
-- **Maskot**: 12 pose PNG (1024×1536) dari `Downloads/Infografis pose/` —
+- **Maskot**: 12 pose PNG (1024×1536) dari `Downloads/Infografis pose/`  - 
   dikompres ke WebP 640px. Pemakaian:
-  - `sapaan` — hero (menyapa pengunjung)
-  - `punya-ide` / `mencatat` / `grafik-naik` — 3 langkah proses
-  - `menunjuk` — CTA (menunjuk tombol konsultasi)
-  - `bagus` — footer (jempol)
+  - `sapaan` | hero (menyapa pengunjung)
+  - `punya-ide` / `mencatat` / `grafik-naik` | 3 langkah proses
+  - `menunjuk` | CTA (menunjuk tombol konsultasi)
+  - `bagus` | footer (jempol)
 
 ## Hero canvas
 
@@ -60,15 +60,15 @@ Teks & maskot muncul di 55% scroll. Preloader menunggu 50 frame siap.
 
 ## v10 (halaman Free Template + Studio Curator dashboard)
 
-- **Link "Powered by Natifly.com" DIHAPUS dari footer** — tidak ada kerja sama
+- **Link "Powered by Natifly.com" DIHAPUS dari footer** | tidak ada kerja sama
   dengan Netlify; deploy dilakukan di tempat lain. Footer link diganti
   "Free Template".
 - **Tombol hero "Lihat Fokus Kami" → "Free Template"** (href `templates.html`)
   + link nav "Free Template" (desktop, mobile, footer).
 - **`templates.html` (halaman publik, terpisah dari landing):** daftar
-  template gratis — pencarian **berdasarkan kode/nama/tag** (auto-generated
+  template gratis | pencarian **berdasarkan kode/nama/tag** (auto-generated
   `#AKA-###`), chip kategori, kartu dengan **gambar via LINK href (bukan
-  upload — disk terbatas)**, lazy-load + fallback gradient bila gagal,
+  upload | disk terbatas)**, lazy-load + fallback gradient bila gagal,
   tombol "Salin Kode" (klipboard), link GitHub, CTA klaim via WhatsApp.
   Data: `templates/templates.json` (fetch).
 - **`templates-curator.html` (Studio Curator portal):** gate otentikasi WebCrypto
@@ -85,16 +85,16 @@ Teks & maskot muncul di 55% scroll. Preloader menunggu 50 frame siap.
 ## v9 (pose keren + sistem layout v2 semua section)
 
 - **Pose hero diganti**: `senang` → **`keren`** (pose cool, bbox x 106–370 / y 50–564).
-- **Plan besar layout semua section** — dokumen `LAYOUT-SISTEM.md` (breakpoint
+- **Plan besar layout semua section** | dokumen `LAYOUT-SISTEM.md` (breakpoint
   MOBILE ≤768 / TABLET 769–1100 / DESKTOP ≥1101 + peta layout per section):
   - **Container**: gutter responsif 20px / 24px / 32px.
   - **Section-head**: margin responsif (34/44/52px) + varian `.left` dgn sub
     tidak auto-center.
-  - **Tentang**: flex → **grid `minmax(0,1fr) auto`** — maskot `align-self:end`
+  - **Tentang**: flex → **grid `minmax(0,1fr) auto`** | maskot `align-self:end`
     rata-bawah di kanan (desktop/tablet), stacked pusat di mobile.
   - **GitHub stats**: flex → **panel grid 4 kolom** dengan pembatas vertikal
     (desktop), 2×2 tanpa panel di tablet/mobile.
-  - **FAQ**: section-head **sticky** (≥901px) — tetap terlihat saat daftar
+  - **FAQ**: section-head **sticky** (≥901px) | tetap terlihat saat daftar
     discroll.
   - **Footer**: maskot disembunyikan di mobile agar tidak menutupi teks.
 - Verifikasi CDP 1440/1024/390: pose keren (720/360/190px), about grid
@@ -104,21 +104,21 @@ Teks & maskot muncul di 55% scroll. Preloader menunggu 50 frame siap.
 
 ## v8 (hero grid responsif v2 + pose senang)
 
-- **Pose hero diganti**: `sapaan` (melambai) → **`senang`** (tersenyum) — pose
+- **Pose hero diganti**: `sapaan` (melambai) → **`senang`** (tersenyum) | pose
   baru mengisi bidang lebih lebar (bbox x 16–413 vs 32–381) sehingga terbaca
   saat besar.
-- **Aksen "Benar-Benar Ngomong" kembali kuning** (bukan putih) — hanya bagian
+- **Aksen "Benar-Benar Ngomong" kembali kuning** (bukan putih) | hanya bagian
   dasar judul yang putih; aksen `em` memakai `--yellow` (verifikasi:
   base `rgb(255,255,255)`, em `rgb(246,201,111)`).
-- **Sistem GRID RESPONSIF V2 (hero, terkunci per perangkat)** — layout paten
+- **Sistem GRID RESPONSIF V2 (hero, terkunci per perangkat)** | layout paten
   per breakpoint, tidak mengikuti aliran antar perangkat:
   | Perangkat | Layout | Maskot |
   |---|---|---|
-  | DESKTOP (≥1101px) | 2 kolom `"text mascot"`, teks rata-kiri | **BESAR `min(88vh,720px)`** — mengisi sisi kanan penuh (desktop tidak lagi banyak kosong) |
+  | DESKTOP (≥1101px) | 2 kolom `"text mascot"`, teks rata-kiri | **BESAR `min(88vh,720px)`** | mengisi sisi kanan penuh (desktop tidak lagi banyak kosong) |
   | TABLET (769–1100) | 2 kolom `"text mascot"`, teks rata-kiri | sedang `min(50vh,360px)` |
   | MOBILE (≤768px) | stacked `"text" "mascot"`, teks pusat | kecil `min(26vh,190px)` di bawah teks |
   - Grid didefinisikan via `grid-template-areas` + `grid-template-columns`
-    per breakpoint (bukan absolute positioning) — setiap perangkat punya
+    per breakpoint (bukan absolute positioning) | setiap perangkat punya
     kolom/ukuran/perataan sendiri.
   - Layar pendek (≤768px & ≤720px tinggi): skala judul/sub/pills + maskot
     lebih kecil agar stacked layout tidak terpotong; `padding-bottom`
@@ -130,7 +130,7 @@ Teks & maskot muncul di 55% scroll. Preloader menunggu 50 frame siap.
 ## v7 (pose maskot besar + judul hero putih)
 
 - **Judul hero "Automasi AI & Website yang Benar-Benar Ngomong" → putih polos**
-  (termasuk bagian `em`; sebelumnya cream + aksen kuning — navy fase gelap
+  (termasuk bagian `em`; sebelumnya cream + aksen kuning | navy fase gelap
   terlalu gelap untuk aksen). Verifikasi: `rgb(255,255,255)` di computed style.
 - **Maskot diperbesar di semua ukuran** agar pose terlihat:
   | Maskot | Sebelum | Sesudah |
@@ -139,7 +139,7 @@ Teks & maskot muncul di 55% scroll. Preloader menunggu 50 frame siap.
   | Tentang (menunjuk) | 180–280px / tablet 160 | 230–440px (46vh) / tablet 235 |
   | Footer (bagus) | 150 / tablet 110 | 230 / tablet 175 |
 - **Rim light kuning hangat** (drop-shadow glow): karakter berbaju navy tidak
-  tenggelam di latar gelap (hero siang→malam, band tentang, footer) —
+  tenggelam di latar gelap (hero siang→malam, band tentang, footer)  - 
   terverifikasi piksel: 1183 px glow hangat di area maskot vs 23 px di kontrol.
 - **Anti-tabrakan mobile**: di ≤480 konten hero naik (-7vh) + maskot
   proporsional vh (21vh) sehingga tidak menabrak baris pills produk;
@@ -151,7 +151,7 @@ Teks & maskot muncul di 55% scroll. Preloader menunggu 50 frame siap.
 
 - **Label eyebrow dihapus** (permintaan user: "terlalu freak"): Startup Teknologi
   · Yogyakarta (hero + brand-sub nav/footer), Mengapa Akalpa, Fokus Kami,
-  Tentang Akalpa, Open Source, Kata Mereka, FAQ — heading section langsung
+  Tentang Akalpa, Open Source, Kata Mereka, FAQ | heading section langsung
   tanpa pre-label. Style CSS `.eyebrow`/`.eyebrow-dot` ikut dibersihkan.
 - **Animasi masuk & keluar per section** (`.sec-anim`): konten section dibungkus
   `.sec-inner` yang fade + slide (masuk translateY 36px→0, keluar → -24px) saat
@@ -194,7 +194,7 @@ Teks & maskot muncul di 55% scroll. Preloader menunggu 50 frame siap.
 
 - **Shape = background tambahan SELURUH hero** (bukan panel area teks): saat
   headline tampil, `.hero-scrim` full-cover gradasi navy (≈45%) menggelapkan
-  seluruh canvas — bukan hanya belakang teks. Panel `::before` di area teks
+  seluruh canvas | bukan hanya belakang teks. Panel `::before` di area teks
   dihapus.
 - **Palet fase gelap diperbaiki** (hindari navy di atas gelap): tombol CTA
   hero beralih dari navy → **orange terang** (`#f2a35c`) dengan teks navy,
@@ -228,12 +228,12 @@ Teks & maskot muncul di 55% scroll. Preloader menunggu 50 frame siap.
 
 ## v4 (scrim hero + section GitHub Open Source)
 
-- **Scrim gelap 45% saat headline tampil** — `body.hero-text` mengaktifkan
+- **Scrim gelap 45% saat headline tampil** | `body.hero-text` mengaktifkan
   `.hero-scrim` (rgba navy 45% full-cover) + shape panel rounded + blur di
   belakang konten hero (`::before`), sehingga headline *"Automasi AI &
   Website yang Benar-Benar Ngomong"* selalu terbaca jelas di atas canvas
   siang→malam (p≥0.6, sinkron dengan teks/maskot).
-- **Section `#github` (Open Source)** — band navy-deep yang mencolok dengan
+- **Section `#github` (Open Source)** | band navy-deep yang mencolok dengan
   watermark Octocat (SVG official, di-download dari Wikimedia), contribution
   graph 4×15 sel (pola deterministik via JS), 4 kartu repo (hermes, openclaw,
   moko-ai, akalpa-web-builder) dengan bahasa + star + fork, CTA tombol
@@ -247,7 +247,7 @@ Teks & maskot muncul di 55% scroll. Preloader menunggu 50 frame siap.
   (content/uiverse), struktur CTA 2-kolom terinspirasi HyperUI
   (content/hyperui), mark Octocat dari brand resmi GitHub (Wikimedia).
 
-## v3 (konten penuh — identitas asli Akalpa Inovasi)
+## v3 (konten penuh | identitas asli Akalpa Inovasi)
 
 - **Hero = frame section3** (konfirmasi user: ganti `ezgif-45560c8f299a909c-jpg` →
   `akalpa-landing-page/section3`). 40 frame siang → malam + pills produk
@@ -256,7 +256,7 @@ Teks & maskot muncul di 55% scroll. Preloader menunggu 50 frame siap.
   fokus **automasi AI** (Hermes, OpenClaw, Moko AI) + **web design kustom**
   dengan **Akalpa Web Builder** (alat buatan sendiri).
 - **Section baru `#fokus`**: 4 kartu bergaya terminal (header dot + nama file
-  mono) — Hermes, OpenClaw, Moko AI, Web Design Kustom.
+  mono) | Hermes, OpenClaw, Moko AI, Web Design Kustom.
 - **Isi diperkaya**: stats + intro & note, Tentang 2 paragraf + chips
   (Automasi AI · Web Design · Yogyakarta), testimoni 4 slide dengan kota klien,
   FAQ 7 item (termasuk Hermes/OpenClaw/Moko AI/lokasi), footer kontak lengkap

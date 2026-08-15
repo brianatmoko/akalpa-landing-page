@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#f7f3ea">
-<title>Free Template — Akalpa Inovasi</title>
+<title>Free Template | Akalpa Inovasi</title>
 <meta name="description" content="Template website gratis dari Akalpa Inovasi. Cari template berdasarkan kode (contoh #AKA-001), lihat di GitHub, dan klaim via WhatsApp.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -76,7 +76,7 @@ footer .wa{margin-top:6px;display:inline-flex;align-items:center;gap:7px;color:v
 
 <header>
   <div class="container nav">
-    <a href="index.html" class="brand"><span class="badge">A</span> Akalpa Inovasi</a>
+    <a href="index.html" class="brand"><img class="brand-logo" src="assets/Akalpa-Logos.png" alt="Logo Akalpa Inovasi" width="34" height="34"> Akalpa Inovasi</a>
     <nav class="nav-links" aria-label="Navigasi">
       <a href="index.html" class="hide-sm">Beranda</a>
       <a href="templates.html" class="active">Template</a>
@@ -101,12 +101,12 @@ footer .wa{margin-top:6px;display:inline-flex;align-items:center;gap:7px;color:v
   <div class="grid" id="grid"></div>
   <div class="empty" id="empty" hidden>
     <div class="big">Template tidak ditemukan</div>
-    <p>Coba kode lain, atau tanya langsung di WhatsApp — kami bantu cari yang pas.</p>
+    <p>Coba kode lain, atau tanya langsung di WhatsApp | kami bantu cari yang pas.</p>
   </div>
 </main>
 
 <footer class="container">
-  <div>© <span id="year">2026</span> <strong>Akalpa Inovasi</strong> — Template gratis dibuat dengan <strong>Akalpa Web Builder</strong>.</div>
+  <div>© <span id="year">2026</span> <strong>Akalpa Inovasi</strong> | Template gratis dibuat dengan <strong>Akalpa Web Builder</strong>.</div>
   <a class="wa" href="https://wa.me/6285191240994?text=Halo%20Akalpa!%20Saya%20tertarik%20dengan%20template%20gratis" target="_blank" rel="noopener noreferrer">WhatsApp: +62 851-9124-0994</a>
 </footer>
 
@@ -167,7 +167,7 @@ fetch("templates/templates.json",{cache:"no-store"}).then(function(r){if(!r.ok)t
   data=(j&&Array.isArray(j.templates))?j.templates:[];
   buildChips();render();
 }).catch(function(){
-  meta.textContent="Gagal memuat data template — pastikan templates/templates.json tersedia.";
+  meta.textContent="Gagal memuat data template | pastikan templates/templates.json tersedia.";
   grid.innerHTML="";
 });
 })();

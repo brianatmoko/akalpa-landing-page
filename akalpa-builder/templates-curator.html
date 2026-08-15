@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#182442">
-<title>Studio Curator — Akalpa Inovasi</title>
+<title>Studio Curator | Akalpa Inovasi</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -64,6 +64,7 @@ textarea.exportbox{min-height:150px;font-family:'JetBrains Mono',monospace;font-
 <div class="gate" id="gate">
   <div class="gatebox">
     <div class="status-badge">VAULT SECURITY GATE</div>
+    <img src="assets/Akalpa-Logos.png" alt="Logo Akalpa Inovasi" style="width:44px;height:44px;border-radius:11px;background:#fff;object-fit:contain;padding:3px;border:2px solid var(--orange);margin-bottom:8px">
     <h1>Studio <span>Curator</span></h1>
     <p>Masukkan kode otorisasi untuk mengelola pustaka template.</p>
     <input type="password" id="pass" placeholder="KODE AKSES" autocomplete="off">
@@ -77,8 +78,11 @@ textarea.exportbox{min-height:150px;font-family:'JetBrains Mono',monospace;font-
   <header>
     <div>
       <div class="status-badge">STUDIO CURATOR PORTAL</div>
-      <h1>Studio <span>Curator</span></h1>
-      <div class="sub">Kelola template gratis Akalpa — gambar memakai <strong>link HTTP/HTTPS</strong> untuk efisiensi penyimpanan.</div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:4px">
+        <img src="assets/Akalpa-Logos.png" alt="Logo Akalpa Inovasi" style="width:36px;height:36px;border-radius:9px;background:#fff;object-fit:contain;padding:2px;border:2px solid var(--orange)">
+        <h1>Studio <span>Curator</span></h1>
+      </div>
+      <div class="sub">Kelola template gratis Akalpa | gambar memakai <strong>link HTTP/HTTPS</strong> untuk efisiensi penyimpanan.</div>
     </div>
     <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
       <a class="btn ghost mini" href="templates.html" target="_blank" rel="noopener">Katalog Publik ↗</a>
@@ -105,7 +109,7 @@ textarea.exportbox{min-height:150px;font-family:'JetBrains Mono',monospace;font-
       <input type="text" id="f-name" placeholder="Hero Parallax Senja">
       <label>Deskripsi (1–2 kalimat)</label>
       <textarea id="f-desc" placeholder="Jelaskan keunggulan singkat template ini…"></textarea>
-      <label>Gambar — Link URL (https://…)</label>
+      <label>Gambar | Link URL (https://…)</label>
       <input type="url" id="f-img" placeholder="https://…/gambar.webp">
       <div class="hint">Tautan URL gambar eksternal. Jika kosong, fallback gradien + kode.</div>
       <label>Link GitHub (repo template)</label>
@@ -318,7 +322,7 @@ function edit(id){
 function del(id){
   var t=items.filter(function(x){return x.id===id})[0];
   if(!t)return;
-  if(!confirm("Hapus template "+t.code+" — "+t.name+"?"))return;
+  if(!confirm("Hapus template "+t.code+" | "+t.name+"?"))return;
   items=items.filter(function(x){return x.id!==id});
   persist();buildCatList();renderList();
   if(editingId===id) resetForm();
@@ -331,7 +335,7 @@ $("#exp-dl").addEventListener("click",function(){
   var blob=new Blob([exportJson()],{type:"application/json"});
   var a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="templates.json";a.click();
   setTimeout(function(){URL.revokeObjectURL(a.href)},2000);
-  toast("templates.json diunduh — perbarui file di repositori");
+  toast("templates.json diunduh | perbarui file di repositori");
 });
 
 $("#exp-copy").addEventListener("click",function(){
@@ -359,7 +363,7 @@ $("#imp-apply").addEventListener("click",function(){
       };
     });
     persist();buildCatList();renderList();
-    $("#imp").value="";toast("Impor berhasil — "+items.length+" template dimuat");
+    $("#imp").value="";toast("Impor berhasil | "+items.length+" template dimuat");
   }catch(e){toast("Gagal impor: JSON tidak valid atau struktur salah");}
 });
 

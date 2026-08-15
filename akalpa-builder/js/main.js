@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════════
-   Akalpa Inovasi — main.js v2 (vanilla)
+   Akalpa Inovasi | main.js v2 (vanilla)
    Hero canvas 40-frame (siang → malam) · parallax halus · UI interaktif
    ═══════════════════════════════════════════════════════════════════════ */
 (function () {
@@ -9,7 +9,7 @@
   const $$ = (sel, ctx) => Array.from((ctx || document).querySelectorAll(sel));
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ── 1. HERO — canvas scroll animation (40 frame: siang → malam) ──── */
+  /* ── 1. HERO | canvas scroll animation (40 frame: siang → malam) ──── */
   const HERO_FRAMES = 40;
   const HERO_BASE = "assets/frames/hero3/";
   const TEXT_AT = 0.6;      // teks muncul saat frame mulai gelap
@@ -129,7 +129,7 @@
     };
   }
 
-  /* ── 2. HEADER — 3 state (transparan terang / gelap / solid) ──────── */
+  /* ── 2. HEADER | 3 state (transparan terang / gelap / solid) ──────── */
   const header = $("#siteHeader");
   function updateHeader() {
     if (!header || !heroStory) return;
@@ -282,7 +282,7 @@
     restart();
   }
 
-  /* ── 8a. GitHub contribution cells — pola deterministik ────────────── */
+  /* ── 8a. GitHub contribution cells | pola deterministik ────────────── */
   const ghCells = $("#ghCells");
   if (ghCells) {
     // baris × kolom; level 0..3 (0 = kosong). Pola statis agar deterministik.
@@ -303,7 +303,7 @@
     }
   }
 
-  /* ── 8b. Marquee — duplikat konten agar loop mulus ─────────────────── */
+  /* ── 8b. Marquee | duplikat konten agar loop mulus ─────────────────── */
   const marqueeInner = $("#marqueeInner");
   if (marqueeInner) {
     marqueeInner.innerHTML += marqueeInner.innerHTML;
@@ -319,7 +319,7 @@
   const yearEl = $("#year");
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-  /* ── 11. Parallax halus — [data-parallax="kecepatan"] ─────────────── */
+  /* ── 11. Parallax halus | [data-parallax="kecepatan"] ─────────────── */
   const parallaxEls = $$("[data-parallax]");
   function updateParallax() {
     if (prefersReduced || !parallaxEls.length) return;
