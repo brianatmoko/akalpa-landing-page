@@ -1,0 +1,149 @@
+============================================================
+  AKALPA INOVASI — PANDUAN UPLOAD ASET KE GOOGLE DRIVE
+============================================================
+
+Folder Google Drive Tujuan:
+https://drive.google.com/drive/folders/1Qyq3cRQkZoefM-M8K1Jybry2_GM50gxW?usp=sharing
+
+Langkah:
+1. Ekstrak file 'akalpa-assets-for-drive.zip'
+2. Upload seluruh isi folder ke Google Drive di atas.
+3. Dapatkan Link Publik / Direct Link untuk setiap gambar.
+
+Daftar Aset yang Perlu Di-map:
+------------------------------------------------------------
+- Akalpa-Logos.png
+- assets/Akalpa-Logos.png
+- assets/frames/hero3/001.jpg
+- assets/frames/hero3/002.jpg
+- assets/frames/hero3/003.jpg
+- assets/frames/hero3/004.jpg
+- assets/frames/hero3/005.jpg
+- assets/frames/hero3/006.jpg
+- assets/frames/hero3/007.jpg
+- assets/frames/hero3/008.jpg
+- assets/frames/hero3/009.jpg
+- assets/frames/hero3/010.jpg
+- assets/frames/hero3/011.jpg
+- assets/frames/hero3/012.jpg
+- assets/frames/hero3/013.jpg
+- assets/frames/hero3/014.jpg
+- assets/frames/hero3/015.jpg
+- assets/frames/hero3/016.jpg
+- assets/frames/hero3/017.jpg
+- assets/frames/hero3/018.jpg
+- assets/frames/hero3/019.jpg
+- assets/frames/hero3/020.jpg
+- assets/frames/hero3/021.jpg
+- assets/frames/hero3/022.jpg
+- assets/frames/hero3/023.jpg
+- assets/frames/hero3/024.jpg
+- assets/frames/hero3/025.jpg
+- assets/frames/hero3/026.jpg
+- assets/frames/hero3/027.jpg
+- assets/frames/hero3/028.jpg
+- assets/frames/hero3/029.jpg
+- assets/frames/hero3/030.jpg
+- assets/frames/hero3/031.jpg
+- assets/frames/hero3/032.jpg
+- assets/frames/hero3/033.jpg
+- assets/frames/hero3/034.jpg
+- assets/frames/hero3/035.jpg
+- assets/frames/hero3/036.jpg
+- assets/frames/hero3/037.jpg
+- assets/frames/hero3/038.jpg
+- assets/frames/hero3/039.jpg
+- assets/frames/hero3/040.jpg
+- assets/frames/sec2/001.jpg
+- assets/frames/sec2/002.jpg
+- assets/frames/sec2/003.jpg
+- assets/frames/sec2/004.jpg
+- assets/frames/sec2/005.jpg
+- assets/frames/sec2/006.jpg
+- assets/frames/sec2/007.jpg
+- assets/frames/sec2/008.jpg
+- assets/frames/sec2/009.jpg
+- assets/frames/sec2/010.jpg
+- assets/frames/sec2/011.jpg
+- assets/frames/sec2/012.jpg
+- assets/frames/sec2/013.jpg
+- assets/frames/sec2/014.jpg
+- assets/frames/sec2/015.jpg
+- assets/frames/sec2/016.jpg
+- assets/frames/sec2/017.jpg
+- assets/frames/sec2/018.jpg
+- assets/frames/sec2/019.jpg
+- assets/frames/sec2/020.jpg
+- assets/frames/sec2/021.jpg
+- assets/frames/sec2/022.jpg
+- assets/frames/sec2/023.jpg
+- assets/frames/sec2/024.jpg
+- assets/frames/sec2/025.jpg
+- assets/frames/sec2/026.jpg
+- assets/frames/sec2/027.jpg
+- assets/frames/sec2/028.jpg
+- assets/frames/sec2/029.jpg
+- assets/frames/sec2/030.jpg
+- assets/frames/sec2/031.jpg
+- assets/frames/sec2/032.jpg
+- assets/frames/sec2/033.jpg
+- assets/frames/sec2/034.jpg
+- assets/frames/sec2/035.jpg
+- assets/frames/sec2/036.jpg
+- assets/frames/sec2/037.jpg
+- assets/frames/sec2/038.jpg
+- assets/frames/sec2/039.jpg
+- assets/frames/sec2/040.jpg
+- assets/frames/sec3/001.jpg
+- assets/frames/sec3/002.jpg
+- assets/frames/sec3/003.jpg
+- assets/frames/sec3/004.jpg
+- assets/frames/sec3/005.jpg
+- assets/frames/sec3/006.jpg
+- assets/frames/sec3/007.jpg
+- assets/frames/sec3/008.jpg
+- assets/frames/sec3/009.jpg
+- assets/frames/sec3/010.jpg
+- assets/frames/sec3/011.jpg
+- assets/frames/sec3/012.jpg
+- assets/frames/sec3/013.jpg
+- assets/frames/sec3/014.jpg
+- assets/frames/sec3/015.jpg
+- assets/frames/sec3/016.jpg
+- assets/frames/sec3/017.jpg
+- assets/frames/sec3/018.jpg
+- assets/frames/sec3/019.jpg
+- assets/frames/sec3/020.jpg
+- assets/frames/sec3/021.jpg
+- assets/frames/sec3/022.jpg
+- assets/frames/sec3/023.jpg
+- assets/frames/sec3/024.jpg
+- assets/frames/sec3/025.jpg
+- assets/frames/sec3/026.jpg
+- assets/frames/sec3/027.jpg
+- assets/frames/sec3/028.jpg
+- assets/frames/sec3/029.jpg
+- assets/frames/sec3/030.jpg
+- assets/frames/sec3/031.jpg
+- assets/frames/sec3/032.jpg
+- assets/frames/sec3/033.jpg
+- assets/frames/sec3/034.jpg
+- assets/frames/sec3/035.jpg
+- assets/frames/sec3/036.jpg
+- assets/frames/sec3/037.jpg
+- assets/frames/sec3/038.jpg
+- assets/frames/sec3/039.jpg
+- assets/frames/sec3/040.jpg
+- assets/github/octocat.svg
+- assets/mascot/bagus.webp
+- assets/mascot/berpaling.webp
+- assets/mascot/grafik-naik.webp
+- assets/mascot/keren.webp
+- assets/mascot/lari.webp
+- assets/mascot/mencatat.webp
+- assets/mascot/menunjuk.webp
+- assets/mascot/mikir.webp
+- assets/mascot/panik.webp
+- assets/mascot/punya-ide.webp
+- assets/mascot/sapaan.webp
+- assets/mascot/senang.webp

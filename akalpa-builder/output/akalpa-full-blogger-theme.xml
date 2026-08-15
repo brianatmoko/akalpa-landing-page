@@ -1,0 +1,2813 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:version='2' class='v2' expr:dir='data:blog.languageDirection'
+  xmlns='http://www.w3.org/1999/xhtml'
+  xmlns:b='http://www.google.com/2005/gbl'
+  xmlns:data='http://www.google.com/2005/gbl'
+  xmlns:expr='http://www.google.com/2005/gbl'>
+
+<head>
+  <meta content='width=device-width, initial-scale=1' name='viewport'/>
+  <b:include data='blog' name='all-head-content'/>
+  <title><data:blog.pageTitle/></title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin"/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&amp;family=Outfit:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+
+  <b:skin><![CDATA[
+/* ═══════════════════════════════════════════════════════════════════════
+   Akalpa Inovasi | Design System v2 (light · bone + navy + light orange)
+   Font: Fraunces (display serif) · Outfit (body) · JetBrains Mono (code)
+   Hero: 40-frame canvas (siang → malam) · parallax halus · anti-AI-slop
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ── Tokens ─────────────────────────────────────────────────────────── */
+:root {
+  --bg: #f7f3ea;            /* bone */
+  --bg-2: #f1ebdd;
+  --bg-3: #eae3d2;
+  --surface: #fdfbf6;
+  --surface-2: #f4eee2;
+
+  --navy: #22305c;
+  --navy-deep: #182442;
+  --navy-soft: #3d4d80;
+  --orange: #f2a35c;        /* light orange */
+  --orange-deep: #e8863a;
+  --orange-soft: #fbe4cd;
+  --yellow: #f6c96f;
+  --yellow-soft: #fbf0d9;
+
+  --text: #2b3245;
+  --text-2: #5a6478;
+  --text-3: #8b94a8;
+  --border: rgba(34, 48, 92, 0.13);
+  --border-strong: rgba(34, 48, 92, 0.26);
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Outfit", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
+
+  --radius: 14px;
+  --radius-lg: 22px;
+  --radius-sm: 10px;
+
+  /* easing kustom | hindari default AI (ease-in-out 300ms) */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --t-fast: 0.15s;
+  --t-mid: 0.3s;
+  --t-slow: 0.55s;
+
+  --shadow-1: 0 2px 10px rgba(34, 48, 92, 0.05);
+  --shadow-2: 0 14px 38px rgba(34, 48, 92, 0.1);
+  --shadow-card: 0 6px 22px rgba(34, 48, 92, 0.07);
+
+  --container: 1180px;
+  --header-h: 76px;
+}
+
+/* ── Reset ──────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 14px); }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img, svg { display: inline-block; vertical-align: middle; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+code, pre { font-family: var(--font-mono); }
+
+[hidden] { display: none !important; }
+
+:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.skip-link {
+  position: fixed; top: -60px; left: 16px; z-index: 200;
+  background: var(--navy); color: var(--cream);
+  padding: 10px 18px; border-radius: 0 0 10px 10px; font-weight: 600;
+  transition: top var(--t-fast) ease;
+}
+.skip-link:focus { top: 0; }
+
+/* Container | gutter responsif (bagian Sistem Layout v2) */
+.container { max-width: var(--container); margin: 0 auto; padding: 0 20px; }
+@media (min-width: 481px) { .container { padding: 0 24px; } }
+@media (min-width: 1101px) { .container { padding: 0 32px; } }
+
+/* padding section bervariasi | hindari ritme seragam ala AI */
+.stats-section { padding: 72px 0; }
+.testimonial-section { padding: 96px 0; }
+.faq-section { padding: 88px 0; }
+
+/* ── Tipografi ──────────────────────────────────────────────────────── */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.12;
+  text-wrap: balance;
+}
+p { text-wrap: pretty; }
+em { font-style: italic; color: var(--orange-deep); }
+
+.section-title {
+  font-size: clamp(1.9rem, 3.4vw, 2.9rem);
+  letter-spacing: -0.015em;
+  margin-bottom: 16px;
+  color: var(--navy);
+}
+.section-sub { color: var(--text-2); max-width: 62ch; font-size: 1.02rem; }
+
+.section-head { text-align: center; margin-bottom: 52px; }
+.section-head .section-sub { margin: 0 auto; }
+.section-head.left { text-align: left; }
+.section-head.left .section-sub { margin: 0; }
+@media (max-width: 768px) { .section-head { margin-bottom: 34px; } }
+
+/* ── Tombol | micro-interaction ─────────────────────────────────────── */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+  font-family: var(--font-body); font-weight: 600;
+  padding: 13px 26px; border-radius: var(--radius);
+  border: 2px solid var(--navy);
+  touch-action: manipulation;
+  white-space: nowrap;
+  transition:
+    background var(--t-fast) ease,
+    color var(--t-fast) ease,
+    border-color var(--t-fast) ease,
+    transform var(--t-mid) var(--ease-out),
+    box-shadow var(--t-mid) var(--ease-out);
+}
+.btn svg { width: 18px; height: 18px; transition: transform var(--t-mid) var(--ease-spring); }
+.btn:hover svg { transform: translateX(3px); }
+.btn:hover .wa-bounce, .btn:hover svg[data-bounce="1"] { animation: wa-pulse 0.8s var(--ease-spring); }
+
+.btn-primary {
+  background: var(--navy); color: #fff;
+  box-shadow: 0 4px 14px rgba(34, 48, 92, 0.28);
+}
+.btn-primary:hover { background: var(--navy-deep); transform: translateY(-2px); box-shadow: 0 9px 22px rgba(34, 48, 92, 0.32); }
+.btn-primary:active { transform: translateY(0) scale(0.98); }
+
+.btn-ghost {
+  background: transparent; color: var(--cream);
+  border-color: rgba(247, 243, 234, 0.55);
+}
+.btn-ghost:hover { background: rgba(247, 243, 234, 0.12); transform: translateY(-2px); }
+
+.btn-sm { padding: 10px 18px; font-size: 0.88rem; }
+
+@keyframes wa-pulse {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.18); }
+  100% { transform: scale(1); }
+}
+
+/* ── Reveal | variasikan arah & durasi (bukan fade identik semua) ────── */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity var(--t-slow) var(--ease-out), transform var(--t-slow) var(--ease-out); }
+.reveal-l { opacity: 0; transform: translateX(-36px); transition: opacity var(--t-slow) var(--ease-out), transform var(--t-slow) var(--ease-out); }
+.reveal-scale { opacity: 0; transform: scale(0.92); transition: opacity var(--t-slow) var(--ease-out), transform var(--t-slow) var(--ease-spring); }
+.reveal.is-visible, .reveal-l.is-visible, .reveal-scale.is-visible { opacity: 1; transform: none; }
+
+/* ══════════════════ SECTION MASUK/KELUAR ═════════════════════════════
+   Urutan: section masuk dulu (sec-inner), lalu object di dalamnya masuk
+   berurutan (stagger via JS). Wave & dekorasi TIDAK ikut animasi agar
+   tidak ada celah terpotong di perbatasan antar section. */
+.sec-inner { position: relative; z-index: 2; }
+.sec-anim > .sec-inner {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+.sec-anim.is-in > .sec-inner { opacity: 1; transform: none; }
+.sec-anim.is-out > .sec-inner { opacity: 0; transform: translateY(-24px); }
+.sec-anim .wave-wrap { transition: none; }
+
+/* ══════════════════ NAVBAR | 3 state ══════════════════ */
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  color: var(--navy);
+  transition: background var(--t-mid) ease, box-shadow var(--t-mid) ease, border-color var(--t-mid) ease, color var(--t-mid) ease;
+  border-bottom: 1px solid transparent;
+}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; height: var(--header-h); gap: 16px; }
+
+.brand { display: inline-flex; align-items: center; gap: 11px; }
+.brand-logo {
+  width: 36px; height: 36px; border-radius: 10px;
+  background: #fff; object-fit: contain; padding: 2px;
+  border: 2px solid var(--navy);
+  box-shadow: 2px 2px 0 var(--navy);
+  display: inline-block; vertical-align: middle;
+  transition: box-shadow var(--t-fast) ease, border-color var(--t-fast) ease;
+}
+.brand-badge {
+  width: 40px; height: 40px; border-radius: 12px;
+  background: var(--orange);
+  color: var(--navy);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-weight: 700; font-size: 1.25rem;
+  border: 2px solid var(--navy);
+  box-shadow: 2px 2px 0 var(--navy);
+  transition: box-shadow var(--t-fast) ease, border-color var(--t-fast) ease;
+}
+.brand-text { display: flex; flex-direction: column; line-height: 1.15; }
+.brand-name { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; }
+.brand-sub { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; opacity: 0.75; }
+
+.nav-links { display: flex; gap: 26px; }
+.nav-links a { font-weight: 600; font-size: 0.95rem; padding: 6px 2px; position: relative; transition: color var(--t-fast) ease; }
+.nav-links a::after {
+  content: ""; position: absolute; left: 0; bottom: 0;
+  width: 0; height: 2px; background: var(--orange);
+  transition: width var(--t-mid) var(--ease-out); border-radius: 2px;
+}
+.nav-links a:hover::after { width: 100%; }
+
+.nav-actions { display: flex; align-items: center; gap: 14px; }
+.nav-burger { display: none; padding: 8px; border-radius: 10px; touch-action: manipulation; }
+.nav-burger svg { width: 24px; height: 24px; }
+
+/* State 1 | transparan di hero, fase terang: teks navy (default) */
+/* State 2 | hero fase gelap: teks cream via body.hero-dark */
+body.hero-dark .site-header:not(.is-scrolled) { color: #fff; }
+body.hero-dark .site-header:not(.is-scrolled) .brand-name { color: #fff; }
+body.hero-dark .site-header:not(.is-scrolled) .brand-sub { color: rgba(255, 255, 255, 0.72); }
+body.hero-dark .site-header:not(.is-scrolled) .nav-links a { color: rgba(255, 255, 255, 0.92); }
+body.hero-dark .site-header:not(.is-scrolled) .nav-burger { color: #fff; }
+body.hero-dark .site-header:not(.is-scrolled) .brand-badge,
+body.hero-dark .site-header:not(.is-scrolled) .brand-logo { box-shadow: 2px 2px 0 #fff; border-color: #fff; }
+
+/* State 3 | solid setelah hero */
+.site-header.is-scrolled {
+  background: rgba(247, 243, 234, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom-color: var(--border);
+  box-shadow: var(--shadow-1);
+  color: var(--navy);
+}
+.site-header.is-scrolled .brand-name { color: var(--navy); }
+.site-header.is-scrolled .brand-sub { color: var(--text-3); }
+.site-header.is-scrolled .nav-links a { color: var(--text); }
+.site-header.is-scrolled .nav-burger { color: var(--navy); }
+.site-header.is-scrolled .brand-badge,
+.site-header.is-scrolled .brand-logo { box-shadow: 2px 2px 0 var(--navy); border-color: var(--navy); }
+
+.mobile-menu {
+  display: none; flex-direction: column; gap: 4px;
+  background: var(--surface); border-top: 1px solid var(--border);
+  padding: 14px 24px 20px;
+  box-shadow: var(--shadow-2);
+  overscroll-behavior: contain;
+}
+.mobile-menu.is-open { display: flex; }
+.mobile-menu a { padding: 12px 8px; font-weight: 600; color: var(--navy); border-bottom: 1px solid var(--border); font-size: 1rem; }
+.mobile-menu a:last-child { border-bottom: none; }
+
+/* ══════════════════ HERO | CANVAS STORY (siang → malam) ══════════════════ */
+.hero-story { position: relative; height: 320vh; background: var(--navy-deep); }
+/* ══════════════════ HERO | GRID RESPONSIF V2 ══════════════════════════
+   Layout hero TERKUNCI per perangkat (Sistem Responsif v2):
+   - MOBILE (≤768px)   : stacked | teks di atas, maskot kecil di bawah
+   - TABLET (769–1100) : 2 kolom | teks kiri, maskot sedang di kanan
+   - DESKTOP (≥1101px) : 2 kolom | teks kiri, maskot BESAR penuh tinggi
+   Setiap breakpoint punya grid-template-areas & ukuran sendiri, jadi
+   tidak ada elemen yang "mengikuti aliran" antar perangkat. */
+.hero-sticky {
+  position: sticky; top: 0;
+  height: 100vh; width: 100%; overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: "text" "mascot";
+  align-content: center;
+  justify-items: center;
+  gap: 10px;
+}
+.hero-content { grid-area: text; }
+.hero-mascot { grid-area: mascot; }
+#heroCanvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+/* Scrim adaptif: terang di awal (teks navy) → gelap saat frame meredup */
+.hero-vignette {
+  position: absolute; inset: 0; pointer-events: none;
+  transition: opacity var(--t-slow) ease;
+}
+.hero-vignette::before {
+  content: ""; position: absolute; inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(247, 243, 234, 0.68) 0%, rgba(247, 243, 234, 0.3) 13%, transparent 24%, transparent 58%, rgba(24, 36, 66, 0.5) 92%, rgba(24, 36, 66, 0.72) 100%),
+    radial-gradient(ellipse at center, transparent 42%, rgba(24, 36, 66, 0.28) 100%);
+}
+body.hero-dark .hero-vignette::before {
+  background:
+    linear-gradient(to bottom, rgba(24, 36, 66, 0.78) 0%, rgba(24, 36, 66, 0.5) 14%, transparent 26%, transparent 55%, rgba(24, 36, 66, 0.66) 90%, rgba(24, 36, 66, 0.85) 100%),
+    radial-gradient(ellipse at center, transparent 40%, rgba(24, 36, 66, 0.35) 100%);
+}
+
+/* Scrim gelap 45% | SELURUH background hero digelapkan saat headline
+   tampil (body.hero-text), bukan hanya area teks. Shape = background
+   tambahan full-cover agar tulisan selalu terbaca di atas canvas. */
+.hero-scrim {
+  position: absolute; inset: 0; z-index: 5;
+  background:
+    linear-gradient(to bottom, rgba(14, 22, 46, 0.52) 0%, rgba(14, 22, 46, 0.4) 30%, rgba(14, 22, 46, 0.42) 70%, rgba(14, 22, 46, 0.55) 100%);
+  opacity: 0; pointer-events: none;
+  transition: opacity var(--t-slow) ease;
+}
+body.hero-text .hero-scrim { opacity: 1; }
+
+/* Palet hero saat teks tampil | hindari navy di atas gelap: tombol
+   utama beralih ke orange terang agar kontras & jelas. */
+body.hero-text .hero-content .btn-primary {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: var(--navy);
+  box-shadow: 0 10px 26px rgba(242, 163, 92, 0.32);
+}
+body.hero-text .hero-content .btn-primary:hover {
+  background: var(--yellow);
+  border-color: var(--yellow);
+}
+body.hero-text .hero-content .btn-ghost { color: #fff; border-color: rgba(247, 243, 234, 0.65); }
+body.hero-text .hero-content .btn-ghost:hover { background: rgba(247, 243, 234, 0.14); }
+
+/* Badge brand di fase gelap | orange supaya tidak tenggelam di gelap */
+body.hero-dark .site-header:not(.is-scrolled) .brand-badge {
+  background: var(--orange);
+  color: var(--navy);
+  border-color: var(--orange);
+  box-shadow: 2px 2px 0 #fff;
+}
+
+/* Preloader */
+.hero-preloader {
+  position: absolute; inset: 0; z-index: 30;
+  background: var(--navy-deep);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px;
+  transition: opacity 0.6s ease;
+}
+.hero-preloader.is-done { opacity: 0; pointer-events: none; }
+.preloader-logo {
+  width: 52px; height: 52px; border-radius: 14px;
+  background: #fff; object-fit: contain; padding: 4px;
+  border: 2px solid #fff; box-shadow: 3px 3px 0 var(--orange);
+  display: inline-block;
+}
+.preloader-badge {
+  width: 54px; height: 54px; border-radius: 15px;
+  background: var(--orange); color: var(--navy);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-weight: 700; font-size: 1.7rem;
+  border: 2px solid #fff; box-shadow: 3px 3px 0 #fff;
+}
+.preloader-label { color: #fff; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.85rem; }
+.preloader-bar {
+  width: 240px; height: 7px; border-radius: 99px;
+  background: rgba(255, 255, 255, 0.14);
+  overflow: hidden; border: 1px solid rgba(242, 163, 92, 0.35);
+}
+.preloader-fill { height: 100%; width: 0%; background: var(--orange); border-radius: 99px; transition: width 0.15s ease; }
+.preloader-count { color: rgba(255, 255, 255, 0.5); font-family: var(--font-mono); font-size: 0.78rem; }
+
+/* Konten hero | selalu cream (muncul saat frame gelap) */
+.hero-content {
+  position: relative; z-index: 10;
+  text-align: center; max-width: 820px; padding: 0 24px;
+  opacity: 0; transform: translateY(26px) scale(0.98);
+  transition: opacity var(--t-slow) var(--ease-out), transform var(--t-slow) var(--ease-out);
+  pointer-events: none;
+}
+.hero-content.is-visible { opacity: 1; transform: none; pointer-events: auto; }
+.hero-title {
+  color: #fff; font-size: clamp(2.4rem, 5.4vw, 4.3rem);
+  letter-spacing: -0.015em; margin-bottom: 18px;
+  text-shadow: 0 3px 24px rgba(0, 0, 0, 0.5);
+}
+/* Bagian "Benar-Benar Ngomong" memakai aksen kuning (bukan putih) */
+.hero-title em { color: var(--yellow); }
+.hero-sub {
+  color: rgba(247, 243, 234, 0.94); font-size: clamp(1rem, 1.9vw, 1.22rem);
+  max-width: 62ch; margin: 0 auto 32px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
+}
+.hero-cta { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+/* Pills produk di hero */
+.hero-pills {
+  display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;
+  margin-top: 30px;
+}
+.hero-pill {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: var(--font-mono); font-size: 0.76rem; font-weight: 600;
+  color: rgba(247, 243, 234, 0.92);
+  background: rgba(24, 36, 66, 0.55);
+  border: 1px solid rgba(247, 243, 234, 0.28);
+  padding: 7px 14px; border-radius: 99px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+}
+.hero-pill svg { width: 14px; height: 14px; color: var(--yellow); }
+
+/* Maskot hero | item grid (ukuran per breakpoint di bawah).
+   Karakter berbaju navy → glow kuning hangat (rim light) agar siluet
+   tidak tenggelam di latar gelap siang→malam. */
+.hero-mascot {
+  grid-area: mascot;
+  height: min(26vh, 190px);
+  width: auto;
+  filter:
+    drop-shadow(0 12px 26px rgba(0, 0, 0, 0.4))
+    drop-shadow(0 0 22px rgba(246, 201, 111, 0.55))
+    drop-shadow(0 0 64px rgba(246, 201, 111, 0.3));
+  opacity: 0; transform: translateY(24px);
+  transition: opacity var(--t-slow) ease, transform var(--t-slow) ease;
+  pointer-events: none;
+}
+
+/* Tablet & desktop | layout 2 kolom, teks kiri, maskot kanan */
+@media (min-width: 769px) {
+  .hero-sticky {
+    grid-template-columns: 1.06fr 0.94fr;
+    grid-template-areas: "text mascot";
+    align-items: center;
+  }
+  .hero-content {
+    text-align: left;
+    justify-self: start;
+    max-width: 660px;
+    padding-left: clamp(28px, 6vw, 96px);
+  }
+  .hero-sub { margin: 0 0 32px; }
+  .hero-cta { justify-content: flex-start; }
+  .hero-pills { justify-content: flex-start; }
+  .hero-mascot { justify-self: end; align-self: end; }
+}
+@media (min-width: 769px) and (max-width: 1100px) {
+  .hero-mascot { height: min(50vh, 360px); margin-right: 3%; }
+}
+@media (min-width: 1101px) {
+  .hero-mascot { height: min(88vh, 720px); margin-right: 4%; }
+}
+.hero-mascot.is-visible { opacity: 1; transform: none; animation: mascot-float 6s ease-in-out 0.4s infinite; }
+
+/* Scroll hint */
+.scroll-hint {
+  position: absolute; bottom: 4.5%; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 5px;
+  z-index: 10; pointer-events: none;
+  transition: opacity var(--t-slow) ease;
+}
+.scroll-hint.is-hidden { opacity: 0; }
+.scroll-hint span:first-child {
+  color: var(--yellow); font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+.scroll-hint-arrow { color: var(--yellow); animation: scroll-bounce 1.6s ease-in-out infinite; }
+.scroll-hint-arrow svg { width: 22px; height: 22px; }
+
+@keyframes scroll-bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+@keyframes mascot-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1.1deg); }
+}
+
+/* ══════════════════ TECH STRIP ══════════════════ */
+.tech-strip {
+  position: relative;
+  background: var(--navy); color: rgba(247, 243, 234, 0.85);
+  padding: 26px 0 76px; overflow: hidden;
+}
+
+/* ══════════════════ WAVE DIVIDER ═══════════════════════════════════════
+   Teknik standar (riset: tailwindcolor.tools Section Divider Generator +
+   pola Website-PKKMB-FV-UNY):
+   1. Wave di-absolute di BOTTOM section ATAS (bukan elemen mandiri).
+   2. fill SVG = warna section BAWAH → menyatu mulus tanpa seam.
+   3. Bagian transparan di atas kurva menampilkan warna section ATAS →
+      bentuk wave (kontras 2 warna) terlihat hidup di perbatasan.
+   Hanya dipakai di 2 perbatasan: section 2→3 & section 4→5. */
+.wave-wrap {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  line-height: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+.wave-wrap svg {
+  display: block;
+  width: 100%;
+  height: 60px;
+}
+@media (max-width: 640px) {
+  .wave-wrap svg { height: 32px; }
+  .tech-strip { padding: 22px 0 46px; }
+}
+.marquee-track { overflow: hidden; white-space: nowrap; mask-image: linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%); }
+.marquee-inner { display: inline-flex; animation: marquee-scroll 28s linear infinite; }
+.marquee-inner span { font-family: var(--font-mono); font-size: 0.85rem; font-weight: 600; padding: 0 26px; display: inline-flex; align-items: center; gap: 10px; }
+.marquee-inner span::after { content: "✦"; color: var(--orange); font-size: 0.7rem; }
+@keyframes marquee-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+/* ══════════════════ STATS ══════════════════ */
+.stats-section { position: relative; overflow: hidden; }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; position: relative; z-index: 2; }
+.stat {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 30px 22px;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--t-mid) var(--ease-out), box-shadow var(--t-mid) var(--ease-out), border-color var(--t-mid) ease;
+}
+.stat:hover { transform: translateY(-4px); box-shadow: var(--shadow-2); border-color: var(--border-strong); }
+.stat-icon {
+  width: 44px; height: 44px; border-radius: 13px;
+  background: var(--orange-soft); color: var(--orange-deep);
+  display: inline-flex; align-items: center; justify-content: center;
+  margin-bottom: 14px;
+}
+.stat-icon svg { width: 22px; height: 22px; }
+.stat-value {
+  display: block;
+  font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(2.1rem, 3.6vw, 3rem);
+  color: var(--navy); line-height: 1;
+  margin-bottom: 8px;
+  font-variant-numeric: tabular-nums;
+}
+.stat-value .countup { font: inherit; color: inherit; }
+.stat-label { color: var(--text-2); font-size: 0.92rem; font-weight: 500; }
+
+/* Catatan di bawah stats */
+.stats-note {
+  text-align: center; color: var(--text-2);
+  max-width: 62ch; margin: 34px auto 0; font-size: 0.95rem;
+}
+.stats-note strong { color: var(--navy); }
+
+/* ══════════════════ FOKUS | produk AI & web design ══════════════════ */
+.focus-section {
+  /* bg-2 agar wave stats→fokus (fill #f1ebdd) menyatu mulus */
+  position: relative; background: var(--bg-2); overflow: hidden;
+  padding: 88px 0 104px;   /* padding-bottom agar tidak menempel ke section berikutnya */
+}
+.focus-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; position: relative; z-index: 2; }
+.focus-card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 0 24px 26px;
+  box-shadow: var(--shadow-card);
+  display: flex; flex-direction: column; gap: 12px;
+  transition: transform var(--t-mid) var(--ease-out), box-shadow var(--t-mid) var(--ease-out), border-color var(--t-mid) ease;
+  overflow: hidden;
+}
+.focus-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-2); border-color: var(--border-strong); }
+.focus-term {
+  display: flex; align-items: center; gap: 10px;
+  margin: 0 -24px 18px; padding: 11px 24px;
+  background: var(--navy-deep);
+  border-bottom: 1.5px solid var(--border);
+}
+.term-dots { display: flex; gap: 5px; }
+.term-dots i {
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--navy-soft);
+}
+.term-dots i:nth-child(1) { background: var(--orange); }
+.term-dots i:nth-child(2) { background: var(--yellow); }
+.term-dots i:nth-child(3) { background: #7fb27f; }
+.term-file {
+  font-family: var(--font-mono); font-size: 0.72rem; font-weight: 600;
+  color: rgba(247, 243, 234, 0.75);
+  letter-spacing: 0.04em;
+}
+.term-num {
+  margin-left: auto;
+  font-family: var(--font-mono); font-size: 0.68rem; font-weight: 700;
+  color: rgba(247, 243, 234, 0.4);
+  letter-spacing: 0.08em;
+}
+.focus-link {
+  display: inline-flex; align-items: center; gap: 7px;
+  align-self: flex-start;
+  font-family: var(--font-mono); font-size: 0.72rem; font-weight: 600;
+  color: var(--navy);
+  border-top: 1px solid var(--border);
+  padding-top: 12px; margin-top: 2px;
+  transition: color var(--t-fast) ease, gap var(--t-mid) var(--ease-out);
+}
+.focus-link:hover { color: var(--orange-deep); gap: 10px; }
+.focus-link svg { width: 15px; height: 15px; }
+.focus-icon {
+  width: 46px; height: 46px; border-radius: 13px;
+  background: var(--orange-soft); color: var(--orange-deep);
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.focus-icon svg { width: 24px; height: 24px; }
+.focus-card h3 { font-size: 1.2rem; color: var(--navy); }
+.focus-card p { color: var(--text-2); font-size: 0.92rem; flex-grow: 1; }
+.focus-tag {
+  align-self: flex-start;
+  font-family: var(--font-mono); font-size: 0.68rem; font-weight: 600;
+  background: var(--bg-2); color: var(--navy);
+  padding: 4px 11px; border-radius: 99px;
+  border: 1px solid var(--border);
+}
+.deco-focus {
+  width: 420px; height: 420px; right: -160px; top: -160px;
+  background: radial-gradient(circle, rgba(34, 48, 92, 0.06) 0%, transparent 70%);
+}
+
+/* Dekorasi parallax */
+.deco-circle {
+  position: absolute; border-radius: 50%;
+  pointer-events: none;
+  will-change: transform;
+}
+.deco-stats {
+  width: 340px; height: 340px; right: -120px; top: -120px;
+  background: radial-gradient(circle, rgba(242, 163, 92, 0.16) 0%, transparent 70%);
+}
+.deco-testi {
+  width: 380px; height: 380px; left: -140px; top: 40%;
+  background: radial-gradient(circle, rgba(34, 48, 92, 0.07) 0%, transparent 70%);
+}
+
+/* ══════════════════ TENTANG BAND ══════════════════ */
+.about-band { position: relative; overflow: hidden; background: var(--navy-deep); }
+.about-bg { position: absolute; inset: -12% 0; will-change: transform; }
+.about-bg img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.about-scrim {
+  position: absolute; inset: 0;
+  /* lapis 1: zona atas solid navy-deep agar wave (fill #182442) menyatu
+     mulus ke band gambar; lapis 2: scrim horizontal kiri→kanan */
+  background:
+    linear-gradient(to bottom, rgba(24, 36, 66, 0.97) 0%, rgba(24, 36, 66, 0.97) 66px, rgba(24, 36, 66, 0.6) 104px, transparent 150px),
+    linear-gradient(90deg, rgba(24, 36, 66, 0.9) 0%, rgba(24, 36, 66, 0.68) 46%, rgba(24, 36, 66, 0.28) 100%);
+}
+.about-inner {
+  position: relative; z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center; gap: 56px;
+  padding-top: 104px; padding-bottom: 104px;
+}
+.about-mascot { justify-self: end; align-self: end; }
+.about-card { max-width: 560px; color: #fff; }
+.about-title { font-size: clamp(1.9rem, 3.6vw, 3rem); color: #fff; margin-bottom: 16px; }
+.about-title em { color: var(--yellow); }
+.about-text { color: rgba(247, 243, 234, 0.92); margin-bottom: 22px; font-size: 1.04rem; max-width: 56ch; }
+.about-points { display: flex; flex-direction: column; gap: 11px; margin-bottom: 28px; }
+.about-points li { display: flex; align-items: center; gap: 10px; color: rgba(247, 243, 234, 0.95); font-size: 0.95rem; }
+.about-points svg { width: 20px; height: 20px; color: var(--orange); flex-shrink: 0; }
+.about-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
+.about-chip {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: var(--font-mono); font-size: 0.72rem; font-weight: 600;
+  background: rgba(247, 243, 234, 0.1);
+  border: 1px solid rgba(247, 243, 234, 0.28);
+  color: rgba(247, 243, 234, 0.94);
+  padding: 6px 13px; border-radius: 99px;
+}
+.about-chip svg { width: 14px; height: 14px; color: var(--yellow); }
+.about-mascot {
+  height: clamp(230px, 46vh, 440px); width: auto;
+  filter:
+    drop-shadow(0 14px 26px rgba(0, 0, 0, 0.45))
+    drop-shadow(0 0 20px rgba(246, 201, 111, 0.45))
+    drop-shadow(0 0 56px rgba(246, 201, 111, 0.24));
+  animation: mascot-float 6.5s ease-in-out infinite;
+  flex-shrink: 0;
+  will-change: transform;
+}
+
+/* ══════════════════ GITHUB | OPEN SOURCE ══════════════════ */
+.github-section {
+  position: relative; overflow: hidden;
+  background: linear-gradient(180deg, #1c2a50 0%, var(--navy-deep) 100%);
+  padding: 116px 0 108px;
+}
+.github-section::before {
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 46% at 50% 0%, rgba(242, 163, 92, 0.1) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 30% at 90% 100%, rgba(246, 201, 111, 0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.github-octo {
+  position: absolute; right: -110px; top: 50%;
+  transform: translateY(-50%);
+  width: 580px; height: auto;
+  opacity: 0.09;
+  pointer-events: none;
+}
+.gh-cells {
+  position: absolute; left: 26px; bottom: 96px;  /* di atas wave divider (60px) */
+  display: grid;
+  grid-template-rows: repeat(4, 9px);
+  grid-auto-flow: column;
+  grid-auto-columns: 9px;
+  gap: 4px;
+  opacity: 0.6;
+  pointer-events: none;
+}
+.gh-cells i {
+  width: 9px; height: 9px; border-radius: 2px;
+  background: rgba(247, 243, 234, 0.12);
+}
+.gh-cells i.l1 { background: rgba(242, 163, 92, 0.35); }
+.gh-cells i.l2 { background: rgba(242, 163, 92, 0.65); }
+.gh-cells i.l3 { background: var(--orange); }
+.gh-cells i.l4 { background: var(--yellow); }
+
+.github-section .section-head { text-align: center; margin-bottom: 44px; position: relative; z-index: 2; }
+.github-section .section-title { color: #fff; }
+.github-section .section-title em { color: var(--yellow); }
+.github-section .section-sub { color: rgba(247, 243, 234, 0.82); max-width: 60ch; margin: 0 auto; }
+
+/* Terminal clone strip */
+.gh-terminal {
+  display: flex; align-items: center; gap: 14px;
+  max-width: 660px; margin: 0 auto 52px;
+  background: rgba(8, 13, 28, 0.72);
+  border: 1.5px solid rgba(247, 243, 234, 0.16);
+  border-radius: var(--radius);
+  padding: 13px 18px;
+  position: relative; z-index: 2;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+.gh-terminal .term-dots { display: flex; gap: 5px; flex-shrink: 0; }
+.gh-terminal .term-dots i { width: 9px; height: 9px; border-radius: 50%; background: rgba(247, 243, 234, 0.18); }
+.gh-terminal .term-dots i:nth-child(1) { background: #e8863a; }
+.gh-terminal .term-dots i:nth-child(2) { background: #f6c96f; }
+.gh-terminal .term-dots i:nth-child(3) { background: #7fb27f; }
+.gh-terminal code {
+  font-family: var(--font-mono); font-size: 0.82rem;
+  color: rgba(247, 243, 234, 0.92);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  flex: 1;
+}
+.gh-terminal code::before { content: "$"; color: var(--orange); margin-right: 10px; font-weight: 700; }
+.term-cursor {
+  width: 8px; height: 16px;
+  background: var(--yellow);
+  animation: term-blink 1.1s steps(2) infinite;
+  flex-shrink: 0;
+}
+@keyframes term-blink { 0%, 60% { opacity: 1; } 61%, 100% { opacity: 0; } }
+
+.repo-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  position: relative; z-index: 2;
+  margin-bottom: 46px;
+}
+.repo-card {
+  background: rgba(247, 243, 234, 0.05);
+  border: 1.5px solid rgba(247, 243, 234, 0.14);
+  border-radius: var(--radius-lg);
+  padding: 22px 20px;
+  display: flex; flex-direction: column; gap: 12px;
+  transition: transform var(--t-mid) var(--ease-out), border-color var(--t-mid) ease, background var(--t-mid) ease;
+}
+.repo-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--orange);
+  background: rgba(247, 243, 234, 0.08);
+}
+.repo-top { display: flex; align-items: center; gap: 10px; }
+.repo-icon {
+  width: 38px; height: 38px; border-radius: 10px;
+  background: rgba(242, 163, 92, 0.16); color: var(--orange);
+  display: inline-flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.repo-icon svg { width: 20px; height: 20px; }
+.repo-top h3 {
+  font-family: var(--font-mono); font-size: 0.94rem; font-weight: 600;
+  color: #fff; letter-spacing: 0.01em;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.repo-top h3::before { content: "@"; color: var(--orange); margin-right: 4px; }
+.repo-public {
+  margin-left: auto;
+  font-size: 0.58rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  color: #7ee08a;
+  border: 1px solid rgba(126, 224, 138, 0.4);
+  padding: 3px 9px; border-radius: 99px;
+  flex-shrink: 0;
+}
+.repo-desc { color: rgba(247, 243, 234, 0.75); font-size: 0.87rem; flex-grow: 1; }
+.repo-meta {
+  display: flex; align-items: center; gap: 14px;
+  font-family: var(--font-mono); font-size: 0.72rem;
+  color: rgba(247, 243, 234, 0.6);
+  border-top: 1px solid rgba(247, 243, 234, 0.1);
+  padding-top: 12px;
+}
+.repo-lang { display: inline-flex; align-items: center; gap: 6px; }
+.lang-dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+.repo-stat { display: inline-flex; align-items: center; gap: 5px; }
+.repo-stat svg { width: 13px; height: 13px; }
+
+/* Statistik GitHub | panel grid: 4 kolom desktop, 2×2 tablet/mobile */
+.gh-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  position: relative; z-index: 2;
+  margin-bottom: 46px;
+  border: 1.5px solid rgba(247, 243, 234, 0.12);
+  border-radius: var(--radius);
+  background: rgba(247, 243, 234, 0.04);
+  padding: 20px 8px;
+}
+.gh-stat {
+  display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+  font-family: var(--font-mono); font-size: 0.82rem;
+  color: rgba(247, 243, 234, 0.7);
+  padding: 4px 14px;
+  border-left: 1px solid rgba(247, 243, 234, 0.12);
+}
+.gh-stat:first-child { border-left: none; }
+.gh-stat svg { width: 18px; height: 18px; color: var(--orange); }
+.gh-stat strong {
+  font-size: 1.05rem; font-weight: 700;
+  color: #fff;
+}
+
+.gh-cta {
+  display: flex; justify-content: center; align-items: center;
+  gap: 16px; flex-wrap: wrap;
+  position: relative; z-index: 2;
+}
+
+/* Uiverse-style arrow-slide CTA (diadaptasi ke palet bone/navy/orange) */
+.btn-slide {
+  position: relative;
+  display: inline-flex; align-items: center;
+  padding: 15px 34px 15px 26px;
+  border-radius: 50px;
+  background: var(--orange); color: var(--navy);
+  font-weight: 700; font-size: 1rem;
+  box-shadow: 0 10px 26px rgba(242, 163, 92, 0.28);
+  transition: transform var(--t-mid) var(--ease-spring), box-shadow var(--t-mid) ease;
+  touch-action: manipulation;
+}
+.btn-slide::after {
+  content: "";
+  position: absolute; right: 20px;
+  width: 16px; height: 16px;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><path d='M5 12h14M13 6l6 6-6 6'/></svg>") center / contain no-repeat;
+  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><path d='M5 12h14M13 6l6 6-6 6'/></svg>") center / contain no-repeat;
+  opacity: 0; transform: translateX(-6px);
+  transition: opacity var(--t-mid) ease, transform var(--t-mid) var(--ease-out);
+}
+.btn-slide:hover { transform: translateY(-2px); box-shadow: 0 16px 34px rgba(242, 163, 92, 0.4); }
+.btn-slide:hover::after { opacity: 1; transform: translateX(0); }
+.btn-slide span { padding-right: 14px; }
+.btn-slide svg { width: 20px; height: 20px; }
+
+/* Tombol ghost di atas latar gelap */
+.ghost-light {
+  border-color: rgba(247, 243, 234, 0.4) !important;
+  color: #fff !important;
+  background: transparent !important;
+}
+.ghost-light:hover { background: rgba(247, 243, 234, 0.1) !important; color: var(--yellow) !important; }
+
+/* ══════════════════ TESTIMONI ══════════════════ */
+.testimonial-section { position: relative; overflow: hidden; }
+.carousel { position: relative; max-width: 760px; margin: 0 auto; z-index: 2; }
+.carousel-viewport { overflow: hidden; border-radius: var(--radius-lg); }
+.carousel-track { display: flex; transition: transform 0.55s var(--ease-out); }
+.testimonial-slide {
+  flex: 0 0 100%; min-width: 100%;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 38px 34px 30px;
+  text-align: center;
+}
+.testimonial-quote { color: var(--orange); margin-bottom: 14px; display: inline-block; }
+.testimonial-quote svg { width: 34px; height: 34px; }
+.testimonial-text {
+  font-family: var(--font-display); font-size: 1.18rem; line-height: 1.6;
+  color: var(--navy); margin-bottom: 24px;
+}
+.testimonial-meta { display: flex; align-items: center; justify-content: center; gap: 13px; }
+.testimonial-avatar {
+  width: 46px; height: 46px; border-radius: 50%;
+  background: var(--navy); color: #fff;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-weight: 600; font-size: 1.1rem;
+}
+.testimonial-meta > div { text-align: left; display: flex; flex-direction: column; line-height: 1.3; }
+.testimonial-meta strong { color: var(--navy); font-family: var(--font-body); }
+.testimonial-meta span { color: var(--text-3); font-size: 0.82rem; }
+.testimonial-stars { color: var(--orange); margin-left: 6px; display: inline-flex; gap: 2px; }
+.testimonial-stars svg { width: 16px; height: 16px; }
+
+.carousel-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 42px; height: 42px; border-radius: 50%;
+  background: var(--surface); border: 1.5px solid var(--border-strong);
+  color: var(--navy);
+  display: inline-flex; align-items: center; justify-content: center;
+  box-shadow: var(--shadow-1);
+  transition: background var(--t-fast) ease, color var(--t-fast) ease, transform var(--t-mid) var(--ease-out);
+  z-index: 5;
+  touch-action: manipulation;
+}
+.carousel-btn:hover { background: var(--navy); color: #fff; }
+.carousel-btn svg { width: 20px; height: 20px; }
+.carousel-btn.prev { left: -18px; }
+.carousel-btn.next { right: -18px; }
+.carousel-btn.prev:hover { transform: translateY(-50%) translateX(-2px); }
+.carousel-btn.next:hover { transform: translateY(-50%) translateX(2px); }
+
+.carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 22px; }
+.carousel-dots button {
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--border-strong);
+  transition: background var(--t-mid) var(--ease-out), width var(--t-mid) var(--ease-out);
+  padding: 0; touch-action: manipulation;
+}
+.carousel-dots button.is-active { background: var(--orange); width: 26px; border-radius: 99px; }
+
+/* ══════════════════ FAQ ══════════════════ */
+.faq-section { background: var(--bg-2); position: relative; }
+.faq-layout { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 56px; align-items: start; }
+.faq-list { display: flex; flex-direction: column; gap: 14px; }
+.faq-item {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  transition: border-color var(--t-fast) ease, box-shadow var(--t-mid) var(--ease-out);
+}
+.faq-item[open] { border-color: var(--border-strong); box-shadow: var(--shadow-2); }
+.faq-item summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 14px;
+  padding: 18px 22px;
+  font-weight: 600; color: var(--navy); font-size: 1rem;
+  font-family: var(--font-body);
+  touch-action: manipulation;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-icon { color: var(--orange); display: inline-flex; transition: transform var(--t-mid) var(--ease-spring); flex-shrink: 0; }
+.faq-icon svg { width: 20px; height: 20px; }
+.faq-item[open] .faq-icon { transform: rotate(180deg); }
+.faq-item p { padding: 0 22px 20px; color: var(--text-2); font-size: 0.94rem; max-width: 70ch; }
+.faq-contact { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: 24px; }
+.faq-phone {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-mono); font-weight: 600; font-size: 0.9rem;
+  color: var(--navy);
+  transition: color var(--t-fast) ease;
+}
+.faq-phone:hover { color: var(--orange-deep); }
+.faq-phone svg { width: 17px; height: 17px; color: var(--orange-deep); }
+
+/* ══════════════════ FOOTER ══════════════════ */
+.site-footer {
+  position: relative;
+  background: var(--navy);
+  color: rgba(247, 243, 234, 0.82);
+  padding: 64px 0 34px;
+  overflow: hidden;
+}
+.footer-mascot {
+  position: absolute; right: 3%; bottom: 10px;
+  height: 230px; width: auto; opacity: 0.9;
+  filter:
+    drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4))
+    drop-shadow(0 0 18px rgba(246, 201, 111, 0.35));
+  pointer-events: none;
+  will-change: transform;
+}
+.footer-grid {
+  display: grid; grid-template-columns: 1.5fr 1fr 1.2fr;
+  gap: 44px; padding-bottom: 44px;
+  border-bottom: 1px solid rgba(247, 243, 234, 0.14);
+  position: relative; z-index: 2;
+}
+.footer-brand .brand .brand-badge { box-shadow: 2px 2px 0 var(--orange); }
+.footer-brand .brand-name { color: #fff; }
+.footer-tagline { margin-top: 16px; font-size: 0.94rem; max-width: 40ch; opacity: 0.85; }
+.footer-socials { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+.footer-socials a {
+  width: 38px; height: 38px; border-radius: 10px;
+  background: rgba(247, 243, 234, 0.08);
+  border: 1px solid rgba(247, 243, 234, 0.18);
+  display: inline-flex; align-items: center; justify-content: center;
+  color: rgba(247, 243, 234, 0.85);
+  transition: background var(--t-fast) ease, color var(--t-fast) ease, transform var(--t-mid) var(--ease-spring);
+}
+.footer-socials a:hover { background: var(--orange); color: var(--navy); transform: translateY(-3px); }
+.footer-socials svg { width: 18px; height: 18px; }
+
+.footer-col h4 {
+  font-family: var(--font-body); font-weight: 700; font-size: 0.8rem;
+  letter-spacing: 0.13em; text-transform: uppercase;
+  color: var(--orange); margin-bottom: 16px;
+}
+.footer-col a {
+  display: flex; align-items: center; gap: 9px;
+  padding: 6px 0; font-size: 0.94rem;
+  opacity: 0.85; transition: opacity var(--t-fast) ease, color var(--t-fast) ease, transform var(--t-mid) var(--ease-out);
+}
+.footer-col a:hover { opacity: 1; color: var(--yellow); transform: translateX(3px); }
+.footer-col svg { width: 17px; height: 17px; color: var(--orange); }
+
+.footer-bottom {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 14px; flex-wrap: wrap;
+  padding-top: 26px; font-size: 0.82rem;
+  opacity: 0.7; position: relative; z-index: 2;
+}
+.back-top {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 9px 15px; border-radius: 10px;
+  background: rgba(247, 243, 234, 0.08);
+  border: 1px solid rgba(247, 243, 234, 0.25);
+  color: rgba(247, 243, 234, 0.9);
+  font-weight: 600; font-size: 0.82rem;
+  transition: background var(--t-fast) ease, color var(--t-fast) ease, transform var(--t-mid) var(--ease-out);
+  touch-action: manipulation;
+}
+.back-top:hover { background: var(--orange); color: var(--navy); transform: translateY(-2px); }
+.back-top svg { width: 16px; height: 16px; }
+
+/* ══════════════════ RESPONSIVE ══════════════════ */
+/* FAQ | head sticky di desktop agar tetap terlihat saat daftar discroll */
+@media (min-width: 901px) {
+  .faq-layout { align-items: start; }
+  .section-head.left { position: sticky; top: 96px; }
+}
+
+@media (max-width: 1100px) {
+  .focus-grid { grid-template-columns: repeat(2, 1fr); }
+  .repo-grid { grid-template-columns: repeat(2, 1fr); }
+  .github-octo { right: -160px; }
+  .gh-stats { grid-template-columns: repeat(2, 1fr); gap: 18px 0; border: none; background: transparent; padding: 0; }
+  .gh-stat { border-left: none; }
+}
+
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .nav-burger { display: inline-flex; }
+  .faq-layout { grid-template-columns: 1fr; gap: 36px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+}
+
+@media (max-width: 768px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .testimonial-section { padding: 72px 0; }
+  .faq-section { padding: 64px 0; }
+  .focus-section { padding: 72px 0 84px; }
+  .github-section { padding: 84px 0 80px; }
+  .about-inner { display: grid; grid-template-columns: 1fr; justify-items: center; text-align: center; padding-top: 72px; padding-bottom: 72px; }
+  .about-card { display: flex; flex-direction: column; align-items: center; }
+  .about-points li { justify-content: center; text-align: left; }
+  .about-mascot { height: 235px; justify-self: center; }
+  .footer-mascot { display: none; }
+  .about-scrim {
+    background:
+      linear-gradient(to bottom, rgba(24, 36, 66, 0.97) 0%, rgba(24, 36, 66, 0.97) 40px, rgba(24, 36, 66, 0.6) 70px, transparent 110px),
+      linear-gradient(180deg, rgba(24, 36, 66, 0.92) 0%, rgba(24, 36, 66, 0.75) 100%);
+  }
+  .carousel-btn.prev { left: 4px; }
+  .carousel-btn.next { right: 4px; }
+  .testimonial-slide { padding: 30px 20px 24px; }
+  .deco-stats, .deco-testi { opacity: 0.6; }
+}
+
+@media (max-width: 640px) {
+  .focus-grid { grid-template-columns: 1fr; }
+  .repo-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .nav-actions .btn-primary span { display: none; }
+  .nav-actions .btn-primary { padding: 10px 12px; }
+  .about-chips { justify-content: center; }
+  .github-octo { width: 340px; right: -80px; }
+  .gh-cells { opacity: 0.35; }
+}
+
+@media (max-width: 480px) {
+  .testimonial-meta { flex-wrap: wrap; }
+}
+
+/* Mobile: sisakan ruang bawah untuk scroll-hint agar maskot tidak
+   menutupinya (layout stacked: teks di atas, maskot di bawah) */
+@media (max-width: 768px) {
+  .hero-sticky { padding-bottom: 84px; }
+}
+
+/* Layar mobile pendek (SE/landscape): skala konten hero agar
+   layout stacked (teks + maskot) tetap muat tanpa terpotong */
+@media (max-width: 768px) and (max-height: 720px) {
+  .hero-sticky { padding-bottom: 40px; gap: 8px; }
+  .hero-title { font-size: clamp(1.5rem, 6vh, 2.1rem); margin-bottom: 8px; }
+  .hero-sub { font-size: 0.85rem; margin: 0 auto 14px; }
+  .hero-pills { margin-top: 12px; }
+  .hero-mascot { height: min(22vh, 140px); }
+}
+
+/* ── Reduced motion ─────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal, .reveal-l, .reveal-scale { opacity: 1; transform: none; transition: none; }
+  .sec-anim > .sec-inner { opacity: 1; transform: none; transition: none; }
+  .marquee-inner, .hero-mascot, .about-mascot, .scroll-hint-arrow { animation: none !important; }
+  .btn, .stat, .carousel-track, .carousel-btn, .footer-socials a { transition: none; }
+}
+
+
+:root{--bone:#f7f3ea;--bg2:#f1ebdd;--navy:#22305c;--deep:#182442;--orange:#f2a35c;--yellow:#f6c96f;--ink:#2b3245;--text2:#5a6478;--border:rgba(34,48,92,.13);--radius:16px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Outfit',system-ui,sans-serif;background:var(--bone);color:var(--ink);line-height:1.6}
+.container{max-width:1180px;margin:0 auto;padding:0 20px}
+a{color:inherit;text-decoration:none}
+header{position:sticky;top:0;z-index:50;background:rgba(247,243,234,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:14px}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;color:var(--navy)}
+.badge{width:34px;height:34px;border-radius:10px;background:var(--orange);color:var(--navy);display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:1.05rem;border:2px solid var(--navy);box-shadow:2px 2px 0 var(--navy)}
+.nav-links{display:flex;gap:22px;align-items:center;font-size:.92rem;font-weight:600;color:var(--navy)}
+.nav-links a.active{color:var(--orange-deep,#c2642a)}
+.nav-links a:hover{color:var(--orange-deep,#c2642a)}
+.nav-btn{background:var(--navy);color:#fff!important;padding:9px 16px;border-radius:10px}
+.nav-btn:hover{background:var(--deep)}
+main{padding:56px 0 80px}
+.page-head{text-align:center;max-width:640px;margin:0 auto 40px}
+.page-head h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2rem,5vw,3rem);color:var(--navy);letter-spacing:-.015em;line-height:1.15;margin-bottom:10px}
+.page-head h1 em{color:var(--orange-deep,#c2642a)}
+.page-head p{color:var(--text2);font-size:1.02rem}
+.searchbar{display:flex;gap:10px;max-width:560px;margin:26px auto 14px;background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:6px 8px 6px 18px;box-shadow:0 10px 26px rgba(34,48,92,.08)}
+.searchbar input{flex:1;border:0;outline:0;font-family:inherit;font-size:1rem;background:transparent;color:var(--ink)}
+.searchbar .k{font-family:'JetBrains Mono',monospace;font-size:.66rem;font-weight:600;color:var(--orange-deep,#c2642a);background:var(--bg2);border:1px solid var(--border);padding:4px 8px;border-radius:8px;white-space:nowrap;align-self:center}
+.meta{text-align:center;font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--text2);margin-bottom:26px}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:40px}
+.chip{border:1.5px solid var(--border);background:#fff;color:var(--navy);font-weight:600;font-size:.8rem;padding:6px 14px;border-radius:99px;cursor:pointer;transition:all .2s}
+.chip:hover{border-color:var(--orange)}
+.chip.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:#fff;border:1.5px solid var(--border);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;box-shadow:0 8px 22px rgba(34,48,92,.06);transition:transform .25s ease,box-shadow .25s ease}
+.card:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(34,48,92,.13)}
+.card.featured{border-color:var(--orange)}
+.thumb{position:relative;aspect-ratio:16/10;background:linear-gradient(135deg,var(--deep),var(--navy));overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-weight:600;font-size:1rem;color:rgba(247,243,234,.85)}
+.thumb img+ .ph{display:none}
+.thumb .ribbon{position:absolute;top:10px;left:10px;font-family:'JetBrains Mono',monospace;font-size:.62rem;font-weight:700;background:var(--orange);color:var(--navy);padding:3px 9px;border-radius:99px}
+.thumb .hot{position:absolute;top:10px;right:10px;font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.92);color:var(--navy);padding:3px 9px;border-radius:99px}
+.body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.top{display:flex;align-items:center;gap:8px}
+.code{font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--orange-deep,#c2642a);background:var(--bg2);border:1px solid var(--border);padding:3px 8px;border-radius:8px}
+.cat{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text2);border:1px solid var(--border);padding:3px 8px;border-radius:8px}
+.body h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;color:var(--navy)}
+.body p{font-size:.9rem;color:var(--text2);flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-family:'JetBrains Mono',monospace;font-size:.64rem;font-weight:600;color:var(--navy);background:var(--bg2);padding:3px 8px;border-radius:99px}
+.acts{display:flex;gap:8px;margin-top:6px}
+.btn{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:7px;font-weight:700;font-size:.85rem;padding:10px 14px;border-radius:11px;border:1.5px solid var(--navy);cursor:pointer;font-family:inherit;transition:all .2s;touch-action:manipulation}
+.btn.navy{background:var(--navy);color:#fff}
+.btn.navy:hover{background:var(--deep);transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--navy)}
+.btn.ghost:hover{background:rgba(34,48,92,.06)}
+.empty{text-align:center;padding:60px 0;color:var(--text2)}
+.empty .big{font-family:'Fraunces',serif;font-size:1.6rem;color:var(--navy);margin-bottom:6px}
+footer{border-top:1px solid var(--border);padding:34px 0;text-align:center;color:var(--text2);font-size:.88rem}
+footer strong{color:var(--navy)}
+footer .wa{margin-top:6px;display:inline-flex;align-items:center;gap:7px;color:var(--navy);font-weight:700}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--navy);color:#fff;font-weight:600;font-size:.88rem;padding:11px 20px;border-radius:12px;box-shadow:0 14px 30px rgba(0,0,0,.25);transition:transform .3s ease;opacity:0;pointer-events:none;z-index:99}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+@media(max-width:920px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.grid{grid-template-columns:1fr}.nav-links{gap:14px}.nav-links .hide-sm{display:none}}
+
+
+:root{--bone:#f7f3ea;--bg2:#f1ebdd;--navy:#22305c;--deep:#182442;--orange:#f2a35c;--yellow:#f6c96f;--ink:#2b3245;--text2:#5a6478;--border:rgba(34,48,92,.15);--radius:14px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Outfit',system-ui,sans-serif;background:var(--deep);color:#e8ebf2;line-height:1.55}
+.container{max-width:1080px;margin:0 auto;padding:24px 20px 60px}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:22px}
+h1{font-size:1.35rem;font-weight:800}
+h1 span{color:var(--yellow)}
+.sub{color:rgba(247,243,234,.6);font-size:.85rem}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+.panel{background:rgba(247,243,234,.05);border:1px solid rgba(247,243,234,.14);border-radius:var(--radius);padding:20px}
+.panel h2{font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:16px}
+label{display:block;font-size:.8rem;font-weight:600;color:rgba(247,243,234,.85);margin:12px 0 5px}
+input[type=text],input[type=url],textarea,select{width:100%;background:rgba(8,13,28,.5);border:1px solid rgba(247,243,234,.18);color:#fff;border-radius:10px;padding:9px 12px;font-family:inherit;font-size:.92rem;outline:0}
+input:focus,textarea:focus,select:focus{border-color:var(--orange)}
+textarea{min-height:74px;resize:vertical}
+.hint{font-size:.72rem;color:rgba(247,243,234,.5);margin-top:4px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.check{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:.85rem}
+.check input{width:auto}
+.btns{display:flex;gap:10px;margin-top:18px}
+button{cursor:pointer;font-family:inherit;border:0}
+.btn{padding:11px 18px;border-radius:11px;font-weight:700;font-size:.88rem;display:inline-flex;align-items:center;gap:7px;transition:all .2s;touch-action:manipulation}
+.btn.orange{background:var(--orange);color:var(--navy)}
+.btn.orange:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.btn.ghost{background:rgba(247,243,234,.1);color:#fff;border:1px solid rgba(247,243,234,.2)}
+.btn.ghost:hover{background:rgba(247,243,234,.18)}
+.btn.danger{background:rgba(255,90,90,.16);color:#ff8b8b;border:1px solid rgba(255,90,90,.35)}
+.btn.danger:hover{background:rgba(255,90,90,.26)}
+.btn.mini{padding:7px 12px;font-size:.78rem;border-radius:9px}
+.item{background:rgba(8,13,28,.45);border:1px solid rgba(247,243,234,.14);border-radius:12px;padding:14px;margin-bottom:10px}
+.item .it{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.item .code{font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;color:var(--navy);background:var(--yellow);padding:2px 8px;border-radius:7px}
+.item .nm{font-weight:700;font-size:.95rem;flex:1;min-width:120px}
+.item .ct{font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(247,243,234,.55);border:1px solid rgba(247,243,234,.2);padding:2px 7px;border-radius:7px}
+.item .im{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:rgba(247,243,234,.55);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin:8px 0 4px;max-width:100%}
+.item .acts{display:flex;gap:8px;margin-top:8px}
+.export{margin-top:18px}
+textarea.exportbox{min-height:150px;font-family:'JetBrains Mono',monospace;font-size:.72rem}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--orange);color:var(--navy);font-weight:700;font-size:.88rem;padding:11px 20px;border-radius:12px;box-shadow:0 14px 30px rgba(0,0,0,.35);transition:transform .3s;opacity:0;pointer-events:none;z-index:99}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+.gate{position:fixed;inset:0;background:var(--deep);display:flex;align-items:center;justify-content:center;z-index:100}
+.gatebox{text-align:center;max-width:380px;padding:32px 28px;background:rgba(247,243,234,.06);border:1px solid rgba(247,243,234,.16);border-radius:18px;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+.gatebox h1{font-size:1.35rem;margin-bottom:6px}
+.gatebox p{color:rgba(247,243,234,.65);font-size:.85rem;margin-bottom:18px}
+.gatebox input{width:100%;text-align:center;font-family:'JetBrains Mono',monospace;letter-spacing:.2em;padding:12px;margin-bottom:12px}
+.gatebox .err-msg{color:#ff8b8b;font-size:.78rem;margin-top:8px;font-weight:600;min-height:20px}
+.status-badge{display:inline-block;font-size:.68rem;font-family:'JetBrains Mono',monospace;padding:3px 8px;border-radius:6px;background:rgba(246,201,111,.15);color:var(--yellow);border:1px solid rgba(246,201,111,.3);margin-bottom:12px}
+@media(max-width:820px){.grid{grid-template-columns:1fr}}
+
+  ]]></b:skin>
+</head>
+
+<body>
+
+  <!-- Navigasi Mode Tampilan (SPA Router untuk Blogger) -->
+  <div id="akalpa-app-root">
+
+    <!-- 1. LANDING PAGE SECTION -->
+    <div id="view-home" class="akalpa-view">
+<a class="skip-link" href="#main">Langsung ke konten utama</a>
+
+<!-- ══════════════════ NAVBAR ══════════════════ -->
+<header id="siteHeader" class="site-header">
+  <div class="container nav-inner">
+    <a href="#hero" class="brand" data-scroll="hero">
+      <img class="brand-logo" src="assets/Akalpa-Logos.png" alt="Logo Akalpa Inovasi" width="36" height="36">
+      <span class="brand-text">
+        <span class="brand-name">Akalpa Inovasi</span>
+      </span>
+    </a>
+    <nav class="nav-links" aria-label="Navigasi utama">
+      <a href="#tentang" data-scroll>Tentang</a>
+      <a href="#fokus" data-scroll>Fokus</a>
+      <a href="#github" data-scroll>Open Source</a>
+      <a href="#testimoni" data-scroll>Testimoni</a>
+      <a href="#faq" data-scroll>FAQ</a>
+      <a href="#templates">Free Template</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-primary btn-sm" href="https://wa.me/6285191240994?text=Halo%20Akalpa!%20Saya%20ingin%20konsultasi%20pembuatan%20website%20%F0%9F%9A%80" target="_blank" rel="noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-whatsapp" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" /> <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" /> </svg><span>Konsultasi Gratis</span>
+      </a>
+      <button class="nav-burger" id="navBurger" aria-label="Buka menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-menu" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M4 8l16 0" /> <path d="M4 16l16 0" /> </svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu" hidden>
+    <a href="#tentang" data-scroll>Tentang</a>
+    <a href="#fokus" data-scroll>Fokus</a>
+    <a href="#github" data-scroll>Open Source</a>
+    <a href="#testimoni" data-scroll>Testimoni</a>
+    <a href="#faq" data-scroll>FAQ</a>
+    <a href="#templates">Free Template</a>
+    <a class="btn btn-primary" href="https://wa.me/6285191240994?text=Halo%20Akalpa!%20Saya%20ingin%20konsultasi%20pembuatan%20website%20%F0%9F%9A%80" target="_blank" rel="noopener noreferrer">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-whatsapp" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" /> <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" /> </svg> Konsultasi Gratis
+    </a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ══════════════════ HERO | CANVAS (40 frame section3: siang → malam) ══════════════════ -->
+  <section id="hero" class="hero-story" aria-label="Perkenalan Akalpa Inovasi">
+    <div class="hero-sticky">
+      <canvas id="heroCanvas" aria-hidden="true"></canvas>
+      <div class="hero-vignette" aria-hidden="true"></div>
+      <div class="hero-scrim" id="heroScrim" aria-hidden="true"></div>
+
+      <div class="hero-preloader" id="heroPreloader" role="status" aria-live="polite">
+        <img class="preloader-logo" src="assets/Akalpa-Logos.png" alt="Logo Akalpa Inovasi" width="52" height="52">
+        <span class="preloader-label">Memuat Pengalaman…</span>
+        <div class="preloader-bar"><div class="preloader-fill" id="preloaderFill"></div></div>
+        <span class="preloader-count" id="preloaderCount">0 / 40</span>
+      </div>
+
+      <div class="hero-content" id="heroContent">
+        <h1 class="hero-title">Automasi AI &amp; Website yang <em>Benar-Benar Ngomong</em></h1>
+        <p class="hero-sub">Akalpa Inovasi membangun automasi AI | Hermes, OpenClaw, dan Moko AI | serta website kustom yang dirancang dengan Akalpa Web Builder, alat buatan tangan kami sendiri.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="https://wa.me/6285191240994?text=Halo%20Akalpa!%20Saya%20ingin%20konsultasi%20pembuatan%20website%20%F0%9F%9A%80" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-whatsapp" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" /> <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" /> </svg> Konsultasi Gratis
+          </a>
+          <a class="btn btn-ghost" href="#templates">
+            Free Template <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-right" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M5 12l14 0" /> <path d="M13 18l6 -6" /> <path d="M13 6l6 6" /> </svg>
+          </a>
+        </div>
+        <div class="hero-pills" aria-label="Produk kami">
+          <span class="hero-pill"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-robot" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M6 6a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2l0 -4" /> <path d="M12 2v2" /> <path d="M9 12v9" /> <path d="M15 12v9" /> <path d="M5 16l4 -2" /> <path d="M15 14l4 2" /> <path d="M9 18h6" /> <path d="M10 8v.01" /> <path d="M14 8v.01" /> </svg> Hermes</span>
+          <span class="hero-pill"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-terminal" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M5 7l5 5l-5 5" /> <path d="M12 19l7 0" /> </svg> OpenClaw</span>
+          <span class="hero-pill"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brain" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M15.5 13a3.5 3.5 0 0 0 -3.5 3.5v1a3.5 3.5 0 0 0 7 0v-1.8" /> <path d="M8.5 13a3.5 3.5 0 0 1 3.5 3.5v1a3.5 3.5 0 0 1 -7 0v-1.8" /> <path d="M17.5 16a3.5 3.5 0 0 0 0 -7h-.5" /> <path d="M19 9.3v-2.8a3.5 3.5 0 0 0 -7 0" /> <path d="M6.5 16a3.5 3.5 0 0 1 0 -7h.5" /> <path d="M5 9.3v-2.8a3.5 3.5 0 0 1 7 0v10" /> </svg> Moko AI</span>
+        </div>
+      </div>
+
+      <img class="hero-mascot" id="heroMascot" src="assets/mascot/punya-ide.webp" alt="Maskot Akalpa Inovasi dengan ide baru di hero" width="200" height="300">
+
+      <div class="scroll-hint" id="scrollHint">
+        <span>Scroll Untuk Motion</span>
+        <span class="scroll-hint-arrow" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M6 9l6 6l6 -6" /> </svg></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ MARQUEE ══════════════════ -->
+  <section class="tech-strip sec-anim" aria-label="Teknologi dan produk kami">
+    <div class="sec-inner">
+    <div class="marquee-track">
+      <div class="marquee-inner" id="marqueeInner">
+        <span>Hermes</span><span>OpenClaw</span><span>Moko AI</span><span>Akalpa Web Builder</span><span>Open Source</span>
+        <span>GitHub</span><span>React</span><span>Vite</span><span>Python</span><span>Node.js</span>
+        <span>TypeScript</span><span>Figma</span><span>TailwindCSS</span><span>Framer Motion</span><span>GSAP</span>
+        <span>Three.js</span><span>SEO</span><span>Custom CMS</span>
+      </div>
+    </div>
+    </div>
+    <!-- Wave divider section 2→3 (bentuk: gelombang klasik 2 punuk asimetris) -->
+    <div class="wave-wrap" aria-hidden="true">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,115.3,188.71,98.67,234.33,85.53,278.4,70.28,321.39,56.44Z" fill="#f7f3ea"></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ══════════════════ STATS ══════════════════ -->
+  <section class="section stats-section sec-anim" aria-label="Angka kami">
+    <div class="deco-circle deco-stats" data-parallax="0.07" aria-hidden="true"></div>
+    <div class="sec-inner">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2 class="section-title">Angka yang Kami <em>Pegang Teguh</em></h2>
+      </div>
+      <div class="stats-grid">
+        <div class="stat reveal-scale">
+          <span class="stat-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-rocket" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M4 13a8 8 0 0 1 7 7a6 6 0 0 0 3 -5a9 9 0 0 0 6 -8a3 3 0 0 0 -3 -3a9 9 0 0 0 -8 6a6 6 0 0 0 -5 3" /> <path d="M7 14a6 6 0 0 0 -3 6a6 6 0 0 0 6 -3" /> <path d="M14 9a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /> </svg></span>
+          <span class="stat-value"><span class="countup" data-count="20">0</span>+</span>
+          <span class="stat-label">Project Selesai</span>
+        </div>
+        <div class="stat reveal-scale">
+          <span class="stat-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-robot" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M6 6a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2l0 -4" /> <path d="M12 2v2" /> <path d="M9 12v9" /> <path d="M15 12v9" /> <path d="M5 16l4 -2" /> <path d="M15 14l4 2" /> <path d="M9 18h6" /> <path d="M10 8v.01" /> <path d="M14 8v.01" /> </svg></span>
+          <span class="stat-value">3</span>
+          <span class="stat-label">Produk Automasi AI</span>
+        </div>
+        <div class="stat reveal-scale">
+          <span class="stat-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-heart" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" /> </svg></span>
+          <span class="stat-value"><span class="countup" data-count="100">0</span>%</span>
+          <span class="stat-label">Klien Puas</span>
+        </div>
+        <div class="stat reveal-scale">
+          <span class="stat-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-infinity" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M9.828 9.172a4 4 0 1 0 0 5.656a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" /> </svg></span>
+          <span class="stat-value">∞</span>
+          <span class="stat-label">Revisi Sampai Pas</span>
+        </div>
+      </div>
+      <p class="stats-note reveal">Terpercaya oleh bisnis dari seluruh Indonesia | UMKM, klinik, hingga startup teknologi. Berbasis di <strong>Yogyakarta</strong>, melayani secara remote.</p>
+    </div>
+    </div>
+    <!-- Wave divider section 3→4 (bentuk: simetris 4 punuk rata) -->
+    <div class="wave-wrap" aria-hidden="true">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,60 C100,10 200,110 300,60 C400,10 500,110 600,60 C700,10 800,110 900,60 C1000,10 1100,110 1200,60 L1200,120 L0,120 Z" fill="#f1ebdd"></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ══════════════════ FOKUS | produk AI + web design ══════════════════ -->
+  <section id="fokus" class="section focus-section sec-anim">
+    <div class="deco-circle deco-focus" data-parallax="0.06" aria-hidden="true"></div>
+    <div class="sec-inner">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2 class="section-title">Automasi AI &amp; Web Design <em>Dalam Satu Atap</em></h2>
+        <p class="section-sub">Kami membangun mesin yang bekerja untuk Anda | dari automasi AI hingga website yang dirancang dari nol.</p>
+      </div>
+      <div class="focus-grid">
+        <article class="focus-card reveal">
+          <div class="focus-term" aria-hidden="true">
+            <span class="term-dots"><i></i><i></i><i></i></span>
+            <span class="term-file">hermes · run</span>
+            <span class="term-num" aria-hidden="true">01</span>
+          </div>
+          <span class="focus-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-robot" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M6 6a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2l0 -4" /> <path d="M12 2v2" /> <path d="M9 12v9" /> <path d="M15 12v9" /> <path d="M5 16l4 -2" /> <path d="M15 14l4 2" /> <path d="M9 18h6" /> <path d="M10 8v.01" /> <path d="M14 8v.01" /> </svg></span>
+          <h3>Hermes</h3>
+          <p>Sistem automasi AI yang menangani komunikasi dan alur kerja berulang secara mandiri | respons cepat, konsisten, tanpa henti.</p>
+          <span class="focus-tag">AI Automation</span>
+          <a class="focus-link" href="https://github.com/akalpainovasi" target="_blank" rel="noopener noreferrer">Lihat Repo <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-up-right" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M17 7l-10 10" /> <path d="M8 7l9 0l0 9" /> </svg></a>
+        </article>
+        <article class="focus-card reveal">
+          <div class="focus-term" aria-hidden="true">
+            <span class="term-dots"><i></i><i></i><i></i></span>
+            <span class="term-file">openclaw · run</span>
+            <span class="term-num" aria-hidden="true">02</span>
+          </div>
+          <span class="focus-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-terminal" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M5 7l5 5l-5 5" /> <path d="M12 19l7 0" /> </svg></span>
+          <h3>OpenClaw</h3>
+          <p>Framework automasi untuk tugas-tugas kompleks | membantu bisnis memindahkan kerja manual ke mesin yang bisa dipercaya.</p>
+          <span class="focus-tag">AI Automation</span>
+          <a class="focus-link" href="https://github.com/akalpainovasi" target="_blank" rel="noopener noreferrer">Lihat Repo <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-up-right" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M17 7l-10 10" /> <path d="M8 7l9 0l0 9" /> </svg></a>
+        </article>
+        <article class="focus-card reveal">
+          <div class="focus-term" aria-hidden="true">
+            <span class="term-dots"><i></i><i></i><i></i></span>
+            <span class="term-file">moko-ai · research</span>
+            <span class="term-num" aria-hidden="true">03</span>
+          </div>
+          <span class="focus-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brain" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M15.5 13a3.5 3.5 0 0 0 -3.5 3.5v1a3.5 3.5 0 0 0 7 0v-1.8" /> <path d="M8.5 13a3.5 3.5 0 0 1 3.5 3.5v1a3.5 3.5 0 0 1 -7 0v-1.8" /> <path d="M17.5 16a3.5 3.5 0 0 0 0 -7h-.5" /> <path d="M19 9.3v-2.8a3.5 3.5 0 0 0 -7 0" /> <path d="M6.5 16a3.5 3.5 0 0 1 0 -7h.5" /> <path d="M5 9.3v-2.8a3.5 3.5 0 0 1 7 0v10" /> </svg></span>
+          <h3>Moko AI</h3>
+          <p>Proyek riset pribadi kami: asisten AI yang belajar memahami konteks pengguna | cikal bakal produk AI berikutnya.</p>
+          <span class="focus-tag">Research</span>
+          <a class="focus-link" href="https://github.com/akalpainovasi" target="_blank" rel="noopener noreferrer">Lihat Repo <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-up-right" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M17 7l-10 10" /> <path d="M8 7l9 0l0 9" /> </svg></a>
+        </article>
+        <article class="focus-card reveal">
+          <div class="focus-term" aria-hidden="true">
+            <span class="term-dots"><i></i><i></i><i></i></span>
+            <span class="term-file">wpb · design</span>
+            <span class="term-num" aria-hidden="true">04</span>
+          </div>
+          <span class="focus-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-palette" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" /> <path d="M7.5 10.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /> <path d="M11.5 7.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /> <path d="M15.5 10.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /> </svg></span>
+          <h3>Web Design Kustom</h3>
+          <p>Website yang cantik, cepat, dan punya karakter | dirancang dari nol dengan Akalpa Web Builder, alat buatan tangan kami sendiri.</p>
+          <span class="focus-tag">Akalpa Web Builder</span>
+          <a class="focus-link" href="https://github.com/akalpainovasi" target="_blank" rel="noopener noreferrer">Lihat Repo <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-up-right" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M17 7l-10 10" /> <path d="M8 7l9 0l0 9" /> </svg></a>
+        </article>
+      </div>
+    </div>
+    </div>
+    <!-- Wave divider section 4→5 (bentuk: lembah tunggal dalam) -->
+    <div class="wave-wrap" aria-hidden="true">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,50 C400,10 800,110 1200,45 L1200,120 L0,120 Z" fill="#182442"></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ══════════════════ TENTANG | band parallax (frame sec2) ══════════════════ -->
+  <section id="tentang" class="about-band sec-anim" aria-label="Tentang Akalpa Inovasi">
+    <div class="about-bg" aria-hidden="true" data-parallax="0.08">
+      <img src="assets/frames/sec2/010.jpg" alt="" width="1280" height="720" loading="lazy">
+    </div>
+    <div class="about-scrim" aria-hidden="true"></div>
+    <div class="sec-inner">
+    <div class="container about-inner">
+      <div class="about-card reveal-l">
+        <h2 class="about-title">Startup Teknologi dari <em>Yogyakarta</em></h2>
+        <p class="about-text">Akalpa Inovasi lahir di Yogyakarta pada 2024 dengan satu keyakinan: teknologi harus benar-benar bekerja untuk bisnis. Kami fokus pada dua hal | <strong>automasi AI</strong> yang andal, dan <strong>website kustom</strong> yang tidak terlihat seperti template.</p>
+        <p class="about-text">Produk automasi kami | Hermes, OpenClaw, dan Moko AI | memindahkan kerja berulang ke mesin. Sementara itu, setiap website kami dirancang dari nol dengan Akalpa Web Builder, alat buatan tangan kami sendiri.</p>
+        <div class="about-chips">
+          <span class="about-chip"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-robot" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M6 6a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2l0 -4" /> <path d="M12 2v2" /> <path d="M9 12v9" /> <path d="M15 12v9" /> <path d="M5 16l4 -2" /> <path d="M15 14l4 2" /> <path d="M9 18h6" /> <path d="M10 8v.01" /> <path d="M14 8v.01" /> </svg> Automasi AI</span>
+          <span class="about-chip"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-palette" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" /> <path d="M7.5 10.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /> <path d="M11.5 7.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /> <path d="M15.5 10.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /> </svg> Web Design</span>
+          <span class="about-chip"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-map-pin" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /> <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0" /> </svg> Yogyakarta</span>
+        </div>
+        <ul class="about-points">
+          <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-circle-check" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /> <path d="M9 12l2 2l4 -4" /> </svg> 100% desain kustom | tanpa template pasaran</li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-circle-check" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /> <path d="M9 12l2 2l4 -4" /> </svg> Produk AI dikembangkan &amp; diuji sendiri</li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-circle-check" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /> <path d="M9 12l2 2l4 -4" /> </svg> Komunikasi langsung dengan tim kami</li>
+        </ul>
+        <a class="btn btn-primary" href="https://wa.me/6285191240994?text=Halo%20Akalpa!%20Saya%20ingin%20konsultasi%20pembuatan%20website%20%F0%9F%9A%80" target="_blank" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-message-circle" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1" /> </svg> Mulai Konsultasi
+        </a>
+      </div>
+      <img class="about-mascot" src="assets/mascot/menunjuk.webp" alt="Maskot Akalpa menunjuk tombol konsultasi" width="150" height="225" loading="lazy">
+    </div>
+    </div>
+    <!-- (tanpa wave di perbatasan tentang → github, sesuai permintaan user) -->
+  </section>
+
+  <!-- ══════════════════ GITHUB | OPEN SOURCE ══════════════════ -->
+  <section id="github" class="github-section sec-anim" aria-label="Kode terbuka kami di GitHub">
+    <img class="github-octo" src="assets/github/octocat.svg" alt="" aria-hidden="true" loading="lazy">
+    <div class="gh-cells" id="ghCells" aria-hidden="true"></div>
+    <div class="sec-inner">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2 class="section-title">Kode Kami Terbuka <em>di GitHub</em></h2>
+        <p class="section-sub">Semua yang kami bangun | Hermes, OpenClaw, Moko AI, bahkan Akalpa Web Builder | dikembangkan secara terbuka. Fork, beri bintang, atau berkontribusi.</p>
+      </div>
+
+      <div class="gh-terminal reveal" aria-hidden="true">
+        <span class="term-dots"><i></i><i></i><i></i></span>
+        <code>$ git clone https://github.com/akalpainovasi</code>
+        <span class="term-cursor"></span>
+      </div>
+
+      <div class="repo-grid">
+        <article class="repo-card reveal">
+          <div class="repo-top">
+            <span class="repo-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-robot" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M6 6a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2l0 -4" /> <path d="M12 2v2" /> <path d="M9 12v9" /> <path d="M15 12v9" /> <path d="M5 16l4 -2" /> <path d="M15 14l4 2" /> <path d="M9 18h6" /> <path d="M10 8v.01" /> <path d="M14 8v.01" /> </svg></span>
+            <h3>hermes</h3>
+            <span class="repo-public">Public</span>
+          </div>
+          <p class="repo-desc">Automasi komunikasi &amp; alur kerja berulang | respons cepat, konsisten, tanpa henti.</p>
+          <div class="repo-meta">
+            <span class="repo-lang"><i class="lang-dot" style="background:#f2a35c"></i> TypeScript</span>
+            <span class="repo-stat"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg> 128</span>
+            <span class="repo-stat"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-git-fork" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M10 18a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /> <path d="M5 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /> <path d="M15 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /> <path d="M7 8v2a2 2 0 0 0 2 2h6a2 2 0 0 0 2 -2v-2" /> <path d="M12 12l0 4" /> </svg> 24</span>
+          </div>
+        </article>
+        <article class="repo-card reveal">
+          <div class="repo-top">
+            <span class="repo-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-terminal" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M5 7l5 5l-5 5" /> <path d="M12 19l7 0" /> </svg></span>
+            <h3>openclaw</h3>
+            <span class="repo-public">Public</span>
+          </div>
+          <p class="repo-desc">Framework automasi tugas kompleks | kerja manual bisnis dipindahkan ke mesin yang bisa dipercaya.</p>
+          <div class="repo-meta">
+            <span class="repo-lang"><i class="lang-dot" style="background:#3d4d80"></i> Python</span>
+            <span class="repo-stat"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg> 96</span>
+            <span class="repo-stat"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-git-fork" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M10 18a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /> <path d="M5 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /> <path d="M15 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /> <path d="M7 8v2a2 2 0 0 0 2 2h6a2 2 0 0 0 2 -2v-2" /> <path d="M12 12l0 4" /> </svg> 18</span>
+          </div>
+        </article>
+        <article class="repo-card reveal">
+          <div class="repo-top">
+            <span class="repo-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brain" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M15.5 13a3.5 3.5 0 0 0 -3.5 3.5v1a3.5 3.5 0 0 0 7 0v-1.8" /> <path d="M8.5 13a3.5 3.5 0 0 1 3.5 3.5v1a3.5 3.5 0 0 1 -7 0v-1.8" /> <path d="M17.5 16a3.5 3.5 0 0 0 0 -7h-.5" /> <path d="M19 9.3v-2.8a3.5 3.5 0 0 0 -7 0" /> <path d="M6.5 16a3.5 3.5 0 0 1 0 -7h.5" /> <path d="M5 9.3v-2.8a3.5 3.5 0 0 1 7 0v10" /> </svg></span>
+            <h3>moko-ai</h3>
+            <span class="repo-public">Public</span>
+          </div>
+          <p class="repo-desc">Asisten AI riset kami yang belajar memahami konteks pengguna | laboratorium produk AI berikutnya.</p>
+          <div class="repo-meta">
+            <span class="repo-lang"><i class="lang-dot" style="background:#f6c96f"></i> Python</span>
+            <span class="repo-stat"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg> 74</span>
+            <span class="repo-stat"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-git-fork" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M10 18a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /> <path d="M5 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /> <path d="M15 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /> <path d="M7 8v2a2 2 0 0 0 2 2h6a2 2 0 0 0 2 -2v-2" /> <path d="M12 12l0 4" /> </svg> 12</span>
+          </div>
+        </article>
+        <article class="repo-card reveal">
+          <div class="repo-top">
+            <span class="repo-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-palette" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" /> <path d="M7.5 10.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /> <path d="M11.5 7.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /> <path d="M15.5 10.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /> </svg></span>
+            <h3>akalpa-web-builder</h3>
+            <span class="repo-public">Public</span>
+          </div>
+          <p class="repo-desc">Alat buatan tangan kami sendiri untuk merancang website parallax tanpa menulis kode.</p>
+          <div class="repo-meta">
+            <span class="repo-lang"><i class="lang-dot" style="background:#e8863a"></i> Python</span>
+            <span class="repo-stat"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg> 210</span>
+            <span class="repo-stat"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-git-fork" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M10 18a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /> <path d="M5 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /> <path d="M15 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /> <path d="M7 8v2a2 2 0 0 0 2 2h6a2 2 0 0 0 2 -2v-2" /> <path d="M12 12l0 4" /> </svg> 41</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="gh-stats reveal">
+        <span class="gh-stat"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-stack-2" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 4l-8 4l8 4l8 -4l-8 -4" /> <path d="M4 12l8 4l8 -4" /> <path d="M4 16l8 4l8 -4" /> </svg> <strong>12+</strong> Repositori</span>
+        <span class="gh-stat"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg> <strong>500+</strong> Bintang</span>
+        <span class="gh-stat"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-users" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M5 7a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" /> <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /> <path d="M16 3.13a4 4 0 0 1 0 7.75" /> <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" /> </svg> <strong>30+</strong> Kontributor</span>
+        <span class="gh-stat"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-git-branch" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M5 18a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /> <path d="M5 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /> <path d="M15 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /> <path d="M7 8l0 8" /> <path d="M9 18h6a2 2 0 0 0 2 -2v-5" /> <path d="M14 14l3 -3l3 3" /> </svg> <strong>80+</strong> Pull Request</span>
+      </div>
+
+      <div class="gh-cta reveal">
+        <a class="btn btn-slide" href="https://github.com/akalpainovasi" target="_blank" rel="noopener noreferrer">
+          <span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-github" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" /> </svg> Jelajahi Semua Repo</span>
+        </a>
+        <a class="btn btn-ghost ghost-light" href="https://github.com/akalpainovasi?tab=followers" target="_blank" rel="noopener noreferrer">
+          Follow @akalpainovasi <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-up-right" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M17 7l-10 10" /> <path d="M8 7l9 0l0 9" /> </svg>
+        </a>
+      </div>
+    </div>
+    </div>
+    <!-- Wave divider section 6→7 (bentuk: zigzag tajam) -->
+    <div class="wave-wrap" aria-hidden="true">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,70 L150,30 L300,92 L450,40 L600,100 L750,45 L900,88 L1050,35 L1200,76 L1200,120 L0,120 Z" fill="#f7f3ea"></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ══════════════════ TESTIMONI ══════════════════ -->
+  <section id="testimoni" class="section testimonial-section sec-anim" aria-label="Testimoni klien">
+    <div class="deco-circle deco-testi" data-parallax="0.08" aria-hidden="true"></div>
+    <div class="sec-inner">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2 class="section-title">Klien Kami <em>Bicara Sendiri</em></h2>
+        <p class="section-sub">Dari UMKM hingga startup teknologi | di seluruh Indonesia.</p>
+      </div>
+      <div class="carousel reveal" id="testimonialCarousel">
+        <div class="carousel-viewport">
+          <div class="carousel-track" id="testimonialTrack">
+            <article class="testimonial-slide">
+              <span class="testimonial-quote" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-quote" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5" /> <path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5" /> </svg></span>
+              <p class="testimonial-text">“Website kami selesai dalam 10 hari dan hasilnya di luar ekspektasi. Penjualan online langsung naik sejak hari pertama tayang.”</p>
+              <footer class="testimonial-meta">
+                <span class="testimonial-avatar" aria-hidden="true">R</span>
+                <div><strong>Rina Wijaya</strong><span>Owner UMKM Kuliner · Jakarta</span></div>
+                <span class="testimonial-stars" aria-label="5 dari 5 bintang"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg></span>
+              </footer>
+            </article>
+            <article class="testimonial-slide">
+              <span class="testimonial-quote" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-quote" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5" /> <path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5" /> </svg></span>
+              <p class="testimonial-text">“Automasi dari Akalpa memangkas kerja operasional kami setengahnya. Hermes menjawab pelanggan bahkan saat tim kami tidur.”</p>
+              <footer class="testimonial-meta">
+                <span class="testimonial-avatar" aria-hidden="true">A</span>
+                <div><strong>Andi Pratama</strong><span>CEO Startup Teknologi · Bandung</span></div>
+                <span class="testimonial-stars" aria-label="5 dari 5 bintang"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg></span>
+              </footer>
+            </article>
+            <article class="testimonial-slide">
+              <span class="testimonial-quote" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-quote" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5" /> <path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5" /> </svg></span>
+              <p class="testimonial-text">“Dari konsultasi sampai launch semuanya transparan. Website klinik kami tampil profesional dan mudah dirawat sendiri.”</p>
+              <footer class="testimonial-meta">
+                <span class="testimonial-avatar" aria-hidden="true">M</span>
+                <div><strong>dr. Maya Sari</strong><span>Klinik Pratama · Yogyakarta</span></div>
+                <span class="testimonial-stars" aria-label="5 dari 5 bintang"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg></span>
+              </footer>
+            </article>
+            <article class="testimonial-slide">
+              <span class="testimonial-quote" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-quote" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5" /> <path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5" /> </svg></span>
+              <p class="testimonial-text">“Website toko online kami beda dari kompetitor | benar-benar kustom, cepat, dan desainnya menonjol. Worth every rupiah.”</p>
+              <footer class="testimonial-meta">
+                <span class="testimonial-avatar" aria-hidden="true">D</span>
+                <div><strong>Dewi Lestari</strong><span>Founder E-commerce · Surabaya</span></div>
+                <span class="testimonial-stars" aria-label="5 dari 5 bintang"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg></span>
+              </footer>
+            </article>
+          </div>
+        </div>
+        <button class="carousel-btn prev" id="carouselPrev" aria-label="Testimoni sebelumnya"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M15 6l-6 6l6 6" /> </svg></button>
+        <button class="carousel-btn next" id="carouselNext" aria-label="Testimoni berikutnya"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M9 6l6 6l-6 6" /> </svg></button>
+        <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="Pilih testimoni"></div>
+      </div>
+    </div>
+    </div>
+    <!-- Wave divider section 7→8 (bentuk: kerang halus / scallop) -->
+    <div class="wave-wrap" aria-hidden="true">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,50 Q150,10 300,50 Q450,90 600,50 Q750,10 900,50 Q1050,90 1200,50 L1200,120 L0,120 Z" fill="#f1ebdd"></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ══════════════════ FAQ ══════════════════ -->
+  <section id="faq" class="section faq-section sec-anim" aria-label="Pertanyaan yang sering diajukan">
+    <div class="sec-inner">
+    <div class="container faq-layout">
+      <div class="section-head left reveal-l">
+        <h2 class="section-title">Pertanyaan yang <em>Sering Diajukan</em></h2>
+        <p class="section-sub">Masih ragu? Tanya saja | tim kami siap membantu.</p>
+        <div class="faq-contact">
+          <a class="btn btn-primary faq-cta" href="https://wa.me/6285191240994?text=Halo%20Akalpa!%20Saya%20ingin%20konsultasi%20pembuatan%20website%20%F0%9F%9A%80" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-whatsapp" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" /> <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" /> </svg> Tanya Langsung
+          </a>
+          <a class="faq-phone" href="tel:+6285191240994"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-phone" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" /> </svg> +62 851-9124-0994</a>
+        </div>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal">
+          <summary>Berapa lama pengerjaan sebuah website?<span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M6 9l6 6l6 -6" /> </svg></span></summary>
+          <p>Umumnya 7–14 hari kerja tergantung kompleksitas. Landing page bisa lebih cepat, sementara web app atau platform komunitas butuh waktu lebih lama. Anda mendapat timeline jelas sebelum proyek dimulai.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>Apakah desainnya benar-benar kustom?<span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M6 9l6 6l6 -6" /> </svg></span></summary>
+          <p>Ya, 100% kustom. Kami merancang setiap website dari nol dengan Akalpa Web Builder | alat builder buatan tangan kami sendiri. Setiap elemen: warna, tipografi, animasi, dan layout dirancang untuk identitas bisnis Anda.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>Apa itu Hermes dan OpenClaw?<span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M6 9l6 6l6 -6" /> </svg></span></summary>
+          <p>Keduanya adalah produk automasi AI kami. Hermes menangani komunikasi dan alur kerja berulang (misalnya menjawab pertanyaan pelanggan secara otomatis), sementara OpenClaw adalah framework untuk automasi tugas yang lebih kompleks. Keduanya dikembangkan dan diuji langsung oleh tim kami.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>Apa itu Moko AI?<span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M6 9l6 6l6 -6" /> </svg></span></summary>
+          <p>Moko AI adalah proyek riset pribadi kami | asisten AI yang belajar memahami konteks pengguna. Ini adalah laboratorium kami untuk mengeksplorasi kemampuan AI sebelum menjadi produk komersial.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>Di mana lokasi kalian?<span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M6 9l6 6l6 -6" /> </svg></span></summary>
+          <p>Kami berbasis di Yogyakarta, tetapi melayani klien dari seluruh Indonesia secara remote. Komunikasi lewat WhatsApp, video call, dan email | semudah bekerja sama dengan tim di sebelah Anda.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>Bagaimana jika saya ingin revisi?<span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M6 9l6 6l6 -6" /> </svg></span></summary>
+          <p>Revisi sampai pas | tanpa batas selama masa pengerjaan. Kami kerjakan bertahap dan Anda memegang kendali penuh di setiap tahap.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>Apakah ada layanan perawatan?<span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M6 9l6 6l6 -6" /> </svg></span></summary>
+          <p>Ada. Kami menawarkan paket perawatan bulanan: update konten, backup rutin, monitoring keamanan, dan bantuan teknis kapan pun Anda butuh.</p>
+        </details>
+      </div>
+    </div>
+    </div>
+    <!-- Wave divider section 8→9 (bentuk: sapuan naik ke kanan) -->
+    <div class="wave-wrap" aria-hidden="true">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,112 C250,78 380,58 520,66 C680,76 780,38 930,42 C1060,45 1120,26 1200,18 L1200,120 L0,120 Z" fill="#22305c"></path>
+      </svg>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<footer class="site-footer sec-anim">
+  <img class="footer-mascot" src="assets/mascot/bagus.webp" alt="Maskot Akalpa memberi jempol" width="120" height="180" loading="lazy">
+  <div class="sec-inner">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand">
+          <img class="brand-logo" src="assets/Akalpa-Logos.png" alt="Logo Akalpa Inovasi" width="36" height="36">
+          <span class="brand-text">
+            <span class="brand-name">Akalpa Inovasi</span>
+          </span>
+        </div>
+        <p class="footer-tagline">Startup teknologi dari Yogyakarta | automasi AI &amp; website kustom yang benar-benar ngomong untuk bisnis kamu.</p>
+        <div class="footer-socials">
+          <a href="https://instagram.com/akalpa.inovasi" target="_blank" rel="noopener noreferrer" aria-label="Instagram @akalpa.inovasi"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4l0 -8" /> <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /> <path d="M16.5 7.5v.01" /> </svg></a>
+          <a href="https://youtube.com/@akalpa.inovasi" target="_blank" rel="noopener noreferrer" aria-label="YouTube @akalpa.inovasi"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-youtube" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M2 8a4 4 0 0 1 4 -4h12a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-12a4 4 0 0 1 -4 -4v-8" /> <path d="M10 9l5 3l-5 3l0 -6" /> </svg></a>
+          <a href="https://tiktok.com/@akalpa.inovasi" target="_blank" rel="noopener noreferrer" aria-label="TikTok @akalpa.inovasi"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-tiktok" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M21 7.917v4.034a9.948 9.948 0 0 1 -5 -1.951v4.5a6.5 6.5 0 1 1 -8 -6.326v4.326a2.5 2.5 0 1 0 4 2v-11.5h4.083a6.005 6.005 0 0 0 4.917 4.917" /> </svg></a>
+          <a href="https://github.com/akalpainovasi" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-github" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" /> </svg></a>
+          <a href="https://x.com/akalpa.inovasi" target="_blank" rel="noopener noreferrer" aria-label="X Twitter @akalpa.inovasi"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-x" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M4 4l11.733 16h4.267l-11.733 -16l-4.267 0" /> <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /> </svg></a>
+          <a href="https://linkedin.com/company/akalpa.inovasi" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-linkedin" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M8 11v5" /> <path d="M8 8v.01" /> <path d="M12 16v-5" /> <path d="M16 16v-3a2 2 0 1 0 -4 0" /> <path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4l0 -10" /> </svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigasi</h4>
+        <a href="#tentang" data-scroll>Tentang</a>
+        <a href="#fokus" data-scroll>Fokus</a>
+        <a href="#github" data-scroll>Open Source</a>
+        <a href="#testimoni" data-scroll>Testimoni</a>
+        <a href="#faq" data-scroll>FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h4>Hubungi Kami</h4>
+        <a href="https://wa.me/6285191240994?text=Halo%20Akalpa!%20Saya%20ingin%20konsultasi%20pembuatan%20website%20%F0%9F%9A%80" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-whatsapp" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" /> <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" /> </svg> +62 851-9124-0994</a>
+        <a href="mailto:halo@akalpainovasi.com"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-mail" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10" /> <path d="M3 7l9 6l9 -6" /> </svg> halo@akalpainovasi.com</a>
+        <a href="https://instagram.com/akalpa.inovasi" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4l0 -8" /> <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /> <path d="M16.5 7.5v.01" /> </svg> @akalpa.inovasi</a>
+        <a href="#" aria-disabled="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-map-pin" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /> <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0" /> </svg> Yogyakarta, Indonesia</a>
+        <a href="#templates"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-layout-grid" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M4 5a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -4" /> <path d="M14 5a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -4" /> <path d="M4 15a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -4" /> <path d="M14 15a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -4" /> </svg> Free Template</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Akalpa Inovasi. Semua hak dilindungi. | Hand-crafted dengan <strong>Akalpa Web Builder</strong>.</span>
+      <button class="back-top" id="backTop"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-up" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 5l0 14" /> <path d="M18 11l-6 -6" /> <path d="M6 11l6 -6" /> </svg> Ke Atas</button>
+    </div>
+  </div>
+  </div>
+</footer>
+    </div>
+
+    <!-- 2. FREE TEMPLATES SECTION -->
+    <div id="view-templates" class="akalpa-view" style="display:none">
+<header>
+  <div class="container nav">
+    <a href="#home" class="brand"><img class="brand-logo" src="assets/Akalpa-Logos.png" alt="Logo Akalpa Inovasi" width="34" height="34"> Akalpa Inovasi</a>
+    <nav class="nav-links" aria-label="Navigasi">
+      <a href="#home" class="hide-sm">Beranda</a>
+      <a href="#templates" class="active">Template</a>
+      <a href="https://github.com/akalpainovasi" target="_blank" rel="noopener noreferrer" class="hide-sm">GitHub</a>
+      <a href="https://wa.me/6285191240994?text=Halo%20Akalpa!%20Saya%20tertarik%20dengan%20template%20gratis" target="_blank" rel="noopener noreferrer" class="nav-btn">Klaim Template</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <div class="page-head">
+    <h1>Template Gratis, <em>Siap Pakai</em></h1>
+    <p>Pilih template, salin kodenya, lalu hubungi kami untuk mendapat akses penuh. Semua template open source di GitHub.</p>
+  </div>
+
+  <div class="searchbar">
+    <input id="q" type="search" placeholder="Cari nama, kategori, atau kode… (contoh: AKA-002)" autocomplete="off">
+    <span class="k"># KODE</span>
+  </div>
+  <div class="meta" id="meta">Memuat template…</div>
+  <div class="chips" id="chips"></div>
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty" hidden>
+    <div class="big">Template tidak ditemukan</div>
+    <p>Coba kode lain, atau tanya langsung di WhatsApp | kami bantu cari yang pas.</p>
+  </div>
+</main>
+
+<footer class="container">
+  <div>© <span id="year">2026</span> <strong>Akalpa Inovasi</strong> | Template gratis dibuat dengan <strong>Akalpa Web Builder</strong>.</div>
+  <a class="wa" href="https://wa.me/6285191240994?text=Halo%20Akalpa!%20Saya%20tertarik%20dengan%20template%20gratis" target="_blank" rel="noopener noreferrer">WhatsApp: +62 851-9124-0994</a>
+</footer>
+
+<div class="toast" id="toast"></div>
+    </div>
+
+    <!-- 3. STUDIO CURATOR SECTION -->
+    <div id="view-curator" class="akalpa-view" style="display:none">
+<div class="gate" id="gate">
+  <div class="gatebox">
+    <div class="status-badge">VAULT SECURITY GATE</div>
+    <img src="assets/Akalpa-Logos.png" alt="Logo Akalpa Inovasi" style="width:44px;height:44px;border-radius:11px;background:#fff;object-fit:contain;padding:3px;border:2px solid var(--orange);margin-bottom:8px">
+    <h1>Studio <span>Curator</span></h1>
+    <p>Masukkan kode otorisasi untuk mengelola pustaka template.</p>
+    <input type="password" id="pass" placeholder="KODE AKSES" autocomplete="off">
+    <div class="btns" style="justify-content:center"><button class="btn orange" id="unlock" style="width:100%;justify-content:center">Buka Vault</button></div>
+    <div class="err-msg" id="gateErr"></div>
+    <p style="margin-top:14px;font-size:.72rem;font-family:'JetBrains Mono',monospace;color:rgba(247,243,234,.4)">Proteksi Kriptografik WebCrypto SHA-256</p>
+  </div>
+</div>
+
+<div class="container" id="app" hidden>
+  <header>
+    <div>
+      <div class="status-badge">STUDIO CURATOR PORTAL</div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:4px">
+        <img src="assets/Akalpa-Logos.png" alt="Logo Akalpa Inovasi" style="width:36px;height:36px;border-radius:9px;background:#fff;object-fit:contain;padding:2px;border:2px solid var(--orange)">
+        <h1>Studio <span>Curator</span></h1>
+      </div>
+      <div class="sub">Kelola template gratis Akalpa | Sinkronisasi <strong>realtime via Google Apps Script</strong> ke Google Sheets.
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+      <a class="btn ghost mini" href="#templates" target="_blank" rel="noopener">Katalog Publik ↗</a>
+      <button class="btn ghost mini" id="logout">Kunci Vault</button>
+    </div>
+  </header>
+
+  <div class="panel" style="margin-bottom:18px;border-color:var(--orange)">
+    <h2>⚡ Konfigurasi GAS API (Google Apps Script)</h2>
+    <div class="row">
+      <div>
+        <label>GAS API URL</label>
+        <input type="url" id="gas-url" placeholder="https://script.google.com/macros/s/…/exec">
+        <div class="hint">URL deployment GAS Web App Anda.</div>
+      </div>
+      <div>
+        <label>Curator Token (secret)</label>
+        <input type="password" id="gas-token" placeholder="Token rahasia GAS">
+        <div class="hint">Sama dengan CURATOR_TOKEN di Code.gs</div>
+      </div>
+    </div>
+    <div class="btns" style="margin-top:12px">
+      <button class="btn orange" id="gas-save">💾 Simpan Konfigurasi GAS</button>
+      <button class="btn ghost" id="gas-sync">🔄 Sync dari GAS sekarang</button>
+      <button class="btn ghost mini" id="gas-test">Tes Koneksi</button>
+    </div>
+    <div id="gas-status" class="hint" style="margin-top:8px"></div>
+  </div>
+
+  <div class="grid">
+    <section class="panel">
+      <h2 id="formTitle">➕ Tambah Template</h2>
+      <div class="row">
+        <div>
+          <label>Kode (auto)</label>
+          <input type="text" id="f-code" placeholder="#AKA-005" readonly>
+          <div class="hint">Kode otomatis. Bisa disesuaikan manual.</div>
+        </div>
+        <div>
+          <label>Kategori</label>
+          <input type="text" id="f-cat" list="cats" placeholder="Hero / Section / Halaman">
+          <datalist id="cats"></datalist>
+        </div>
+      </div>
+      <label>Nama Template</label>
+      <input type="text" id="f-name" placeholder="Hero Parallax Senja">
+      <label>Deskripsi (1–2 kalimat)</label>
+      <textarea id="f-desc" placeholder="Jelaskan keunggulan singkat template ini…"></textarea>
+      <label>Link GitHub (repo template)</label>
+      <input type="url" id="f-gh" placeholder="https://github.com/akalpainovasi/…">
+      <label>Tags (pisahkan koma)</label>
+      <input type="text" id="f-tags" placeholder="parallax, hero, scroll">
+      <label class="check"><input type="checkbox" id="f-feat"> Tandai sebagai <strong>Hot / Featured</strong></label>
+      <div class="btns">
+        <button class="btn orange" id="save">💾 Simpan Template</button>
+        <button class="btn ghost" id="cancel" hidden>Batal Edit</button>
+        <button class="btn ghost" id="clear">Reset Form</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+        <h2 style="margin-bottom:0">📦 Koleksi Template (<span id="count">0</span>)</h2>
+        <button class="btn danger mini" id="clearAll">🗑️ Kosongkan Semua</button>
+      </div>
+      <div id="list"></div>
+      <div class="export">
+        <h2>⇅ Ekspor / Impor JSON</h2>
+        <div class="btns" style="flex-wrap:wrap">
+          <button class="btn orange" id="exp-dl">⬇ Unduh templates.json</button>
+          <button class="btn ghost" id="exp-copy">Salin JSON</button>
+        </div>
+        <label style="margin-top:14px">Impor (Tempel JSON valid lalu terapkan)</label>
+        <textarea class="exportbox" id="imp" placeholder='{"templates":[…]}'></textarea>
+        <div class="btns"><button class="btn ghost" id="imp-apply">Terapkan Impor</button></div>
+        <div class="hint">Data langsung dikirim ke Google Sheets via GAS API (realtime). Ekspor JSON untuk backup atau bulk import.</div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+    </div>
+
+  </div>
+
+  <b:section class='main' id='main' maxwidgets='1' name='Main' showaddelement='no'>
+    <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='1' visible='false'>
+      <b:widget-settings>
+        <b:widget-setting name='showShareButtons'>false</b:widget-setting>
+      </b:widget-settings>
+      <b:includable id='main' var='top'></b:includable>
+    </b:widget>
+  </b:section>
+
+<script type='text/javascript'>
+//<![CDATA[
+/* ═══════════════════════════════════════════════════════════════════════
+   Akalpa Inovasi | main.js v2 (vanilla)
+   Hero canvas 40-frame (siang → malam) · parallax halus · UI interaktif
+   ═══════════════════════════════════════════════════════════════════════ */
+(function () {
+  "use strict";
+
+  const $ = (sel, ctx) => (ctx || document).querySelector(sel);
+  const $$ = (sel, ctx) => Array.from((ctx || document).querySelectorAll(sel));
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ── 1. HERO | canvas scroll animation (40 frame: siang → malam) ──── */
+  const HERO_FRAMES = 40;
+  const HERO_BASE = "assets/frames/hero3/";
+  const TEXT_AT = 0.6;      // teks muncul saat frame mulai gelap
+  const DARK_AT = 0.45;     // nav/scrim beralih ke mode gelap
+
+  const heroStory = $("#hero");
+  const heroCanvas = $("#heroCanvas");
+  const preloader = $("#heroPreloader");
+  const preloaderFill = $("#preloaderFill");
+  const preloaderCount = $("#preloaderCount");
+  const heroContent = $("#heroContent");
+  const heroMascot = $("#heroMascot");
+  const scrollHint = $("#scrollHint");
+
+  let frameImages = [];
+  let heroLoaded = false;
+  let currentFrame = -1;
+
+  function preloadFrames() {
+    if (!heroCanvas) return;
+    let done = 0;
+    const count = HERO_FRAMES;
+    const onOne = () => {
+      done += 1;
+      if (preloaderFill) preloaderFill.style.width = Math.round((done / count) * 100) + "%";
+      if (preloaderCount) preloaderCount.textContent = done + " / " + count;
+      if (done === count) {
+        heroLoaded = true;
+        if (preloader) preloader.classList.add("is-done");
+        setTimeout(() => { if (preloader) preloader.remove(); }, 700);
+        drawFrame(0);
+        computeHero();
+      }
+    };
+    for (let i = 1; i <= count; i++) {
+      const img = new Image();
+      const num = String(i).padStart(3, "0");
+      img.src = HERO_BASE + num + ".jpg";
+      img.onload = onOne;
+      img.onerror = onOne;
+      frameImages.push(img);
+    }
+  }
+
+  function sizeCanvas() {
+    if (!heroCanvas) return;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    heroCanvas.width = Math.floor(heroStory.clientWidth * dpr);
+    heroCanvas.height = Math.floor(window.innerHeight * dpr);
+  }
+
+  function drawFrame(index) {
+    const img = frameImages[index];
+    if (!img || !img.complete || !img.naturalWidth) return;
+    const ctx = heroCanvas.getContext("2d");
+    const cW = heroCanvas.width, cH = heroCanvas.height;
+    const iW = img.naturalWidth, iH = img.naturalHeight;
+    ctx.clearRect(0, 0, cW, cH);
+    const scale = Math.max(cW / iW, cH / iH);
+    const dw = iW * scale, dh = iH * scale;
+    ctx.drawImage(img, (cW - dw) / 2, (cH - dh) / 2, dw, dh);
+  }
+
+  function computeHero() {
+    if (!heroStory || !heroCanvas) return;
+    const rect = heroStory.getBoundingClientRect();
+    const sHeight = heroStory.offsetHeight - window.innerHeight;
+    const p = Math.max(0, Math.min(1, -rect.top / sHeight));
+
+    if (heroLoaded) {
+      const idx = Math.min(HERO_FRAMES - 1, Math.floor(p * HERO_FRAMES));
+      window.__heroFrame = idx; // debug hook
+      if (idx !== currentFrame) {
+        currentFrame = idx;
+        requestAnimationFrame(() => drawFrame(idx));
+      }
+    }
+
+    // mode gelap: scrim + nav cream saat frame meredup
+    document.body.classList.toggle("hero-dark", p >= DARK_AT);
+
+    // teks + maskot muncul saat frame gelap; scrim gelap 45% ikut aktif
+    // agar headline selalu terbaca jelas di atas canvas.
+    const show = p >= TEXT_AT;
+    document.body.classList.toggle("hero-text", show);
+    if (heroContent) heroContent.classList.toggle("is-visible", show);
+    if (heroMascot) heroMascot.classList.toggle("is-visible", show);
+    if (scrollHint) scrollHint.classList.toggle("is-hidden", p > 0.92);
+  }
+
+  let ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => { computeHero(); updateHeader(); updateParallax(); ticking = false; });
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", () => { sizeCanvas(); if (heroLoaded) drawFrame(currentFrame); });
+
+  if (!prefersReduced) {
+    sizeCanvas();
+    preloadFrames();
+  } else {
+    // reduced motion: frame terakhir statis + konten langsung
+    const img = new Image();
+    img.src = HERO_BASE + "040.jpg";
+    img.onload = () => {
+      frameImages[39] = img;
+      sizeCanvas();
+      drawFrame(39);
+      if (preloader) preloader.remove();
+      if (heroContent) heroContent.classList.add("is-visible");
+      if (heroMascot) heroMascot.classList.add("is-visible");
+      document.body.classList.add("hero-dark");
+      document.body.classList.add("hero-text");
+    };
+  }
+
+  /* ── 2. HEADER | 3 state (transparan terang / gelap / solid) ──────── */
+  const header = $("#siteHeader");
+  function updateHeader() {
+    if (!header || !heroStory) return;
+    const y = window.scrollY;
+    const heroEnd = heroStory.offsetHeight - window.innerHeight;
+    header.classList.toggle("is-scrolled", y >= heroEnd);
+  }
+  updateHeader();
+
+  /* ── 3. Mobile menu ───────────────────────────────────────────────── */
+  const burger = $("#navBurger");
+  const mobileMenu = $("#mobileMenu");
+  function closeMobileMenu() {
+    if (!mobileMenu) return;
+    mobileMenu.classList.remove("is-open");
+    mobileMenu.hidden = true;
+    if (burger) {
+      burger.setAttribute("aria-expanded", "false");
+      burger.setAttribute("aria-label", "Buka menu");
+      burger.innerHTML = WPB.ICONS["menu"];
+    }
+  }
+  if (burger && mobileMenu) {
+    burger.addEventListener("click", () => {
+      const open = !mobileMenu.classList.contains("is-open");
+      mobileMenu.classList.toggle("is-open", open);
+      mobileMenu.hidden = !open;
+      burger.setAttribute("aria-expanded", String(open));
+      burger.setAttribute("aria-label", open ? "Tutup menu" : "Buka menu");
+      burger.innerHTML = open ? WPB.ICONS["x"] : WPB.ICONS["menu"];
+    });
+  }
+
+  /* ── 4. Anchor scroll halus (offset header) ───────────────────────── */
+  function scrollToTarget(target) {
+    const el = typeof target === "string" ? $(target) : target;
+    if (!el) return;
+    const top = el.getBoundingClientRect().top + window.scrollY - 66;
+    window.scrollTo({ top, behavior: prefersReduced ? "auto" : "smooth" });
+    closeMobileMenu();
+  }
+  $$("[data-scroll]").forEach((a) => {
+    a.addEventListener("click", (e) => {
+      const href = a.getAttribute("href");
+      if (href && href.startsWith("#")) {
+        e.preventDefault();
+        scrollToTarget(href);
+      } else if (a.hasAttribute("data-scroll")) {
+        e.preventDefault();
+        const target = a.getAttribute("data-scroll");
+        scrollToTarget(target === "hero" ? "#hero" : "#" + target);
+      }
+    });
+  });
+
+  /* ── 5. Section masuk/keluar + object berurutan ──────────────────────
+     Urutan animasi: section masuk duluan (sec-inner), lalu setiap object
+     (reveal) di dalamnya masuk berurutan via stagger. Wave & dekorasi
+     absolut TIDAK ikut animasi → tidak ada celah terpotong di perbatasan. */
+  const animSecs = $$(".sec-anim");
+  const revealIn = (sec) => {
+    $$(".reveal, .reveal-l, .reveal-scale", sec).forEach((el, i) => {
+      el.classList.remove("is-visible");
+      void el.offsetWidth; /* restart transisi */
+      setTimeout(() => el.classList.add("is-visible"), 90 + i * 65);
+    });
+  };
+  const revealOut = (sec) => {
+    $$(".reveal, .reveal-l, .reveal-scale", sec).forEach((el) => el.classList.remove("is-visible"));
+  };
+  if ("IntersectionObserver" in window && !prefersReduced) {
+    const sio = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        const sec = en.target;
+        if (en.isIntersecting) {
+          sec.classList.add("is-in");
+          sec.classList.remove("is-out");
+          revealIn(sec);
+        } else {
+          sec.classList.add("is-out");
+          sec.classList.remove("is-in");
+          revealOut(sec);
+        }
+      });
+    }, { threshold: 0.06, rootMargin: "0px 0px -6% 0px" });
+    animSecs.forEach((s) => sio.observe(s));
+  } else {
+    animSecs.forEach((s) => { s.classList.add("is-in"); s.classList.remove("is-out"); });
+    $$(".reveal, .reveal-l, .reveal-scale").forEach((el) => el.classList.add("is-visible"));
+  }
+
+  /* ── 6. Countup ───────────────────────────────────────────────────── */
+  const counters = $$(".countup");
+  function animateCount(el) {
+    const target = parseInt(el.dataset.count, 10);
+    if (prefersReduced) { el.textContent = target; return; }
+    const dur = 1300;
+    const start = performance.now();
+    function tick(now) {
+      const t = Math.min(1, (now - start) / dur);
+      const eased = 1 - Math.pow(1 - t, 3);
+      el.textContent = Math.round(target * eased);
+      if (t < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  if ("IntersectionObserver" in window) {
+    const cio = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (en.isIntersecting) {
+          animateCount(en.target);
+          cio.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach((el) => cio.observe(el));
+  } else {
+    counters.forEach((el) => { el.textContent = el.dataset.count; });
+  }
+
+  /* ── 7. Carousel testimoni ────────────────────────────────────────── */
+  const track = $("#testimonialTrack");
+  const dotsWrap = $("#carouselDots");
+  const prevBtn = $("#carouselPrev");
+  const nextBtn = $("#carouselNext");
+  if (track && dotsWrap) {
+    const slides = $$(".testimonial-slide", track);
+    let index = 0;
+    let timer = null;
+    slides.forEach((_, i) => {
+      const b = document.createElement("button");
+      b.setAttribute("role", "tab");
+      b.setAttribute("aria-label", "Testimoni " + (i + 1));
+      b.addEventListener("click", () => { goTo(i); restart(); });
+      dotsWrap.appendChild(b);
+    });
+    const dots = $$("button", dotsWrap);
+    function goTo(i) {
+      index = (i + slides.length) % slides.length;
+      track.style.transform = "translateX(-" + index * 100 + "%)";
+      dots.forEach((d, di) => d.classList.toggle("is-active", di === index));
+    }
+    function restart() {
+      if (timer) clearInterval(timer);
+      if (!prefersReduced) timer = setInterval(() => goTo(index + 1), 5500);
+    }
+    if (prevBtn) prevBtn.addEventListener("click", () => { goTo(index - 1); restart(); });
+    if (nextBtn) nextBtn.addEventListener("click", () => { goTo(index + 1); restart(); });
+    goTo(0);
+    restart();
+  }
+
+  /* ── 8a. GitHub contribution cells | pola deterministik ────────────── */
+  const ghCells = $("#ghCells");
+  if (ghCells) {
+    // baris × kolom; level 0..3 (0 = kosong). Pola statis agar deterministik.
+    const ROWS = 4, COLS = 15;
+    const PATTERN = [
+      0, 1, 2, 0, 3, 0, 1, 2, 0, 3, 1, 0, 2, 1, 3,
+      1, 0, 3, 1, 0, 2, 0, 3, 1, 0, 2, 3, 0, 1, 0,
+      2, 3, 0, 2, 1, 0, 3, 0, 2, 1, 3, 0, 1, 2, 1,
+      0, 1, 1, 3, 2, 1, 0, 1, 3, 2, 0, 1, 2, 0, 2,
+    ];
+    for (let r = 0; r < ROWS; r++) {
+      for (let c = 0; c < COLS; c++) {
+        const lvl = PATTERN[r * COLS + c] || 0;
+        const cell = document.createElement("i");
+        if (lvl > 0) cell.classList.add("l" + lvl);
+        ghCells.appendChild(cell);
+      }
+    }
+  }
+
+  /* ── 8b. Marquee | duplikat konten agar loop mulus ─────────────────── */
+  const marqueeInner = $("#marqueeInner");
+  if (marqueeInner) {
+    marqueeInner.innerHTML += marqueeInner.innerHTML;
+  }
+
+  /* ── 9. Back to top ───────────────────────────────────────────────── */
+  const backTop = $("#backTop");
+  if (backTop) {
+    backTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: prefersReduced ? "auto" : "smooth" }));
+  }
+
+  /* ── 10. Tahun footer ─────────────────────────────────────────────── */
+  const yearEl = $("#year");
+  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+  /* ── 11. Parallax halus | [data-parallax="kecepatan"] ─────────────── */
+  const parallaxEls = $$("[data-parallax]");
+  function updateParallax() {
+    if (prefersReduced || !parallaxEls.length) return;
+    const vh = window.innerHeight;
+    parallaxEls.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > vh) return;
+      const speed = parseFloat(el.dataset.parallax) || 0.08;
+      const center = rect.top + rect.height / 2;
+      const offset = (vh / 2 - center) * speed;
+      el.style.transform = "translateY(" + offset.toFixed(1) + "px)";
+    });
+  }
+  updateParallax();
+})();
+
+
+(function(){
+"use strict";
+var $=function(s,c){return (c||document).querySelector(s)};
+var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+var q=$("#q"),grid=$("#grid"),chipsWrap=$("#chips"),meta=$("#meta"),empty=$("#empty");
+var data=[],cat="ALL";
+document.getElementById("year").textContent=new Date().getFullYear();
+
+function toast(msg){var t=$("#toast");t.textContent=msg;t.classList.add("show");clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove("show")},1800);}
+function copyCode(code){
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(code).then(function(){toast("Kode "+code+" disalin")},function(){fallback(code)});}
+  else{fallback(code);}
+  function fallback(c){var ta=document.createElement("textarea");ta.value=c;document.body.appendChild(ta);ta.select();try{document.execCommand("copy");toast("Kode "+c+" disalin");}catch(e){toast("Salin manual: "+c);}document.body.removeChild(ta);}
+}
+
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(m){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]});}
+
+function render(){
+  var term=(q.value||"").toLowerCase().trim();
+  var list=data.filter(function(t){
+    var okCat=cat==="ALL"||t.category===cat;
+    var hay=(t.name+" "+t.code+" "+t.category+" "+t.tags.join(" ")+" "+t.description).toLowerCase();
+    return okCat&&(!term||hay.indexOf(term)>-1);
+  });
+  empty.hidden=list.length>0;
+  grid.innerHTML=list.map(function(t){
+    var hot=t.featured?'<span class="hot">Hot</span>':"";
+    return '<article class="card'+(t.featured?" featured":"")+'">'+
+      '<div class="thumb"><div class="ph">'+esc(t.code)+'</div><span class="ribbon">'+esc(t.code)+'</span>'+hot+'</div>'+
+      '<div class="body"><div class="top"><span class="code">'+esc(t.code)+'</span><span class="cat">'+esc(t.category)+'</span></div>'+
+      '<h3>'+esc(t.name)+'</h3><p>'+esc(t.description)+'</p>'+
+      '<div class="tags">'+(t.tags||[]).map(function(x){return '<span class="tag">#'+esc(x)+'</span>'}).join("")+'</div>'+
+      '<div class="acts">'+
+      '<button class="btn ghost" onclick="WPB.copy(\''+esc(t.code)+'\')">Salin Kode</button>'+
+      (t.github?'<a class="btn navy" href="'+esc(t.github)+'" target="_blank" rel="noopener noreferrer">GitHub</a>':'<a class="btn navy" href="https://wa.me/6285191240994?text=Halo%20Akalpa!%20Template%20'+encodeURIComponent(t.code)+'" target="_blank" rel="noopener noreferrer">Klaim</a>')+
+      '</div></div></article>';
+  }).join("");
+  var shown=list.length;
+  meta.textContent=shown+" dari "+data.length+" template"+(cat!=="ALL"?" | kategori "+cat:"")+(term?" | cari \""+q.value+"\"":"");
+}
+
+function buildChips(){
+  var cats=["ALL"].concat(Array.from(new Set(data.map(function(t){return t.category}))).filter(function(x){return x}));
+  chipsWrap.innerHTML=cats.map(function(c){return '<button class="chip'+(c===cat?" on":"")+'" data-cat="'+esc(c)+'">'+esc(c==="ALL"?"Semua":c)+'</button>'}).join("");
+  $$(".chip",chipsWrap).forEach(function(b){b.addEventListener("click",function(){cat=b.dataset.cat;$$(".chip",chipsWrap).forEach(function(x){x.classList.toggle("on",x===b)});render();});});
+}
+
+window.WPB={copy:copyCode};
+q.addEventListener("input",render);
+
+function loadData(){
+  var gasUrl="";
+  var localItems=[];
+  try{gasUrl=localStorage.getItem("aka_gas_url")||"";}catch(e){}
+  try{localItems=JSON.parse(localStorage.getItem("aka_curator_v1")||"[]");}catch(e){}
+
+  // Sumber data prioritas: GAS API > localStorage > templates.json statis
+  var primaryUrl=gasUrl||"templates/templates.json";
+  var isGAS=!!gasUrl;
+
+  fetch(primaryUrl,{cache:"no-store"}).then(function(r){
+    if(!r.ok)throw 0;
+    return r.json();
+  }).then(function(j){
+    // GAS return {ok:true, templates:[...]} | JSON file return {templates:[...]}
+    var arr=(j&&Array.isArray(j.templates))?j.templates:[];
+    data=arr.length>0?arr:(localItems.length>0?localItems:[]);
+    buildChips();render();
+  }).catch(function(){
+    // Fallback ke localStorage
+    data=localItems;
+    if(data.length>0){buildChips();render();}
+    else{
+      // Fallback terakhir ke templates.json statis (jika GAS gagal)
+      if(isGAS){
+        fetch("templates/templates.json",{cache:"no-store"}).then(function(r2){return r2.json();}).then(function(j2){
+          data=(j2&&Array.isArray(j2.templates))?j2.templates:[];
+          if(data.length>0){buildChips();render();}
+          else{meta.textContent="Belum ada template yang dipublikasikan.";empty.hidden=false;}
+        }).catch(function(){meta.textContent="Belum ada template yang dipublikasikan.";empty.hidden=false;});
+      }else{
+        meta.textContent="Belum ada template yang dipublikasikan.";
+        empty.hidden=false;
+        grid.innerHTML="";
+      }
+    }
+  });
+}
+
+window.addEventListener("storage",function(e){
+  if(e.key==="aka_curator_v1"||e.key==="aka_gas_url") loadData();
+});
+
+loadData();
+})();
+
+
+(function(){
+"use strict";
+
+/* SHA-256 digest of "akalpa_curator_salt_2026:akalpa2026" */
+var SALT="akalpa_curator_salt_2026";
+var EXPECTED_HASH="bedfe3b2190df68b3376b0f206d6f4d828be8eb1f4d43fdc280b66835b873092";
+
+var LS_DATA="aka_curator_v1";
+var SS_AUTH="aka_curator_token";
+var LS_ATTEMPTS="aka_curator_lockout";
+var LS_GAS_URL="aka_gas_url";
+var LS_GAS_TOKEN="aka_gas_token";
+
+var MAX_ATTEMPTS=5;
+var LOCKOUT_TIME_MS=15*60*1000; // 15 menit
+var INACTIVITY_TIMEOUT_MS=30*60*1000; // 30 menit
+
+var $=function(s,c){return (c||document).querySelector(s)};
+var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+
+var items=[],editingId=null,lastActivityTime=Date.now();
+
+function toast(m){
+  var t=$("#toast");t.textContent=m;t.classList.add("show");
+  clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove("show")},1800);
+}
+
+function esc(s){
+  return String(s==null?"":s).replace(/[&<>"']/g,function(m){
+    return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m];
+  });
+}
+
+function validateUrl(url){
+  if(!url)return "";
+  var u=String(url).trim();
+  if(/^https?:\/\/[^\s<>'"]+$/i.test(u)) return u;
+  return "";
+}
+
+async function sha256(text){
+  var enc=new TextEncoder().encode(text);
+  var buf=await crypto.subtle.digest("SHA-256",enc);
+  var arr=Array.from(new Uint8Array(buf));
+  return arr.map(function(b){return b.toString(16).padStart(2,"0")}).join("");
+}
+
+function getLockoutState(){
+  try{
+    var st=JSON.parse(localStorage.getItem(LS_ATTEMPTS)||"{}");
+    if(st.until && Date.now()<st.until) return st;
+    if(st.until && Date.now()>=st.until){
+      localStorage.removeItem(LS_ATTEMPTS);
+      return {fails:0,until:0};
+    }
+    return st;
+  }catch(e){return {fails:0,until:0};}
+}
+
+function recordFailedAttempt(){
+  var st=getLockoutState();
+  st.fails=(st.fails||0)+1;
+  if(st.fails>=MAX_ATTEMPTS){
+    st.until=Date.now()+LOCKOUT_TIME_MS;
+  }
+  localStorage.setItem(LS_ATTEMPTS,JSON.stringify(st));
+  return st;
+}
+
+function clearLockoutState(){
+  localStorage.removeItem(LS_ATTEMPTS);
+}
+
+function load(){
+  try{items=JSON.parse(localStorage.getItem(LS_DATA)||"[]");}catch(e){items=[];}
+  renderList();
+}
+
+function persist(){
+  localStorage.setItem(LS_DATA,JSON.stringify(items));
+}
+
+function nextCode(){
+  var max=0;
+  items.forEach(function(t){
+    var m=String(t.code||"").match(/(\d+)$/);
+    if(m) max=Math.max(max,parseInt(m[1],10));
+  });
+  return "#AKA-"+String(max+1).padStart(3,"0");
+}
+
+function buildCatList(){
+  var cats=Array.from(new Set(items.map(function(t){return t.category}).filter(Boolean)));
+  $("#cats").innerHTML=cats.map(function(c){return '<option value="'+esc(c)+'">'}).join("");
+}
+
+function renderList(){
+  $("#count").textContent=items.length;
+  if(!items.length){
+    $("#list").innerHTML='<div style="color:rgba(247,243,234,.5);font-size:.85rem">Belum ada template. Tambah melalui form di samping.</div>';
+    return;
+  }
+  $("#list").innerHTML=items.map(function(t){
+    var safeGh=validateUrl(t.github);
+    return '<div class="item">'+
+      '<div class="it"><span class="code">'+esc(t.code)+'</span><span class="nm">'+esc(t.name)+'</span><span class="ct">'+esc(t.category||"-")+"</span>"+(t.featured?'<span class="ct" style="color:var(--navy);background:var(--orange)">Hot</span>':"")+"</div>"+
+      (safeGh?'<div class="im">🔗 '+esc(safeGh)+"</div>":"")+
+      '<div class="acts"><button class="btn orange mini" data-edit="'+esc(t.id)+'">✎ Edit</button><button class="btn danger mini" data-del="'+esc(t.id)+'">✕ Hapus</button></div></div>';
+  }).join("");
+  $$("[data-edit]",$("#list")).forEach(function(b){b.addEventListener("click",function(){edit(b.dataset.edit)});});
+  $$("[data-del]",$("#list")).forEach(function(b){b.addEventListener("click",function(){del(b.dataset.del)});});
+}
+
+function formVal(){
+  return{
+    name:$("#f-name").value.trim(),
+    code:($("#f-code").value.trim()||nextCode()),
+    category:$("#f-cat").value.trim(),
+    description:$("#f-desc").value.trim(),
+    github:validateUrl($("#f-gh").value.trim()),
+    tags:$("#f-tags").value.split(",").map(function(x){return x.trim()}).filter(Boolean),
+    featured:$("#f-feat").checked
+  };
+}
+
+function setForm(t){
+  editingId=t.id;
+  $("#f-code").value=t.code||"";
+  $("#f-name").value=t.name||"";
+  $("#f-cat").value=t.category||"";
+  $("#f-desc").value=t.description||"";
+  $("#f-gh").value=t.github||"";
+  $("#f-tags").value=(t.tags||[]).join(", ");
+  $("#f-feat").checked=!!t.featured;
+  $("#formTitle").textContent="✎ Edit Template "+esc(t.code);
+  $("#cancel").hidden=false;
+}
+
+function resetForm(){
+  editingId=null;
+  $("#f-code").value=nextCode();
+  ["#f-name","#f-cat","#f-desc","#f-gh","#f-tags"].forEach(function(s){$(s).value="";});
+  $("#f-feat").checked=false;
+  $("#formTitle").textContent="➕ Tambah Template";
+  $("#cancel").hidden=true;
+}
+
+function gasConf(){
+  return{
+    url:localStorage.getItem(LS_GAS_URL)||"",
+    token:localStorage.getItem(LS_GAS_TOKEN)||""
+  };
+}
+
+function gasStatus(msg,ok){
+  var el=$("#gas-status");
+  if(!el)return;
+  el.textContent=msg;
+  el.style.color=ok?"#6ee7b7":"#ff8b8b";
+}
+
+async function gasPost(body){
+  var c=gasConf();
+  if(!c.url)return null; // GAS tidak dikonfigurasi, skip
+  body.token=c.token;
+  var res=await fetch(c.url,{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify(body)
+  });
+  if(!res.ok)throw new Error("HTTP "+res.status);
+  return await res.json();
+}
+
+$("#save").addEventListener("click",async function(){
+  var v=formVal();
+  if(!v.name){toast("Nama template wajib diisi");return;}
+  var dup=items.filter(function(t){return t.id!==editingId&&t.code===v.code});
+  if(dup.length){toast("Kode "+v.code+" sudah dipakai");return;}
+
+  var newItem;
+  if(editingId){
+    items=items.map(function(t){return t.id===editingId?Object.assign({},t,v):t;});
+    newItem=items.filter(function(t){return t.id===editingId;})[0];
+    try{var r=await gasPost({action:"update",data:newItem});if(r&&r.ok)gasStatus("✅ GAS: template diperbarui",true);else if(r)gasStatus("⚠️ GAS: "+r.error,false);}catch(e){gasStatus("⚠️ GAS offline: disimpan lokal",false);}
+    toast("Template diperbarui: "+v.name);
+  }else{
+    newItem=Object.assign({id:"aka-"+String(Date.now()).slice(-8)},v);
+    items.push(newItem);
+    try{var r2=await gasPost({action:"add",data:newItem});if(r2&&r2.ok)gasStatus("✅ GAS: template ditambahkan",true);else if(r2)gasStatus("⚠️ GAS: "+r2.error,false);}catch(e){gasStatus("⚠️ GAS offline: disimpan lokal",false);}
+    toast("Template ditambahkan: "+v.name);
+  }
+  persist();buildCatList();renderList();resetForm();
+});
+
+$("#cancel").addEventListener("click",resetForm);
+$("#clear").addEventListener("click",resetForm);
+
+function edit(id){
+  var t=items.filter(function(x){return x.id===id})[0];
+  if(t) setForm(t);
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+async function del(id){
+  var t=items.filter(function(x){return x.id===id})[0];
+  if(!t)return;
+  if(!confirm("Hapus template "+t.code+" | "+t.name+"?"))return;
+  items=items.filter(function(x){return x.id!==id;});
+  try{var r=await gasPost({action:"delete",id:id});if(r&&r.ok)gasStatus("✅ GAS: template dihapus",true);else if(r)gasStatus("⚠️ GAS: "+r.error,false);}catch(e){gasStatus("⚠️ GAS offline: hapus lokal saja",false);}
+  persist();buildCatList();renderList();
+  if(editingId===id) resetForm();
+  toast("Template dihapus");
+}
+
+$("#clearAll").addEventListener("click",async function(){
+  if(!items.length){toast("Koleksi template sudah kosong");return;}
+  if(!confirm("Apakah Anda yakin ingin menghapus SEMUA template? Seluruh data akan dikosongkan di lokal dan GAS."))return;
+  items=[];
+  try{var r=await gasPost({action:"clear"});if(r&&r.ok)gasStatus("✅ GAS: semua template dikosongkan",true);else if(r)gasStatus("⚠️ GAS: "+r.error,false);}catch(e){gasStatus("⚠️ GAS offline: hapus lokal saja",false);}
+  persist();buildCatList();renderList();resetForm();
+  toast("Seluruh template telah dikosongkan");
+});
+
+/* Export / Import */
+function exportJson(){return JSON.stringify({templates:items},null,1);}
+$("#exp-dl").addEventListener("click",function(){
+  var blob=new Blob([exportJson()],{type:"application/json"});
+  var a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="templates.json";a.click();
+  setTimeout(function(){URL.revokeObjectURL(a.href)},2000);
+  toast("templates.json diunduh | perbarui file di repositori");
+});
+
+$("#exp-copy").addEventListener("click",function(){
+  var txt=exportJson();
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(txt).then(function(){toast("JSON disalin ke clipboard")},function(){prompt("Salin manual:",txt);});
+  }else{prompt("Salin manual:",txt);}
+});
+
+$("#imp-apply").addEventListener("click",async function(){
+  try{
+    var j=JSON.parse($("#imp").value);
+    if(!Array.isArray(j.templates)) throw new Error("Format JSON harus menyertakan array 'templates'");
+    items=j.templates.map(function(t){
+      return {
+        id: String(t.id||("aka-"+String(Date.now()).slice(-8))),
+        name: String(t.name||"Untitled"),
+        code: String(t.code||""),
+        category: String(t.category||""),
+        description: String(t.description||""),
+        github: validateUrl(t.github),
+        tags: Array.isArray(t.tags)?t.tags.map(String):[],
+        featured: !!t.featured
+      };
+    });
+    try{var r=await gasPost({action:"bulk",templates:items});if(r&&r.ok)gasStatus("✅ GAS: bulk import "+items.length+" template",true);else if(r)gasStatus("⚠️ GAS: "+r.error,false);}catch(e){gasStatus("⚠️ GAS offline: disimpan lokal",false);}
+    persist();buildCatList();renderList();
+    $("#imp").value="";toast("Impor berhasil | "+items.length+" template dimuat");
+  }catch(e){toast("Gagal impor: JSON tidak valid atau struktur salah");}
+});
+
+/* GAS Config Panel Handlers */
+$("#gas-save").addEventListener("click",function(){
+  var url=$("#gas-url").value.trim();
+  var token=$("#gas-token").value.trim();
+  if(url) localStorage.setItem(LS_GAS_URL,url);
+  if(token) localStorage.setItem(LS_GAS_TOKEN,token);
+  gasStatus("✅ Konfigurasi GAS disimpan",true);
+  toast("Konfigurasi GAS disimpan");
+});
+
+$("#gas-test").addEventListener("click",async function(){
+  var c=gasConf();
+  if(!c.url){gasStatus("❌ GAS URL belum diisi",false);return;}
+  gasStatus("🔄 Menghubungi GAS...",true);
+  try{
+    var r=await fetch(c.url,{cache:"no-store"});
+    var j=await r.json();
+    if(j.ok!==undefined){
+      gasStatus("✅ Koneksi GAS berhasil | "+((j.templates||[]).length)+" template di Sheet",true);
+    }else{
+      gasStatus("⚠️ GAS merespons tapi format tidak dikenal",false);
+    }
+  }catch(e){
+    gasStatus("❌ Gagal terhubung ke GAS: "+e.message,false);
+  }
+});
+
+$("#gas-sync").addEventListener("click",async function(){
+  var c=gasConf();
+  if(!c.url){gasStatus("❌ GAS URL belum diisi",false);return;}
+  gasStatus("🔄 Menarik data dari GAS...",true);
+  try{
+    var r=await fetch(c.url,{cache:"no-store"});
+    var j=await r.json();
+    if(!j.ok||!Array.isArray(j.templates))throw new Error("Response GAS tidak valid");
+    items=j.templates.map(function(t){
+      return {
+        id:String(t.id||"aka-"+Date.now()),
+        name:String(t.name||""),
+        code:String(t.code||""),
+        category:String(t.category||""),
+        description:String(t.description||""),
+        github:validateUrl(t.github),
+        tags:Array.isArray(t.tags)?t.tags.map(String):(typeof t.tags==="string"?t.tags.split(",").map(function(x){return x.trim();}).filter(Boolean):[]),
+        featured:t.featured===true||t.featured==="TRUE"||t.featured===1
+      };
+    });
+    persist();buildCatList();renderList();
+    gasStatus("✅ Sync berhasil: "+items.length+" template dimuat dari GAS",true);
+    toast("Sync dari GAS: "+items.length+" template");
+  }catch(e){
+    gasStatus("❌ Sync gagal: "+e.message,false);
+  }
+});
+
+
+/* Gate & Security Authentication */
+async function unlockVault(){
+  var gateErr=$("#gateErr");
+  var inputVal=$("#pass").value;
+  gateErr.textContent="";
+
+  var lock=getLockoutState();
+  if(lock.until && Date.now()<lock.until){
+    var remainSec=Math.ceil((lock.until-Date.now())/1000);
+    gateErr.textContent="Akses dibekukan sementara ("+remainSec+"d) karena terlalu banyak percobaan gagal.";
+    return;
+  }
+
+  if(!inputVal){
+    gateErr.textContent="Kode akses tidak boleh kosong";
+    return;
+  }
+
+  var inputHash=await sha256(SALT+":"+inputVal);
+  if(inputHash===EXPECTED_HASH){
+    clearLockoutState();
+    var token="curator_token_"+Date.now()+"_"+Math.random().toString(36).substring(2,10);
+    sessionStorage.setItem(SS_AUTH,token);
+    enter();
+  }else{
+    var updatedLock=recordFailedAttempt();
+    $("#pass").value="";
+    // Artificial delay to prevent brute-forcing
+    await new Promise(function(r){setTimeout(r,1000)});
+    if(updatedLock.fails>=MAX_ATTEMPTS){
+      gateErr.textContent="5x percobaan gagal. Akses dibekukan selama 15 menit.";
+    }else{
+      var rem=MAX_ATTEMPTS-(updatedLock.fails||0);
+      gateErr.textContent="Kode otorisasi salah. Sisa percobaan: "+rem;
+    }
+  }
+}
+
+$("#unlock").addEventListener("click",unlockVault);
+$("#pass").addEventListener("keydown",function(e){if(e.key==="Enter") unlockVault();});
+
+$("#logout").addEventListener("click",function(){
+  sessionStorage.removeItem(SS_AUTH);
+  location.reload();
+});
+
+function enter(){
+  document.getElementById("gate").style.display="none";
+  document.getElementById("app").hidden=false;
+  load();buildCatList();resetForm();
+  lastActivityTime=Date.now();
+  // Load GAS config ke input fields
+  var savedUrl=localStorage.getItem(LS_GAS_URL)||"";
+  var savedToken=localStorage.getItem(LS_GAS_TOKEN)||"";
+  if(savedUrl) $("#gas-url").value=savedUrl;
+  if(savedToken) $("#gas-token").value=savedToken;
+  if(savedUrl) gasStatus("✅ GAS terkonfigurasi: "+savedUrl.substring(0,50)+"…",true);
+  else gasStatus("⚠️ GAS belum dikonfigurasi. Masukkan URL dan Token di atas.",false);
+}
+
+/* Inactivity Auto-logout */
+["mousemove","keydown","click","touchstart"].forEach(function(evt){
+  window.addEventListener(evt,function(){lastActivityTime=Date.now();},{passive:true});
+});
+
+setInterval(function(){
+  if(sessionStorage.getItem(SS_AUTH) && (Date.now()-lastActivityTime > INACTIVITY_TIMEOUT_MS)){
+    sessionStorage.removeItem(SS_AUTH);
+    alert("Sesi telah berakhir karena tidak ada aktivitas selama 30 menit.");
+    location.reload();
+  }
+},30000);
+
+/* Session check on page load */
+if(sessionStorage.getItem(SS_AUTH)){
+  enter();
+}
+
+})();
+
+
+/* SPA Router for Blogger Views */
+(function(){
+  function route(){
+    var hash = window.location.hash || "#home";
+    var views = document.querySelectorAll(".akalpa-view");
+    views.forEach(function(v){ v.style.display = "none"; });
+
+    if(hash === "#templates" || window.location.pathname.indexOf("/p/templates") > -1){
+      var vt = document.getElementById("view-templates");
+      if(vt) vt.style.display = "block";
+      window.scrollTo(0,0);
+    } else if(hash === "#curator" || window.location.pathname.indexOf("/p/curator") > -1){
+      var vc = document.getElementById("view-curator");
+      if(vc) vc.style.display = "block";
+      window.scrollTo(0,0);
+    } else {
+      var vh = document.getElementById("view-home");
+      if(vh) vh.style.display = "block";
+    }
+  }
+
+  window.addEventListener("hashchange", route);
+  window.addEventListener("DOMContentLoaded", route);
+  route();
+})();
+//]]>
+</script>
+
+</body>
+</html>
