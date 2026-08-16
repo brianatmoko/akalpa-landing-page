@@ -1448,10 +1448,13 @@ body.hero-dark .site-header:not(.is-scrolled) .brand-badge {
   position: fixed !important;
   inset: 0 !important;
   background: #182442 !important;
-  display: flex !important;
+  display: flex;
   align-items: center !important;
   justify-content: center !important;
   z-index: 99999 !important;
+}
+#view-curator .gate[hidden] {
+  display: none !important;
 }
 
 #view-curator .gatebox {
@@ -3104,10 +3107,13 @@ $("#logout").addEventListener("click",function(){
 function enter(){
   var gate = document.getElementById("gate");
   var app = document.getElementById("app");
-  if(gate) gate.style.display="none";
+  if(gate) {
+    gate.hidden = true;
+    gate.style.setProperty("display", "none", "important");
+  }
   if(app) {
     app.hidden = false;
-    app.style.display = "block";
+    app.style.setProperty("display", "block", "important");
   }
   load(); buildCatList(); resetForm(); renderList();
   lastActivityTime=Date.now();
