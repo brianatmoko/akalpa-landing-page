@@ -2504,15 +2504,8 @@ body.hero-dark .site-header:not(.is-scrolled) .brand-badge {
   updateHeader();
 
   /* ── 3. Mobile menu ───────────────────────────────────────────────── */
-  const burger = $("#navBurger");
+  const navBurger = $("#navBurger");
   const mobileMenu = $("#mobileMenu");
-  function closeMobileMenu() {
-    if (!mobileMenu) return;
-    mobileMenu.classList.remove("is-open");
-    mobileMenu.hidden = true;
-    if (header) header.classList.remove("mobile-open");
-    if (burger) {
-      burger.setAttribute("aria-expanded", "false");
   if (navBurger && mobileMenu) {
     navBurger.addEventListener("click", () => {
       const open = mobileMenu.hasAttribute("hidden");
