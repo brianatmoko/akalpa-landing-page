@@ -251,6 +251,54 @@ def package_assets():
     print(f"✅ Panduan Pemetaan dibuat: {OUT_MAP_GUIDE}")
     return asset_files
 
+def scope_css(css_str, scope):
+    """Mengisolasi (scope) seluruh rule CSS agar hanya berlaku di dalam scope ID (misal #view-templates atau #view-curator)."""
+    # Hapus deklarasi :root ganda yang bisa merusak token utama
+    css_str = re.sub(r':root\s*\{[^}]*\}', '', css_str)
+
+    pattern = re.compile(r'([^{]+)\{([^}]+)\}')
+
+    def scope_selectors(match):
+        selectors_raw = match.group(1).strip()
+        content = match.group(2).strip()
+
+        if selectors_raw.startswith('@'):
+            inner_scoped = pattern.sub(scope_selectors, content)
+            return f"{selectors_raw} {{\n{inner_scoped}\n}}"
+
+        selectors = [s.strip() for s in selectors_raw.split(',')]
+        scoped_selectors = []
+
+        for sel in selectors:
+            if not sel:
+                continue
+            if sel in ['body', 'html']:
+                scoped_selectors.append(scope)
+            elif sel.startswith('*'):
+                scoped_selectors.append(f"{scope} {sel}")
+            elif sel.startswith('@keyframes') or sel.startswith(':root'):
+                scoped_selectors.append(sel)
+            else:
+                scoped_selectors.append(f"{scope} {sel}")
+
+        return f"{', '.join(scoped_selectors)} {{\n  {content}\n}}"
+
+    tokens = re.split(r'(@media[^{]+\{\s*(?:[^{}]*\{[^{}]*\}\s*)*\})', css_str)
+    output = []
+    for token in tokens:
+        if not token.strip():
+            continue
+        if token.strip().startswith('@media'):
+            media_head = token[:token.find('{') + 1]
+            media_body = token[token.find('{') + 1 : token.rfind('}')]
+            scoped_body = pattern.sub(scope_selectors, media_body)
+            output.append(f"{media_head}\n{scoped_body}\n}}")
+        else:
+            scoped_token = pattern.sub(scope_selectors, token)
+            output.append(scoped_token)
+
+    return "\n\n".join(output)
+
 def extract_body_content(html_file):
     """Ekstrak hanya konten di dalam tag <body>."""
     with open(html_file, 'r', encoding='utf-8') as f:
@@ -292,9 +340,9 @@ def build_full_blogger_theme():
         with open(MAIN_CSS, 'r', encoding='utf-8') as f:
             main_css = f.read()
 
-    templates_css = extract_styles(TEMPLATES_HTML)
-    curator_css = extract_styles(CURATOR_HTML)
-    css_combined = main_css + "\n" + templates_css + "\n" + curator_css
+    templates_css = scope_css(extract_styles(TEMPLATES_HTML), "#view-templates")
+    curator_css = scope_css(extract_styles(CURATOR_HTML), "#view-curator")
+    css_combined = main_css + "\n\n/* ── Scoped Subpage Styles ── */\n" + templates_css + "\n\n" + curator_css
 
     main_js = ""
     if os.path.exists(MAIN_JS):
@@ -314,8 +362,14 @@ def build_full_blogger_theme():
     header_match = re.search(r'(<header id="siteHeader".*?</header>)', index_body, re.DOTALL)
     if header_match:
         header_html = header_match.group(1)
-        # Hapus header dari index_body agar tidak ganda
         index_body = index_body.replace(header_html, "")
+
+    # Hapus header redundan dari templates_body agar memakai global #siteHeader
+    templates_body = re.sub(r'<header[^>]*>.*?</header>', '', templates_body, flags=re.DOTALL)
+
+    # Ganti tag <header> di curator_body menjadi <div class="curator-header"> agar tidak konflik
+    curator_body = re.sub(r'<header([^>]*)>', r'<div class="curator-header"\1>', curator_body)
+    curator_body = curator_body.replace('</header>', '</div>')
 
     # Sesuaikan link navigasi internal untuk Blogger SPA hash routing
     header_html = header_html.replace('href="templates.html"', 'href="#templates"')
