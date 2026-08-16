@@ -1278,17 +1278,17 @@ textarea.exportbox{min-height:150px;font-family:'JetBrains Mono',monospace;font-
 <header id="siteHeader" class="site-header">
   <div class="container nav-inner">
     <a href="#hero" class="brand" data-scroll="hero">
-      <img class="brand-logo" src="https://lh3.googleusercontent.com/d/18scDBaMBz0pZ2lL-HRaqAC_EZHAqOsGF" alt="Logo Akalpa Inovasi" width="36" height="36">
+      <img class="brand-logo" src="https://lh3.googleusercontent.com/d/18scDBaMBz0pZ2lL-HRaqAC_EZHAqOsGF" alt="Logo Akalpa Inovasi" width="36" height="36" />
       <span class="brand-text">
         <span class="brand-name">Akalpa Inovasi</span>
       </span>
     </a>
     <nav class="nav-links" aria-label="Navigasi utama">
-      <a href="#tentang" data-scroll>Tentang</a>
-      <a href="#fokus" data-scroll>Fokus</a>
-      <a href="#github" data-scroll>Open Source</a>
-      <a href="#testimoni" data-scroll>Testimoni</a>
-      <a href="#faq" data-scroll>FAQ</a>
+      <a href="#tentang" data-scroll="true">Tentang</a>
+      <a href="#fokus" data-scroll="true">Fokus</a>
+      <a href="#github" data-scroll="true">Open Source</a>
+      <a href="#testimoni" data-scroll="true">Testimoni</a>
+      <a href="#faq" data-scroll="true">FAQ</a>
       <a href="#templates">Free Template</a>
     </nav>
     <div class="nav-actions">
@@ -1300,12 +1300,12 @@ textarea.exportbox{min-height:150px;font-family:'JetBrains Mono',monospace;font-
       </button>
     </div>
   </div>
-  <div class="mobile-menu" id="mobileMenu" hidden>
-    <a href="#tentang" data-scroll>Tentang</a>
-    <a href="#fokus" data-scroll>Fokus</a>
-    <a href="#github" data-scroll>Open Source</a>
-    <a href="#testimoni" data-scroll>Testimoni</a>
-    <a href="#faq" data-scroll>FAQ</a>
+  <div class="mobile-menu" id="mobileMenu" hidden="true">
+    <a href="#tentang" data-scroll="true">Tentang</a>
+    <a href="#fokus" data-scroll="true">Fokus</a>
+    <a href="#github" data-scroll="true">Open Source</a>
+    <a href="#testimoni" data-scroll="true">Testimoni</a>
+    <a href="#faq" data-scroll="true">FAQ</a>
     <a href="#templates">Free Template</a>
     <a class="btn btn-primary" href="https://wa.me/6285191240994?text=Halo%20Akalpa!%20Saya%20ingin%20konsultasi%20pembuatan%20website%20%F0%9F%9A%80" target="_blank" rel="noopener noreferrer">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-whatsapp" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" /> <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" /> </svg> Konsultasi Gratis
@@ -1323,7 +1323,7 @@ textarea.exportbox{min-height:150px;font-family:'JetBrains Mono',monospace;font-
       <div class="hero-scrim" id="heroScrim" aria-hidden="true"></div>
 
       <div class="hero-preloader" id="heroPreloader" role="status" aria-live="polite">
-        <img class="preloader-logo" src="https://lh3.googleusercontent.com/d/18scDBaMBz0pZ2lL-HRaqAC_EZHAqOsGF" alt="Logo Akalpa Inovasi" width="52" height="52">
+        <img class="preloader-logo" src="https://lh3.googleusercontent.com/d/18scDBaMBz0pZ2lL-HRaqAC_EZHAqOsGF" alt="Logo Akalpa Inovasi" width="52" height="52" />
         <span class="preloader-label">Memuat Pengalaman…</span>
         <div class="preloader-bar"><div class="preloader-fill" id="preloaderFill"></div></div>
         <span class="preloader-count" id="preloaderCount">0 / 40</span>
@@ -1347,7 +1347,7 @@ textarea.exportbox{min-height:150px;font-family:'JetBrains Mono',monospace;font-
         </div>
       </div>
 
-      <img class="hero-mascot" id="heroMascot" src="https://lh3.googleusercontent.com/d/1ewKmW53V-2_VP1NMvwpvrv3ntIzfHKZY" alt="Maskot Akalpa Inovasi dengan ide baru di hero" width="200" height="300">
+      <img class="hero-mascot" id="heroMascot" src="https://lh3.googleusercontent.com/d/1ewKmW53V-2_VP1NMvwpvrv3ntIzfHKZY" alt="Maskot Akalpa Inovasi dengan ide baru di hero" width="200" height="300" />
 
       <div class="scroll-hint" id="scrollHint">
         <span>Scroll Untuk Motion</span>
@@ -1489,7 +1489,7 @@ textarea.exportbox{min-height:150px;font-family:'JetBrains Mono',monospace;font-
   <!-- ══════════════════ TENTANG | band parallax (frame sec2) ══════════════════ -->
   <section id="tentang" class="about-band sec-anim" aria-label="Tentang Akalpa Inovasi">
     <div class="about-bg" aria-hidden="true" data-parallax="0.08">
-      <img src="https://lh3.googleusercontent.com/d/18dRxu7ZykNHmmoZUpOsexidR0S80opKR" alt="" width="1280" height="720" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/18dRxu7ZykNHmmoZUpOsexidR0S80opKR" alt="" width="1280" height="720" loading="lazy" />
     </div>
     <div class="about-scrim" aria-hidden="true"></div>
     <div class="sec-inner">
@@ -1512,7 +1512,7 @@ textarea.exportbox{min-height:150px;font-family:'JetBrains Mono',monospace;font-
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-message-circle" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1" /> </svg> Mulai Konsultasi
         </a>
       </div>
-      <img class="about-mascot" src="https://lh3.googleusercontent.com/d/1enG8nwkHfsqTOtaI3-709SwaXlGijXBG" alt="Maskot Akalpa menunjuk tombol konsultasi" width="150" height="225" loading="lazy">
+      <img class="about-mascot" src="https://lh3.googleusercontent.com/d/1enG8nwkHfsqTOtaI3-709SwaXlGijXBG" alt="Maskot Akalpa menunjuk tombol konsultasi" width="150" height="225" loading="lazy" />
     </div>
     </div>
     <!-- (tanpa wave di perbatasan tentang → github, sesuai permintaan user) -->
@@ -1520,7 +1520,7 @@ textarea.exportbox{min-height:150px;font-family:'JetBrains Mono',monospace;font-
 
   <!-- ══════════════════ GITHUB | OPEN SOURCE ══════════════════ -->
   <section id="github" class="github-section sec-anim" aria-label="Kode terbuka kami di GitHub">
-    <img class="github-octo" src="https://lh3.googleusercontent.com/d/1NicXw4s2nqF3pocDh6foaUJK-pLxSpFg" alt="" aria-hidden="true" loading="lazy">
+    <img class="github-octo" src="https://lh3.googleusercontent.com/d/1NicXw4s2nqF3pocDh6foaUJK-pLxSpFg" alt="" aria-hidden="true" loading="lazy" />
     <div class="gh-cells" id="ghCells" aria-hidden="true"></div>
     <div class="sec-inner">
     <div class="container">
@@ -1737,13 +1737,13 @@ textarea.exportbox{min-height:150px;font-family:'JetBrains Mono',monospace;font-
 
 <!-- ══════════════════ FOOTER ══════════════════ -->
 <footer class="site-footer sec-anim">
-  <img class="footer-mascot" src="https://lh3.googleusercontent.com/d/13pWNkRzVitzcBi8_QfrDqDpINDVpTZ-s" alt="Maskot Akalpa memberi jempol" width="120" height="180" loading="lazy">
+  <img class="footer-mascot" src="https://lh3.googleusercontent.com/d/13pWNkRzVitzcBi8_QfrDqDpINDVpTZ-s" alt="Maskot Akalpa memberi jempol" width="120" height="180" loading="lazy" />
   <div class="sec-inner">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="brand">
-          <img class="brand-logo" src="https://lh3.googleusercontent.com/d/18scDBaMBz0pZ2lL-HRaqAC_EZHAqOsGF" alt="Logo Akalpa Inovasi" width="36" height="36">
+          <img class="brand-logo" src="https://lh3.googleusercontent.com/d/18scDBaMBz0pZ2lL-HRaqAC_EZHAqOsGF" alt="Logo Akalpa Inovasi" width="36" height="36" />
           <span class="brand-text">
             <span class="brand-name">Akalpa Inovasi</span>
           </span>
@@ -1760,11 +1760,11 @@ textarea.exportbox{min-height:150px;font-family:'JetBrains Mono',monospace;font-
       </div>
       <div class="footer-col">
         <h4>Navigasi</h4>
-        <a href="#tentang" data-scroll>Tentang</a>
-        <a href="#fokus" data-scroll>Fokus</a>
-        <a href="#github" data-scroll>Open Source</a>
-        <a href="#testimoni" data-scroll>Testimoni</a>
-        <a href="#faq" data-scroll>FAQ</a>
+        <a href="#tentang" data-scroll="true">Tentang</a>
+        <a href="#fokus" data-scroll="true">Fokus</a>
+        <a href="#github" data-scroll="true">Open Source</a>
+        <a href="#testimoni" data-scroll="true">Testimoni</a>
+        <a href="#faq" data-scroll="true">FAQ</a>
       </div>
       <div class="footer-col">
         <h4>Hubungi Kami</h4>
@@ -1788,7 +1788,7 @@ textarea.exportbox{min-height:150px;font-family:'JetBrains Mono',monospace;font-
     <div id="view-templates" class="akalpa-view" style="display:none">
 <header>
   <div class="container nav">
-    <a href="#home" class="brand"><img class="brand-logo" src="https://lh3.googleusercontent.com/d/18scDBaMBz0pZ2lL-HRaqAC_EZHAqOsGF" alt="Logo Akalpa Inovasi" width="34" height="34"> Akalpa Inovasi</a>
+    <a href="#home" class="brand"><img class="brand-logo" src="https://lh3.googleusercontent.com/d/18scDBaMBz0pZ2lL-HRaqAC_EZHAqOsGF" alt="Logo Akalpa Inovasi" width="34" height="34" /> Akalpa Inovasi</a>
     <nav class="nav-links" aria-label="Navigasi">
       <a href="#home" class="hide-sm">Beranda</a>
       <a href="#templates" class="active">Template</a>
@@ -1805,13 +1805,13 @@ textarea.exportbox{min-height:150px;font-family:'JetBrains Mono',monospace;font-
   </div>
 
   <div class="searchbar">
-    <input id="q" type="search" placeholder="Cari nama, kategori, atau kode… (contoh: AKA-002)" autocomplete="off">
+    <input id="q" type="search" placeholder="Cari nama, kategori, atau kode… (contoh: AKA-002)" autocomplete="off" />
     <span class="k"># KODE</span>
   </div>
   <div class="meta" id="meta">Memuat template…</div>
   <div class="chips" id="chips"></div>
   <div class="grid" id="grid"></div>
-  <div class="empty" id="empty" hidden>
+  <div class="empty" id="empty" hidden="true">
     <div class="big">Template tidak ditemukan</div>
     <p>Coba kode lain, atau tanya langsung di WhatsApp | kami bantu cari yang pas.</p>
   </div>
@@ -1830,25 +1830,25 @@ textarea.exportbox{min-height:150px;font-family:'JetBrains Mono',monospace;font-
 <div class="gate" id="gate">
   <div class="gatebox">
     <div class="status-badge">VAULT SECURITY GATE</div>
-    <img src="https://lh3.googleusercontent.com/d/18scDBaMBz0pZ2lL-HRaqAC_EZHAqOsGF" alt="Logo Akalpa Inovasi" style="width:44px;height:44px;border-radius:11px;background:#fff;object-fit:contain;padding:3px;border:2px solid var(--orange);margin-bottom:8px">
+    <img src="https://lh3.googleusercontent.com/d/18scDBaMBz0pZ2lL-HRaqAC_EZHAqOsGF" alt="Logo Akalpa Inovasi" style="width:44px;height:44px;border-radius:11px;background:#fff;object-fit:contain;padding:3px;border:2px solid var(--orange);margin-bottom:8px" />
     <h1>Studio <span>Curator</span></h1>
     <p>Masukkan kode otorisasi untuk mengelola pustaka template.</p>
-    <input type="password" id="pass" placeholder="KODE AKSES" autocomplete="off">
+    <input type="password" id="pass" placeholder="KODE AKSES" autocomplete="off" />
     <div class="btns" style="justify-content:center"><button class="btn orange" id="unlock" style="width:100%;justify-content:center">Buka Vault</button></div>
     <div class="err-msg" id="gateErr"></div>
     <p style="margin-top:14px;font-size:.72rem;font-family:'JetBrains Mono',monospace;color:rgba(247,243,234,.4)">Proteksi Kriptografik WebCrypto SHA-256</p>
   </div>
 </div>
 
-<div class="container" id="app" hidden>
+<div class="container" id="app" hidden="true">
   <header>
     <div>
       <div class="status-badge">STUDIO CURATOR PORTAL</div>
       <div style="display:flex;align-items:center;gap:12px;margin-bottom:4px">
-        <img src="https://lh3.googleusercontent.com/d/18scDBaMBz0pZ2lL-HRaqAC_EZHAqOsGF" alt="Logo Akalpa Inovasi" style="width:36px;height:36px;border-radius:9px;background:#fff;object-fit:contain;padding:2px;border:2px solid var(--orange)">
+        <img src="https://lh3.googleusercontent.com/d/18scDBaMBz0pZ2lL-HRaqAC_EZHAqOsGF" alt="Logo Akalpa Inovasi" style="width:36px;height:36px;border-radius:9px;background:#fff;object-fit:contain;padding:2px;border:2px solid var(--orange)" />
         <h1>Studio <span>Curator</span></h1>
       </div>
-      <div class="sub">Kelola template gratis Akalpa | Sinkronisasi <strong>realtime via Google Apps Script</strong> ke Google Sheets.
+      <div class="sub">Kelola template gratis Akalpa | Sinkronisasi <strong>realtime via Google Apps Script</strong> ke Google Sheets.</div>
     </div>
     <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
       <a class="btn ghost mini" href="#templates" target="_blank" rel="noopener">Katalog Publik ↗</a>
@@ -1861,12 +1861,12 @@ textarea.exportbox{min-height:150px;font-family:'JetBrains Mono',monospace;font-
     <div class="row">
       <div>
         <label>GAS API URL</label>
-        <input type="url" id="gas-url" placeholder="https://script.google.com/macros/s/…/exec">
+        <input type="url" id="gas-url" placeholder="https://script.google.com/macros/s/…/exec" />
         <div class="hint">URL deployment GAS Web App Anda.</div>
       </div>
       <div>
         <label>Curator Token (secret)</label>
-        <input type="password" id="gas-token" placeholder="Token rahasia GAS">
+        <input type="password" id="gas-token" placeholder="Token rahasia GAS" />
         <div class="hint">Sama dengan CURATOR_TOKEN di Code.gs</div>
       </div>
     </div>
@@ -1884,27 +1884,27 @@ textarea.exportbox{min-height:150px;font-family:'JetBrains Mono',monospace;font-
       <div class="row">
         <div>
           <label>Kode (auto)</label>
-          <input type="text" id="f-code" placeholder="#AKA-005" readonly>
+          <input type="text" id="f-code" placeholder="#AKA-005" readonly="true" />
           <div class="hint">Kode otomatis. Bisa disesuaikan manual.</div>
         </div>
         <div>
           <label>Kategori</label>
-          <input type="text" id="f-cat" list="cats" placeholder="Hero / Section / Halaman">
+          <input type="text" id="f-cat" list="cats" placeholder="Hero / Section / Halaman" />
           <datalist id="cats"></datalist>
         </div>
       </div>
       <label>Nama Template</label>
-      <input type="text" id="f-name" placeholder="Hero Parallax Senja">
+      <input type="text" id="f-name" placeholder="Hero Parallax Senja" />
       <label>Deskripsi (1–2 kalimat)</label>
       <textarea id="f-desc" placeholder="Jelaskan keunggulan singkat template ini…"></textarea>
       <label>Link GitHub (repo template)</label>
-      <input type="url" id="f-gh" placeholder="https://github.com/akalpainovasi/…">
+      <input type="url" id="f-gh" placeholder="https://github.com/akalpainovasi/…" />
       <label>Tags (pisahkan koma)</label>
-      <input type="text" id="f-tags" placeholder="parallax, hero, scroll">
-      <label class="check"><input type="checkbox" id="f-feat"> Tandai sebagai <strong>Hot / Featured</strong></label>
+      <input type="text" id="f-tags" placeholder="parallax, hero, scroll" />
+      <label class="check"><input type="checkbox" id="f-feat" /> Tandai sebagai <strong>Hot / Featured</strong></label>
       <div class="btns">
         <button class="btn orange" id="save">💾 Simpan Template</button>
-        <button class="btn ghost" id="cancel" hidden>Batal Edit</button>
+        <button class="btn ghost" id="cancel" hidden="true">Batal Edit</button>
         <button class="btn ghost" id="clear">Reset Form</button>
       </div>
     </section>

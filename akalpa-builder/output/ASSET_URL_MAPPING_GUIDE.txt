@@ -5,11 +5,6 @@
 Folder Google Drive Tujuan:
 https://drive.google.com/drive/folders/1Qyq3cRQkZoefM-M8K1Jybry2_GM50gxW?usp=sharing
 
-Langkah:
-1. Ekstrak file 'akalpa-assets-for-drive.zip'
-2. Upload seluruh isi folder ke Google Drive di atas.
-3. Dapatkan Link Publik / Direct Link untuk setiap gambar.
-
 Daftar Aset yang Perlu Di-map:
 ------------------------------------------------------------
 - Akalpa-Logos.png

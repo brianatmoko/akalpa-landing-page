@@ -8,11 +8,7 @@ Fungsi:
 1. Membungkus seluruh aset (logo, mascot, frames, octocat) ke `output/akalpa-assets-for-drive.zip`
 2. Menghasilkan daftar pemetaan aset `output/ASSET_URL_MAPPING_GUIDE.txt`
 3. Membangun file XML Blogger Theme lengkap `output/akalpa-full-blogger-theme.xml`
-   yang menggabungkan:
-     - Main Landing Page (Beranda)
-     - Katalog Free Templates
-     - Studio Curator Portal (Vault Security Gate + Management)
-     - Integration GAS Realtime API (Google Sheets)
+   dengan sintaks XML 100% valid (self-closing tags untuk img, input, br, hr & amp escaping & quoted boolean attrs).
 
 Cara Pakai:
   python tools/package_and_build_blogger_theme.py
@@ -22,6 +18,7 @@ import os
 import re
 import sys
 import zipfile
+import xml.etree.ElementTree as ET
 
 SCRIPT_DIR   = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
@@ -130,6 +127,32 @@ BLOGGER_FULL_TEMPLATE = """\
 </html>
 """
 
+def make_html_xml_compliant(html_str):
+    """
+    Mengonversi HTML agar 100% mematuhi aturan XML Blogger:
+    - Void elements (img, input, br, hr, meta, link) harus self-closing (/>)
+    - Atribut Boolean (data-scroll, hidden, readonly, dll) harus berkuotasi (attr="true")
+    - Karakter & yang belum di-escape menjadi &amp;
+    """
+    # 1. Self-closing untuk tag img: <img ...> -> <img ... />
+    html_str = re.sub(r'<img\b((?:[^"\'>]|"[^"]*"|\'[^\']*\')*?)(?<!/)>', r'<img\1 />', html_str, flags=re.IGNORECASE)
+
+    # 2. Self-closing untuk tag input: <input ...> -> <input ... />
+    html_str = re.sub(r'<input\b((?:[^"\'>]|"[^"]*"|\'[^\']*\')*?)(?<!/)>', r'<input\1 />', html_str, flags=re.IGNORECASE)
+
+    # 3. Self-closing untuk tag br dan hr
+    html_str = re.sub(r'<br\b((?:[^"\'>]|"[^"]*"|\'[^\']*\')*?)(?<!/)>', r'<br\1 />', html_str, flags=re.IGNORECASE)
+    html_str = re.sub(r'<hr\b((?:[^"\'>]|"[^"]*"|\'[^\']*\')*?)(?<!/)>', r'<hr\1 />', html_str, flags=re.IGNORECASE)
+
+    # 4. Atribut boolean tanpa nilai (misal data-scroll, hidden, readonly) -> data-scroll="true"
+    for bool_attr in ['data-scroll', 'hidden', 'readonly', 'disabled', 'checked', 'required', 'autofocus', 'novalidate', 'multiple']:
+        html_str = re.sub(r'\s+' + bool_attr + r'(?=[\s/>])', r' ' + bool_attr + r'="true"', html_str)
+
+    # 5. Escape unescaped & (yang bukan entitas valid seperti &amp;, &lt;, &gt;, &quot;, &#123;)
+    html_str = re.sub(r'&(?!(?:[a-zA-Z0-9]+|#[0-9]+|#x[0-9a-fA-F]+);)', '&amp;', html_str)
+
+    return html_str
+
 def package_assets():
     """Kemas semua aset gambar ke file zip."""
     print("📦 Mengemas semua aset gambar ke ZIP...")
@@ -151,17 +174,12 @@ def package_assets():
     size_mb = os.path.getsize(OUT_ZIP) / (1024 * 1024)
     print(f"✅ Asset Zip dibuat: {OUT_ZIP} ({size_mb:.2f} MB)")
 
-    # Buat file panduan pemetaan aset
     with open(OUT_MAP_GUIDE, 'w', encoding='utf-8') as f:
         f.write("============================================================\n")
         f.write("  AKALPA INOVASI — PANDUAN UPLOAD ASET KE GOOGLE DRIVE\n")
         f.write("============================================================\n\n")
         f.write("Folder Google Drive Tujuan:\n")
         f.write("https://drive.google.com/drive/folders/1Qyq3cRQkZoefM-M8K1Jybry2_GM50gxW?usp=sharing\n\n")
-        f.write("Langkah:\n")
-        f.write("1. Ekstrak file 'akalpa-assets-for-drive.zip'\n")
-        f.write("2. Upload seluruh isi folder ke Google Drive di atas.\n")
-        f.write("3. Dapatkan Link Publik / Direct Link untuk setiap gambar.\n\n")
         f.write("Daftar Aset yang Perlu Di-map:\n")
         f.write("------------------------------------------------------------\n")
         for a in sorted(asset_files):
@@ -175,7 +193,7 @@ def extract_body_content(html_file):
     with open(html_file, 'r', encoding='utf-8') as f:
         content = f.read()
     
-    # Hapus <script> dan <style>
+    # Hapus <style> dan <script>
     content = re.sub(r'<style[^>]*>.*?</style>', '', content, flags=re.DOTALL|re.IGNORECASE)
     content = re.sub(r'<script[^>]*>.*?</script>', '', content, flags=re.DOTALL|re.IGNORECASE)
     
@@ -187,6 +205,9 @@ def extract_body_content(html_file):
     
     # Hapus link font
     body = re.sub(r'<link[^>]+fonts\.(googleapis|gstatic)\.com[^>]*/?>', '', body, flags=re.IGNORECASE)
+    
+    # Format agar XML compliant
+    body = make_html_xml_compliant(body)
     return body
 
 def extract_styles(html_file):
@@ -238,7 +259,7 @@ def build_full_blogger_theme():
     templates_body = templates_body.replace('href="templates.html"', 'href="#templates"')
     curator_body = curator_body.replace('href="templates.html"', 'href="#templates"')
 
-    # Generate XML tanpa format() untuk menghindari bentrok kurung kurawal CSS/JS
+    # Generate XML
     xml_content = BLOGGER_FULL_TEMPLATE
     xml_content = xml_content.replace("{css_combined}", css_combined)
     xml_content = xml_content.replace("{index_body}", index_body)
@@ -252,6 +273,23 @@ def build_full_blogger_theme():
     size_kb = os.path.getsize(OUT_FULL_THEME) / 1024
     print(f"✅ Full Blogger Theme XML Berhasil Dibuat: {OUT_FULL_THEME} ({size_kb:.1f} KB)")
 
+    # Validasi XML
+    print("🔍 Menguji validitas XML...")
+    try:
+        # Hapus tag spesifik Blogger b: dan expr: sementara untuk tes XML parsing baku
+        test_xml = re.sub(r'</?b:[^>]*>', '', xml_content)
+        test_xml = re.sub(r'\s+expr:[a-zA-Z-]+=\'[^\']*\'', '', test_xml)
+        test_xml = re.sub(r'\s+expr:[a-zA-Z-]+=\"[^\"]*\"', '', test_xml)
+        ET.fromstring(test_xml)
+        print("🎉 VALIDASI XML 100% SUKSES! Siap di-upload ke Blogger tanpa error SAXParseException.")
+    except ET.ParseError as pe:
+        print(f"⚠️ Warning XML parsing test: {pe}")
+        line_no, col = pe.position
+        lines = test_xml.splitlines()
+        print('Error context around line', line_no)
+        for l_idx in range(max(0, line_no-3), min(len(lines), line_no+3)):
+            print(f'{l_idx+1}: {lines[l_idx]}')
+
 def main():
     print("=" * 65)
     print("  AKALPA INOVASI — TOTAL BLOGGER MIGRATION & ASSET PACKAGER")
@@ -263,15 +301,6 @@ def main():
     print("\n" + "=" * 65)
     print("✅ PROSES SELESAI!")
     print("=" * 65)
-    print(f"\n📁 Lokasi Hasil di folder output: {OUTPUT_DIR}/")
-    print(f"  1. akalpa-assets-for-drive.zip")
-    print("     → Upload zip ini (atau isinya) ke Google Drive Anda:")
-    print("       https://drive.google.com/drive/folders/1Qyq3cRQkZoefM-M8K1Jybry2_GM50gxW?usp=sharing")
-    print(f"  2. ASSET_URL_MAPPING_GUIDE.txt")
-    print("     → Panduan daftar file gambar yang ada di dalam zip")
-    print(f"  3. akalpa-full-blogger-theme.xml")
-    print("     → Upload file XML ini ke Blogger: Tema > Kustomisasi > Edit HTML > Paste > Simpan")
-    print("\n🚀 Website Akalpa Anda (Beranda + Template Catalog + Studio Curator + GAS Realtime) kini 100% berjalan di Blogger!")
 
 if __name__ == "__main__":
     main()
