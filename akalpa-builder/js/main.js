@@ -133,7 +133,8 @@
 
     // teks + maskot muncul saat frame gelap; scrim gelap 45% ikut aktif
     // agar headline selalu terbaca jelas di atas canvas.
-    const show = p >= TEXT_AT;
+    const isMobile = window.innerWidth <= 768;
+    const show = isMobile || p >= TEXT_AT;
     document.body.classList.toggle("hero-text", show);
     if (heroContent) heroContent.classList.toggle("is-visible", show);
     if (heroMascot) heroMascot.classList.toggle("is-visible", show);
@@ -189,82 +190,65 @@
     if (header) header.classList.remove("mobile-open");
     if (burger) {
       burger.setAttribute("aria-expanded", "false");
-      burger.setAttribute("aria-label", "Buka menu");
-      burger.innerHTML = WPB.ICONS["menu"];
-    }
-  }
-  if (burger && mobileMenu) {
-    burger.addEventListener("click", () => {
-      const open = !mobileMenu.classList.contains("is-open");
-      mobileMenu.classList.toggle("is-open", open);
-      mobileMenu.hidden = !open;
-      if (header) header.classList.toggle("mobile-open", open);
-      burger.setAttribute("aria-expanded", String(open));
-      burger.setAttribute("aria-label", open ? "Tutup menu" : "Buka menu");
-      burger.innerHTML = open ? WPB.ICONS["x"] : WPB.ICONS["menu"];
+  if (navBurger && mobileMenu) {
+    navBurger.addEventListener("click", () => {
+      const open = mobileMenu.hasAttribute("hidden");
+      if (open) {
+        mobileMenu.removeAttribute("hidden");
+        navBurger.setAttribute("aria-expanded", "true");
+      } else {
+        mobileMenu.setAttribute("hidden", "");
+        navBurger.setAttribute("aria-expanded", "false");
+      }
     });
-    mobileMenu.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        closeMobileMenu();
+    $$("a", mobileMenu).forEach((a) => {
+      a.addEventListener("click", () => {
+        mobileMenu.setAttribute("hidden", "");
+        navBurger.setAttribute("aria-expanded", "false");
       });
     });
   }
 
   /* ── 4. Anchor scroll halus (offset header) ───────────────────────── */
-  function scrollToTarget(target) {
-    const el = typeof target === "string" ? $(target) : target;
+  function scrollToTarget(sel) {
+    const el = $(sel);
     if (!el) return;
-    const top = el.getBoundingClientRect().top + window.scrollY - 66;
-    window.scrollTo({ top, behavior: prefersReduced ? "auto" : "smooth" });
-    closeMobileMenu();
+    const hH = siteHeader ? siteHeader.offsetHeight : 0;
+    const top = el.getBoundingClientRect().top + window.scrollY - hH;
+    window.scrollTo({ top: top, behavior: prefersReduced ? "auto" : "smooth" });
   }
-  $$("[data-scroll]").forEach((a) => {
-    a.addEventListener("click", (e) => {
-      const href = a.getAttribute("href");
+
+  $$("a[data-scroll]").forEach((link) => {
+    link.addEventListener("click", (e) => {
+      const href = link.getAttribute("href");
       if (href && href.startsWith("#")) {
         e.preventDefault();
-        scrollToTarget(href);
-      } else if (a.hasAttribute("data-scroll")) {
-        e.preventDefault();
-        const target = a.getAttribute("data-scroll");
+        const target = href.substring(1);
         scrollToTarget(target === "hero" ? "#hero" : "#" + target);
       }
     });
   });
 
-  /* ── 5. Section masuk/keluar + object berurutan ──────────────────────
-     Urutan animasi: section masuk duluan (sec-inner), lalu setiap object
-     (reveal) di dalamnya masuk berurutan via stagger. Wave & dekorasi
-     absolut TIDAK ikut animasi → tidak ada celah terpotong di perbatasan. */
+  /* ── 5. Section masuk | one-way reveal (sekali tampil tidak akan hilang) ── */
   const animSecs = $$(".sec-anim");
   const revealIn = (sec) => {
+    sec.classList.add("is-in");
     $$(".reveal, .reveal-l, .reveal-scale", sec).forEach((el, i) => {
-      el.classList.remove("is-visible");
-      void el.offsetWidth; /* restart transisi */
-      setTimeout(() => el.classList.add("is-visible"), 90 + i * 65);
+      setTimeout(() => el.classList.add("is-visible"), 50 + i * 45);
     });
-  };
-  const revealOut = (sec) => {
-    $$(".reveal, .reveal-l, .reveal-scale", sec).forEach((el) => el.classList.remove("is-visible"));
   };
   if ("IntersectionObserver" in window && !prefersReduced) {
     const sio = new IntersectionObserver((entries) => {
       entries.forEach((en) => {
-        const sec = en.target;
         if (en.isIntersecting) {
-          sec.classList.add("is-in");
-          sec.classList.remove("is-out");
-          revealIn(sec);
-        } else {
-          sec.classList.add("is-out");
-          sec.classList.remove("is-in");
-          revealOut(sec);
+          revealIn(en.target);
+          sio.unobserve(en.target);
         }
       });
-    }, { threshold: 0.08, rootMargin: "0px 0px -5% 0px" });
+    }, { threshold: 0.03, rootMargin: "0px 0px 60px 0px" });
     animSecs.forEach((s) => sio.observe(s));
   } else {
-    animSecs.forEach((s) => { s.classList.add("is-in"); s.classList.remove("is-out"); });
+    animSecs.forEach((s) => s.classList.add("is-in"));
     $$(".reveal, .reveal-l, .reveal-scale").forEach((el) => el.classList.add("is-visible"));
   }
 

@@ -1141,6 +1141,11 @@ body.hero-dark .site-header:not(.is-scrolled) .brand-badge {
 }
 
 @media (max-width: 768px) {
+  .hero-content {
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto !important;
+  }
   .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
   .testimonial-section { padding: 72px 0; }
   .faq-section { padding: 64px 0; }
