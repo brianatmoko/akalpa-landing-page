@@ -237,9 +237,6 @@
       setTimeout(() => el.classList.add("is-visible"), 90 + i * 65);
     });
   };
-  const revealOut = (sec) => {
-    $$(".reveal, .reveal-l, .reveal-scale", sec).forEach((el) => el.classList.remove("is-visible"));
-  };
   if ("IntersectionObserver" in window && !prefersReduced) {
     const sio = new IntersectionObserver((entries) => {
       entries.forEach((en) => {
@@ -248,13 +245,10 @@
           sec.classList.add("is-in");
           sec.classList.remove("is-out");
           revealIn(sec);
-        } else {
-          sec.classList.add("is-out");
-          sec.classList.remove("is-in");
-          revealOut(sec);
+          sio.unobserve(sec);
         }
       });
-    }, { threshold: 0.06, rootMargin: "0px 0px -6% 0px" });
+    }, { threshold: 0.05, rootMargin: "0px 0px -5% 0px" });
     animSecs.forEach((s) => sio.observe(s));
   } else {
     animSecs.forEach((s) => { s.classList.add("is-in"); s.classList.remove("is-out"); });

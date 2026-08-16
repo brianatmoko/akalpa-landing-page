@@ -157,20 +157,33 @@ body.on-subpage #siteHeader .brand-logo {
 /* SPA Router for Blogger Views */
 (function(){
   function route(){
-    var hash = window.location.hash || "#home";
+    var path = (window.location.pathname || "").toLowerCase();
+    var hash = (window.location.hash || "").toLowerCase();
     var views = document.querySelectorAll(".akalpa-view");
     views.forEach(function(v){ v.style.display = "none"; });
 
     var header = document.getElementById("siteHeader");
     document.body.classList.remove("on-subpage");
 
-    if(hash === "#templates" || window.location.pathname.indexOf("/p/templates") > -1){
+    var isTemplates = (
+      hash === "#templates" ||
+      hash === "#free-template" ||
+      path.indexOf("/p/free-template") > -1 ||
+      path.indexOf("/p/templates") > -1
+    );
+
+    var isCurator = (
+      hash === "#curator" ||
+      path.indexOf("/p/curator") > -1
+    );
+
+    if(isTemplates){
       var vt = document.getElementById("view-templates");
       if(vt) vt.style.display = "block";
       document.body.classList.add("on-subpage");
       if(header) header.classList.add("is-scrolled");
       window.scrollTo(0,0);
-    } else if(hash === "#curator" || window.location.pathname.indexOf("/p/curator") > -1){
+    } else if(isCurator){
       var vc = document.getElementById("view-curator");
       if(vc) vc.style.display = "block";
       document.body.classList.add("on-subpage");
@@ -187,7 +200,31 @@ body.on-subpage #siteHeader .brand-logo {
     }
   }
 
+  document.addEventListener("click", function(e){
+    var a = e.target.closest("a");
+    if(!a) return;
+    var href = a.getAttribute("href");
+    if(!href) return;
+
+    if(href.indexOf("/p/free-template") > -1 || href.indexOf("/p/templates") > -1 || href === "#templates" || href === "templates.html"){
+      e.preventDefault();
+      window.location.hash = "#templates";
+      route();
+    } else if(href.indexOf("/p/curator") > -1 || href === "#curator" || href === "templates-curator.html"){
+      e.preventDefault();
+      window.location.hash = "#curator";
+      route();
+    } else if(href === "#home" || href === "index.html" || href === "/"){
+      if(window.location.hash){
+        e.preventDefault();
+        window.location.hash = "#home";
+        route();
+      }
+    }
+  });
+
   window.addEventListener("hashchange", route);
+  window.addEventListener("popstate", route);
   window.addEventListener("DOMContentLoaded", route);
   route();
 })();
