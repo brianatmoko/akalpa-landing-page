@@ -16,10 +16,11 @@
   padding-top: 104px !important;
   padding-bottom: 60px !important;
   box-sizing: border-box !important;
+  font-family: 'Outfit', system-ui, sans-serif !important;
 }
 
 #view-curator .curator-container {
-  max-width: 1080px !important;
+  max-width: 1100px !important;
   margin: 0 auto !important;
   padding: 0 20px !important;
 }
@@ -82,11 +83,13 @@
   justify-content: space-between !important;
   gap: 16px !important;
   margin-bottom: 24px !important;
+  padding-bottom: 18px !important;
+  border-bottom: 1px solid rgba(247, 243, 234, 0.12) !important;
   flex-wrap: wrap !important;
 }
-#view-curator h1 { font-size: 1.4rem !important; font-weight: 800 !important; color: #ffffff !important; margin: 0 !important; }
+#view-curator h1 { font-size: 1.45rem !important; font-weight: 800 !important; color: #ffffff !important; margin: 0 !important; }
 #view-curator h1 span { color: #f6c96f !important; }
-#view-curator .sub { color: rgba(247, 243, 234, 0.65) !important; font-size: 0.85rem !important; }
+#view-curator .sub { color: rgba(247, 243, 234, 0.65) !important; font-size: 0.85rem !important; margin-top: 2px !important; }
 
 #view-curator .grid {
   display: grid !important;
@@ -94,7 +97,7 @@
   gap: 24px !important;
   align-items: start !important;
 }
-@media (max-width: 820px) {
+@media (max-width: 860px) {
   #view-curator .grid { grid-template-columns: 1fr !important; }
 }
 
@@ -106,12 +109,15 @@
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25) !important;
 }
 #view-curator .panel h2 {
-  font-size: 0.82rem !important;
+  font-size: 0.84rem !important;
   font-weight: 700 !important;
   letter-spacing: 0.12em !important;
   text-transform: uppercase !important;
   color: #f2a35c !important;
   margin-bottom: 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
 }
 
 #view-curator label {
@@ -136,12 +142,13 @@
   font-size: 0.92rem !important;
   outline: 0 !important;
   box-sizing: border-box !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
 }
 #view-curator input:focus,
 #view-curator textarea:focus,
 #view-curator select:focus {
   border-color: #f2a35c !important;
-  box-shadow: 0 0 0 3px rgba(242, 163, 92, 0.2) !important;
+  box-shadow: 0 0 0 3px rgba(242, 163, 92, 0.25) !important;
 }
 #view-curator textarea { min-height: 80px !important; resize: vertical !important; }
 #view-curator .hint { font-size: 0.74rem !important; color: rgba(247, 243, 234, 0.55) !important; margin-top: 5px !important; }
@@ -150,8 +157,8 @@
   #view-curator .row { grid-template-columns: 1fr !important; }
 }
 
-#view-curator .check { display: flex !important; align-items: center !important; gap: 8px !important; margin-top: 14px !important; font-size: 0.86rem !important; color: #ffffff !important; }
-#view-curator .check input { width: auto !important; margin: 0 !important; }
+#view-curator .check { display: flex !important; align-items: center !important; gap: 8px !important; margin-top: 14px !important; font-size: 0.86rem !important; color: #ffffff !important; cursor: pointer !important; }
+#view-curator .check input { width: auto !important; margin: 0 !important; cursor: pointer !important; }
 #view-curator .btns { display: flex !important; gap: 10px !important; margin-top: 18px !important; flex-wrap: wrap !important; }
 #view-curator button { cursor: pointer !important; font-family: inherit !important; border: 0 !important; }
 
@@ -168,14 +175,15 @@
   text-decoration: none !important;
 }
 #view-curator .btn.orange { background: #f2a35c !important; color: #182442 !important; }
-#view-curator .btn.orange:hover { filter: brightness(1.06) !important; transform: translateY(-1px) !important; }
+#view-curator .btn.orange:hover { filter: brightness(1.08) !important; transform: translateY(-1px) !important; }
 #view-curator .btn.ghost { background: rgba(247, 243, 234, 0.1) !important; color: #ffffff !important; border: 1px solid rgba(247, 243, 234, 0.2) !important; }
 #view-curator .btn.ghost:hover { background: rgba(247, 243, 234, 0.18) !important; }
 #view-curator .btn.danger { background: rgba(255, 90, 90, 0.16) !important; color: #ff8b8b !important; border: 1px solid rgba(255, 90, 90, 0.35) !important; }
 #view-curator .btn.danger:hover { background: rgba(255, 90, 90, 0.26) !important; }
 #view-curator .btn.mini { padding: 7px 12px !important; font-size: 0.78rem !important; border-radius: 9px !important; }
 
-#view-curator .item { background: rgba(8, 13, 28, 0.5) !important; border: 1px solid rgba(247, 243, 234, 0.15) !important; border-radius: 12px !important; padding: 16px !important; margin-bottom: 12px !important; }
+#view-curator .item { background: rgba(8, 13, 28, 0.5) !important; border: 1px solid rgba(247, 243, 234, 0.15) !important; border-radius: 12px !important; padding: 16px !important; margin-bottom: 12px !important; transition: border-color 0.2s ease !important; }
+#view-curator .item:hover { border-color: rgba(242, 163, 92, 0.4) !important; }
 #view-curator .item .it { display: flex !important; align-items: center !important; gap: 10px !important; flex-wrap: wrap !important; }
 #view-curator .item .code { font-family: 'JetBrains Mono', monospace !important; font-size: 0.74rem !important; font-weight: 700 !important; color: #182442 !important; background: #f6c96f !important; padding: 2px 8px !important; border-radius: 7px !important; }
 #view-curator .item .nm { font-weight: 700 !important; font-size: 0.96rem !important; flex: 1 !important; min-width: 120px !important; color: #ffffff !important; }
@@ -183,18 +191,19 @@
 #view-curator .item .im { font-family: 'JetBrains Mono', monospace !important; font-size: 0.7rem !important; color: rgba(247, 243, 234, 0.6) !important; overflow: hidden !important; text-overflow: ellipsis !important; white-space: nowrap !important; margin: 8px 0 4px !important; max-width: 100% !important; }
 #view-curator .item .acts { display: flex !important; gap: 8px !important; margin-top: 10px !important; }
 
-#view-curator textarea.exportbox { min-height: 140px !important; font-family: 'JetBrains Mono', monospace !important; font-size: 0.74rem !important; }
+#view-curator textarea.exportbox { min-height: 120px !important; font-family: 'JetBrains Mono', monospace !important; font-size: 0.74rem !important; }
 #view-curator .toast { position: fixed !important; bottom: 20px !important; left: 50% !important; transform: translateX(-50%) translateY(80px) !important; background: #f2a35c !important; color: #182442 !important; font-weight: 700 !important; font-size: 0.88rem !important; padding: 11px 20px !important; border-radius: 12px !important; box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35) !important; transition: transform 0.3s ease !important; opacity: 0 !important; pointer-events: none !important; z-index: 999999 !important; }
 #view-curator .toast.show { transform: translateX(-50%) translateY(0) !important; opacity: 1 !important; }
-#view-curator .status-badge { display: inline-block !important; font-size: 0.68rem !important; font-family: 'JetBrains Mono', monospace !important; padding: 3px 9px !important; border-radius: 6px !important; background: rgba(246, 201, 111, 0.15) !important; color: #f6c96f !important; border: 1px solid rgba(246, 201, 111, 0.3) !important; margin-bottom: 12px !important; }
+#view-curator .status-badge { display: inline-block !important; font-size: 0.68rem !important; font-family: 'JetBrains Mono', monospace !important; padding: 3px 9px !important; border-radius: 6px !important; background: rgba(246, 201, 111, 0.15) !important; color: #f6c96f !important; border: 1px solid rgba(246, 201, 111, 0.3) !important; margin-bottom: 10px !important; }
 </style>
 </head>
 <body>
 
+<!-- VAULT SECURITY GATE -->
 <div class="gate" id="gate">
   <div class="gatebox">
     <div class="status-badge">VAULT SECURITY GATE</div>
-    <img src="https://lh3.googleusercontent.com/d/18scDBaMBz0pZ2lL-HRaqAC_EZHAqOsGF" alt="Logo Akalpa Inovasi" style="width:44px;height:44px;border-radius:11px;background:#fff;object-fit:contain;padding:3px;border:2px solid var(--orange);margin-bottom:8px">
+    <img src="https://lh3.googleusercontent.com/d/18scDBaMBz0pZ2lL-HRaqAC_EZHAqOsGF" alt="Logo Akalpa Inovasi" style="width:44px;height:44px;border-radius:11px;background:#fff;object-fit:contain;padding:3px;border:2px solid #f2a35c;margin-bottom:8px">
     <h1>Studio <span>Curator</span></h1>
     <p>Masukkan kode otorisasi untuk mengelola pustaka template.</p>
     <input type="password" id="pass" placeholder="KODE AKSES" autocomplete="off">
@@ -204,91 +213,72 @@
   </div>
 </div>
 
+<!-- STUDIO CURATOR MAIN DASHBOARD -->
 <div class="curator-container" id="app" hidden>
   <div class="curator-header">
     <div>
       <div class="status-badge">STUDIO CURATOR PORTAL</div>
       <div style="display:flex;align-items:center;gap:12px;margin-bottom:4px">
-        <img src="https://lh3.googleusercontent.com/d/18scDBaMBz0pZ2lL-HRaqAC_EZHAqOsGF" alt="Logo Akalpa Inovasi" style="width:36px;height:36px;border-radius:9px;background:#fff;object-fit:contain;padding:2px;border:2px solid var(--orange)">
+        <img src="https://lh3.googleusercontent.com/d/18scDBaMBz0pZ2lL-HRaqAC_EZHAqOsGF" alt="Logo Akalpa Inovasi" style="width:36px;height:36px;border-radius:9px;background:#fff;object-fit:contain;padding:2px;border:2px solid #f2a35c">
         <h1>Studio <span>Curator</span></h1>
       </div>
-      <div class="sub">Kelola template gratis Akalpa | Sinkronisasi <strong>realtime via Google Apps Script</strong> ke Google Sheets.</div>
+      <div class="sub">Kelola pustaka template gratis | Terhubung <strong>realtime ke Google Sheets API</strong>.</div>
     </div>
     <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
-      <a class="btn ghost mini" href="templates.html" target="_blank" rel="noopener">Katalog Publik ↗</a>
+      <a class="btn ghost mini" href="/p/free-template" target="_blank" rel="noopener">Katalog Publik ↗</a>
+      <button class="btn ghost mini" id="sync-btn">🔄 Refresh Data</button>
       <button class="btn ghost mini" id="logout">Kunci Vault</button>
     </div>
   </div>
 
-  <div class="panel" style="margin-bottom:18px;border-color:var(--orange)">
-    <h2>⚡ Konfigurasi GAS API (Google Apps Script)</h2>
-    <div class="row">
-      <div>
-        <label>GAS API URL</label>
-        <input type="url" id="gas-url" placeholder="https://script.google.com/macros/s/…/exec">
-        <div class="hint">URL deployment GAS Web App Anda.</div>
-      </div>
-      <div>
-        <label>Curator Token (secret)</label>
-        <input type="password" id="gas-token" placeholder="Token rahasia GAS">
-        <div class="hint">Sama dengan CURATOR_TOKEN di Code.gs</div>
-      </div>
-    </div>
-    <div class="btns" style="margin-top:12px">
-      <button class="btn orange" id="gas-save">💾 Simpan Konfigurasi GAS</button>
-      <button class="btn ghost" id="gas-sync">🔄 Sync dari GAS sekarang</button>
-      <button class="btn ghost mini" id="gas-test">Tes Koneksi</button>
-    </div>
-    <div id="gas-status" class="hint" style="margin-top:8px"></div>
-  </div>
-
   <div class="grid">
+    <!-- FORM TAMBAH / EDIT TEMPLATE -->
     <section class="panel">
-      <h2 id="formTitle">➕ Tambah Template</h2>
+      <h2 id="formTitle">➕ Tambah Template Baru</h2>
       <div class="row">
         <div>
-          <label>Kode (auto)</label>
-          <input type="text" id="f-code" placeholder="#AKA-005" readonly>
+          <label>Kode Template</label>
+          <input type="text" id="f-code" placeholder="#AKA-001" readonly>
           <div class="hint">Kode otomatis. Bisa disesuaikan manual.</div>
         </div>
         <div>
           <label>Kategori</label>
-          <input type="text" id="f-cat" list="cats" placeholder="Hero / Section / Halaman">
+          <input type="text" id="f-cat" list="cats" placeholder="Portofolio / Hero / UMKM">
           <datalist id="cats"></datalist>
         </div>
       </div>
       <label>Nama Template</label>
       <input type="text" id="f-name" placeholder="Hero Parallax Senja">
-      <label>Deskripsi (1–2 kalimat)</label>
-      <textarea id="f-desc" placeholder="Jelaskan keunggulan singkat template ini…"></textarea>
-      <label>Link GitHub (repo template)</label>
+      <label>Deskripsi Singkat (1–2 kalimat)</label>
+      <textarea id="f-desc" placeholder="Jelaskan fitur utama dan keunggulan template ini…"></textarea>
+      <label>Link GitHub (repository template)</label>
       <input type="url" id="f-gh" placeholder="https://github.com/akalpainovasi/…">
       <label>Tags (pisahkan koma)</label>
       <input type="text" id="f-tags" placeholder="parallax, hero, scroll">
-      <label class="check"><input type="checkbox" id="f-feat"> Tandai sebagai <strong>Hot / Featured</strong></label>
+      <label class="check"><input type="checkbox" id="f-feat"> 🔥 Tandai sebagai <strong>Hot / Featured</strong></label>
       <div class="btns">
-        <button class="btn orange" id="save">💾 Simpan Template</button>
+        <button class="btn orange" id="save" style="flex:1;justify-content:center">💾 Simpan &amp; Publikasikan</button>
         <button class="btn ghost" id="cancel" hidden>Batal Edit</button>
-        <button class="btn ghost" id="clear">Reset Form</button>
+        <button class="btn ghost" id="clear">Reset</button>
       </div>
     </section>
 
+    <!-- KOLEKSI TEMPLATE & BACKUP -->
     <section class="panel">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
-        <h2 style="margin-bottom:0">📦 Koleksi Template (<span id="count">0</span>)</h2>
-        <button class="btn danger mini" id="clearAll">🗑️ Kosongkan Semua</button>
-      </div>
+      <h2>
+        <span>📦 Pustaka Template (<span id="count">0</span>)</span>
+        <button class="btn danger mini" id="clearAll">🗑️ Kosongkan</button>
+      </h2>
       <div id="list"></div>
-      <div class="export">
-        <h2>⇅ Ekspor / Impor JSON</h2>
+      <div class="export" style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(247,243,234,0.12)">
+        <h2>⇅ Ekspor / Impor Backup JSON</h2>
         <div class="btns" style="flex-wrap:wrap">
-          <button class="btn orange" id="exp-dl">⬇ Unduh templates.json</button>
-          <button class="btn ghost" id="exp-copy">Salin JSON</button>
+          <button class="btn orange mini" id="exp-dl">⬇ Unduh Backup JSON</button>
+          <button class="btn ghost mini" id="exp-copy">Salin JSON</button>
         </div>
-        <label style="margin-top:14px">Impor (Tempel JSON valid lalu terapkan)</label>
+        <label style="margin-top:12px">Impor Data JSON (Tempel JSON valid)</label>
         <textarea class="exportbox" id="imp" placeholder='{"templates":[…]}'></textarea>
-        <div class="btns"><button class="btn ghost" id="imp-apply">Terapkan Impor</button></div>
-        <div class="hint">Data langsung dikirim ke Google Sheets via GAS API (realtime). Ekspor JSON untuk backup atau bulk import.</div>
+        <div class="btns"><button class="btn ghost mini" id="imp-apply">Terapkan Impor JSON</button></div>
       </div>
     </section>
   </div>
@@ -300,19 +290,18 @@
 (function(){
 "use strict";
 
-/* SHA-256 digest of "akalpa_curator_salt_2026:akalpa2026" */
 var SALT="akalpa_curator_salt_2026";
 var EXPECTED_HASH="bedfe3b2190df68b3376b0f206d6f4d828be8eb1f4d43fdc280b66835b873092";
 
 var LS_DATA="aka_curator_v1";
 var SS_AUTH="aka_curator_token";
 var LS_ATTEMPTS="aka_curator_lockout";
-var LS_GAS_URL="aka_gas_url";
-var LS_GAS_TOKEN="aka_gas_token";
+
+var DEFAULT_GAS_URL="https://script.google.com/macros/s/AKfycbyaQsklH020izNbtsCLSCQK-bNI079gZTWo13UTWfyi08H2Yi4VzPm-cFkqkLSWwM3D/exec";
 
 var MAX_ATTEMPTS=5;
-var LOCKOUT_TIME_MS=15*60*1000; // 15 menit
-var INACTIVITY_TIMEOUT_MS=30*60*1000; // 30 menit
+var LOCKOUT_TIME_MS=15*60*1000;
+var INACTIVITY_TIMEOUT_MS=30*60*1000;
 
 var $=function(s,c){return (c||document).querySelector(s)};
 var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
@@ -320,7 +309,8 @@ var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelect
 var items=[],editingId=null,lastActivityTime=Date.now();
 
 function toast(m){
-  var t=$("#toast");t.textContent=m;t.classList.add("show");
+  var t=$("#toast");if(!t)return;
+  t.textContent=m;t.classList.add("show");
   clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove("show")},1800);
 }
 
@@ -402,7 +392,7 @@ function renderList(){
   $("#list").innerHTML=items.map(function(t){
     var safeGh=validateUrl(t.github);
     return '<div class="item">'+
-      '<div class="it"><span class="code">'+esc(t.code)+'</span><span class="nm">'+esc(t.name)+'</span><span class="ct">'+esc(t.category||"-")+"</span>"+(t.featured?'<span class="ct" style="color:var(--navy);background:var(--orange)">Hot</span>':"")+"</div>"+
+      '<div class="it"><span class="code">'+esc(t.code)+'</span><span class="nm">'+esc(t.name)+'</span><span class="ct">'+esc(t.category||"-")+"</span>"+(t.featured?'<span class="ct" style="color:#182442;background:#f2a35c;border-color:#f2a35c">Hot</span>':"")+"</div>"+
       (safeGh?'<div class="im">🔗 '+esc(safeGh)+"</div>":"")+
       '<div class="acts"><button class="btn orange mini" data-edit="'+esc(t.id)+'">✎ Edit</button><button class="btn danger mini" data-del="'+esc(t.id)+'">✕ Hapus</button></div></div>';
   }).join("");
@@ -431,7 +421,7 @@ function setForm(t){
   $("#f-gh").value=t.github||"";
   $("#f-tags").value=(t.tags||[]).join(", ");
   $("#f-feat").checked=!!t.featured;
-  $("#formTitle").textContent="✎ Edit Template "+esc(t.code);
+  $("#formTitle").textContent="✏️ Edit Template "+esc(t.code);
   $("#cancel").hidden=false;
 }
 
@@ -440,38 +430,52 @@ function resetForm(){
   $("#f-code").value=nextCode();
   ["#f-name","#f-cat","#f-desc","#f-gh","#f-tags"].forEach(function(s){$(s).value="";});
   $("#f-feat").checked=false;
-  $("#formTitle").textContent="➕ Tambah Template";
+  $("#formTitle").textContent="➕ Tambah Template Baru";
   $("#cancel").hidden=true;
 }
 
-var DEFAULT_GAS_URL = "https://script.google.com/macros/s/AKfycbyaQsklH020izNbtsCLSCQK-bNI079gZTWo13UTWfyi08H2Yi4VzPm-cFkqkLSWwM3D/exec";
-
-function gasConf(){
-  return{
-    url:localStorage.getItem(LS_GAS_URL)||DEFAULT_GAS_URL,
-    token:localStorage.getItem(LS_GAS_TOKEN)||""
-  };
-}
-
-function gasStatus(msg,ok){
-  var el=$("#gas-status");
-  if(!el)return;
-  el.textContent=msg;
-  el.style.color=ok?"#6ee7b7":"#ff8b8b";
-}
-
 async function gasPost(body){
-  var c=gasConf();
-  if(!c.url)return null; // GAS tidak dikonfigurasi, skip
-  body.token=c.token;
-  var res=await fetch(c.url,{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify(body)
-  });
-  if(!res.ok)throw new Error("HTTP "+res.status);
-  return await res.json();
+  try {
+    var res=await fetch(DEFAULT_GAS_URL,{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify(body)
+    });
+    if(!res.ok) return null;
+    return await res.json();
+  } catch(e) {
+    return null;
+  }
 }
+
+async function fetchFromGAS(){
+  try {
+    toast("🔄 Sinkronisasi data dari server...");
+    var r = await fetch(DEFAULT_GAS_URL, { cache: "no-store" });
+    var j = await r.json();
+    if (j && Array.isArray(j.templates)) {
+      items = j.templates.map(function(t){
+        return {
+          id: String(t.id||"aka-"+Date.now()),
+          name: String(t.name||""),
+          code: String(t.code||""),
+          category: String(t.category||""),
+          description: String(t.description||""),
+          github: validateUrl(t.github),
+          tags: Array.isArray(t.tags)?t.tags.map(String):(typeof t.tags==="string"?t.tags.split(",").map(function(x){return x.trim();}).filter(Boolean):[]),
+          featured: t.featured===true||t.featured==="TRUE"||t.featured===1
+        };
+      });
+      persist(); buildCatList(); renderList();
+      toast("✅ Sinkronisasi berhasil ("+items.length+" template)");
+    }
+  } catch(e) {
+    toast("⚠️ Menggunakan cache lokal");
+  }
+}
+
+var syncBtn = $("#sync-btn");
+if(syncBtn) syncBtn.addEventListener("click", fetchFromGAS);
 
 $("#save").addEventListener("click",async function(){
   var v=formVal();
@@ -483,12 +487,12 @@ $("#save").addEventListener("click",async function(){
   if(editingId){
     items=items.map(function(t){return t.id===editingId?Object.assign({},t,v):t;});
     newItem=items.filter(function(t){return t.id===editingId;})[0];
-    try{var r=await gasPost({action:"update",data:newItem});if(r&&r.ok)gasStatus("✅ GAS: template diperbarui",true);else if(r)gasStatus("⚠️ GAS: "+r.error,false);}catch(e){gasStatus("⚠️ GAS offline: disimpan lokal",false);}
+    await gasPost({action:"update",data:newItem});
     toast("Template diperbarui: "+v.name);
   }else{
     newItem=Object.assign({id:"aka-"+String(Date.now()).slice(-8)},v);
     items.push(newItem);
-    try{var r2=await gasPost({action:"add",data:newItem});if(r2&&r2.ok)gasStatus("✅ GAS: template ditambahkan",true);else if(r2)gasStatus("⚠️ GAS: "+r2.error,false);}catch(e){gasStatus("⚠️ GAS offline: disimpan lokal",false);}
+    await gasPost({action:"add",data:newItem});
     toast("Template ditambahkan: "+v.name);
   }
   persist();buildCatList();renderList();resetForm();
@@ -508,7 +512,7 @@ async function del(id){
   if(!t)return;
   if(!confirm("Hapus template "+t.code+" | "+t.name+"?"))return;
   items=items.filter(function(x){return x.id!==id;});
-  try{var r=await gasPost({action:"delete",id:id});if(r&&r.ok)gasStatus("✅ GAS: template dihapus",true);else if(r)gasStatus("⚠️ GAS: "+r.error,false);}catch(e){gasStatus("⚠️ GAS offline: hapus lokal saja",false);}
+  await gasPost({action:"delete",id:id});
   persist();buildCatList();renderList();
   if(editingId===id) resetForm();
   toast("Template dihapus");
@@ -516,9 +520,9 @@ async function del(id){
 
 $("#clearAll").addEventListener("click",async function(){
   if(!items.length){toast("Koleksi template sudah kosong");return;}
-  if(!confirm("Apakah Anda yakin ingin menghapus SEMUA template? Seluruh data akan dikosongkan di lokal dan GAS."))return;
+  if(!confirm("Apakah Anda yakin ingin menghapus SEMUA template? Data akan dikosongkan di Google Sheets."))return;
   items=[];
-  try{var r=await gasPost({action:"clear"});if(r&&r.ok)gasStatus("✅ GAS: semua template dikosongkan",true);else if(r)gasStatus("⚠️ GAS: "+r.error,false);}catch(e){gasStatus("⚠️ GAS offline: hapus lokal saja",false);}
+  await gasPost({action:"clear"});
   persist();buildCatList();renderList();resetForm();
   toast("Seluruh template telah dikosongkan");
 });
@@ -529,7 +533,7 @@ $("#exp-dl").addEventListener("click",function(){
   var blob=new Blob([exportJson()],{type:"application/json"});
   var a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="templates.json";a.click();
   setTimeout(function(){URL.revokeObjectURL(a.href)},2000);
-  toast("templates.json diunduh | perbarui file di repositori");
+  toast("Backup JSON diunduh");
 });
 
 $("#exp-copy").addEventListener("click",function(){
@@ -555,67 +559,11 @@ $("#imp-apply").addEventListener("click",async function(){
         featured: !!t.featured
       };
     });
-    try{var r=await gasPost({action:"bulk",templates:items});if(r&&r.ok)gasStatus("✅ GAS: bulk import "+items.length+" template",true);else if(r)gasStatus("⚠️ GAS: "+r.error,false);}catch(e){gasStatus("⚠️ GAS offline: disimpan lokal",false);}
+    await gasPost({action:"bulk",templates:items});
     persist();buildCatList();renderList();
     $("#imp").value="";toast("Impor berhasil | "+items.length+" template dimuat");
-  }catch(e){toast("Gagal impor: JSON tidak valid atau struktur salah");}
+  }catch(e){toast("Gagal impor: JSON tidak valid");}
 });
-
-/* GAS Config Panel Handlers */
-$("#gas-save").addEventListener("click",function(){
-  var url=$("#gas-url").value.trim();
-  var token=$("#gas-token").value.trim();
-  if(url) localStorage.setItem(LS_GAS_URL,url);
-  if(token) localStorage.setItem(LS_GAS_TOKEN,token);
-  gasStatus("✅ Konfigurasi GAS disimpan",true);
-  toast("Konfigurasi GAS disimpan");
-});
-
-$("#gas-test").addEventListener("click",async function(){
-  var c=gasConf();
-  if(!c.url){gasStatus("❌ GAS URL belum diisi",false);return;}
-  gasStatus("🔄 Menghubungi GAS...",true);
-  try{
-    var r=await fetch(c.url,{cache:"no-store"});
-    var j=await r.json();
-    if(j.ok!==undefined){
-      gasStatus("✅ Koneksi GAS berhasil | "+((j.templates||[]).length)+" template di Sheet",true);
-    }else{
-      gasStatus("⚠️ GAS merespons tapi format tidak dikenal",false);
-    }
-  }catch(e){
-    gasStatus("❌ Gagal terhubung ke GAS: "+e.message,false);
-  }
-});
-
-$("#gas-sync").addEventListener("click",async function(){
-  var c=gasConf();
-  if(!c.url){gasStatus("❌ GAS URL belum diisi",false);return;}
-  gasStatus("🔄 Menarik data dari GAS...",true);
-  try{
-    var r=await fetch(c.url,{cache:"no-store"});
-    var j=await r.json();
-    if(!j.ok||!Array.isArray(j.templates))throw new Error("Response GAS tidak valid");
-    items=j.templates.map(function(t){
-      return {
-        id:String(t.id||"aka-"+Date.now()),
-        name:String(t.name||""),
-        code:String(t.code||""),
-        category:String(t.category||""),
-        description:String(t.description||""),
-        github:validateUrl(t.github),
-        tags:Array.isArray(t.tags)?t.tags.map(String):(typeof t.tags==="string"?t.tags.split(",").map(function(x){return x.trim();}).filter(Boolean):[]),
-        featured:t.featured===true||t.featured==="TRUE"||t.featured===1
-      };
-    });
-    persist();buildCatList();renderList();
-    gasStatus("✅ Sync berhasil: "+items.length+" template dimuat dari GAS",true);
-    toast("Sync dari GAS: "+items.length+" template");
-  }catch(e){
-    gasStatus("❌ Sync gagal: "+e.message,false);
-  }
-});
-
 
 /* Gate & Security Authentication */
 async function unlockVault(){
@@ -644,7 +592,6 @@ async function unlockVault(){
   }else{
     var updatedLock=recordFailedAttempt();
     $("#pass").value="";
-    // Artificial delay to prevent brute-forcing
     await new Promise(function(r){setTimeout(r,1000)});
     if(updatedLock.fails>=MAX_ATTEMPTS){
       gateErr.textContent="5x percobaan gagal. Akses dibekukan selama 15 menit.";
@@ -668,12 +615,7 @@ function enter(){
   document.getElementById("app").hidden=false;
   load();buildCatList();resetForm();
   lastActivityTime=Date.now();
-  // Load GAS config ke input fields
-  var savedUrl=localStorage.getItem(LS_GAS_URL)||DEFAULT_GAS_URL;
-  var savedToken=localStorage.getItem(LS_GAS_TOKEN)||"";
-  $("#gas-url").value=savedUrl;
-  if(savedToken) $("#gas-token").value=savedToken;
-  gasStatus("✅ GAS terhubung: "+savedUrl.substring(0,55)+"…",true);
+  fetchFromGAS();
 }
 
 /* Inactivity Auto-logout */
@@ -689,7 +631,6 @@ setInterval(function(){
   }
 },30000);
 
-/* Session check on page load */
 if(sessionStorage.getItem(SS_AUTH)){
   enter();
 }
