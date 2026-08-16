@@ -17,33 +17,30 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&amp;family=Outfit:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
 
   <b:skin><![CDATA[
-/* Reset Blogger Default Overrides */
-#navbar-iframe, .navbar, #b-navbar, .attribution, .widget-type-Attribution, #Blog1, .Blog {
-  display: none !important;
-  height: 0 !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
-}
+/* ── Blogger Default UI Reset (AMAN: hanya target elemen Blogger, bukan elemen kustom) ── */
 
-html, body {
+/* Sembunyikan UI bawaan Blogger */
+#navbar-iframe, #b-navbar, #navbar-main,
+.navbar-iframe-container { display: none !important; height: 0 !important; }
+
+/* Widget Blog bawaan tidak tampil (karena kita punya konten sendiri) */
+.widget-type-Blog, .widget-type-Attribution { display: none !important; }
+
+/* Reset wrapper bawaan Blogger yang tidak relevan – TANPA menyentuh background */
+.section.main-section, #main-wrapper, #outer-wrapper, #content-wrapper,
+#header-wrapper, #footer-wrapper {
   margin: 0 !important;
   padding: 0 !important;
-  background: var(--bg, #f7f3ea) !important;
-  font-family: var(--font-body, "Outfit", sans-serif) !important;
   width: 100% !important;
-  overflow-x: hidden !important;
+  float: none !important;
 }
 
-.section, .widget, .widget-content, #header, #footer, #main {
-  margin: 0 !important;
-  padding: 0 !important;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-}
+/* Body & html: hanya reset margin/padding bawaan Blogger */
+html { margin: 0 !important; padding: 0 !important; }
+body { margin: 0 !important; padding: 0 !important; overflow-x: hidden !important; }
 
-header.site-header {
+/* Navbar Akalpa: selalu fixed di atas */
+#siteHeader {
   position: fixed !important;
   top: 0 !important;
   left: 0 !important;
@@ -52,44 +49,30 @@ header.site-header {
   z-index: 1000 !important;
 }
 
-footer.site-footer {
-  width: 100% !important;
-  position: relative !important;
-  z-index: 10 !important;
-  background: var(--navy, #22305c) !important;
+/* Subpage (template catalog & curator): navbar selalu solid */
+body.on-subpage #siteHeader {
+  background: rgba(247, 243, 234, 0.97) !important;
+  backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-1) !important;
+  color: var(--navy) !important;
+}
+body.on-subpage #siteHeader .brand-name,
+body.on-subpage #siteHeader .nav-links a { color: var(--navy) !important; }
+body.on-subpage #siteHeader .brand-logo {
+  border-color: var(--navy) !important;
+  box-shadow: 2px 2px 0 var(--navy) !important;
 }
 
-.nav-links a, .footer-col a, .footer-socials a, a.brand {
+/* Subpage padding atas (karena navbar fixed) */
+#view-templates, #view-curator { padding-top: 88px !important; min-height: 90vh; }
+
+/* Link navigasi tanpa garis bawah */
+.nav-links a, .mobile-menu a, .footer-col a, .footer-socials a, a.brand {
   text-decoration: none !important;
 }
 
-/* Subpage Navbar & Padding Fixes */
-body.on-subpage .site-header,
-.site-header.is-scrolled {
-  background: rgba(247, 243, 234, 0.96) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
-  border-bottom: 1px solid var(--border, rgba(34, 48, 92, 0.13)) !important;
-  box-shadow: 0 2px 10px rgba(34, 48, 92, 0.05) !important;
-  color: var(--navy, #22305c) !important;
-}
-
-body.on-subpage .site-header .brand-name,
-body.on-subpage .site-header .nav-links a,
-body.on-subpage .site-header .nav-burger {
-  color: var(--navy, #22305c) !important;
-}
-
-body.on-subpage .site-header .brand-logo {
-  border-color: var(--navy, #22305c) !important;
-  box-shadow: 2px 2px 0 var(--navy, #22305c) !important;
-}
-
-#view-templates, #view-curator {
-  padding-top: 96px !important;
-  min-height: 85vh;
-}
-
+/* ── END Blogger Reset ── */
 /* ═══════════════════════════════════════════════════════════════════════
    Akalpa Inovasi | Design System v2 (light · bone + navy + light orange)
    Font: Fraunces (display serif) · Outfit (body) · JetBrains Mono (code)
