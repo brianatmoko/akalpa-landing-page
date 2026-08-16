@@ -71,6 +71,23 @@
 
   function preloadFrames() {
     if (!heroCanvas) return;
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+      heroLoaded = true;
+      if (preloader) {
+        preloader.classList.add("is-done");
+        preloader.remove();
+      }
+      const img0 = new Image();
+      img0.src = HERO_FRAME_URLS[0];
+      img0.onload = () => {
+        frameImages[0] = img0;
+        drawFrame(0);
+      };
+      frameImages[0] = img0;
+      computeHero();
+      return;
+    }
     let done = 0;
     const count = HERO_FRAMES;
     const onOne = () => {

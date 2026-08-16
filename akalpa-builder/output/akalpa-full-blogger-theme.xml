@@ -1266,6 +1266,14 @@ body.hero-dark .site-header:not(.is-scrolled) .brand-badge {
     transform: none !important;
     pointer-events: auto !important;
   }
+  .sec-anim > .sec-inner {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .reveal, .reveal-l, .reveal-scale {
+    opacity: 1 !important;
+    transform: none !important;
+  }
   .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
   .testimonial-section { padding: 72px 0; }
   .faq-section { padding: 64px 0; }
@@ -2394,6 +2402,23 @@ body.hero-dark .site-header:not(.is-scrolled) .brand-badge {
 
   function preloadFrames() {
     if (!heroCanvas) return;
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+      heroLoaded = true;
+      if (preloader) {
+        preloader.classList.add("is-done");
+        preloader.remove();
+      }
+      const img0 = new Image();
+      img0.src = HERO_FRAME_URLS[0];
+      img0.onload = () => {
+        frameImages[0] = img0;
+        drawFrame(0);
+      };
+      frameImages[0] = img0;
+      computeHero();
+      return;
+    }
     let done = 0;
     const count = HERO_FRAMES;
     const onOne = () => {
