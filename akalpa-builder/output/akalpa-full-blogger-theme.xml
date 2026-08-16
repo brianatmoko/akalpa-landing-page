@@ -403,11 +403,21 @@ body.hero-dark .site-header:not(.is-scrolled) .brand-logo { box-shadow: 2px 2px 
   justify-content: center;
   box-shadow: 0 4px 14px rgba(24, 36, 66, 0.25);
 }
-.mobile-menu a.btn-primary *,
+.mobile-menu a.btn-primary,
 .nav-actions .btn-primary,
-.nav-actions .btn-primary * {
+.mobile-menu a.btn-primary span,
+.nav-actions .btn-primary span {
   color: #ffffff !important;
-  stroke: #ffffff !important;
+}
+.mobile-menu a.btn-primary svg,
+.nav-actions .btn-primary svg {
+  color: #ffffff !important;
+  stroke: currentColor !important;
+}
+.mobile-menu a.btn-primary svg path[stroke="none"],
+.nav-actions .btn-primary svg path[stroke="none"] {
+  stroke: none !important;
+  fill: none !important;
 }
 .mobile-menu a.btn-primary:hover,
 .mobile-menu a.btn-primary:active,
