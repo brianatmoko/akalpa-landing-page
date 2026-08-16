@@ -46,9 +46,27 @@ BLOGGER_FULL_TEMPLATE = """\
   xmlns:expr='http://www.google.com/2005/gbl'>
 
 <head>
-  <meta content='width=device-width, initial-scale=1' name='viewport'/>
+  <meta content='width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5' name='viewport'/>
   <b:include data='blog' name='all-head-content'/>
   <title><data:blog.pageTitle/></title>
+
+  <!-- Instant ?m=1 Mobile Auto-Fix (Mencegah Blogger Menampilkan Halaman Kosong saat ?m=1) -->
+  <script type='text/javascript'>
+  //<![CDATA[
+  (function(){
+    var search = window.location.search || "";
+    if (search.indexOf("m=1") > -1) {
+      var cleanSearch = search.replace(/([?&])m=1(&|$)/, "$1").replace(/[?&]$/, "");
+      var newUrl = window.location.pathname + (cleanSearch ? cleanSearch : "") + window.location.hash;
+      if (window.history && window.history.replaceState) {
+        window.history.replaceState(null, "", newUrl);
+      } else {
+        window.location.replace(newUrl);
+      }
+    }
+  })();
+  //]]>
+  </script>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -169,11 +187,13 @@ body.on-subpage #siteHeader .brand-logo {
   </div>
 
   <b:section class='main' id='main' maxwidgets='1' name='Main' showaddelement='no'>
-    <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='1' visible='false'>
+    <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='1' visible='true'>
       <b:widget-settings>
         <b:widget-setting name='showShareButtons'>false</b:widget-setting>
       </b:widget-settings>
       <b:includable id='main' var='top'></b:includable>
+      <b:includable id='mobile-main' var='top'></b:includable>
+      <b:includable id='mobile-post' var='top'></b:includable>
     </b:widget>
   </b:section>
 
