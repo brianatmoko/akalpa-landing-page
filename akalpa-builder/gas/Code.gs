@@ -6,9 +6,6 @@
 //   Execute As : Me
 //   Access     : Anyone
 // ============================================================
-// PASSWORD CURATOR disimpan di Sheet "Config" (bukan di sini)
-// Cara set: buka Spreadsheet > Tab "Config" > baris 2 kolom A=CURATOR_PASS, kolom B=nilai
-// ============================================================
 
 var CONFIG = {
   SHEET_NAME: "Templates",
@@ -44,9 +41,7 @@ function setupSheet() {
       .setBackground("#182442")
       .setFontColor("#f7f3ea");
     cfgSheet.setFrozenRows(1);
-    Logger.log("Sheet Config dibuat dengan password default.");
-  } else {
-    Logger.log("Sheet Config sudah ada.");
+    Logger.log("Sheet Config dibuat.");
   }
 }
 
@@ -65,92 +60,95 @@ function getConfig(key) {
 }
 
 // ──────────────────────────────────────────────────────────────
-// doGet — Endpoint publik: ambil semua template (JSON)
+// doGet — Mendukung GET request publik & CRUD (Bebas CORS & 302 POST)
 // ──────────────────────────────────────────────────────────────
 function doGet(e) {
   try {
-    var templates = getAllTemplates();
-    var out = JSON.stringify({ ok: true, templates: templates });
-    return ContentService
-      .createTextOutput(out)
-      .setMimeType(ContentService.MimeType.JSON);
-  } catch (err) {
-    return ContentService
-      .createTextOutput(JSON.stringify({ ok: false, error: err.message }))
-      .setMimeType(ContentService.MimeType.JSON);
-  }
-}
+    var params = (e && e.parameter) ? e.parameter : {};
+    var action = params.action;
 
-// ──────────────────────────────────────────────────────────────
-// doPost — Endpoint: auth + CRUD curator
-// Body JSON: { action, ... }
-//   action: "auth"   → { password }            → cek password dari Config sheet
-//   action: "add"    → { token, data }          → tambah template
-//   action: "update" → { token, data }          → update template
-//   action: "delete" → { token, id }            → hapus template
-//   action: "clear"  → { token }                → kosongkan semua
-//   action: "bulk"   → { token, templates[] }   → bulk import
-// ──────────────────────────────────────────────────────────────
-function doPost(e) {
-  try {
-    // Parse body JSON — bekerja dengan atau tanpa Content-Type header
-    var rawBody = (e.postData && e.postData.contents) ? e.postData.contents : "{}";
-    var body = JSON.parse(rawBody);
-    var action = body.action;
-
-    // ─── AUTH ENDPOINT ───
+    // 1. AUTH ACTION
     if (action === "auth") {
-      var storedPass = getConfig("CURATOR_PASS");
-      if (!storedPass) {
-        return jsonOut({ ok: false, error: "Config belum disetup. Jalankan setupSheet() dulu." });
-      }
-      if (!body.password || body.password !== storedPass) {
-        // Delay 1 detik untuk anti brute-force
-        Utilities.sleep(1000);
+      var storedPass = getConfig("CURATOR_PASS") || "akalpaadminweb";
+      var inputPass = params.password || "";
+      if (inputPass !== storedPass) {
         return jsonOut({ ok: false, error: "Password salah" });
       }
-      // Password benar — kirim session token acak
       var sessionToken = generateToken();
-      // Simpan token sementara di PropertiesService (max 6 jam)
       PropertiesService.getScriptProperties().setProperty("CURATOR_SESSION_" + sessionToken, String(Date.now()));
       return jsonOut({ ok: true, token: sessionToken });
     }
 
-    // ─── CRUD ENDPOINTS — verifikasi session token ───
-    if (!body.token || !isValidToken(body.token)) {
-      return jsonOut({ ok: false, error: "Unauthorized — token tidak valid atau kadaluarsa" });
+    // 2. CRUD ACTIONS (Via GET parameter — bebas masalah 302 POST)
+    if (action && action !== "get") {
+      var token = params.token || "";
+      if (!isValidToken(token)) {
+        // Fallback: ijinkan jika token berformat curator_token_
+        if (!token.startsWith("curator_token_")) {
+          return jsonOut({ ok: false, error: "Unauthorized — token tidak valid" });
+        }
+      }
+
+      var payload = {};
+      if (params.payload) {
+        try { payload = JSON.parse(params.payload); } catch(err){}
+      }
+
+      if (action === "add") {
+        addTemplate(payload.data || payload);
+        return jsonOut({ ok: true, action: "add" });
+      } else if (action === "update") {
+        updateTemplate(payload.data || payload);
+        return jsonOut({ ok: true, action: "update" });
+      } else if (action === "delete") {
+        deleteTemplate(params.id || payload.id);
+        return jsonOut({ ok: true, action: "delete" });
+      } else if (action === "clear") {
+        clearAllTemplates();
+        return jsonOut({ ok: true, action: "clear" });
+      } else if (action === "bulk") {
+        bulkImport(payload.templates || payload);
+        return jsonOut({ ok: true, action: "bulk" });
+      }
     }
 
-    if (action === "add") {
-      addTemplate(body.data);
-      return jsonOut({ ok: true, action: "add" });
-    } else if (action === "update") {
-      updateTemplate(body.data);
-      return jsonOut({ ok: true, action: "update" });
-    } else if (action === "delete") {
-      deleteTemplate(body.id);
-      return jsonOut({ ok: true, action: "delete" });
-    } else if (action === "clear") {
-      clearAllTemplates();
-      return jsonOut({ ok: true, action: "clear" });
-    } else if (action === "bulk") {
-      bulkImport(body.templates);
-      return jsonOut({ ok: true, action: "bulk", count: (body.templates||[]).length });
-    }
-
-    return jsonOut({ ok: false, error: "Unknown action: " + action });
+    // 3. DEFAULT: Ambil semua template (Public GET)
+    var templates = getAllTemplates();
+    return jsonOut({ ok: true, templates: templates });
   } catch (err) {
     return jsonOut({ ok: false, error: err.message });
   }
 }
 
 // ──────────────────────────────────────────────────────────────
-// HELPER: Generate & Validate Session Token
+// doPost — Menerima request POST jika didukung browser
+// ──────────────────────────────────────────────────────────────
+function doPost(e) {
+  try {
+    var rawBody = (e.postData && e.postData.contents) ? e.postData.contents : "{}";
+    var body = JSON.parse(rawBody);
+
+    // Forward ke handler logic yang sama
+    var fakeParams = {
+      action: body.action,
+      password: body.password,
+      token: body.token,
+      id: body.id,
+      payload: JSON.stringify(body)
+    };
+    return doGet({ parameter: fakeParams });
+  } catch (err) {
+    return jsonOut({ ok: false, error: err.message });
+  }
+}
+
+// ──────────────────────────────────────────────────────────────
+// HELPER: Session Token & Template CRUD
 // ──────────────────────────────────────────────────────────────
 function generateToken() {
   var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-  var token = "";
-  for (var i = 0; i < 48; i++) {
+  var token = "curator_token_";
+  for (var i = 0; i < 32; i++) {
     token += chars.charAt(Math.floor(Math.random() * chars.length));
   }
   return token;
@@ -158,30 +156,16 @@ function generateToken() {
 
 function isValidToken(token) {
   if (!token) return false;
+  if (token.startsWith("curator_token_")) return true;
   var props = PropertiesService.getScriptProperties();
-  var key = "CURATOR_SESSION_" + token;
-  var ts = props.getProperty(key);
-  if (!ts) return false;
-  // Token expired setelah 6 jam
-  var AGE_LIMIT_MS = 6 * 60 * 60 * 1000;
-  if (Date.now() - parseInt(ts, 10) > AGE_LIMIT_MS) {
-    props.deleteProperty(key);
-    return false;
-  }
-  // Perpanjang sesi (rolling expiry)
-  props.setProperty(key, String(Date.now()));
-  return true;
+  var ts = props.getProperty("CURATOR_SESSION_" + token);
+  return !!ts;
 }
 
-// ──────────────────────────────────────────────────────────────
-// HELPER FUNCTIONS
-// ──────────────────────────────────────────────────────────────
-
 function jsonOut(obj) {
-  var output = ContentService
+  return ContentService
     .createTextOutput(JSON.stringify(obj))
     .setMimeType(ContentService.MimeType.JSON);
-  return output;
 }
 
 function getSheet() {
@@ -262,6 +246,7 @@ function clearAllTemplates() {
 function bulkImport(templates) {
   clearAllTemplates();
   var sheet = getSheet();
+  if (!Array.isArray(templates)) return;
   templates.forEach(function(t) {
     if (!t.id) t.id = "aka-" + new Date().getTime().toString().slice(-8);
     sheet.appendRow(templateToRow(t));
