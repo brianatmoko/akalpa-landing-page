@@ -35,7 +35,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&amp;family=Outfit:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
 
   <b:skin><![CDATA[
-/* ── Blogger Default UI Reset (AMAN: hanya target elemen Blogger, bukan elemen kustom) ── */
+/* -- Blogger Default UI Reset (AMAN: hanya target elemen Blogger, bukan elemen kustom) -- */
 
 /* Sembunyikan UI bawaan Blogger */
 #navbar-iframe, #b-navbar, #navbar-main,
@@ -44,7 +44,7 @@
 /* Widget Blog bawaan tidak tampil (karena kita punya konten sendiri) */
 .widget-type-Blog, .widget-type-Attribution { display: none !important; }
 
-/* Reset wrapper bawaan Blogger – PAKSA 100% Lebar Penuh (TANPA celah samping) */
+/* Reset wrapper bawaan Blogger - PAKSA 100% Lebar Penuh (TANPA celah samping) */
 .section, .section.main-section, section, #main-wrapper, #outer-wrapper, #content-wrapper,
 #header-wrapper, #footer-wrapper, .akalpa-view, #akalpa-app-root {
   margin-left: 0 !important;
@@ -57,7 +57,7 @@
   box-sizing: border-box !important;
 }
 
-/* ── Blogger Mobile (?m=1) Responsive Support & Reset ── */
+/* -- Blogger Mobile (?m=1) Responsive Support & Reset -- */
 html.mobile, body.mobile, .mobile body, .mobile #akalpa-app-root,
 .mobile .section, .mobile section, .mobile .akalpa-view,
 body.mobile .section, body.mobile section, body.mobile .akalpa-view {
@@ -117,14 +117,14 @@ body.on-subpage #siteHeader .brand-logo {
   text-decoration: none !important;
 }
 
-/* ── END Blogger Reset ── */
-/* ═══════════════════════════════════════════════════════════════════════
-   Akalpa Inovasi | Design System v2 (light · bone + navy + light orange)
-   Font: Fraunces (display serif) · Outfit (body) · JetBrains Mono (code)
-   Hero: 40-frame canvas (siang → malam) · parallax halus · anti-AI-slop
-   ═══════════════════════════════════════════════════════════════════════ */
+/* -- END Blogger Reset -- */
+/* -----------------------------------------------------------------------
+   Akalpa Inovasi | Design System v2 (light - bone + navy + light orange)
+   Font: Fraunces (display serif) - Outfit (body) - JetBrains Mono (code)
+   Hero: 40-frame canvas (siang - malam) - parallax halus - anti-AI-slop
+   ----------------------------------------------------------------------- */
 
-/* ── Tokens ─────────────────────────────────────────────────────────── */
+/* -- Tokens ----------------------------------------------------------- */
 :root {
   --bg: #f7f3ea;            /* bone */
   --bg-2: #f1ebdd;
@@ -170,7 +170,7 @@ body.on-subpage #siteHeader .brand-logo {
   --header-h: 76px;
 }
 
-/* ── Reset ──────────────────────────────────────────────────────────── */
+/* -- Reset ------------------------------------------------------------ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 14px); }
@@ -217,7 +217,7 @@ code, pre { font-family: var(--font-mono); }
 .testimonial-section { padding: 96px 0; }
 .faq-section { padding: 88px 0; }
 
-/* ── Tipografi ──────────────────────────────────────────────────────── */
+/* -- Tipografi -------------------------------------------------------- */
 h1, h2, h3, h4 {
   font-family: var(--font-display);
   font-weight: 600;
@@ -241,7 +241,7 @@ em { font-style: italic; color: var(--orange-deep); }
 .section-head.left .section-sub { margin: 0; }
 @media (max-width: 768px) { .section-head { margin-bottom: 34px; } }
 
-/* ── Tombol | micro-interaction ─────────────────────────────────────── */
+/* -- Tombol | micro-interaction --------------------------------------- */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 9px;
   font-family: var(--font-body); font-weight: 600;
@@ -281,13 +281,13 @@ em { font-style: italic; color: var(--orange-deep); }
   100% { transform: scale(1); }
 }
 
-/* ── Reveal | variasikan arah & durasi (bukan fade identik semua) ────── */
+/* -- Reveal | variasikan arah & durasi (bukan fade identik semua) ------ */
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity var(--t-slow) var(--ease-out), transform var(--t-slow) var(--ease-out); }
 .reveal-l { opacity: 0; transform: translateX(-36px); transition: opacity var(--t-slow) var(--ease-out), transform var(--t-slow) var(--ease-out); }
 .reveal-scale { opacity: 0; transform: scale(0.92); transition: opacity var(--t-slow) var(--ease-out), transform var(--t-slow) var(--ease-spring); }
 .reveal.is-visible, .reveal-l.is-visible, .reveal-scale.is-visible { opacity: 1; transform: none; }
 
-/* ══════════════════ SECTION MASUK/KELUAR ═════════════════════════════
+/* ------------------ SECTION MASUK/KELUAR -----------------------------
    Urutan: section masuk dulu (sec-inner), lalu object di dalamnya masuk
    berurutan (stagger via JS). Wave & dekorasi TIDAK ikut animasi agar
    tidak ada celah terpotong di perbatasan antar section. */
@@ -301,7 +301,7 @@ em { font-style: italic; color: var(--orange-deep); }
 .sec-anim.is-out > .sec-inner { opacity: 0; transform: translateY(-24px); }
 .sec-anim .wave-wrap { transition: none; }
 
-/* ══════════════════ NAVBAR | 3 state ══════════════════ */
+/* ------------------ NAVBAR | 3 state ------------------ */
 .site-header {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   color: var(--navy);
@@ -433,13 +433,13 @@ body.hero-dark .site-header:not(.is-scrolled) .brand-logo { box-shadow: 2px 2px 
   box-shadow: 2px 2px 0 var(--navy) !important;
 }
 
-/* ══════════════════ HERO | CANVAS STORY (siang → malam) ══════════════════ */
+/* ------------------ HERO | CANVAS STORY (siang - malam) ------------------ */
 .hero-story { position: relative; height: 320vh; background: var(--navy-deep); }
-/* ══════════════════ HERO | GRID RESPONSIF V2 ══════════════════════════
+/* ------------------ HERO | GRID RESPONSIF V2 --------------------------
    Layout hero TERKUNCI per perangkat (Sistem Responsif v2):
-   - MOBILE (≤768px)   : stacked | teks di atas, maskot kecil di bawah
-   - TABLET (769–1100) : 2 kolom | teks kiri, maskot sedang di kanan
-   - DESKTOP (≥1101px) : 2 kolom | teks kiri, maskot BESAR penuh tinggi
+   - MOBILE (-768px)   : stacked | teks di atas, maskot kecil di bawah
+   - TABLET (769-1100) : 2 kolom | teks kiri, maskot sedang di kanan
+   - DESKTOP (-1101px) : 2 kolom | teks kiri, maskot BESAR penuh tinggi
    Setiap breakpoint punya grid-template-areas & ukuran sendiri, jadi
    tidak ada elemen yang "mengikuti aliran" antar perangkat. */
 .hero-sticky {
@@ -456,7 +456,7 @@ body.hero-dark .site-header:not(.is-scrolled) .brand-logo { box-shadow: 2px 2px 
 .hero-mascot { grid-area: mascot; }
 #heroCanvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 
-/* Scrim adaptif: terang di awal (teks navy) → gelap saat frame meredup */
+/* Scrim adaptif: terang di awal (teks navy) - gelap saat frame meredup */
 .hero-vignette {
   position: absolute; inset: 0; pointer-events: none;
   transition: opacity var(--t-slow) ease;
@@ -580,8 +580,8 @@ body.hero-dark .site-header:not(.is-scrolled) .brand-badge {
 .hero-pill svg { width: 14px; height: 14px; color: var(--yellow); }
 
 /* Maskot hero | item grid (ukuran per breakpoint di bawah).
-   Karakter berbaju navy → glow kuning hangat (rim light) agar siluet
-   tidak tenggelam di latar gelap siang→malam. */
+   Karakter berbaju navy - glow kuning hangat (rim light) agar siluet
+   tidak tenggelam di latar gelap siang-malam. */
 .hero-mascot {
   grid-area: mascot;
   height: min(26vh, 190px);
@@ -643,21 +643,21 @@ body.hero-dark .site-header:not(.is-scrolled) .brand-badge {
   50% { transform: translateY(-10px) rotate(1.1deg); }
 }
 
-/* ══════════════════ TECH STRIP ══════════════════ */
+/* ------------------ TECH STRIP ------------------ */
 .tech-strip {
   position: relative;
   background: var(--navy); color: rgba(247, 243, 234, 0.85);
   padding: 26px 0 76px; overflow: hidden;
 }
 
-/* ══════════════════ WAVE DIVIDER ═══════════════════════════════════════
+/* ------------------ WAVE DIVIDER ---------------------------------------
    Teknik standar (riset: tailwindcolor.tools Section Divider Generator +
    pola Website-PKKMB-FV-UNY):
    1. Wave di-absolute di BOTTOM section ATAS (bukan elemen mandiri).
-   2. fill SVG = warna section BAWAH → menyatu mulus tanpa seam.
-   3. Bagian transparan di atas kurva menampilkan warna section ATAS →
+   2. fill SVG = warna section BAWAH - menyatu mulus tanpa seam.
+   3. Bagian transparan di atas kurva menampilkan warna section ATAS -
       bentuk wave (kontras 2 warna) terlihat hidup di perbatasan.
-   Hanya dipakai di 2 perbatasan: section 2→3 & section 4→5. */
+   Hanya dipakai di 2 perbatasan: section 2-3 & section 4-5. */
 .wave-wrap {
   position: absolute;
   bottom: 0; left: 0; right: 0;
@@ -681,7 +681,7 @@ body.hero-dark .site-header:not(.is-scrolled) .brand-badge {
 .marquee-inner .star { color: var(--orange); font-size: 0.75rem; opacity: 0.9; padding: 0 4px; font-family: inherit; }
 @keyframes marquee-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-/* ══════════════════ STATS ══════════════════ */
+/* ------------------ STATS ------------------ */
 .stats-section {
   position: relative; overflow: hidden;
   width: 100%; max-width: 100%;
@@ -724,9 +724,9 @@ body.hero-dark .site-header:not(.is-scrolled) .brand-badge {
 }
 .stats-note strong { color: var(--navy); }
 
-/* ══════════════════ FOKUS | produk AI & web design ══════════════════ */
+/* ------------------ FOKUS | produk AI & web design ------------------ */
 .focus-section {
-  /* bg-2 agar wave stats→fokus (fill #f1ebdd) menyatu mulus */
+  /* bg-2 agar wave stats-fokus (fill #f1ebdd) menyatu mulus */
   position: relative; background: var(--bg-2); overflow: hidden;
   width: 100%; max-width: 100%;
   margin-left: 0; margin-right: 0;
@@ -816,14 +816,14 @@ body.hero-dark .site-header:not(.is-scrolled) .brand-badge {
   background: radial-gradient(circle, rgba(34, 48, 92, 0.07) 0%, transparent 70%);
 }
 
-/* ══════════════════ TENTANG BAND ══════════════════ */
+/* ------------------ TENTANG BAND ------------------ */
 .about-band { position: relative; overflow: hidden; background: var(--navy-deep); }
 .about-bg { position: absolute; inset: -12% 0; will-change: transform; }
 .about-bg img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .about-scrim {
   position: absolute; inset: 0;
   /* lapis 1: zona atas solid navy-deep agar wave (fill #182442) menyatu
-     mulus ke band gambar; lapis 2: scrim horizontal kiri→kanan */
+     mulus ke band gambar; lapis 2: scrim horizontal kiri-kanan */
   background:
     linear-gradient(to bottom, rgba(24, 36, 66, 0.97) 0%, rgba(24, 36, 66, 0.97) 66px, rgba(24, 36, 66, 0.6) 104px, transparent 150px),
     linear-gradient(90deg, rgba(24, 36, 66, 0.9) 0%, rgba(24, 36, 66, 0.68) 46%, rgba(24, 36, 66, 0.28) 100%);
@@ -864,7 +864,7 @@ body.hero-dark .site-header:not(.is-scrolled) .brand-badge {
   will-change: transform;
 }
 
-/* ══════════════════ GITHUB | OPEN SOURCE ══════════════════ */
+/* ------------------ GITHUB | OPEN SOURCE ------------------ */
 .github-section {
   position: relative; overflow: hidden;
   background: linear-gradient(180deg, #1c2a50 0%, var(--navy-deep) 100%);
@@ -994,7 +994,7 @@ body.hero-dark .site-header:not(.is-scrolled) .brand-badge {
 .repo-stat { display: inline-flex; align-items: center; gap: 5px; }
 .repo-stat svg { width: 13px; height: 13px; }
 
-/* Statistik GitHub | panel grid: 4 kolom desktop, 2×2 tablet/mobile */
+/* Statistik GitHub | panel grid: 4 kolom desktop, 2-2 tablet/mobile */
 .gh-stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1060,7 +1060,7 @@ body.hero-dark .site-header:not(.is-scrolled) .brand-badge {
 }
 .ghost-light:hover { background: rgba(247, 243, 234, 0.1) !important; color: var(--yellow) !important; }
 
-/* ══════════════════ TESTIMONI ══════════════════ */
+/* ------------------ TESTIMONI ------------------ */
 .testimonial-section { position: relative; overflow: hidden; }
 .carousel { position: relative; max-width: 760px; margin: 0 auto; z-index: 2; }
 .carousel-viewport { overflow: hidden; border-radius: var(--radius-lg); }
@@ -1120,7 +1120,7 @@ body.hero-dark .site-header:not(.is-scrolled) .brand-badge {
 }
 .carousel-dots button.is-active { background: var(--orange); width: 26px; border-radius: 99px; }
 
-/* ══════════════════ FAQ ══════════════════ */
+/* ------------------ FAQ ------------------ */
 .faq-section { background: var(--bg-2); position: relative; }
 .faq-layout { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 56px; align-items: start; }
 .faq-list { display: flex; flex-direction: column; gap: 14px; }
@@ -1156,7 +1156,7 @@ body.hero-dark .site-header:not(.is-scrolled) .brand-badge {
 .faq-phone:hover { color: var(--orange-deep); }
 .faq-phone svg { width: 17px; height: 17px; color: var(--orange-deep); }
 
-/* ══════════════════ FOOTER ══════════════════ */
+/* ------------------ FOOTER ------------------ */
 .site-footer {
   position: relative;
   background: var(--navy);
@@ -1226,7 +1226,7 @@ body.hero-dark .site-header:not(.is-scrolled) .brand-badge {
 .back-top:hover { background: var(--orange); color: var(--navy); transform: translateY(-2px); }
 .back-top svg { width: 16px; height: 16px; }
 
-/* ══════════════════ RESPONSIVE ══════════════════ */
+/* ------------------ RESPONSIVE ------------------ */
 /* FAQ | head sticky di desktop agar tetap terlihat saat daftar discroll */
 @media (min-width: 901px) {
   .faq-layout { align-items: start; }
@@ -1306,7 +1306,7 @@ body.hero-dark .site-header:not(.is-scrolled) .brand-badge {
   .hero-mascot { height: min(22vh, 140px); }
 }
 
-/* ── Reduced motion ─────────────────────────────────────────────────── */
+/* -- Reduced motion --------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal, .reveal-l, .reveal-scale { opacity: 1; transform: none; transition: none; }
@@ -1316,7 +1316,7 @@ body.hero-dark .site-header:not(.is-scrolled) .brand-badge {
 }
 
 
-/* ── Scoped Subpage Styles ── */
+/* -- Scoped Subpage Styles -- */
 #view-templates * {
   margin:0;padding:0;box-sizing:border-box
 }#view-templates {

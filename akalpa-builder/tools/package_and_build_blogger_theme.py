@@ -74,7 +74,7 @@ BLOGGER_FULL_TEMPLATE = """\
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&amp;family=Outfit:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
 
   <b:skin><![CDATA[
-/* ── Blogger Default UI Reset (AMAN: hanya target elemen Blogger, bukan elemen kustom) ── */
+/* -- Blogger Default UI Reset (AMAN: hanya target elemen Blogger, bukan elemen kustom) -- */
 
 /* Sembunyikan UI bawaan Blogger */
 #navbar-iframe, #b-navbar, #navbar-main,
@@ -83,7 +83,7 @@ BLOGGER_FULL_TEMPLATE = """\
 /* Widget Blog bawaan tidak tampil (karena kita punya konten sendiri) */
 .widget-type-Blog, .widget-type-Attribution { display: none !important; }
 
-/* Reset wrapper bawaan Blogger – PAKSA 100% Lebar Penuh (TANPA celah samping) */
+/* Reset wrapper bawaan Blogger - PAKSA 100% Lebar Penuh (TANPA celah samping) */
 .section, .section.main-section, section, #main-wrapper, #outer-wrapper, #content-wrapper,
 #header-wrapper, #footer-wrapper, .akalpa-view, #akalpa-app-root {
   margin-left: 0 !important;
@@ -96,7 +96,7 @@ BLOGGER_FULL_TEMPLATE = """\
   box-sizing: border-box !important;
 }
 
-/* ── Blogger Mobile (?m=1) Responsive Support & Reset ── */
+/* -- Blogger Mobile (?m=1) Responsive Support & Reset -- */
 html.mobile, body.mobile, .mobile body, .mobile #akalpa-app-root,
 .mobile .section, .mobile section, .mobile .akalpa-view,
 body.mobile .section, body.mobile section, body.mobile .akalpa-view {
@@ -156,7 +156,7 @@ body.on-subpage #siteHeader .brand-logo {
   text-decoration: none !important;
 }
 
-/* ── END Blogger Reset ── */
+/* -- END Blogger Reset -- */
 {css_combined}
   ]]></b:skin>
 </head>
@@ -321,6 +321,35 @@ def make_html_xml_compliant(html_str):
     html_str = re.sub(r'&(?!(?:[a-zA-Z0-9]+|#[0-9]+|#x[0-9a-fA-F]+);)', '&amp;', html_str)
     return html_str
 
+def make_css_ascii_safe(css_str):
+    """
+    Mengonversi semua karakter non-ASCII di dalam CSS menjadi ASCII murni.
+    Blogger AKAN mengubah karakter non-ASCII di dalam <b:skin> menjadi HTML entity
+    (misal: &#10022;, &#9472;, &#8550;) saat menyimpan tema.
+    Solusi: ganti semua karakter non-ASCII di komentar dengan tanda minus ASCII.
+    Karakter non-ASCII di luar komentar (mis. dalam string content:) harus
+    sudah diganti dengan CSS hex escape sebelumnya.
+    """
+    def sanitize_comment(m):
+        text = m.group(0)
+        result = ''
+        for ch in text:
+            if ord(ch) > 127:
+                result += '-'
+            else:
+                result += ch
+        return result
+    # Ganti semua karakter non-ASCII di dalam blok komentar /* ... */
+    css_str = re.sub(r'/\*.*?\*/', sanitize_comment, css_str, flags=re.DOTALL)
+    # Ganti sisa karakter non-ASCII yang masih ada di luar komentar dengan hex escape CSS
+    result = ''
+    for ch in css_str:
+        if ord(ch) > 127:
+            result += f'\\{ord(ch):X} '
+        else:
+            result += ch
+    return result
+
 def package_assets():
     """Kemas semua aset gambar ke file zip."""
     print("📦 Mengemas semua aset gambar ke ZIP...")
@@ -450,6 +479,8 @@ def build_full_blogger_theme():
     # sehingga TIDAK boleh di-scope ulang (akan menjadi #view-curator #view-curator ...)
     curator_css = extract_styles(CURATOR_HTML)
     css_combined = main_css + "\n\n/* ── Scoped Subpage Styles ── */\n" + templates_css + "\n\n" + curator_css
+    # Konversi semua karakter non-ASCII ke ASCII murni agar Blogger tidak mengubahnya ke HTML entity
+    css_combined = make_css_ascii_safe(css_combined)
 
     main_js = ""
     if os.path.exists(MAIN_JS):
