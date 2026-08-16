@@ -557,6 +557,7 @@ body.hero-dark .site-header:not(.is-scrolled) .brand-badge {
 .marquee-track { overflow: hidden; white-space: nowrap; mask-image: linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%); }
 .marquee-inner { display: inline-flex; align-items: center; animation: marquee-scroll 28s linear infinite; }
 .marquee-inner span { font-family: var(--font-mono); font-size: 0.85rem; font-weight: 600; padding: 0 12px; display: inline-flex; align-items: center; }
+.marquee-inner span::after { content: none !important; display: none !important; }
 .marquee-inner .star { color: var(--orange); font-size: 0.75rem; opacity: 0.9; padding: 0 4px; font-family: inherit; }
 @keyframes marquee-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
@@ -1138,8 +1139,9 @@ body.hero-dark .site-header:not(.is-scrolled) .brand-badge {
   .about-inner { display: grid; grid-template-columns: 1fr; justify-items: center; text-align: center; padding-top: 72px; padding-bottom: 72px; }
   .about-card { display: flex; flex-direction: column; align-items: center; }
   .about-points li { justify-content: center; text-align: left; }
-  .about-mascot { height: 235px; justify-self: center; }
-  .footer-mascot { display: none; }
+  .hero-mascot,
+  .about-mascot,
+  .footer-mascot { display: none !important; }
   .about-scrim {
     background:
       linear-gradient(to bottom, rgba(24, 36, 66, 0.97) 0%, rgba(24, 36, 66, 0.97) 40px, rgba(24, 36, 66, 0.6) 70px, transparent 110px),
