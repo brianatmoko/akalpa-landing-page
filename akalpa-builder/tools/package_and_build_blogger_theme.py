@@ -446,7 +446,9 @@ def build_full_blogger_theme():
             main_css = f.read()
 
     templates_css = scope_css(extract_styles(TEMPLATES_HTML), "#view-templates")
-    curator_css = scope_css(extract_styles(CURATOR_HTML), "#view-curator")
+    # Curator CSS sudah ditulis dengan prefiks #view-curator secara eksplisit,
+    # sehingga TIDAK boleh di-scope ulang (akan menjadi #view-curator #view-curator ...)
+    curator_css = extract_styles(CURATOR_HTML)
     css_combined = main_css + "\n\n/* ── Scoped Subpage Styles ── */\n" + templates_css + "\n\n" + curator_css
 
     main_js = ""
