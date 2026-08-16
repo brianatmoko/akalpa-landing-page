@@ -65,18 +65,22 @@ BLOGGER_FULL_TEMPLATE = """\
 /* Widget Blog bawaan tidak tampil (karena kita punya konten sendiri) */
 .widget-type-Blog, .widget-type-Attribution { display: none !important; }
 
-/* Reset wrapper bawaan Blogger yang tidak relevan – TANPA menyentuh background */
-.section.main-section, #main-wrapper, #outer-wrapper, #content-wrapper,
-#header-wrapper, #footer-wrapper {
-  margin: 0 !important;
-  padding: 0 !important;
+/* Reset wrapper bawaan Blogger – PAKSA 100% Lebar Penuh (TANPA celah samping) */
+.section, .section.main-section, section, #main-wrapper, #outer-wrapper, #content-wrapper,
+#header-wrapper, #footer-wrapper, .akalpa-view, #akalpa-app-root {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
   width: 100% !important;
+  max-width: 100% !important;
   float: none !important;
+  box-sizing: border-box !important;
 }
 
 /* Body & html: hanya reset margin/padding bawaan Blogger */
-html { margin: 0 !important; padding: 0 !important; }
-body { margin: 0 !important; padding: 0 !important; overflow-x: hidden !important; }
+html { margin: 0 !important; padding: 0 !important; width: 100% !important; }
+body { margin: 0 !important; padding: 0 !important; overflow-x: hidden !important; width: 100% !important; }
 
 /* Navbar Akalpa: selalu fixed di atas */
 #siteHeader {
@@ -208,16 +212,28 @@ body.on-subpage #siteHeader .brand-logo {
 
     if(href.indexOf("/p/free-template") > -1 || href.indexOf("/p/templates") > -1 || href === "#templates" || href === "templates.html"){
       e.preventDefault();
-      window.location.hash = "#templates";
+      if(window.history && window.history.pushState){
+        window.history.pushState({view: "templates"}, "", "/p/free-template");
+      } else {
+        window.location.hash = "#templates";
+      }
       route();
     } else if(href.indexOf("/p/curator") > -1 || href === "#curator" || href === "templates-curator.html"){
       e.preventDefault();
-      window.location.hash = "#curator";
+      if(window.history && window.history.pushState){
+        window.history.pushState({view: "curator"}, "", "/p/curator");
+      } else {
+        window.location.hash = "#curator";
+      }
       route();
-    } else if(href === "#home" || href === "index.html" || href === "/"){
-      if(window.location.hash){
+    } else if(href === "#hero" || href === "#home" || href === "index.html" || href === "/"){
+      if(window.location.pathname !== "/" || window.location.hash){
         e.preventDefault();
-        window.location.hash = "#home";
+        if(window.history && window.history.pushState){
+          window.history.pushState({view: "home"}, "", "/");
+        } else {
+          window.location.hash = "#home";
+        }
         route();
       }
     }

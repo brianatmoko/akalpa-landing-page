@@ -511,7 +511,12 @@ body.hero-dark .site-header:not(.is-scrolled) .brand-badge {
 @keyframes marquee-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
 /* ══════════════════ STATS ══════════════════ */
-.stats-section { position: relative; overflow: hidden; }
+.stats-section {
+  position: relative; overflow: hidden;
+  width: 100%; max-width: 100%;
+  margin-left: 0; margin-right: 0;
+  box-sizing: border-box;
+}
 .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; position: relative; z-index: 2; }
 .stat {
   background: var(--surface);
@@ -552,6 +557,9 @@ body.hero-dark .site-header:not(.is-scrolled) .brand-badge {
 .focus-section {
   /* bg-2 agar wave stats→fokus (fill #f1ebdd) menyatu mulus */
   position: relative; background: var(--bg-2); overflow: hidden;
+  width: 100%; max-width: 100%;
+  margin-left: 0; margin-right: 0;
+  box-sizing: border-box;
   padding: 88px 0 104px;   /* padding-bottom agar tidak menempel ke section berikutnya */
 }
 .focus-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; position: relative; z-index: 2; }
