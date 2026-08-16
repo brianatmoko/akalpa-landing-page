@@ -290,11 +290,8 @@
 (function(){
 "use strict";
 
-var SALT="akalpa_curator_salt_2026";
-var EXPECTED_HASH="bedfe3b2190df68b3376b0f206d6f4d828be8eb1f4d43fdc280b66835b873092";
-
 var LS_DATA="aka_curator_v1";
-var SS_AUTH="aka_curator_token";
+var SS_AUTH="aka_curator_session_token";
 var LS_ATTEMPTS="aka_curator_lockout";
 
 var DEFAULT_GAS_URL="https://script.google.com/macros/s/AKfycbyaQsklH020izNbtsCLSCQK-bNI079gZTWo13UTWfyi08H2Yi4VzPm-cFkqkLSWwM3D/exec";
@@ -327,12 +324,7 @@ function validateUrl(url){
   return "";
 }
 
-async function sha256(text){
-  var enc=new TextEncoder().encode(text);
-  var buf=await crypto.subtle.digest("SHA-256",enc);
-  var arr=Array.from(new Uint8Array(buf));
-  return arr.map(function(b){return b.toString(16).padStart(2,"0")}).join("");
-}
+
 
 function getLockoutState(){
   try{
@@ -436,10 +428,13 @@ function resetForm(){
 
 async function gasPost(body){
   try {
+    // Sertakan session token GAS secara otomatis di setiap request
+    var sessionToken = sessionStorage.getItem(SS_AUTH) || "";
+    var bodyWithToken = Object.assign({}, body, { token: sessionToken });
     var res=await fetch(DEFAULT_GAS_URL,{
       method:"POST",
       headers:{"Content-Type":"application/json"},
-      body:JSON.stringify(body)
+      body:JSON.stringify(bodyWithToken)
     });
     if(!res.ok) return null;
     return await res.json();
@@ -565,7 +560,7 @@ $("#imp-apply").addEventListener("click",async function(){
   }catch(e){toast("Gagal impor: JSON tidak valid");}
 });
 
-/* Gate & Security Authentication */
+/* Gate & Security Authentication — diverifikasi server-side via GAS */
 async function unlockVault(){
   var gateErr=$("#gateErr");
   var inputVal=$("#pass").value;
@@ -574,7 +569,7 @@ async function unlockVault(){
   var lock=getLockoutState();
   if(lock.until && Date.now()<lock.until){
     var remainSec=Math.ceil((lock.until-Date.now())/1000);
-    gateErr.textContent="Akses dibekukan sementara ("+remainSec+"d) karena terlalu banyak percobaan gagal.";
+    gateErr.textContent="Akses dibekukan ("+remainSec+"d). Tunggu sebentar.";
     return;
   }
 
@@ -583,22 +578,35 @@ async function unlockVault(){
     return;
   }
 
-  var inputHash=await sha256(SALT+":"+inputVal);
-  if(inputHash===EXPECTED_HASH){
-    clearLockoutState();
-    var token="curator_token_"+Date.now()+"_"+Math.random().toString(36).substring(2,10);
-    sessionStorage.setItem(SS_AUTH,token);
-    enter();
-  }else{
-    var updatedLock=recordFailedAttempt();
-    $("#pass").value="";
-    await new Promise(function(r){setTimeout(r,1000)});
-    if(updatedLock.fails>=MAX_ATTEMPTS){
-      gateErr.textContent="5x percobaan gagal. Akses dibekukan selama 15 menit.";
-    }else{
-      var rem=MAX_ATTEMPTS-(updatedLock.fails||0);
-      gateErr.textContent="Kode otorisasi salah. Sisa percobaan: "+rem;
+  $("#unlock").disabled=true;
+  $("#unlock").textContent="Memverifikasi…";
+
+  try {
+    var res = await fetch(DEFAULT_GAS_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ action: "auth", password: inputVal })
+    });
+    var j = await res.json();
+    if(j.ok && j.token){
+      clearLockoutState();
+      sessionStorage.setItem(SS_AUTH, j.token);
+      enter();
+    } else {
+      var updatedLock=recordFailedAttempt();
+      $("#pass").value="";
+      if(updatedLock.fails>=MAX_ATTEMPTS){
+        gateErr.textContent="5x percobaan gagal. Akses dibekukan selama 15 menit.";
+      } else {
+        var rem=MAX_ATTEMPTS-(updatedLock.fails||0);
+        gateErr.textContent="Password salah. Sisa percobaan: "+rem;
+      }
     }
+  } catch(e) {
+    gateErr.textContent="Gagal menghubungi server. Cek koneksi internet.";
+  } finally {
+    $("#unlock").disabled=false;
+    $("#unlock").textContent="Buka Vault";
   }
 }
 
@@ -616,6 +624,11 @@ function enter(){
   load();buildCatList();resetForm();
   lastActivityTime=Date.now();
   fetchFromGAS();
+}
+
+/* Session check on load — token dari GAS */
+if(sessionStorage.getItem(SS_AUTH)){
+  enter();
 }
 
 /* Inactivity Auto-logout */
