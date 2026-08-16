@@ -78,6 +78,29 @@ BLOGGER_FULL_TEMPLATE = """\
   box-sizing: border-box !important;
 }
 
+/* ── Blogger Mobile (?m=1) Responsive Support & Reset ── */
+html.mobile, body.mobile, .mobile body, .mobile #akalpa-app-root,
+.mobile .section, .mobile section, .mobile .akalpa-view,
+body.mobile .section, body.mobile section, body.mobile .akalpa-view {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  float: none !important;
+}
+
+/* Sembunyikan UI mobile bawaan Blogger */
+.mobile #navbar-iframe, .mobile-link-button, .mobile-ad-button,
+.mobile-index-contents, .mobile-post-outer, .mobile-main-mobile,
+#b-placeholder, .widget-type-Blog.mobile {
+  display: none !important;
+  height: 0 !important;
+  visibility: hidden !important;
+}
+
 /* Body & html: hanya reset margin/padding bawaan Blogger */
 html { margin: 0 !important; padding: 0 !important; width: 100% !important; }
 body { margin: 0 !important; padding: 0 !important; overflow-x: hidden !important; width: 100% !important; }
@@ -158,10 +181,15 @@ body.on-subpage #siteHeader .brand-logo {
 //<![CDATA[
 {js_combined}
 
-/* SPA Router for Blogger Views */
+/* SPA Router for Blogger Views (Mobile ?m=1 & Desktop Support) */
 (function(){
+  function getMobileQuery(){
+    return (window.location.search || "").indexOf("m=1") > -1 ? "?m=1" : "";
+  }
+
   function route(){
     var path = (window.location.pathname || "").toLowerCase();
+    var search = (window.location.search || "").toLowerCase();
     var hash = (window.location.hash || "").toLowerCase();
     var views = document.querySelectorAll(".akalpa-view");
     views.forEach(function(v){ v.style.display = "none"; });
@@ -173,12 +201,14 @@ body.on-subpage #siteHeader .brand-logo {
       hash === "#templates" ||
       hash === "#free-template" ||
       path.indexOf("/p/free-template") > -1 ||
-      path.indexOf("/p/templates") > -1
+      path.indexOf("/p/templates") > -1 ||
+      search.indexOf("free-template") > -1
     );
 
     var isCurator = (
       hash === "#curator" ||
-      path.indexOf("/p/curator") > -1
+      path.indexOf("/p/curator") > -1 ||
+      search.indexOf("curator") > -1
     );
 
     if(isTemplates){
@@ -210,10 +240,12 @@ body.on-subpage #siteHeader .brand-logo {
     var href = a.getAttribute("href");
     if(!href) return;
 
+    var mQuery = getMobileQuery();
+
     if(href.indexOf("/p/free-template") > -1 || href.indexOf("/p/templates") > -1 || href === "#templates" || href === "templates.html"){
       e.preventDefault();
       if(window.history && window.history.pushState){
-        window.history.pushState({view: "templates"}, "", "/p/free-template");
+        window.history.pushState({view: "templates"}, "", "/p/free-template" + mQuery);
       } else {
         window.location.hash = "#templates";
       }
@@ -221,7 +253,7 @@ body.on-subpage #siteHeader .brand-logo {
     } else if(href.indexOf("/p/curator") > -1 || href === "#curator" || href === "templates-curator.html"){
       e.preventDefault();
       if(window.history && window.history.pushState){
-        window.history.pushState({view: "curator"}, "", "/p/curator");
+        window.history.pushState({view: "curator"}, "", "/p/curator" + mQuery);
       } else {
         window.location.hash = "#curator";
       }
@@ -230,7 +262,7 @@ body.on-subpage #siteHeader .brand-logo {
       if(window.location.pathname !== "/" || window.location.hash){
         e.preventDefault();
         if(window.history && window.history.pushState){
-          window.history.pushState({view: "home"}, "", "/");
+          window.history.pushState({view: "home"}, "", "/" + mQuery);
         } else {
           window.location.hash = "#home";
         }
