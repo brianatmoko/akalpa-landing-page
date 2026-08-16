@@ -394,6 +394,27 @@ body.hero-dark .site-header:not(.is-scrolled) .brand-logo { box-shadow: 2px 2px 
   background: rgba(34, 48, 92, 0.06);
   color: var(--orange-deep);
 }
+.mobile-menu a.btn-primary {
+  background: var(--navy) !important;
+  color: #ffffff !important;
+  border-radius: 12px;
+  margin-top: 8px;
+  border-bottom: none !important;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(24, 36, 66, 0.25);
+}
+.mobile-menu a.btn-primary *,
+.nav-actions .btn-primary,
+.nav-actions .btn-primary * {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+.mobile-menu a.btn-primary:hover,
+.mobile-menu a.btn-primary:active,
+.nav-actions .btn-primary:hover {
+  background: var(--navy-deep) !important;
+  color: #ffffff !important;
+}
 
 /* State saat menu mobile terbuka: navbar selalu solid & terbaca */
 #siteHeader.mobile-open {
@@ -1267,76 +1288,20 @@ body.hero-dark .site-header:not(.is-scrolled) .brand-badge {
   .testimonial-meta { flex-wrap: wrap; }
 }
 
-/* Mobile: Layout hero & maskot adaptif
-   Maskot dijadikan posisi absolute di sudut kanan bawah dengan transparansi lembut (watermark accent),
-   sehingga tidak mempertinggi section dan tidak pernah menutupi teks/tombol CTA hero. */
+/* Mobile: sisakan ruang bawah untuk scroll-hint agar maskot tidak
+   menutupinya (layout stacked: teks di atas, maskot di bawah) */
 @media (max-width: 768px) {
-  .hero-sticky {
-    grid-template-columns: 1fr;
-    grid-template-areas: "text";
-    align-content: center;
-    justify-items: center;
-    padding-bottom: 24px;
-    position: relative;
-  }
-  .hero-content {
-    position: relative;
-    z-index: 5;
-    max-width: 95%;
-    padding: 0 16px;
-    margin: 0 auto;
-  }
-  .hero-title {
-    font-size: clamp(1.6rem, 6.5vw, 2.3rem);
-    margin-bottom: 12px;
-    line-height: 1.18;
-  }
-  .hero-sub {
-    font-size: clamp(0.85rem, 3.8vw, 0.98rem);
-    margin: 0 auto 20px;
-    max-width: 92%;
-  }
-  .hero-cta {
-    gap: 10px;
-    margin-bottom: 14px;
-  }
-  .hero-pills {
-    margin-top: 14px;
-    gap: 6px;
-  }
-  .hero-pill {
-    font-size: 0.7rem;
-    padding: 5px 11px;
-  }
-  .hero-mascot {
-    position: absolute;
-    bottom: 6%;
-    right: -10px;
-    height: clamp(160px, 26vh, 230px);
-    width: auto;
-    z-index: 1;
-    pointer-events: none;
-    opacity: 0.35;
-    filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.4))
-            drop-shadow(0 0 16px rgba(246, 201, 111, 0.35));
-  }
-  .hero-mascot.is-visible {
-    opacity: 0.45;
-    transform: none;
-    animation: mascot-float 6s ease-in-out 0.4s infinite;
-  }
-  .scroll-hint {
-    bottom: 2%;
-    font-size: 0.72rem;
-  }
+  .hero-sticky { padding-bottom: 84px; }
 }
 
+/* Layar mobile pendek (SE/landscape): skala konten hero agar
+   layout stacked (teks + maskot) tetap muat tanpa terpotong */
 @media (max-width: 768px) and (max-height: 720px) {
-  .hero-sticky { padding-bottom: 16px; }
-  .hero-title { font-size: clamp(1.45rem, 5.8vh, 1.95rem); margin-bottom: 8px; }
-  .hero-sub { font-size: 0.82rem; margin: 0 auto 12px; }
-  .hero-pills { margin-top: 10px; }
-  .hero-mascot { height: clamp(130px, 20vh, 170px); opacity: 0.3; }
+  .hero-sticky { padding-bottom: 40px; gap: 8px; }
+  .hero-title { font-size: clamp(1.5rem, 6vh, 2.1rem); margin-bottom: 8px; }
+  .hero-sub { font-size: 0.85rem; margin: 0 auto 14px; }
+  .hero-pills { margin-top: 12px; }
+  .hero-mascot { height: min(22vh, 140px); }
 }
 
 /* ── Reduced motion ─────────────────────────────────────────────────── */
