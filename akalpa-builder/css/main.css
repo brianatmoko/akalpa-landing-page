@@ -555,9 +555,9 @@ body.hero-dark .site-header:not(.is-scrolled) .brand-badge {
   .tech-strip { padding: 22px 0 46px; }
 }
 .marquee-track { overflow: hidden; white-space: nowrap; mask-image: linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%); }
-.marquee-inner { display: inline-flex; animation: marquee-scroll 28s linear infinite; }
-.marquee-inner span { font-family: var(--font-mono); font-size: 0.85rem; font-weight: 600; padding: 0 26px; display: inline-flex; align-items: center; gap: 10px; }
-.marquee-inner span::after { content: "\2726"; color: var(--orange); font-size: 0.7rem; }
+.marquee-inner { display: inline-flex; align-items: center; animation: marquee-scroll 28s linear infinite; }
+.marquee-inner span { font-family: var(--font-mono); font-size: 0.85rem; font-weight: 600; padding: 0 12px; display: inline-flex; align-items: center; }
+.marquee-inner .star { color: var(--orange); font-size: 0.75rem; opacity: 0.9; padding: 0 4px; font-family: inherit; }
 @keyframes marquee-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
 /* ══════════════════ STATS ══════════════════ */
