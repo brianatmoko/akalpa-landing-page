@@ -159,46 +159,10 @@ body.on-subpage #siteHeader .brand-logo {
 /* -- END Blogger Reset -- */
 {css_combined}
   ]]></b:skin>
-</head>
 
-<body>
-
-  <!-- Navigasi Mode Tampilan (SPA Router untuk Blogger) -->
-  <div id="akalpa-app-root">
-
-    <!-- GLOBAL NAVBAR (Tampil di semua halaman) -->
-{header_html}
-
-    <!-- 1. LANDING PAGE SECTION -->
-    <div id="view-home" class="akalpa-view">
-{index_body}
-    </div>
-
-    <!-- 2. FREE TEMPLATES SECTION -->
-    <div id="view-templates" class="akalpa-view" style="display:none">
-{templates_body}
-    </div>
-
-    <!-- 3. STUDIO CURATOR SECTION -->
-    <div id="view-curator" class="akalpa-view" style="display:none">
-{curator_body}
-    </div>
-
-  </div>
-
-  <b:section class='main' id='main' maxwidgets='1' name='Main' showaddelement='no'>
-    <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='1' visible='true'>
-      <b:widget-settings>
-        <b:widget-setting name='showShareButtons'>false</b:widget-setting>
-      </b:widget-settings>
-      <b:includable id='main' var='top'></b:includable>
-      <b:includable id='mobile-main' var='top'></b:includable>
-      <b:includable id='mobile-post' var='top'></b:includable>
-    </b:widget>
-  </b:section>
-
-<script type='text/javascript'>
-//<![CDATA[
+  <!-- Global JavaScript & SPA Router (Ditempatkan di <head> agar TIDAK di-strip oleh Blogger Mobile ?m=1 Engine) -->
+  <script type='text/javascript'>
+  //<![CDATA[
 {js_combined}
 
 /* SPA Router for Blogger Views (Mobile ?m=1 & Desktop Support) */
@@ -296,8 +260,45 @@ body.on-subpage #siteHeader .brand-logo {
   window.addEventListener("DOMContentLoaded", route);
   route();
 })();
-//]]>
-</script>
+  //]]>
+  </script>
+</head>
+
+<body>
+
+  <!-- Navigasi Mode Tampilan (SPA Router untuk Blogger) -->
+  <div id="akalpa-app-root">
+
+    <!-- GLOBAL NAVBAR (Tampil di semua halaman) -->
+{header_html}
+
+    <!-- 1. LANDING PAGE SECTION -->
+    <div id="view-home" class="akalpa-view">
+{index_body}
+    </div>
+
+    <!-- 2. FREE TEMPLATES SECTION -->
+    <div id="view-templates" class="akalpa-view" style="display:none">
+{templates_body}
+    </div>
+
+    <!-- 3. STUDIO CURATOR SECTION -->
+    <div id="view-curator" class="akalpa-view" style="display:none">
+{curator_body}
+    </div>
+
+  </div>
+
+  <b:section class='main' id='main' maxwidgets='1' name='Main' showaddelement='no'>
+    <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='1' visible='true'>
+      <b:widget-settings>
+        <b:widget-setting name='showShareButtons'>false</b:widget-setting>
+      </b:widget-settings>
+      <b:includable id='main' var='top'></b:includable>
+      <b:includable id='mobile-main' var='top'></b:includable>
+      <b:includable id='mobile-post' var='top'></b:includable>
+    </b:widget>
+  </b:section>
 
 </body>
 </html>
