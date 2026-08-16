@@ -48,6 +48,7 @@ BLOGGER_FULL_TEMPLATE = """\
 <head>
   <meta content='width=device-width, initial-scale=1' name='viewport'/>
   <b:include data='blog' name='all-head-content'/>
+  <b:css b:has-member-css='false' b:has-widget-css='false'/>
   <title><data:blog.pageTitle/></title>
 
   <!-- Google Fonts -->
@@ -56,6 +57,18 @@ BLOGGER_FULL_TEMPLATE = """\
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&amp;family=Outfit:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
 
   <b:skin><![CDATA[
+/* Reset Blogger Default Overrides */
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: var(--bg, #f7f3ea) !important;
+  font-family: var(--font-body, "Outfit", sans-serif) !important;
+}
+.section, .widget, .widget-content, #header, #footer {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 {css_combined}
   ]]></b:skin>
 </head>

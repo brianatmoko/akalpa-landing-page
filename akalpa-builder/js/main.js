@@ -11,7 +11,48 @@
 
   /* ── 1. HERO | canvas scroll animation (40 frame: siang → malam) ──── */
   const HERO_FRAMES = 40;
-  const HERO_BASE = "assets/frames/hero3/";
+  const HERO_FRAME_URLS = [
+    "https://lh3.googleusercontent.com/d/1m3AQLJ-eMELC3l3Hhw2dgiBZ_Uj7VLO1",
+    "https://lh3.googleusercontent.com/d/1xbz0SIGXXum-jqseFT4Yf-_2U8AIlixT",
+    "https://lh3.googleusercontent.com/d/1UEnywdAuUMK72dXtinLEIxFO5E3dh26f",
+    "https://lh3.googleusercontent.com/d/18_MHSGiU4GAOqsjygrzp_IOYkKKXhJem",
+    "https://lh3.googleusercontent.com/d/1--OsT-30ueucGeiuQJP-7ltJwG7GGaE5",
+    "https://lh3.googleusercontent.com/d/16uSDHhHp6nKficdSQNuNPSPHJpZQXAvI",
+    "https://lh3.googleusercontent.com/d/1CClHGZVD8AzThBXrBRS_Gjw3zb4OFdJ8",
+    "https://lh3.googleusercontent.com/d/10sSacMfru5W673HSoVPs3G7G21Ab95SP",
+    "https://lh3.googleusercontent.com/d/1NeoNIspjY5s5E_8qEs4xpjexZzBfVcc5",
+    "https://lh3.googleusercontent.com/d/1HujocCM7UYhGyhMFRcbGRZbdVumCjYv3",
+    "https://lh3.googleusercontent.com/d/1rws07Wq_vdSiBFxklzxDdhSZuI7MRPhR",
+    "https://lh3.googleusercontent.com/d/1NtjKk_hSq5VPmHX827q4jjgyC7890IRi",
+    "https://lh3.googleusercontent.com/d/1kAnL3yK54T_WoSOsCxTe9gZ5lGYAjHqg",
+    "https://lh3.googleusercontent.com/d/1t4uHttaw-6nee6WeDnIRunzyIBwxPbhf",
+    "https://lh3.googleusercontent.com/d/1IzNVl0rJTkVdv8JxvHy7VYQKiaOAGsIN",
+    "https://lh3.googleusercontent.com/d/1tjNkELiUoopzXqP7XuIFiLCL_nk8LjHG",
+    "https://lh3.googleusercontent.com/d/1asy9QY0aSMEvj94JTMru8fzvdIyO8q9a",
+    "https://lh3.googleusercontent.com/d/1abO93M3FOKP4SYDvR8d_ErBqc3Z1Uvxs",
+    "https://lh3.googleusercontent.com/d/1aMRXW0CljSzmQ5J7G0IZ4Ils6XeBhfsL",
+    "https://lh3.googleusercontent.com/d/10UBcM5apr7mGf-a_MBXTrXSF5KUCAPBc",
+    "https://lh3.googleusercontent.com/d/101dh9hmZYn6e2xyTv4xssjN2K-f3TbLf",
+    "https://lh3.googleusercontent.com/d/1En63u0xZqx0CbicyypCLO2Uih51GBs2U",
+    "https://lh3.googleusercontent.com/d/1RCkutSM0SExMa1bGgAUplN6H4c7phCwT",
+    "https://lh3.googleusercontent.com/d/1TDHXEZESv3mN4SxUmv69Q1Psa6SHL2xu",
+    "https://lh3.googleusercontent.com/d/1Xh624ZbARGMeSo3Y9hQhZYBKiyljwNws",
+    "https://lh3.googleusercontent.com/d/1zcP5qBLxJ1caocl7D_CQF_Y0JuktSocX",
+    "https://lh3.googleusercontent.com/d/1LKZMTBzM81xQMIXdT4-MRFTgGoezdsAn",
+    "https://lh3.googleusercontent.com/d/1n3JEhLGmlJL9VhNULMG0BJv0UEnN2fAG",
+    "https://lh3.googleusercontent.com/d/1WEigFMusByS8tZugNtINupxeXgmgPOHH",
+    "https://lh3.googleusercontent.com/d/1uqYWKeBtskmzD4HKzDI9LAFjAzF02QU4",
+    "https://lh3.googleusercontent.com/d/1seZ8CXNGen9hiRgcn19xDxZ_9tJO3D8f",
+    "https://lh3.googleusercontent.com/d/1TdNqPxIMeErELQzfH4Dr-8MCpAqSah_T",
+    "https://lh3.googleusercontent.com/d/1O13yTgkaRe8jrIuAONwL4Z0jdx6FCOON",
+    "https://lh3.googleusercontent.com/d/1YG9Ihe0pdEsD6ijFTKEknpfYMLBCdHFl",
+    "https://lh3.googleusercontent.com/d/1-5LxzgZOylZQfyam20OM2t4F1lgp-k0h",
+    "https://lh3.googleusercontent.com/d/12HwYUY3ebXsch1z7TDvt6O2Ouzjw7jyu",
+    "https://lh3.googleusercontent.com/d/1V-Hy4hq_m9fXNV7I33lf1v3kwRT89Fa_",
+    "https://lh3.googleusercontent.com/d/1x-w8jDwA_w9h-WJKLYo9CL0k56wrg6Oz",
+    "https://lh3.googleusercontent.com/d/1IcfUFCg6b--GdB5WwHw7uJOldWj1yTUl",
+    "https://lh3.googleusercontent.com/d/1oOKRNb_xYyDXfb25DhTm9szF4Lwvyn65"
+  ];
   const TEXT_AT = 0.6;      // teks muncul saat frame mulai gelap
   const DARK_AT = 0.45;     // nav/scrim beralih ke mode gelap
 
@@ -44,10 +85,9 @@
         computeHero();
       }
     };
-    for (let i = 1; i <= count; i++) {
+    for (let i = 0; i < count; i++) {
       const img = new Image();
-      const num = String(i).padStart(3, "0");
-      img.src = HERO_BASE + num + ".jpg";
+      img.src = HERO_FRAME_URLS[i] || HERO_FRAME_URLS[0];
       img.onload = onOne;
       img.onerror = onOne;
       frameImages.push(img);
@@ -116,7 +156,7 @@
   } else {
     // reduced motion: frame terakhir statis + konten langsung
     const img = new Image();
-    img.src = HERO_BASE + "https://lh3.googleusercontent.com/d/1NJe79mgV7nKGgzfNYsPHJzAEFpqZwq3r";
+    img.src = HERO_FRAME_URLS[39] || HERO_FRAME_URLS[0];
     img.onload = () => {
       frameImages[39] = img;
       sizeCanvas();
