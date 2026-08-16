@@ -48,7 +48,6 @@ BLOGGER_FULL_TEMPLATE = """\
 <head>
   <meta content='width=device-width, initial-scale=1' name='viewport'/>
   <b:include data='blog' name='all-head-content'/>
-  <b:css b:has-member-css='false' b:has-widget-css='false'/>
   <title><data:blog.pageTitle/></title>
 
   <!-- Google Fonts -->
