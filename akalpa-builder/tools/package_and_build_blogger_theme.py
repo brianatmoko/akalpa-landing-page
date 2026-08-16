@@ -57,15 +57,49 @@ BLOGGER_FULL_TEMPLATE = """\
 
   <b:skin><![CDATA[
 /* Reset Blogger Default Overrides */
+#navbar-iframe, .navbar, #b-navbar, .attribution, .widget-type-Attribution, #Blog1, .Blog {
+  display: none !important;
+  height: 0 !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
 html, body {
   margin: 0 !important;
   padding: 0 !important;
   background: var(--bg, #f7f3ea) !important;
   font-family: var(--font-body, "Outfit", sans-serif) !important;
+  width: 100% !important;
+  overflow-x: hidden !important;
 }
-.section, .widget, .widget-content, #header, #footer {
+
+.section, .widget, .widget-content, #header, #footer, #main {
   margin: 0 !important;
   padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+header.site-header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 100 !important;
+}
+
+footer.site-footer {
+  width: 100% !important;
+  position: relative !important;
+  z-index: 10 !important;
+  background: var(--navy, #22305c) !important;
+}
+
+.nav-links a, .footer-col a, .footer-socials a, a.brand {
+  text-decoration: none !important;
 }
 
 {css_combined}
