@@ -431,9 +431,10 @@ async function gasPost(body){
     // Sertakan session token GAS secara otomatis di setiap request
     var sessionToken = sessionStorage.getItem(SS_AUTH) || "";
     var bodyWithToken = Object.assign({}, body, { token: sessionToken });
+    // CATATAN: Tidak pakai Content-Type: application/json agar tidak trigger CORS preflight (OPTIONS)
+    // GAS tetap menerima JSON via e.postData.contents
     var res=await fetch(DEFAULT_GAS_URL,{
       method:"POST",
-      headers:{"Content-Type":"application/json"},
       body:JSON.stringify(bodyWithToken)
     });
     if(!res.ok) return null;
@@ -582,9 +583,9 @@ async function unlockVault(){
   $("#unlock").textContent="Memverifikasi…";
 
   try {
+    // CATATAN: Tidak pakai Content-Type: application/json agar tidak trigger CORS preflight
     var res = await fetch(DEFAULT_GAS_URL, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ action: "auth", password: inputVal })
     });
     var j = await res.json();

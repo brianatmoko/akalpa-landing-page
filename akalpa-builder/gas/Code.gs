@@ -93,7 +93,9 @@ function doGet(e) {
 // ──────────────────────────────────────────────────────────────
 function doPost(e) {
   try {
-    var body = JSON.parse(e.postData.contents);
+    // Parse body JSON — bekerja dengan atau tanpa Content-Type header
+    var rawBody = (e.postData && e.postData.contents) ? e.postData.contents : "{}";
+    var body = JSON.parse(rawBody);
     var action = body.action;
 
     // ─── AUTH ENDPOINT ───
@@ -176,9 +178,10 @@ function isValidToken(token) {
 // ──────────────────────────────────────────────────────────────
 
 function jsonOut(obj) {
-  return ContentService
+  var output = ContentService
     .createTextOutput(JSON.stringify(obj))
     .setMimeType(ContentService.MimeType.JSON);
+  return output;
 }
 
 function getSheet() {
