@@ -116,7 +116,7 @@
   } else {
     // reduced motion: frame terakhir statis + konten langsung
     const img = new Image();
-    img.src = HERO_BASE + "040.jpg";
+    img.src = HERO_BASE + "https://lh3.googleusercontent.com/d/1NJe79mgV7nKGgzfNYsPHJzAEFpqZwq3r";
     img.onload = () => {
       frameImages[39] = img;
       sizeCanvas();

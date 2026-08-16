@@ -1278,7 +1278,7 @@ textarea.exportbox{min-height:150px;font-family:'JetBrains Mono',monospace;font-
 <header id="siteHeader" class="site-header">
   <div class="container nav-inner">
     <a href="#hero" class="brand" data-scroll="hero">
-      <img class="brand-logo" src="assets/Akalpa-Logos.png" alt="Logo Akalpa Inovasi" width="36" height="36">
+      <img class="brand-logo" src="https://lh3.googleusercontent.com/d/18scDBaMBz0pZ2lL-HRaqAC_EZHAqOsGF" alt="Logo Akalpa Inovasi" width="36" height="36">
       <span class="brand-text">
         <span class="brand-name">Akalpa Inovasi</span>
       </span>
@@ -1323,7 +1323,7 @@ textarea.exportbox{min-height:150px;font-family:'JetBrains Mono',monospace;font-
       <div class="hero-scrim" id="heroScrim" aria-hidden="true"></div>
 
       <div class="hero-preloader" id="heroPreloader" role="status" aria-live="polite">
-        <img class="preloader-logo" src="assets/Akalpa-Logos.png" alt="Logo Akalpa Inovasi" width="52" height="52">
+        <img class="preloader-logo" src="https://lh3.googleusercontent.com/d/18scDBaMBz0pZ2lL-HRaqAC_EZHAqOsGF" alt="Logo Akalpa Inovasi" width="52" height="52">
         <span class="preloader-label">Memuat Pengalaman…</span>
         <div class="preloader-bar"><div class="preloader-fill" id="preloaderFill"></div></div>
         <span class="preloader-count" id="preloaderCount">0 / 40</span>
@@ -1347,7 +1347,7 @@ textarea.exportbox{min-height:150px;font-family:'JetBrains Mono',monospace;font-
         </div>
       </div>
 
-      <img class="hero-mascot" id="heroMascot" src="assets/mascot/punya-ide.webp" alt="Maskot Akalpa Inovasi dengan ide baru di hero" width="200" height="300">
+      <img class="hero-mascot" id="heroMascot" src="https://lh3.googleusercontent.com/d/1ewKmW53V-2_VP1NMvwpvrv3ntIzfHKZY" alt="Maskot Akalpa Inovasi dengan ide baru di hero" width="200" height="300">
 
       <div class="scroll-hint" id="scrollHint">
         <span>Scroll Untuk Motion</span>
@@ -1489,7 +1489,7 @@ textarea.exportbox{min-height:150px;font-family:'JetBrains Mono',monospace;font-
   <!-- ══════════════════ TENTANG | band parallax (frame sec2) ══════════════════ -->
   <section id="tentang" class="about-band sec-anim" aria-label="Tentang Akalpa Inovasi">
     <div class="about-bg" aria-hidden="true" data-parallax="0.08">
-      <img src="assets/frames/sec2/010.jpg" alt="" width="1280" height="720" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/18dRxu7ZykNHmmoZUpOsexidR0S80opKR" alt="" width="1280" height="720" loading="lazy">
     </div>
     <div class="about-scrim" aria-hidden="true"></div>
     <div class="sec-inner">
@@ -1512,7 +1512,7 @@ textarea.exportbox{min-height:150px;font-family:'JetBrains Mono',monospace;font-
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-message-circle" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1" /> </svg> Mulai Konsultasi
         </a>
       </div>
-      <img class="about-mascot" src="assets/mascot/menunjuk.webp" alt="Maskot Akalpa menunjuk tombol konsultasi" width="150" height="225" loading="lazy">
+      <img class="about-mascot" src="https://lh3.googleusercontent.com/d/1enG8nwkHfsqTOtaI3-709SwaXlGijXBG" alt="Maskot Akalpa menunjuk tombol konsultasi" width="150" height="225" loading="lazy">
     </div>
     </div>
     <!-- (tanpa wave di perbatasan tentang → github, sesuai permintaan user) -->
@@ -1520,7 +1520,7 @@ textarea.exportbox{min-height:150px;font-family:'JetBrains Mono',monospace;font-
 
   <!-- ══════════════════ GITHUB | OPEN SOURCE ══════════════════ -->
   <section id="github" class="github-section sec-anim" aria-label="Kode terbuka kami di GitHub">
-    <img class="github-octo" src="assets/github/octocat.svg" alt="" aria-hidden="true" loading="lazy">
+    <img class="github-octo" src="https://lh3.googleusercontent.com/d/1NicXw4s2nqF3pocDh6foaUJK-pLxSpFg" alt="" aria-hidden="true" loading="lazy">
     <div class="gh-cells" id="ghCells" aria-hidden="true"></div>
     <div class="sec-inner">
     <div class="container">
@@ -1737,13 +1737,13 @@ textarea.exportbox{min-height:150px;font-family:'JetBrains Mono',monospace;font-
 
 <!-- ══════════════════ FOOTER ══════════════════ -->
 <footer class="site-footer sec-anim">
-  <img class="footer-mascot" src="assets/mascot/bagus.webp" alt="Maskot Akalpa memberi jempol" width="120" height="180" loading="lazy">
+  <img class="footer-mascot" src="https://lh3.googleusercontent.com/d/13pWNkRzVitzcBi8_QfrDqDpINDVpTZ-s" alt="Maskot Akalpa memberi jempol" width="120" height="180" loading="lazy">
   <div class="sec-inner">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="brand">
-          <img class="brand-logo" src="assets/Akalpa-Logos.png" alt="Logo Akalpa Inovasi" width="36" height="36">
+          <img class="brand-logo" src="https://lh3.googleusercontent.com/d/18scDBaMBz0pZ2lL-HRaqAC_EZHAqOsGF" alt="Logo Akalpa Inovasi" width="36" height="36">
           <span class="brand-text">
             <span class="brand-name">Akalpa Inovasi</span>
           </span>
@@ -1788,7 +1788,7 @@ textarea.exportbox{min-height:150px;font-family:'JetBrains Mono',monospace;font-
     <div id="view-templates" class="akalpa-view" style="display:none">
 <header>
   <div class="container nav">
-    <a href="#home" class="brand"><img class="brand-logo" src="assets/Akalpa-Logos.png" alt="Logo Akalpa Inovasi" width="34" height="34"> Akalpa Inovasi</a>
+    <a href="#home" class="brand"><img class="brand-logo" src="https://lh3.googleusercontent.com/d/18scDBaMBz0pZ2lL-HRaqAC_EZHAqOsGF" alt="Logo Akalpa Inovasi" width="34" height="34"> Akalpa Inovasi</a>
     <nav class="nav-links" aria-label="Navigasi">
       <a href="#home" class="hide-sm">Beranda</a>
       <a href="#templates" class="active">Template</a>
@@ -1830,7 +1830,7 @@ textarea.exportbox{min-height:150px;font-family:'JetBrains Mono',monospace;font-
 <div class="gate" id="gate">
   <div class="gatebox">
     <div class="status-badge">VAULT SECURITY GATE</div>
-    <img src="assets/Akalpa-Logos.png" alt="Logo Akalpa Inovasi" style="width:44px;height:44px;border-radius:11px;background:#fff;object-fit:contain;padding:3px;border:2px solid var(--orange);margin-bottom:8px">
+    <img src="https://lh3.googleusercontent.com/d/18scDBaMBz0pZ2lL-HRaqAC_EZHAqOsGF" alt="Logo Akalpa Inovasi" style="width:44px;height:44px;border-radius:11px;background:#fff;object-fit:contain;padding:3px;border:2px solid var(--orange);margin-bottom:8px">
     <h1>Studio <span>Curator</span></h1>
     <p>Masukkan kode otorisasi untuk mengelola pustaka template.</p>
     <input type="password" id="pass" placeholder="KODE AKSES" autocomplete="off">
@@ -1845,7 +1845,7 @@ textarea.exportbox{min-height:150px;font-family:'JetBrains Mono',monospace;font-
     <div>
       <div class="status-badge">STUDIO CURATOR PORTAL</div>
       <div style="display:flex;align-items:center;gap:12px;margin-bottom:4px">
-        <img src="assets/Akalpa-Logos.png" alt="Logo Akalpa Inovasi" style="width:36px;height:36px;border-radius:9px;background:#fff;object-fit:contain;padding:2px;border:2px solid var(--orange)">
+        <img src="https://lh3.googleusercontent.com/d/18scDBaMBz0pZ2lL-HRaqAC_EZHAqOsGF" alt="Logo Akalpa Inovasi" style="width:36px;height:36px;border-radius:9px;background:#fff;object-fit:contain;padding:2px;border:2px solid var(--orange)">
         <h1>Studio <span>Curator</span></h1>
       </div>
       <div class="sub">Kelola template gratis Akalpa | Sinkronisasi <strong>realtime via Google Apps Script</strong> ke Google Sheets.
@@ -2064,7 +2064,7 @@ textarea.exportbox{min-height:150px;font-family:'JetBrains Mono',monospace;font-
   } else {
     // reduced motion: frame terakhir statis + konten langsung
     const img = new Image();
-    img.src = HERO_BASE + "040.jpg";
+    img.src = HERO_BASE + "https://lh3.googleusercontent.com/d/1NJe79mgV7nKGgzfNYsPHJzAEFpqZwq3r";
     img.onload = () => {
       frameImages[39] = img;
       sizeCanvas();
