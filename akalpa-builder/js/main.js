@@ -353,7 +353,10 @@
   /* ── 8b. Marquee | duplikat konten agar loop mulus ─────────────────── */
   const marqueeInner = $("#marqueeInner");
   if (marqueeInner) {
-    marqueeInner.innerHTML += marqueeInner.innerHTML;
+    const children = Array.from(marqueeInner.children);
+    children.forEach(child => {
+      marqueeInner.appendChild(child.cloneNode(true));
+    });
   }
 
   /* ── 9. Back to top ───────────────────────────────────────────────── */
