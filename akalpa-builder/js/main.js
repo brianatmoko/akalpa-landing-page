@@ -186,6 +186,7 @@
     if (!mobileMenu) return;
     mobileMenu.classList.remove("is-open");
     mobileMenu.hidden = true;
+    if (header) header.classList.remove("mobile-open");
     if (burger) {
       burger.setAttribute("aria-expanded", "false");
       burger.setAttribute("aria-label", "Buka menu");
@@ -197,9 +198,15 @@
       const open = !mobileMenu.classList.contains("is-open");
       mobileMenu.classList.toggle("is-open", open);
       mobileMenu.hidden = !open;
+      if (header) header.classList.toggle("mobile-open", open);
       burger.setAttribute("aria-expanded", String(open));
       burger.setAttribute("aria-label", open ? "Tutup menu" : "Buka menu");
       burger.innerHTML = open ? WPB.ICONS["x"] : WPB.ICONS["menu"];
+    });
+    mobileMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        closeMobileMenu();
+      });
     });
   }
 

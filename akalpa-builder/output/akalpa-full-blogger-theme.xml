@@ -332,15 +332,44 @@ body.hero-dark .site-header:not(.is-scrolled) .brand-logo { box-shadow: 2px 2px 
 .site-header.is-scrolled .brand-logo { box-shadow: 2px 2px 0 var(--navy); border-color: var(--navy); }
 
 .mobile-menu {
-  display: none; flex-direction: column; gap: 4px;
-  background: var(--surface); border-top: 1px solid var(--border);
-  padding: 14px 24px 20px;
-  box-shadow: var(--shadow-2);
+  display: none; flex-direction: column; gap: 2px;
+  background: var(--surface, #fdfbf6);
+  border-top: 1px solid var(--border);
+  padding: 14px 20px 20px;
+  box-shadow: 0 14px 38px rgba(34, 48, 92, 0.15);
+  position: absolute; top: 100%; left: 0; right: 0; width: 100%;
   overscroll-behavior: contain;
+  z-index: 1001;
 }
 .mobile-menu.is-open { display: flex; }
-.mobile-menu a { padding: 12px 8px; font-weight: 600; color: var(--navy); border-bottom: 1px solid var(--border); font-size: 1rem; }
+.mobile-menu a {
+  padding: 12px 10px; font-weight: 600; color: var(--navy);
+  border-bottom: 1px solid var(--border); font-size: 0.98rem;
+  display: flex; align-items: center; gap: 10px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
 .mobile-menu a:last-child { border-bottom: none; }
+.mobile-menu a:hover, .mobile-menu a:active {
+  background: rgba(34, 48, 92, 0.06);
+  color: var(--orange-deep);
+}
+
+/* State saat menu mobile terbuka: navbar selalu solid & terbaca */
+#siteHeader.mobile-open {
+  background: rgba(247, 243, 234, 0.98) !important;
+  backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-1) !important;
+  color: var(--navy) !important;
+}
+#siteHeader.mobile-open .brand-name,
+#siteHeader.mobile-open .nav-burger {
+  color: var(--navy) !important;
+}
+#siteHeader.mobile-open .brand-logo {
+  border-color: var(--navy) !important;
+  box-shadow: 2px 2px 0 var(--navy) !important;
+}
 
 /* ══════════════════ HERO | CANVAS STORY (siang → malam) ══════════════════ */
 .hero-story { position: relative; height: 320vh; background: var(--navy-deep); }
@@ -2318,6 +2347,7 @@ body.hero-dark .site-header:not(.is-scrolled) .brand-badge {
     if (!mobileMenu) return;
     mobileMenu.classList.remove("is-open");
     mobileMenu.hidden = true;
+    if (header) header.classList.remove("mobile-open");
     if (burger) {
       burger.setAttribute("aria-expanded", "false");
       burger.setAttribute("aria-label", "Buka menu");
@@ -2329,9 +2359,15 @@ body.hero-dark .site-header:not(.is-scrolled) .brand-badge {
       const open = !mobileMenu.classList.contains("is-open");
       mobileMenu.classList.toggle("is-open", open);
       mobileMenu.hidden = !open;
+      if (header) header.classList.toggle("mobile-open", open);
       burger.setAttribute("aria-expanded", String(open));
       burger.setAttribute("aria-label", open ? "Tutup menu" : "Buka menu");
       burger.innerHTML = open ? WPB.ICONS["x"] : WPB.ICONS["menu"];
+    });
+    mobileMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        closeMobileMenu();
+      });
     });
   }
 
