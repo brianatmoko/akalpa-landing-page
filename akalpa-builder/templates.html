@@ -114,7 +114,7 @@ var $=function(s,c){return (c||document).querySelector(s)};
 var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
 var q=$("#q"),grid=$("#grid"),chipsWrap=$("#chips"),meta=$("#meta"),empty=$("#empty");
 var data=[],cat="ALL";
-document.getElementById("year").textContent=new Date().getFullYear();
+var yr=document.getElementById("year");if(yr)yr.textContent=new Date().getFullYear();
 
 function toast(msg){var t=$("#toast");t.textContent=msg;t.classList.add("show");clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove("show")},1800);}
 function copyCode(code){

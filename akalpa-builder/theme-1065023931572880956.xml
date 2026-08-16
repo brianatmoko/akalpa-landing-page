@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html b:version='2' class='v2' expr:dir='data:blog.languageDirection'
-  xmlns='http://www.w3.org/1999/xhtml'
-  xmlns:b='http://www.google.com/2005/gbl'
-  xmlns:data='http://www.google.com/2005/gbl'
-  xmlns:expr='http://www.google.com/2005/gbl'>
+<html b:version='2' class='v2' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
 
 <head>
   <meta content='width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5' name='viewport'/>
@@ -30,9 +26,9 @@
   </script>
 
   <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin"/>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&amp;family=Outfit:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href='https://fonts.googleapis.com' rel='preconnect'/>
+  <link crossorigin='crossorigin' href='https://fonts.gstatic.com' rel='preconnect'/>
+  <link href='https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&amp;family=Outfit:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;600;700&amp;display=swap' rel='stylesheet'/>
 
   <b:skin><![CDATA[
 /* -- Blogger Default UI Reset (AMAN: hanya target elemen Blogger, bukan elemen kustom) -- */
@@ -2048,7 +2044,7 @@ var $=function(s,c){return (c||document).querySelector(s)};
 var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
 var q=$("#q"),grid=$("#grid"),chipsWrap=$("#chips"),meta=$("#meta"),empty=$("#empty");
 var data=[],cat="ALL";
-var yr=document.getElementById("year");if(yr)yr.textContent=new Date().getFullYear();
+document.getElementById("year").textContent=new Date().getFullYear();
 
 function toast(msg){var t=$("#toast");t.textContent=msg;t.classList.add("show");clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove("show")},1800);}
 function copyCode(code){
@@ -2626,102 +2622,102 @@ setInterval(function(){
 <body>
 
   <!-- Navigasi Mode Tampilan (SPA Router untuk Blogger) -->
-  <div id="akalpa-app-root">
+  <div id='akalpa-app-root'>
 
     <!-- GLOBAL NAVBAR (Tampil di semua halaman) -->
-<header id="siteHeader" class="site-header">
-  <div class="container nav-inner">
-    <a href="#hero" class="brand" data-scroll="hero">
-      <img class="brand-logo" src="https://lh3.googleusercontent.com/d/18scDBaMBz0pZ2lL-HRaqAC_EZHAqOsGF" alt="Logo Akalpa Inovasi" width="36" height="36" />
-      <span class="brand-text">
-        <span class="brand-name">Akalpa Inovasi</span>
+<header class='site-header' id='siteHeader'>
+  <div class='container nav-inner'>
+    <a class='brand' data-scroll='hero' href='#hero'>
+      <img alt='Logo Akalpa Inovasi' class='brand-logo' height='36' src='https://lh3.googleusercontent.com/d/18scDBaMBz0pZ2lL-HRaqAC_EZHAqOsGF' width='36'/>
+      <span class='brand-text'>
+        <span class='brand-name'>Akalpa Inovasi</span>
       </span>
     </a>
-    <nav class="nav-links" aria-label="Navigasi utama">
-      <a href="#tentang" data-scroll="true">Tentang</a>
-      <a href="#fokus" data-scroll="true">Fokus</a>
-      <a href="#github" data-scroll="true">Open Source</a>
-      <a href="#testimoni" data-scroll="true">Testimoni</a>
-      <a href="#faq" data-scroll="true">FAQ</a>
-      <a href="/p/free-template">Free Template</a>
+    <nav aria-label='Navigasi utama' class='nav-links'>
+      <a data-scroll='true' href='#tentang'>Tentang</a>
+      <a data-scroll='true' href='#fokus'>Fokus</a>
+      <a data-scroll='true' href='#github'>Open Source</a>
+      <a data-scroll='true' href='#testimoni'>Testimoni</a>
+      <a data-scroll='true' href='#faq'>FAQ</a>
+      <a href='/p/free-template'>Free Template</a>
     </nav>
-    <div class="nav-actions">
-      <a class="btn btn-primary btn-sm" href="https://wa.me/6285191240994?text=Halo%20Akalpa!%20Saya%20ingin%20konsultasi%20pembuatan%20website%20%F0%9F%9A%80" target="_blank" rel="noopener noreferrer">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-whatsapp" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" /> <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" /> </svg><span>Konsultasi Gratis</span>
+    <div class='nav-actions'>
+      <a class='btn btn-primary btn-sm' href='https://wa.me/6285191240994?text=Halo%20Akalpa!%20Saya%20ingin%20konsultasi%20pembuatan%20website%20%F0%9F%9A%80' rel='noopener noreferrer' target='_blank'>
+        <svg class='icon icon-tabler icons-tabler-outline icon-tabler-brand-whatsapp' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9'/> <path d='M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1'/> </svg><span>Konsultasi Gratis</span>
       </a>
-      <button class="nav-burger" id="navBurger" aria-label="Buka menu" aria-expanded="false" aria-controls="mobileMenu">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-menu" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M4 8l16 0" /> <path d="M4 16l16 0" /> </svg>
+      <button aria-controls='mobileMenu' aria-expanded='false' aria-label='Buka menu' class='nav-burger' id='navBurger'>
+        <svg class='icon icon-tabler icons-tabler-outline icon-tabler-menu' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M4 8l16 0'/> <path d='M4 16l16 0'/> </svg>
       </button>
     </div>
   </div>
-  <div class="mobile-menu" id="mobileMenu" hidden="true">
-    <a href="#tentang" data-scroll="true">Tentang</a>
-    <a href="#fokus" data-scroll="true">Fokus</a>
-    <a href="#github" data-scroll="true">Open Source</a>
-    <a href="#testimoni" data-scroll="true">Testimoni</a>
-    <a href="#faq" data-scroll="true">FAQ</a>
-    <a href="/p/free-template">Free Template</a>
-    <a class="btn btn-primary" href="https://wa.me/6285191240994?text=Halo%20Akalpa!%20Saya%20ingin%20konsultasi%20pembuatan%20website%20%F0%9F%9A%80" target="_blank" rel="noopener noreferrer">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-whatsapp" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" /> <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" /> </svg> Konsultasi Gratis
+  <div class='mobile-menu' hidden='true' id='mobileMenu'>
+    <a data-scroll='true' href='#tentang'>Tentang</a>
+    <a data-scroll='true' href='#fokus'>Fokus</a>
+    <a data-scroll='true' href='#github'>Open Source</a>
+    <a data-scroll='true' href='#testimoni'>Testimoni</a>
+    <a data-scroll='true' href='#faq'>FAQ</a>
+    <a href='/p/free-template'>Free Template</a>
+    <a class='btn btn-primary' href='https://wa.me/6285191240994?text=Halo%20Akalpa!%20Saya%20ingin%20konsultasi%20pembuatan%20website%20%F0%9F%9A%80' rel='noopener noreferrer' target='_blank'>
+      <svg class='icon icon-tabler icons-tabler-outline icon-tabler-brand-whatsapp' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9'/> <path d='M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1'/> </svg> Konsultasi Gratis
     </a>
   </div>
 </header>
 
     <!-- 1. LANDING PAGE SECTION -->
-    <div id="view-home" class="akalpa-view">
-<a class="skip-link" href="#main">Langsung ke konten utama</a>
+    <div class='akalpa-view' id='view-home'>
+<a class='skip-link' href='#main'>Langsung ke konten utama</a>
 
-<!-- ══════════════════ NAVBAR ══════════════════ -->
+<!-- &#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552; NAVBAR &#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552; -->
 
 
-<main id="main">
+<main id='main'>
 
-  <!-- ══════════════════ HERO | CANVAS (40 frame section3: siang → malam) ══════════════════ -->
-  <section id="hero" class="hero-story" aria-label="Perkenalan Akalpa Inovasi">
-    <div class="hero-sticky">
-      <canvas id="heroCanvas" aria-hidden="true"></canvas>
-      <div class="hero-vignette" aria-hidden="true"></div>
-      <div class="hero-scrim" id="heroScrim" aria-hidden="true"></div>
+  <!-- &#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552; HERO | CANVAS (40 frame section3: siang &#8594; malam) &#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552; -->
+  <section aria-label='Perkenalan Akalpa Inovasi' class='hero-story' id='hero'>
+    <div class='hero-sticky'>
+      <canvas aria-hidden='true' id='heroCanvas'/>
+      <div aria-hidden='true' class='hero-vignette'/>
+      <div aria-hidden='true' class='hero-scrim' id='heroScrim'/>
 
-      <div class="hero-preloader" id="heroPreloader" role="status" aria-live="polite">
-        <img class="preloader-logo" src="https://lh3.googleusercontent.com/d/18scDBaMBz0pZ2lL-HRaqAC_EZHAqOsGF" alt="Logo Akalpa Inovasi" width="52" height="52" />
-        <span class="preloader-label">Memuat Pengalaman…</span>
-        <div class="preloader-bar"><div class="preloader-fill" id="preloaderFill"></div></div>
-        <span class="preloader-count" id="preloaderCount">0 / 40</span>
+      <div aria-live='polite' class='hero-preloader' id='heroPreloader' role='status'>
+        <img alt='Logo Akalpa Inovasi' class='preloader-logo' height='52' src='https://lh3.googleusercontent.com/d/18scDBaMBz0pZ2lL-HRaqAC_EZHAqOsGF' width='52'/>
+        <span class='preloader-label'>Memuat Pengalaman&#8230;</span>
+        <div class='preloader-bar'><div class='preloader-fill' id='preloaderFill'/></div>
+        <span class='preloader-count' id='preloaderCount'>0 / 40</span>
       </div>
 
-      <div class="hero-content" id="heroContent">
-        <h1 class="hero-title">Automasi AI &amp; Website yang <em>Benar-Benar Ngomong</em></h1>
-        <p class="hero-sub">Akalpa Inovasi membangun automasi AI | Hermes, OpenClaw, dan Moko AI | serta website kustom yang dirancang dengan Akalpa Web Builder, alat buatan tangan kami sendiri.</p>
-        <div class="hero-cta">
-          <a class="btn btn-primary" href="https://wa.me/6285191240994?text=Halo%20Akalpa!%20Saya%20ingin%20konsultasi%20pembuatan%20website%20%F0%9F%9A%80" target="_blank" rel="noopener noreferrer">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-whatsapp" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" /> <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" /> </svg> Konsultasi Gratis
+      <div class='hero-content' id='heroContent'>
+        <h1 class='hero-title'>Automasi AI &amp; Website yang <em>Benar-Benar Ngomong</em></h1>
+        <p class='hero-sub'>Akalpa Inovasi membangun automasi AI | Hermes, OpenClaw, dan Moko AI | serta website kustom yang dirancang dengan Akalpa Web Builder, alat buatan tangan kami sendiri.</p>
+        <div class='hero-cta'>
+          <a class='btn btn-primary' href='https://wa.me/6285191240994?text=Halo%20Akalpa!%20Saya%20ingin%20konsultasi%20pembuatan%20website%20%F0%9F%9A%80' rel='noopener noreferrer' target='_blank'>
+            <svg class='icon icon-tabler icons-tabler-outline icon-tabler-brand-whatsapp' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9'/> <path d='M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1'/> </svg> Konsultasi Gratis
           </a>
-          <a class="btn btn-ghost" href="/p/free-template">
-            Free Template <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-right" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M5 12l14 0" /> <path d="M13 18l6 -6" /> <path d="M13 6l6 6" /> </svg>
+          <a class='btn btn-ghost' href='/p/free-template'>
+            Free Template <svg class='icon icon-tabler icons-tabler-outline icon-tabler-arrow-right' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M5 12l14 0'/> <path d='M13 18l6 -6'/> <path d='M13 6l6 6'/> </svg>
           </a>
         </div>
-        <div class="hero-pills" aria-label="Produk kami">
-          <span class="hero-pill"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-robot" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M6 6a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2l0 -4" /> <path d="M12 2v2" /> <path d="M9 12v9" /> <path d="M15 12v9" /> <path d="M5 16l4 -2" /> <path d="M15 14l4 2" /> <path d="M9 18h6" /> <path d="M10 8v.01" /> <path d="M14 8v.01" /> </svg> Hermes</span>
-          <span class="hero-pill"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-terminal" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M5 7l5 5l-5 5" /> <path d="M12 19l7 0" /> </svg> OpenClaw</span>
-          <span class="hero-pill"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brain" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M15.5 13a3.5 3.5 0 0 0 -3.5 3.5v1a3.5 3.5 0 0 0 7 0v-1.8" /> <path d="M8.5 13a3.5 3.5 0 0 1 3.5 3.5v1a3.5 3.5 0 0 1 -7 0v-1.8" /> <path d="M17.5 16a3.5 3.5 0 0 0 0 -7h-.5" /> <path d="M19 9.3v-2.8a3.5 3.5 0 0 0 -7 0" /> <path d="M6.5 16a3.5 3.5 0 0 1 0 -7h.5" /> <path d="M5 9.3v-2.8a3.5 3.5 0 0 1 7 0v10" /> </svg> Moko AI</span>
+        <div aria-label='Produk kami' class='hero-pills'>
+          <span class='hero-pill'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-robot' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M6 6a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2l0 -4'/> <path d='M12 2v2'/> <path d='M9 12v9'/> <path d='M15 12v9'/> <path d='M5 16l4 -2'/> <path d='M15 14l4 2'/> <path d='M9 18h6'/> <path d='M10 8v.01'/> <path d='M14 8v.01'/> </svg> Hermes</span>
+          <span class='hero-pill'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-terminal' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M5 7l5 5l-5 5'/> <path d='M12 19l7 0'/> </svg> OpenClaw</span>
+          <span class='hero-pill'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-brain' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M15.5 13a3.5 3.5 0 0 0 -3.5 3.5v1a3.5 3.5 0 0 0 7 0v-1.8'/> <path d='M8.5 13a3.5 3.5 0 0 1 3.5 3.5v1a3.5 3.5 0 0 1 -7 0v-1.8'/> <path d='M17.5 16a3.5 3.5 0 0 0 0 -7h-.5'/> <path d='M19 9.3v-2.8a3.5 3.5 0 0 0 -7 0'/> <path d='M6.5 16a3.5 3.5 0 0 1 0 -7h.5'/> <path d='M5 9.3v-2.8a3.5 3.5 0 0 1 7 0v10'/> </svg> Moko AI</span>
         </div>
       </div>
 
-      <img class="hero-mascot" id="heroMascot" src="https://lh3.googleusercontent.com/d/1ewKmW53V-2_VP1NMvwpvrv3ntIzfHKZY" alt="Maskot Akalpa Inovasi dengan ide baru di hero" width="200" height="300" />
+      <img alt='Maskot Akalpa Inovasi dengan ide baru di hero' class='hero-mascot' height='300' id='heroMascot' src='https://lh3.googleusercontent.com/d/1ewKmW53V-2_VP1NMvwpvrv3ntIzfHKZY' width='200'/>
 
-      <div class="scroll-hint" id="scrollHint">
+      <div class='scroll-hint' id='scrollHint'>
         <span>Scroll Untuk Motion</span>
-        <span class="scroll-hint-arrow" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M6 9l6 6l6 -6" /> </svg></span>
+        <span aria-hidden='true' class='scroll-hint-arrow'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-chevron-down' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M6 9l6 6l6 -6'/> </svg></span>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════ MARQUEE ══════════════════ -->
-  <section class="tech-strip sec-anim" aria-label="Teknologi dan produk kami">
-    <div class="sec-inner">
-    <div class="marquee-track">
-      <div class="marquee-inner" id="marqueeInner">
+  <!-- &#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552; MARQUEE &#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552; -->
+  <section aria-label='Teknologi dan produk kami' class='tech-strip sec-anim'>
+    <div class='sec-inner'>
+    <div class='marquee-track'>
+      <div class='marquee-inner' id='marqueeInner'>
         <span>Hermes</span>
         <span>OpenClaw</span>
         <span>Moko AI</span>
@@ -2743,416 +2739,416 @@ setInterval(function(){
       </div>
     </div>
     </div>
-    <!-- Wave divider section 2→3 (bentuk: gelombang klasik 2 punuk asimetris) -->
-    <div class="wave-wrap" aria-hidden="true">
-      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,115.3,188.71,98.67,234.33,85.53,278.4,70.28,321.39,56.44Z" fill="#f7f3ea"></path>
+    <!-- Wave divider section 2&#8594;3 (bentuk: gelombang klasik 2 punuk asimetris) -->
+    <div aria-hidden='true' class='wave-wrap'>
+      <svg preserveAspectRatio='none' viewBox='0 0 1200 120'>
+        <path d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,115.3,188.71,98.67,234.33,85.53,278.4,70.28,321.39,56.44Z' fill='#f7f3ea'/>
       </svg>
     </div>
   </section>
 
-  <!-- ══════════════════ STATS ══════════════════ -->
-  <section class="section stats-section sec-anim" aria-label="Angka kami">
-    <div class="deco-circle deco-stats" data-parallax="0.07" aria-hidden="true"></div>
-    <div class="sec-inner">
-    <div class="container">
-      <div class="section-head reveal">
-        <h2 class="section-title">Angka yang Kami <em>Pegang Teguh</em></h2>
+  <!-- &#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552; STATS &#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552; -->
+  <section aria-label='Angka kami' class='section stats-section sec-anim'>
+    <div aria-hidden='true' class='deco-circle deco-stats' data-parallax='0.07'/>
+    <div class='sec-inner'>
+    <div class='container'>
+      <div class='section-head reveal'>
+        <h2 class='section-title'>Angka yang Kami <em>Pegang Teguh</em></h2>
       </div>
-      <div class="stats-grid">
-        <div class="stat reveal-scale">
-          <span class="stat-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-rocket" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M4 13a8 8 0 0 1 7 7a6 6 0 0 0 3 -5a9 9 0 0 0 6 -8a3 3 0 0 0 -3 -3a9 9 0 0 0 -8 6a6 6 0 0 0 -5 3" /> <path d="M7 14a6 6 0 0 0 -3 6a6 6 0 0 0 6 -3" /> <path d="M14 9a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /> </svg></span>
-          <span class="stat-value"><span class="countup" data-count="20">0</span>+</span>
-          <span class="stat-label">Project Selesai</span>
+      <div class='stats-grid'>
+        <div class='stat reveal-scale'>
+          <span aria-hidden='true' class='stat-icon'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-rocket' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M4 13a8 8 0 0 1 7 7a6 6 0 0 0 3 -5a9 9 0 0 0 6 -8a3 3 0 0 0 -3 -3a9 9 0 0 0 -8 6a6 6 0 0 0 -5 3'/> <path d='M7 14a6 6 0 0 0 -3 6a6 6 0 0 0 6 -3'/> <path d='M14 9a1 1 0 1 0 2 0a1 1 0 1 0 -2 0'/> </svg></span>
+          <span class='stat-value'><span class='countup' data-count='20'>0</span>+</span>
+          <span class='stat-label'>Project Selesai</span>
         </div>
-        <div class="stat reveal-scale">
-          <span class="stat-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-robot" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M6 6a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2l0 -4" /> <path d="M12 2v2" /> <path d="M9 12v9" /> <path d="M15 12v9" /> <path d="M5 16l4 -2" /> <path d="M15 14l4 2" /> <path d="M9 18h6" /> <path d="M10 8v.01" /> <path d="M14 8v.01" /> </svg></span>
-          <span class="stat-value">3</span>
-          <span class="stat-label">Produk Automasi AI</span>
+        <div class='stat reveal-scale'>
+          <span aria-hidden='true' class='stat-icon'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-robot' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M6 6a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2l0 -4'/> <path d='M12 2v2'/> <path d='M9 12v9'/> <path d='M15 12v9'/> <path d='M5 16l4 -2'/> <path d='M15 14l4 2'/> <path d='M9 18h6'/> <path d='M10 8v.01'/> <path d='M14 8v.01'/> </svg></span>
+          <span class='stat-value'>3</span>
+          <span class='stat-label'>Produk Automasi AI</span>
         </div>
-        <div class="stat reveal-scale">
-          <span class="stat-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-heart" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" /> </svg></span>
-          <span class="stat-value"><span class="countup" data-count="100">0</span>%</span>
-          <span class="stat-label">Klien Puas</span>
+        <div class='stat reveal-scale'>
+          <span aria-hidden='true' class='stat-icon'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-heart' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572'/> </svg></span>
+          <span class='stat-value'><span class='countup' data-count='100'>0</span>%</span>
+          <span class='stat-label'>Klien Puas</span>
         </div>
-        <div class="stat reveal-scale">
-          <span class="stat-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-infinity" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M9.828 9.172a4 4 0 1 0 0 5.656a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" /> </svg></span>
-          <span class="stat-value">∞</span>
-          <span class="stat-label">Revisi Sampai Pas</span>
+        <div class='stat reveal-scale'>
+          <span aria-hidden='true' class='stat-icon'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-infinity' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M9.828 9.172a4 4 0 1 0 0 5.656a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828'/> </svg></span>
+          <span class='stat-value'>&#8734;</span>
+          <span class='stat-label'>Revisi Sampai Pas</span>
         </div>
       </div>
-      <p class="stats-note reveal">Terpercaya oleh bisnis dari seluruh Indonesia | UMKM, klinik, hingga startup teknologi. Berbasis di <strong>Yogyakarta</strong>, melayani secara remote.</p>
+      <p class='stats-note reveal'>Terpercaya oleh bisnis dari seluruh Indonesia | UMKM, klinik, hingga startup teknologi. Berbasis di <strong>Yogyakarta</strong>, melayani secara remote.</p>
     </div>
     </div>
-    <!-- Wave divider section 3→4 (bentuk: simetris 4 punuk rata) -->
-    <div class="wave-wrap" aria-hidden="true">
-      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path d="M0,60 C100,10 200,110 300,60 C400,10 500,110 600,60 C700,10 800,110 900,60 C1000,10 1100,110 1200,60 L1200,120 L0,120 Z" fill="#f1ebdd"></path>
+    <!-- Wave divider section 3&#8594;4 (bentuk: simetris 4 punuk rata) -->
+    <div aria-hidden='true' class='wave-wrap'>
+      <svg preserveAspectRatio='none' viewBox='0 0 1200 120'>
+        <path d='M0,60 C100,10 200,110 300,60 C400,10 500,110 600,60 C700,10 800,110 900,60 C1000,10 1100,110 1200,60 L1200,120 L0,120 Z' fill='#f1ebdd'/>
       </svg>
     </div>
   </section>
 
-  <!-- ══════════════════ FOKUS | produk AI + web design ══════════════════ -->
-  <section id="fokus" class="section focus-section sec-anim">
-    <div class="deco-circle deco-focus" data-parallax="0.06" aria-hidden="true"></div>
-    <div class="sec-inner">
-    <div class="container">
-      <div class="section-head reveal">
-        <h2 class="section-title">Automasi AI &amp; Web Design <em>Dalam Satu Atap</em></h2>
-        <p class="section-sub">Kami membangun mesin yang bekerja untuk Anda | dari automasi AI hingga website yang dirancang dari nol.</p>
+  <!-- &#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552; FOKUS | produk AI + web design &#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552; -->
+  <section class='section focus-section sec-anim' id='fokus'>
+    <div aria-hidden='true' class='deco-circle deco-focus' data-parallax='0.06'/>
+    <div class='sec-inner'>
+    <div class='container'>
+      <div class='section-head reveal'>
+        <h2 class='section-title'>Automasi AI &amp; Web Design <em>Dalam Satu Atap</em></h2>
+        <p class='section-sub'>Kami membangun mesin yang bekerja untuk Anda | dari automasi AI hingga website yang dirancang dari nol.</p>
       </div>
-      <div class="focus-grid">
-        <article class="focus-card reveal">
-          <div class="focus-term" aria-hidden="true">
-            <span class="term-dots"><i></i><i></i><i></i></span>
-            <span class="term-file">hermes · run</span>
-            <span class="term-num" aria-hidden="true">01</span>
+      <div class='focus-grid'>
+        <article class='focus-card reveal'>
+          <div aria-hidden='true' class='focus-term'>
+            <span class='term-dots'><i/><i/><i/></span>
+            <span class='term-file'>hermes &#183; run</span>
+            <span aria-hidden='true' class='term-num'>01</span>
           </div>
-          <span class="focus-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-robot" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M6 6a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2l0 -4" /> <path d="M12 2v2" /> <path d="M9 12v9" /> <path d="M15 12v9" /> <path d="M5 16l4 -2" /> <path d="M15 14l4 2" /> <path d="M9 18h6" /> <path d="M10 8v.01" /> <path d="M14 8v.01" /> </svg></span>
+          <span aria-hidden='true' class='focus-icon'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-robot' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M6 6a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2l0 -4'/> <path d='M12 2v2'/> <path d='M9 12v9'/> <path d='M15 12v9'/> <path d='M5 16l4 -2'/> <path d='M15 14l4 2'/> <path d='M9 18h6'/> <path d='M10 8v.01'/> <path d='M14 8v.01'/> </svg></span>
           <h3>Hermes</h3>
           <p>Sistem automasi AI yang menangani komunikasi dan alur kerja berulang secara mandiri | respons cepat, konsisten, tanpa henti.</p>
-          <span class="focus-tag">AI Automation</span>
-          <a class="focus-link" href="https://github.com/akalpainovasi" target="_blank" rel="noopener noreferrer">Lihat Repo <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-up-right" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M17 7l-10 10" /> <path d="M8 7l9 0l0 9" /> </svg></a>
+          <span class='focus-tag'>AI Automation</span>
+          <a class='focus-link' href='https://github.com/akalpainovasi' rel='noopener noreferrer' target='_blank'>Lihat Repo <svg class='icon icon-tabler icons-tabler-outline icon-tabler-arrow-up-right' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M17 7l-10 10'/> <path d='M8 7l9 0l0 9'/> </svg></a>
         </article>
-        <article class="focus-card reveal">
-          <div class="focus-term" aria-hidden="true">
-            <span class="term-dots"><i></i><i></i><i></i></span>
-            <span class="term-file">openclaw · run</span>
-            <span class="term-num" aria-hidden="true">02</span>
+        <article class='focus-card reveal'>
+          <div aria-hidden='true' class='focus-term'>
+            <span class='term-dots'><i/><i/><i/></span>
+            <span class='term-file'>openclaw &#183; run</span>
+            <span aria-hidden='true' class='term-num'>02</span>
           </div>
-          <span class="focus-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-terminal" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M5 7l5 5l-5 5" /> <path d="M12 19l7 0" /> </svg></span>
+          <span aria-hidden='true' class='focus-icon'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-terminal' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M5 7l5 5l-5 5'/> <path d='M12 19l7 0'/> </svg></span>
           <h3>OpenClaw</h3>
           <p>Framework automasi untuk tugas-tugas kompleks | membantu bisnis memindahkan kerja manual ke mesin yang bisa dipercaya.</p>
-          <span class="focus-tag">AI Automation</span>
-          <a class="focus-link" href="https://github.com/akalpainovasi" target="_blank" rel="noopener noreferrer">Lihat Repo <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-up-right" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M17 7l-10 10" /> <path d="M8 7l9 0l0 9" /> </svg></a>
+          <span class='focus-tag'>AI Automation</span>
+          <a class='focus-link' href='https://github.com/akalpainovasi' rel='noopener noreferrer' target='_blank'>Lihat Repo <svg class='icon icon-tabler icons-tabler-outline icon-tabler-arrow-up-right' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M17 7l-10 10'/> <path d='M8 7l9 0l0 9'/> </svg></a>
         </article>
-        <article class="focus-card reveal">
-          <div class="focus-term" aria-hidden="true">
-            <span class="term-dots"><i></i><i></i><i></i></span>
-            <span class="term-file">moko-ai · research</span>
-            <span class="term-num" aria-hidden="true">03</span>
+        <article class='focus-card reveal'>
+          <div aria-hidden='true' class='focus-term'>
+            <span class='term-dots'><i/><i/><i/></span>
+            <span class='term-file'>moko-ai &#183; research</span>
+            <span aria-hidden='true' class='term-num'>03</span>
           </div>
-          <span class="focus-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brain" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M15.5 13a3.5 3.5 0 0 0 -3.5 3.5v1a3.5 3.5 0 0 0 7 0v-1.8" /> <path d="M8.5 13a3.5 3.5 0 0 1 3.5 3.5v1a3.5 3.5 0 0 1 -7 0v-1.8" /> <path d="M17.5 16a3.5 3.5 0 0 0 0 -7h-.5" /> <path d="M19 9.3v-2.8a3.5 3.5 0 0 0 -7 0" /> <path d="M6.5 16a3.5 3.5 0 0 1 0 -7h.5" /> <path d="M5 9.3v-2.8a3.5 3.5 0 0 1 7 0v10" /> </svg></span>
+          <span aria-hidden='true' class='focus-icon'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-brain' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M15.5 13a3.5 3.5 0 0 0 -3.5 3.5v1a3.5 3.5 0 0 0 7 0v-1.8'/> <path d='M8.5 13a3.5 3.5 0 0 1 3.5 3.5v1a3.5 3.5 0 0 1 -7 0v-1.8'/> <path d='M17.5 16a3.5 3.5 0 0 0 0 -7h-.5'/> <path d='M19 9.3v-2.8a3.5 3.5 0 0 0 -7 0'/> <path d='M6.5 16a3.5 3.5 0 0 1 0 -7h.5'/> <path d='M5 9.3v-2.8a3.5 3.5 0 0 1 7 0v10'/> </svg></span>
           <h3>Moko AI</h3>
           <p>Proyek riset pribadi kami: asisten AI yang belajar memahami konteks pengguna | cikal bakal produk AI berikutnya.</p>
-          <span class="focus-tag">Research</span>
-          <a class="focus-link" href="https://github.com/akalpainovasi" target="_blank" rel="noopener noreferrer">Lihat Repo <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-up-right" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M17 7l-10 10" /> <path d="M8 7l9 0l0 9" /> </svg></a>
+          <span class='focus-tag'>Research</span>
+          <a class='focus-link' href='https://github.com/akalpainovasi' rel='noopener noreferrer' target='_blank'>Lihat Repo <svg class='icon icon-tabler icons-tabler-outline icon-tabler-arrow-up-right' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M17 7l-10 10'/> <path d='M8 7l9 0l0 9'/> </svg></a>
         </article>
-        <article class="focus-card reveal">
-          <div class="focus-term" aria-hidden="true">
-            <span class="term-dots"><i></i><i></i><i></i></span>
-            <span class="term-file">wpb · design</span>
-            <span class="term-num" aria-hidden="true">04</span>
+        <article class='focus-card reveal'>
+          <div aria-hidden='true' class='focus-term'>
+            <span class='term-dots'><i/><i/><i/></span>
+            <span class='term-file'>wpb &#183; design</span>
+            <span aria-hidden='true' class='term-num'>04</span>
           </div>
-          <span class="focus-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-palette" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" /> <path d="M7.5 10.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /> <path d="M11.5 7.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /> <path d="M15.5 10.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /> </svg></span>
+          <span aria-hidden='true' class='focus-icon'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-palette' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25'/> <path d='M7.5 10.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0'/> <path d='M11.5 7.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0'/> <path d='M15.5 10.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0'/> </svg></span>
           <h3>Web Design Kustom</h3>
           <p>Website yang cantik, cepat, dan punya karakter | dirancang dari nol dengan Akalpa Web Builder, alat buatan tangan kami sendiri.</p>
-          <span class="focus-tag">Akalpa Web Builder</span>
-          <a class="focus-link" href="/p/free-template">Lihat Template <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-up-right" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M17 7l-10 10" /> <path d="M8 7l9 0l0 9" /> </svg></a>
+          <span class='focus-tag'>Akalpa Web Builder</span>
+          <a class='focus-link' href='/p/free-template'>Lihat Template <svg class='icon icon-tabler icons-tabler-outline icon-tabler-arrow-up-right' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M17 7l-10 10'/> <path d='M8 7l9 0l0 9'/> </svg></a>
         </article>
       </div>
     </div>
     </div>
-    <!-- Wave divider section 4→5 (bentuk: lembah tunggal dalam) -->
-    <div class="wave-wrap" aria-hidden="true">
-      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path d="M0,50 C400,10 800,110 1200,45 L1200,120 L0,120 Z" fill="#182442"></path>
+    <!-- Wave divider section 4&#8594;5 (bentuk: lembah tunggal dalam) -->
+    <div aria-hidden='true' class='wave-wrap'>
+      <svg preserveAspectRatio='none' viewBox='0 0 1200 120'>
+        <path d='M0,50 C400,10 800,110 1200,45 L1200,120 L0,120 Z' fill='#182442'/>
       </svg>
     </div>
   </section>
 
-  <!-- ══════════════════ TENTANG | band parallax (frame sec2) ══════════════════ -->
-  <section id="tentang" class="about-band sec-anim" aria-label="Tentang Akalpa Inovasi">
-    <div class="about-bg" aria-hidden="true" data-parallax="0.08">
-      <img src="https://lh3.googleusercontent.com/d/18dRxu7ZykNHmmoZUpOsexidR0S80opKR" alt="" width="1280" height="720" loading="lazy" />
+  <!-- &#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552; TENTANG | band parallax (frame sec2) &#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552; -->
+  <section aria-label='Tentang Akalpa Inovasi' class='about-band sec-anim' id='tentang'>
+    <div aria-hidden='true' class='about-bg' data-parallax='0.08'>
+      <img alt='' height='720' loading='lazy' src='https://lh3.googleusercontent.com/d/18dRxu7ZykNHmmoZUpOsexidR0S80opKR' width='1280'/>
     </div>
-    <div class="about-scrim" aria-hidden="true"></div>
-    <div class="sec-inner">
-    <div class="container about-inner">
-      <div class="about-card reveal-l">
-        <h2 class="about-title">Startup Teknologi dari <em>Yogyakarta</em></h2>
-        <p class="about-text">Akalpa Inovasi lahir di Yogyakarta pada 2024 dengan satu keyakinan: teknologi harus benar-benar bekerja untuk bisnis. Kami fokus pada dua hal | <strong>automasi AI</strong> yang andal, dan <strong>website kustom</strong> yang tidak terlihat seperti template.</p>
-        <p class="about-text">Produk automasi kami | Hermes, OpenClaw, dan Moko AI | memindahkan kerja berulang ke mesin. Sementara itu, setiap website kami dirancang dari nol dengan Akalpa Web Builder, alat buatan tangan kami sendiri.</p>
-        <div class="about-chips">
-          <span class="about-chip"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-robot" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M6 6a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2l0 -4" /> <path d="M12 2v2" /> <path d="M9 12v9" /> <path d="M15 12v9" /> <path d="M5 16l4 -2" /> <path d="M15 14l4 2" /> <path d="M9 18h6" /> <path d="M10 8v.01" /> <path d="M14 8v.01" /> </svg> Automasi AI</span>
-          <span class="about-chip"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-palette" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" /> <path d="M7.5 10.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /> <path d="M11.5 7.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /> <path d="M15.5 10.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /> </svg> Web Design</span>
-          <span class="about-chip"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-map-pin" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /> <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0" /> </svg> Yogyakarta</span>
+    <div aria-hidden='true' class='about-scrim'/>
+    <div class='sec-inner'>
+    <div class='container about-inner'>
+      <div class='about-card reveal-l'>
+        <h2 class='about-title'>Startup Teknologi dari <em>Yogyakarta</em></h2>
+        <p class='about-text'>Akalpa Inovasi lahir di Yogyakarta pada 2024 dengan satu keyakinan: teknologi harus benar-benar bekerja untuk bisnis. Kami fokus pada dua hal | <strong>automasi AI</strong> yang andal, dan <strong>website kustom</strong> yang tidak terlihat seperti template.</p>
+        <p class='about-text'>Produk automasi kami | Hermes, OpenClaw, dan Moko AI | memindahkan kerja berulang ke mesin. Sementara itu, setiap website kami dirancang dari nol dengan Akalpa Web Builder, alat buatan tangan kami sendiri.</p>
+        <div class='about-chips'>
+          <span class='about-chip'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-robot' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M6 6a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2l0 -4'/> <path d='M12 2v2'/> <path d='M9 12v9'/> <path d='M15 12v9'/> <path d='M5 16l4 -2'/> <path d='M15 14l4 2'/> <path d='M9 18h6'/> <path d='M10 8v.01'/> <path d='M14 8v.01'/> </svg> Automasi AI</span>
+          <span class='about-chip'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-palette' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25'/> <path d='M7.5 10.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0'/> <path d='M11.5 7.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0'/> <path d='M15.5 10.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0'/> </svg> Web Design</span>
+          <span class='about-chip'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-map-pin' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0'/> <path d='M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0'/> </svg> Yogyakarta</span>
         </div>
-        <ul class="about-points">
-          <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-circle-check" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /> <path d="M9 12l2 2l4 -4" /> </svg> 100% desain kustom | tanpa template pasaran</li>
-          <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-circle-check" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /> <path d="M9 12l2 2l4 -4" /> </svg> Produk AI dikembangkan &amp; diuji sendiri</li>
-          <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-circle-check" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /> <path d="M9 12l2 2l4 -4" /> </svg> Komunikasi langsung dengan tim kami</li>
+        <ul class='about-points'>
+          <li><svg class='icon icon-tabler icons-tabler-outline icon-tabler-circle-check' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0'/> <path d='M9 12l2 2l4 -4'/> </svg> 100% desain kustom | tanpa template pasaran</li>
+          <li><svg class='icon icon-tabler icons-tabler-outline icon-tabler-circle-check' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0'/> <path d='M9 12l2 2l4 -4'/> </svg> Produk AI dikembangkan &amp; diuji sendiri</li>
+          <li><svg class='icon icon-tabler icons-tabler-outline icon-tabler-circle-check' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0'/> <path d='M9 12l2 2l4 -4'/> </svg> Komunikasi langsung dengan tim kami</li>
         </ul>
-        <a class="btn btn-primary" href="https://wa.me/6285191240994?text=Halo%20Akalpa!%20Saya%20ingin%20konsultasi%20pembuatan%20website%20%F0%9F%9A%80" target="_blank" rel="noopener noreferrer">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-message-circle" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1" /> </svg> Mulai Konsultasi
+        <a class='btn btn-primary' href='https://wa.me/6285191240994?text=Halo%20Akalpa!%20Saya%20ingin%20konsultasi%20pembuatan%20website%20%F0%9F%9A%80' rel='noopener noreferrer' target='_blank'>
+          <svg class='icon icon-tabler icons-tabler-outline icon-tabler-message-circle' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1'/> </svg> Mulai Konsultasi
         </a>
       </div>
-      <img class="about-mascot" src="https://lh3.googleusercontent.com/d/1enG8nwkHfsqTOtaI3-709SwaXlGijXBG" alt="Maskot Akalpa menunjuk tombol konsultasi" width="150" height="225" loading="lazy" />
+      <img alt='Maskot Akalpa menunjuk tombol konsultasi' class='about-mascot' height='225' loading='lazy' src='https://lh3.googleusercontent.com/d/1enG8nwkHfsqTOtaI3-709SwaXlGijXBG' width='150'/>
     </div>
     </div>
-    <!-- (tanpa wave di perbatasan tentang → github, sesuai permintaan user) -->
+    <!-- (tanpa wave di perbatasan tentang &#8594; github, sesuai permintaan user) -->
   </section>
 
-  <!-- ══════════════════ GITHUB | OPEN SOURCE ══════════════════ -->
-  <section id="github" class="github-section sec-anim" aria-label="Kode terbuka kami di GitHub">
-    <img class="github-octo" src="https://lh3.googleusercontent.com/d/1NicXw4s2nqF3pocDh6foaUJK-pLxSpFg" alt="" aria-hidden="true" loading="lazy" />
-    <div class="gh-cells" id="ghCells" aria-hidden="true"></div>
-    <div class="sec-inner">
-    <div class="container">
-      <div class="section-head reveal">
-        <h2 class="section-title">Kode Kami Terbuka <em>di GitHub</em></h2>
-        <p class="section-sub">Semua yang kami bangun | Hermes, OpenClaw, Moko AI, bahkan Akalpa Web Builder | dikembangkan secara terbuka. Fork, beri bintang, atau berkontribusi.</p>
+  <!-- &#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552; GITHUB | OPEN SOURCE &#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552; -->
+  <section aria-label='Kode terbuka kami di GitHub' class='github-section sec-anim' id='github'>
+    <img alt='' aria-hidden='true' class='github-octo' loading='lazy' src='https://lh3.googleusercontent.com/d/1NicXw4s2nqF3pocDh6foaUJK-pLxSpFg'/>
+    <div aria-hidden='true' class='gh-cells' id='ghCells'/>
+    <div class='sec-inner'>
+    <div class='container'>
+      <div class='section-head reveal'>
+        <h2 class='section-title'>Kode Kami Terbuka <em>di GitHub</em></h2>
+        <p class='section-sub'>Semua yang kami bangun | Hermes, OpenClaw, Moko AI, bahkan Akalpa Web Builder | dikembangkan secara terbuka. Fork, beri bintang, atau berkontribusi.</p>
       </div>
 
-      <div class="gh-terminal reveal" aria-hidden="true">
-        <span class="term-dots"><i></i><i></i><i></i></span>
+      <div aria-hidden='true' class='gh-terminal reveal'>
+        <span class='term-dots'><i/><i/><i/></span>
         <code>$ git clone https://github.com/akalpainovasi</code>
-        <span class="term-cursor"></span>
+        <span class='term-cursor'/>
       </div>
 
-      <div class="repo-grid">
-        <article class="repo-card reveal">
-          <div class="repo-top">
-            <span class="repo-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-robot" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M6 6a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2l0 -4" /> <path d="M12 2v2" /> <path d="M9 12v9" /> <path d="M15 12v9" /> <path d="M5 16l4 -2" /> <path d="M15 14l4 2" /> <path d="M9 18h6" /> <path d="M10 8v.01" /> <path d="M14 8v.01" /> </svg></span>
+      <div class='repo-grid'>
+        <article class='repo-card reveal'>
+          <div class='repo-top'>
+            <span aria-hidden='true' class='repo-icon'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-robot' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M6 6a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2l0 -4'/> <path d='M12 2v2'/> <path d='M9 12v9'/> <path d='M15 12v9'/> <path d='M5 16l4 -2'/> <path d='M15 14l4 2'/> <path d='M9 18h6'/> <path d='M10 8v.01'/> <path d='M14 8v.01'/> </svg></span>
             <h3>hermes</h3>
-            <span class="repo-public">Public</span>
+            <span class='repo-public'>Public</span>
           </div>
-          <p class="repo-desc">Automasi komunikasi &amp; alur kerja berulang | respons cepat, konsisten, tanpa henti.</p>
-          <div class="repo-meta">
-            <span class="repo-lang"><i class="lang-dot" style="background:#f2a35c"></i> TypeScript</span>
-            <span class="repo-stat"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg> 128</span>
-            <span class="repo-stat"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-git-fork" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M10 18a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /> <path d="M5 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /> <path d="M15 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /> <path d="M7 8v2a2 2 0 0 0 2 2h6a2 2 0 0 0 2 -2v-2" /> <path d="M12 12l0 4" /> </svg> 24</span>
+          <p class='repo-desc'>Automasi komunikasi &amp; alur kerja berulang | respons cepat, konsisten, tanpa henti.</p>
+          <div class='repo-meta'>
+            <span class='repo-lang'><i class='lang-dot' style='background:#f2a35c'/> TypeScript</span>
+            <span class='repo-stat'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-star' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245'/> </svg> 128</span>
+            <span class='repo-stat'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-git-fork' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M10 18a2 2 0 1 0 4 0a2 2 0 1 0 -4 0'/> <path d='M5 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0'/> <path d='M15 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0'/> <path d='M7 8v2a2 2 0 0 0 2 2h6a2 2 0 0 0 2 -2v-2'/> <path d='M12 12l0 4'/> </svg> 24</span>
           </div>
         </article>
-        <article class="repo-card reveal">
-          <div class="repo-top">
-            <span class="repo-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-terminal" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M5 7l5 5l-5 5" /> <path d="M12 19l7 0" /> </svg></span>
+        <article class='repo-card reveal'>
+          <div class='repo-top'>
+            <span aria-hidden='true' class='repo-icon'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-terminal' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M5 7l5 5l-5 5'/> <path d='M12 19l7 0'/> </svg></span>
             <h3>openclaw</h3>
-            <span class="repo-public">Public</span>
+            <span class='repo-public'>Public</span>
           </div>
-          <p class="repo-desc">Framework automasi tugas kompleks | kerja manual bisnis dipindahkan ke mesin yang bisa dipercaya.</p>
-          <div class="repo-meta">
-            <span class="repo-lang"><i class="lang-dot" style="background:#3d4d80"></i> Python</span>
-            <span class="repo-stat"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg> 96</span>
-            <span class="repo-stat"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-git-fork" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M10 18a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /> <path d="M5 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /> <path d="M15 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /> <path d="M7 8v2a2 2 0 0 0 2 2h6a2 2 0 0 0 2 -2v-2" /> <path d="M12 12l0 4" /> </svg> 18</span>
+          <p class='repo-desc'>Framework automasi tugas kompleks | kerja manual bisnis dipindahkan ke mesin yang bisa dipercaya.</p>
+          <div class='repo-meta'>
+            <span class='repo-lang'><i class='lang-dot' style='background:#3d4d80'/> Python</span>
+            <span class='repo-stat'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-star' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245'/> </svg> 96</span>
+            <span class='repo-stat'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-git-fork' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M10 18a2 2 0 1 0 4 0a2 2 0 1 0 -4 0'/> <path d='M5 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0'/> <path d='M15 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0'/> <path d='M7 8v2a2 2 0 0 0 2 2h6a2 2 0 0 0 2 -2v-2'/> <path d='M12 12l0 4'/> </svg> 18</span>
           </div>
         </article>
-        <article class="repo-card reveal">
-          <div class="repo-top">
-            <span class="repo-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brain" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M15.5 13a3.5 3.5 0 0 0 -3.5 3.5v1a3.5 3.5 0 0 0 7 0v-1.8" /> <path d="M8.5 13a3.5 3.5 0 0 1 3.5 3.5v1a3.5 3.5 0 0 1 -7 0v-1.8" /> <path d="M17.5 16a3.5 3.5 0 0 0 0 -7h-.5" /> <path d="M19 9.3v-2.8a3.5 3.5 0 0 0 -7 0" /> <path d="M6.5 16a3.5 3.5 0 0 1 0 -7h.5" /> <path d="M5 9.3v-2.8a3.5 3.5 0 0 1 7 0v10" /> </svg></span>
+        <article class='repo-card reveal'>
+          <div class='repo-top'>
+            <span aria-hidden='true' class='repo-icon'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-brain' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M15.5 13a3.5 3.5 0 0 0 -3.5 3.5v1a3.5 3.5 0 0 0 7 0v-1.8'/> <path d='M8.5 13a3.5 3.5 0 0 1 3.5 3.5v1a3.5 3.5 0 0 1 -7 0v-1.8'/> <path d='M17.5 16a3.5 3.5 0 0 0 0 -7h-.5'/> <path d='M19 9.3v-2.8a3.5 3.5 0 0 0 -7 0'/> <path d='M6.5 16a3.5 3.5 0 0 1 0 -7h.5'/> <path d='M5 9.3v-2.8a3.5 3.5 0 0 1 7 0v10'/> </svg></span>
             <h3>moko-ai</h3>
-            <span class="repo-public">Public</span>
+            <span class='repo-public'>Public</span>
           </div>
-          <p class="repo-desc">Asisten AI riset kami yang belajar memahami konteks pengguna | laboratorium produk AI berikutnya.</p>
-          <div class="repo-meta">
-            <span class="repo-lang"><i class="lang-dot" style="background:#f6c96f"></i> Python</span>
-            <span class="repo-stat"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg> 74</span>
-            <span class="repo-stat"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-git-fork" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M10 18a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /> <path d="M5 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /> <path d="M15 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /> <path d="M7 8v2a2 2 0 0 0 2 2h6a2 2 0 0 0 2 -2v-2" /> <path d="M12 12l0 4" /> </svg> 12</span>
+          <p class='repo-desc'>Asisten AI riset kami yang belajar memahami konteks pengguna | laboratorium produk AI berikutnya.</p>
+          <div class='repo-meta'>
+            <span class='repo-lang'><i class='lang-dot' style='background:#f6c96f'/> Python</span>
+            <span class='repo-stat'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-star' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245'/> </svg> 74</span>
+            <span class='repo-stat'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-git-fork' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M10 18a2 2 0 1 0 4 0a2 2 0 1 0 -4 0'/> <path d='M5 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0'/> <path d='M15 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0'/> <path d='M7 8v2a2 2 0 0 0 2 2h6a2 2 0 0 0 2 -2v-2'/> <path d='M12 12l0 4'/> </svg> 12</span>
           </div>
         </article>
-        <article class="repo-card reveal">
-          <div class="repo-top">
-            <span class="repo-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-palette" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" /> <path d="M7.5 10.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /> <path d="M11.5 7.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /> <path d="M15.5 10.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /> </svg></span>
+        <article class='repo-card reveal'>
+          <div class='repo-top'>
+            <span aria-hidden='true' class='repo-icon'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-palette' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25'/> <path d='M7.5 10.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0'/> <path d='M11.5 7.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0'/> <path d='M15.5 10.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0'/> </svg></span>
             <h3>akalpa-web-builder</h3>
-            <span class="repo-public">Public</span>
+            <span class='repo-public'>Public</span>
           </div>
-          <p class="repo-desc">Alat buatan tangan kami sendiri untuk merancang website parallax tanpa menulis kode.</p>
-          <div class="repo-meta">
-            <span class="repo-lang"><i class="lang-dot" style="background:#e8863a"></i> Python</span>
-            <span class="repo-stat"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg> 210</span>
-            <span class="repo-stat"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-git-fork" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M10 18a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /> <path d="M5 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /> <path d="M15 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /> <path d="M7 8v2a2 2 0 0 0 2 2h6a2 2 0 0 0 2 -2v-2" /> <path d="M12 12l0 4" /> </svg> 41</span>
+          <p class='repo-desc'>Alat buatan tangan kami sendiri untuk merancang website parallax tanpa menulis kode.</p>
+          <div class='repo-meta'>
+            <span class='repo-lang'><i class='lang-dot' style='background:#e8863a'/> Python</span>
+            <span class='repo-stat'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-star' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245'/> </svg> 210</span>
+            <span class='repo-stat'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-git-fork' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M10 18a2 2 0 1 0 4 0a2 2 0 1 0 -4 0'/> <path d='M5 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0'/> <path d='M15 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0'/> <path d='M7 8v2a2 2 0 0 0 2 2h6a2 2 0 0 0 2 -2v-2'/> <path d='M12 12l0 4'/> </svg> 41</span>
           </div>
         </article>
       </div>
 
-      <div class="gh-stats reveal">
-        <span class="gh-stat"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-stack-2" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 4l-8 4l8 4l8 -4l-8 -4" /> <path d="M4 12l8 4l8 -4" /> <path d="M4 16l8 4l8 -4" /> </svg> <strong>12+</strong> Repositori</span>
-        <span class="gh-stat"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg> <strong>500+</strong> Bintang</span>
-        <span class="gh-stat"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-users" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M5 7a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" /> <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /> <path d="M16 3.13a4 4 0 0 1 0 7.75" /> <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" /> </svg> <strong>30+</strong> Kontributor</span>
-        <span class="gh-stat"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-git-branch" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M5 18a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /> <path d="M5 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /> <path d="M15 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /> <path d="M7 8l0 8" /> <path d="M9 18h6a2 2 0 0 0 2 -2v-5" /> <path d="M14 14l3 -3l3 3" /> </svg> <strong>80+</strong> Pull Request</span>
+      <div class='gh-stats reveal'>
+        <span class='gh-stat'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-stack-2' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M12 4l-8 4l8 4l8 -4l-8 -4'/> <path d='M4 12l8 4l8 -4'/> <path d='M4 16l8 4l8 -4'/> </svg> <strong>12+</strong> Repositori</span>
+        <span class='gh-stat'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-star' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245'/> </svg> <strong>500+</strong> Bintang</span>
+        <span class='gh-stat'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-users' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M5 7a4 4 0 1 0 8 0a4 4 0 1 0 -8 0'/> <path d='M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2'/> <path d='M16 3.13a4 4 0 0 1 0 7.75'/> <path d='M21 21v-2a4 4 0 0 0 -3 -3.85'/> </svg> <strong>30+</strong> Kontributor</span>
+        <span class='gh-stat'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-git-branch' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M5 18a2 2 0 1 0 4 0a2 2 0 1 0 -4 0'/> <path d='M5 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0'/> <path d='M15 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0'/> <path d='M7 8l0 8'/> <path d='M9 18h6a2 2 0 0 0 2 -2v-5'/> <path d='M14 14l3 -3l3 3'/> </svg> <strong>80+</strong> Pull Request</span>
       </div>
 
-      <div class="gh-cta reveal">
-        <a class="btn btn-slide" href="https://github.com/akalpainovasi" target="_blank" rel="noopener noreferrer">
-          <span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-github" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" /> </svg> Jelajahi Semua Repo</span>
+      <div class='gh-cta reveal'>
+        <a class='btn btn-slide' href='https://github.com/akalpainovasi' rel='noopener noreferrer' target='_blank'>
+          <span><svg class='icon icon-tabler icons-tabler-outline icon-tabler-brand-github' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5'/> </svg> Jelajahi Semua Repo</span>
         </a>
-        <a class="btn btn-ghost ghost-light" href="https://github.com/akalpainovasi?tab=followers" target="_blank" rel="noopener noreferrer">
-          Follow @akalpainovasi <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-up-right" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M17 7l-10 10" /> <path d="M8 7l9 0l0 9" /> </svg>
+        <a class='btn btn-ghost ghost-light' href='https://github.com/akalpainovasi?tab=followers' rel='noopener noreferrer' target='_blank'>
+          Follow @akalpainovasi <svg class='icon icon-tabler icons-tabler-outline icon-tabler-arrow-up-right' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M17 7l-10 10'/> <path d='M8 7l9 0l0 9'/> </svg>
         </a>
       </div>
     </div>
     </div>
-    <!-- Wave divider section 6→7 (bentuk: zigzag tajam) -->
-    <div class="wave-wrap" aria-hidden="true">
-      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path d="M0,70 L150,30 L300,92 L450,40 L600,100 L750,45 L900,88 L1050,35 L1200,76 L1200,120 L0,120 Z" fill="#f7f3ea"></path>
+    <!-- Wave divider section 6&#8594;7 (bentuk: zigzag tajam) -->
+    <div aria-hidden='true' class='wave-wrap'>
+      <svg preserveAspectRatio='none' viewBox='0 0 1200 120'>
+        <path d='M0,70 L150,30 L300,92 L450,40 L600,100 L750,45 L900,88 L1050,35 L1200,76 L1200,120 L0,120 Z' fill='#f7f3ea'/>
       </svg>
     </div>
   </section>
 
-  <!-- ══════════════════ TESTIMONI ══════════════════ -->
-  <section id="testimoni" class="section testimonial-section sec-anim" aria-label="Testimoni klien">
-    <div class="deco-circle deco-testi" data-parallax="0.08" aria-hidden="true"></div>
-    <div class="sec-inner">
-    <div class="container">
-      <div class="section-head reveal">
-        <h2 class="section-title">Klien Kami <em>Bicara Sendiri</em></h2>
-        <p class="section-sub">Dari UMKM hingga startup teknologi | di seluruh Indonesia.</p>
+  <!-- &#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552; TESTIMONI &#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552; -->
+  <section aria-label='Testimoni klien' class='section testimonial-section sec-anim' id='testimoni'>
+    <div aria-hidden='true' class='deco-circle deco-testi' data-parallax='0.08'/>
+    <div class='sec-inner'>
+    <div class='container'>
+      <div class='section-head reveal'>
+        <h2 class='section-title'>Klien Kami <em>Bicara Sendiri</em></h2>
+        <p class='section-sub'>Dari UMKM hingga startup teknologi | di seluruh Indonesia.</p>
       </div>
-      <div class="carousel reveal" id="testimonialCarousel">
-        <div class="carousel-viewport">
-          <div class="carousel-track" id="testimonialTrack">
-            <article class="testimonial-slide">
-              <span class="testimonial-quote" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-quote" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5" /> <path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5" /> </svg></span>
-              <p class="testimonial-text">“Website kami selesai dalam 10 hari dan hasilnya di luar ekspektasi. Penjualan online langsung naik sejak hari pertama tayang.”</p>
-              <footer class="testimonial-meta">
-                <span class="testimonial-avatar" aria-hidden="true">R</span>
-                <div><strong>Rina Wijaya</strong><span>Owner UMKM Kuliner · Jakarta</span></div>
-                <span class="testimonial-stars" aria-label="5 dari 5 bintang"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg></span>
+      <div class='carousel reveal' id='testimonialCarousel'>
+        <div class='carousel-viewport'>
+          <div class='carousel-track' id='testimonialTrack'>
+            <article class='testimonial-slide'>
+              <span aria-hidden='true' class='testimonial-quote'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-quote' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5'/> <path d='M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5'/> </svg></span>
+              <p class='testimonial-text'>&#8220;Website kami selesai dalam 10 hari dan hasilnya di luar ekspektasi. Penjualan online langsung naik sejak hari pertama tayang.&#8221;</p>
+              <footer class='testimonial-meta'>
+                <span aria-hidden='true' class='testimonial-avatar'>R</span>
+                <div><strong>Rina Wijaya</strong><span>Owner UMKM Kuliner &#183; Jakarta</span></div>
+                <span aria-label='5 dari 5 bintang' class='testimonial-stars'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-star' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245'/> </svg><svg class='icon icon-tabler icons-tabler-outline icon-tabler-star' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245'/> </svg><svg class='icon icon-tabler icons-tabler-outline icon-tabler-star' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245'/> </svg><svg class='icon icon-tabler icons-tabler-outline icon-tabler-star' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245'/> </svg><svg class='icon icon-tabler icons-tabler-outline icon-tabler-star' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245'/> </svg></span>
               </footer>
             </article>
-            <article class="testimonial-slide">
-              <span class="testimonial-quote" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-quote" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5" /> <path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5" /> </svg></span>
-              <p class="testimonial-text">“Automasi dari Akalpa memangkas kerja operasional kami setengahnya. Hermes menjawab pelanggan bahkan saat tim kami tidur.”</p>
-              <footer class="testimonial-meta">
-                <span class="testimonial-avatar" aria-hidden="true">A</span>
-                <div><strong>Andi Pratama</strong><span>CEO Startup Teknologi · Bandung</span></div>
-                <span class="testimonial-stars" aria-label="5 dari 5 bintang"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg></span>
+            <article class='testimonial-slide'>
+              <span aria-hidden='true' class='testimonial-quote'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-quote' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5'/> <path d='M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5'/> </svg></span>
+              <p class='testimonial-text'>&#8220;Automasi dari Akalpa memangkas kerja operasional kami setengahnya. Hermes menjawab pelanggan bahkan saat tim kami tidur.&#8221;</p>
+              <footer class='testimonial-meta'>
+                <span aria-hidden='true' class='testimonial-avatar'>A</span>
+                <div><strong>Andi Pratama</strong><span>CEO Startup Teknologi &#183; Bandung</span></div>
+                <span aria-label='5 dari 5 bintang' class='testimonial-stars'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-star' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245'/> </svg><svg class='icon icon-tabler icons-tabler-outline icon-tabler-star' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245'/> </svg><svg class='icon icon-tabler icons-tabler-outline icon-tabler-star' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245'/> </svg><svg class='icon icon-tabler icons-tabler-outline icon-tabler-star' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245'/> </svg><svg class='icon icon-tabler icons-tabler-outline icon-tabler-star' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245'/> </svg></span>
               </footer>
             </article>
-            <article class="testimonial-slide">
-              <span class="testimonial-quote" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-quote" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5" /> <path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5" /> </svg></span>
-              <p class="testimonial-text">“Dari konsultasi sampai launch semuanya transparan. Website klinik kami tampil profesional dan mudah dirawat sendiri.”</p>
-              <footer class="testimonial-meta">
-                <span class="testimonial-avatar" aria-hidden="true">M</span>
-                <div><strong>dr. Maya Sari</strong><span>Klinik Pratama · Yogyakarta</span></div>
-                <span class="testimonial-stars" aria-label="5 dari 5 bintang"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg></span>
+            <article class='testimonial-slide'>
+              <span aria-hidden='true' class='testimonial-quote'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-quote' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5'/> <path d='M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5'/> </svg></span>
+              <p class='testimonial-text'>&#8220;Dari konsultasi sampai launch semuanya transparan. Website klinik kami tampil profesional dan mudah dirawat sendiri.&#8221;</p>
+              <footer class='testimonial-meta'>
+                <span aria-hidden='true' class='testimonial-avatar'>M</span>
+                <div><strong>dr. Maya Sari</strong><span>Klinik Pratama &#183; Yogyakarta</span></div>
+                <span aria-label='5 dari 5 bintang' class='testimonial-stars'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-star' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245'/> </svg><svg class='icon icon-tabler icons-tabler-outline icon-tabler-star' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245'/> </svg><svg class='icon icon-tabler icons-tabler-outline icon-tabler-star' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245'/> </svg><svg class='icon icon-tabler icons-tabler-outline icon-tabler-star' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245'/> </svg><svg class='icon icon-tabler icons-tabler-outline icon-tabler-star' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245'/> </svg></span>
               </footer>
             </article>
-            <article class="testimonial-slide">
-              <span class="testimonial-quote" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-quote" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5" /> <path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5" /> </svg></span>
-              <p class="testimonial-text">“Website toko online kami beda dari kompetitor | benar-benar kustom, cepat, dan desainnya menonjol. Worth every rupiah.”</p>
-              <footer class="testimonial-meta">
-                <span class="testimonial-avatar" aria-hidden="true">D</span>
-                <div><strong>Dewi Lestari</strong><span>Founder E-commerce · Surabaya</span></div>
-                <span class="testimonial-stars" aria-label="5 dari 5 bintang"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /> </svg></span>
+            <article class='testimonial-slide'>
+              <span aria-hidden='true' class='testimonial-quote'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-quote' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5'/> <path d='M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5'/> </svg></span>
+              <p class='testimonial-text'>&#8220;Website toko online kami beda dari kompetitor | benar-benar kustom, cepat, dan desainnya menonjol. Worth every rupiah.&#8221;</p>
+              <footer class='testimonial-meta'>
+                <span aria-hidden='true' class='testimonial-avatar'>D</span>
+                <div><strong>Dewi Lestari</strong><span>Founder E-commerce &#183; Surabaya</span></div>
+                <span aria-label='5 dari 5 bintang' class='testimonial-stars'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-star' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245'/> </svg><svg class='icon icon-tabler icons-tabler-outline icon-tabler-star' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245'/> </svg><svg class='icon icon-tabler icons-tabler-outline icon-tabler-star' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245'/> </svg><svg class='icon icon-tabler icons-tabler-outline icon-tabler-star' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245'/> </svg><svg class='icon icon-tabler icons-tabler-outline icon-tabler-star' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245'/> </svg></span>
               </footer>
             </article>
           </div>
         </div>
-        <button class="carousel-btn prev" id="carouselPrev" aria-label="Testimoni sebelumnya"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M15 6l-6 6l6 6" /> </svg></button>
-        <button class="carousel-btn next" id="carouselNext" aria-label="Testimoni berikutnya"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M9 6l6 6l-6 6" /> </svg></button>
-        <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="Pilih testimoni"></div>
+        <button aria-label='Testimoni sebelumnya' class='carousel-btn prev' id='carouselPrev'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-chevron-left' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M15 6l-6 6l6 6'/> </svg></button>
+        <button aria-label='Testimoni berikutnya' class='carousel-btn next' id='carouselNext'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-chevron-right' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M9 6l6 6l-6 6'/> </svg></button>
+        <div aria-label='Pilih testimoni' class='carousel-dots' id='carouselDots' role='tablist'/>
       </div>
     </div>
     </div>
-    <!-- Wave divider section 7→8 (bentuk: kerang halus / scallop) -->
-    <div class="wave-wrap" aria-hidden="true">
-      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path d="M0,50 Q150,10 300,50 Q450,90 600,50 Q750,10 900,50 Q1050,90 1200,50 L1200,120 L0,120 Z" fill="#f1ebdd"></path>
+    <!-- Wave divider section 7&#8594;8 (bentuk: kerang halus / scallop) -->
+    <div aria-hidden='true' class='wave-wrap'>
+      <svg preserveAspectRatio='none' viewBox='0 0 1200 120'>
+        <path d='M0,50 Q150,10 300,50 Q450,90 600,50 Q750,10 900,50 Q1050,90 1200,50 L1200,120 L0,120 Z' fill='#f1ebdd'/>
       </svg>
     </div>
   </section>
 
-  <!-- ══════════════════ FAQ ══════════════════ -->
-  <section id="faq" class="section faq-section sec-anim" aria-label="Pertanyaan yang sering diajukan">
-    <div class="sec-inner">
-    <div class="container faq-layout">
-      <div class="section-head left reveal-l">
-        <h2 class="section-title">Pertanyaan yang <em>Sering Diajukan</em></h2>
-        <p class="section-sub">Masih ragu? Tanya saja | tim kami siap membantu.</p>
-        <div class="faq-contact">
-          <a class="btn btn-primary faq-cta" href="https://wa.me/6285191240994?text=Halo%20Akalpa!%20Saya%20ingin%20konsultasi%20pembuatan%20website%20%F0%9F%9A%80" target="_blank" rel="noopener noreferrer">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-whatsapp" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" /> <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" /> </svg> Tanya Langsung
+  <!-- &#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552; FAQ &#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552; -->
+  <section aria-label='Pertanyaan yang sering diajukan' class='section faq-section sec-anim' id='faq'>
+    <div class='sec-inner'>
+    <div class='container faq-layout'>
+      <div class='section-head left reveal-l'>
+        <h2 class='section-title'>Pertanyaan yang <em>Sering Diajukan</em></h2>
+        <p class='section-sub'>Masih ragu? Tanya saja | tim kami siap membantu.</p>
+        <div class='faq-contact'>
+          <a class='btn btn-primary faq-cta' href='https://wa.me/6285191240994?text=Halo%20Akalpa!%20Saya%20ingin%20konsultasi%20pembuatan%20website%20%F0%9F%9A%80' rel='noopener noreferrer' target='_blank'>
+            <svg class='icon icon-tabler icons-tabler-outline icon-tabler-brand-whatsapp' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9'/> <path d='M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1'/> </svg> Tanya Langsung
           </a>
-          <a class="faq-phone" href="tel:+6285191240994"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-phone" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" /> </svg> +62 851-9124-0994</a>
+          <a class='faq-phone' href='tel:+6285191240994'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-phone' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2'/> </svg> +62 851-9124-0994</a>
         </div>
       </div>
-      <div class="faq-list">
-        <details class="faq-item reveal">
-          <summary>Berapa lama pengerjaan sebuah website?<span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M6 9l6 6l6 -6" /> </svg></span></summary>
-          <p>Umumnya 7–14 hari kerja tergantung kompleksitas. Landing page bisa lebih cepat, sementara web app atau platform komunitas butuh waktu lebih lama. Anda mendapat timeline jelas sebelum proyek dimulai.</p>
+      <div class='faq-list'>
+        <details class='faq-item reveal'>
+          <summary>Berapa lama pengerjaan sebuah website?<span aria-hidden='true' class='faq-icon'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-chevron-down' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M6 9l6 6l6 -6'/> </svg></span></summary>
+          <p>Umumnya 7&#8211;14 hari kerja tergantung kompleksitas. Landing page bisa lebih cepat, sementara web app atau platform komunitas butuh waktu lebih lama. Anda mendapat timeline jelas sebelum proyek dimulai.</p>
         </details>
-        <details class="faq-item reveal">
-          <summary>Apakah desainnya benar-benar kustom?<span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M6 9l6 6l6 -6" /> </svg></span></summary>
+        <details class='faq-item reveal'>
+          <summary>Apakah desainnya benar-benar kustom?<span aria-hidden='true' class='faq-icon'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-chevron-down' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M6 9l6 6l6 -6'/> </svg></span></summary>
           <p>Ya, 100% kustom. Kami merancang setiap website dari nol dengan Akalpa Web Builder | alat builder buatan tangan kami sendiri. Setiap elemen: warna, tipografi, animasi, dan layout dirancang untuk identitas bisnis Anda.</p>
         </details>
-        <details class="faq-item reveal">
-          <summary>Apa itu Hermes dan OpenClaw?<span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M6 9l6 6l6 -6" /> </svg></span></summary>
+        <details class='faq-item reveal'>
+          <summary>Apa itu Hermes dan OpenClaw?<span aria-hidden='true' class='faq-icon'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-chevron-down' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M6 9l6 6l6 -6'/> </svg></span></summary>
           <p>Keduanya adalah produk automasi AI kami. Hermes menangani komunikasi dan alur kerja berulang (misalnya menjawab pertanyaan pelanggan secara otomatis), sementara OpenClaw adalah framework untuk automasi tugas yang lebih kompleks. Keduanya dikembangkan dan diuji langsung oleh tim kami.</p>
         </details>
-        <details class="faq-item reveal">
-          <summary>Apa itu Moko AI?<span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M6 9l6 6l6 -6" /> </svg></span></summary>
+        <details class='faq-item reveal'>
+          <summary>Apa itu Moko AI?<span aria-hidden='true' class='faq-icon'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-chevron-down' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M6 9l6 6l6 -6'/> </svg></span></summary>
           <p>Moko AI adalah proyek riset pribadi kami | asisten AI yang belajar memahami konteks pengguna. Ini adalah laboratorium kami untuk mengeksplorasi kemampuan AI sebelum menjadi produk komersial.</p>
         </details>
-        <details class="faq-item reveal">
-          <summary>Di mana lokasi kalian?<span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M6 9l6 6l6 -6" /> </svg></span></summary>
+        <details class='faq-item reveal'>
+          <summary>Di mana lokasi kalian?<span aria-hidden='true' class='faq-icon'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-chevron-down' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M6 9l6 6l6 -6'/> </svg></span></summary>
           <p>Kami berbasis di Yogyakarta, tetapi melayani klien dari seluruh Indonesia secara remote. Komunikasi lewat WhatsApp, video call, dan email | semudah bekerja sama dengan tim di sebelah Anda.</p>
         </details>
-        <details class="faq-item reveal">
-          <summary>Bagaimana jika saya ingin revisi?<span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M6 9l6 6l6 -6" /> </svg></span></summary>
+        <details class='faq-item reveal'>
+          <summary>Bagaimana jika saya ingin revisi?<span aria-hidden='true' class='faq-icon'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-chevron-down' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M6 9l6 6l6 -6'/> </svg></span></summary>
           <p>Revisi sampai pas | tanpa batas selama masa pengerjaan. Kami kerjakan bertahap dan Anda memegang kendali penuh di setiap tahap.</p>
         </details>
-        <details class="faq-item reveal">
-          <summary>Apakah ada layanan perawatan?<span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M6 9l6 6l6 -6" /> </svg></span></summary>
+        <details class='faq-item reveal'>
+          <summary>Apakah ada layanan perawatan?<span aria-hidden='true' class='faq-icon'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-chevron-down' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M6 9l6 6l6 -6'/> </svg></span></summary>
           <p>Ada. Kami menawarkan paket perawatan bulanan: update konten, backup rutin, monitoring keamanan, dan bantuan teknis kapan pun Anda butuh.</p>
         </details>
       </div>
     </div>
     </div>
-    <!-- Wave divider section 8→9 (bentuk: sapuan naik ke kanan) -->
-    <div class="wave-wrap" aria-hidden="true">
-      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path d="M0,112 C250,78 380,58 520,66 C680,76 780,38 930,42 C1060,45 1120,26 1200,18 L1200,120 L0,120 Z" fill="#22305c"></path>
+    <!-- Wave divider section 8&#8594;9 (bentuk: sapuan naik ke kanan) -->
+    <div aria-hidden='true' class='wave-wrap'>
+      <svg preserveAspectRatio='none' viewBox='0 0 1200 120'>
+        <path d='M0,112 C250,78 380,58 520,66 C680,76 780,38 930,42 C1060,45 1120,26 1200,18 L1200,120 L0,120 Z' fill='#22305c'/>
       </svg>
     </div>
   </section>
 
 </main>
 
-<!-- ══════════════════ FOOTER ══════════════════ -->
-<footer class="site-footer sec-anim">
-  <img class="footer-mascot" src="https://lh3.googleusercontent.com/d/13pWNkRzVitzcBi8_QfrDqDpINDVpTZ-s" alt="Maskot Akalpa memberi jempol" width="120" height="180" loading="lazy" />
-  <div class="sec-inner">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="brand">
-          <img class="brand-logo" src="https://lh3.googleusercontent.com/d/18scDBaMBz0pZ2lL-HRaqAC_EZHAqOsGF" alt="Logo Akalpa Inovasi" width="36" height="36" />
-          <span class="brand-text">
-            <span class="brand-name">Akalpa Inovasi</span>
+<!-- &#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552; FOOTER &#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552; -->
+<footer class='site-footer sec-anim'>
+  <img alt='Maskot Akalpa memberi jempol' class='footer-mascot' height='180' loading='lazy' src='https://lh3.googleusercontent.com/d/13pWNkRzVitzcBi8_QfrDqDpINDVpTZ-s' width='120'/>
+  <div class='sec-inner'>
+  <div class='container'>
+    <div class='footer-grid'>
+      <div class='footer-brand'>
+        <div class='brand'>
+          <img alt='Logo Akalpa Inovasi' class='brand-logo' height='36' src='https://lh3.googleusercontent.com/d/18scDBaMBz0pZ2lL-HRaqAC_EZHAqOsGF' width='36'/>
+          <span class='brand-text'>
+            <span class='brand-name'>Akalpa Inovasi</span>
           </span>
         </div>
-        <p class="footer-tagline">Startup teknologi dari Yogyakarta | automasi AI &amp; website kustom yang benar-benar ngomong untuk bisnis kamu.</p>
-        <div class="footer-socials">
-          <a href="https://instagram.com/akalpa.inovasi" target="_blank" rel="noopener noreferrer" aria-label="Instagram @akalpa.inovasi"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4l0 -8" /> <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /> <path d="M16.5 7.5v.01" /> </svg></a>
-          <a href="https://youtube.com/@akalpa.inovasi" target="_blank" rel="noopener noreferrer" aria-label="YouTube @akalpa.inovasi"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-youtube" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M2 8a4 4 0 0 1 4 -4h12a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-12a4 4 0 0 1 -4 -4v-8" /> <path d="M10 9l5 3l-5 3l0 -6" /> </svg></a>
-          <a href="https://tiktok.com/@akalpa.inovasi" target="_blank" rel="noopener noreferrer" aria-label="TikTok @akalpa.inovasi"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-tiktok" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M21 7.917v4.034a9.948 9.948 0 0 1 -5 -1.951v4.5a6.5 6.5 0 1 1 -8 -6.326v4.326a2.5 2.5 0 1 0 4 2v-11.5h4.083a6.005 6.005 0 0 0 4.917 4.917" /> </svg></a>
-          <a href="https://github.com/akalpainovasi" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-github" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" /> </svg></a>
-          <a href="https://x.com/akalpa.inovasi" target="_blank" rel="noopener noreferrer" aria-label="X Twitter @akalpa.inovasi"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-x" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M4 4l11.733 16h4.267l-11.733 -16l-4.267 0" /> <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /> </svg></a>
-          <a href="https://linkedin.com/company/akalpa.inovasi" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-linkedin" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M8 11v5" /> <path d="M8 8v.01" /> <path d="M12 16v-5" /> <path d="M16 16v-3a2 2 0 1 0 -4 0" /> <path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4l0 -10" /> </svg></a>
+        <p class='footer-tagline'>Startup teknologi dari Yogyakarta | automasi AI &amp; website kustom yang benar-benar ngomong untuk bisnis kamu.</p>
+        <div class='footer-socials'>
+          <a aria-label='Instagram @akalpa.inovasi' href='https://instagram.com/akalpa.inovasi' rel='noopener noreferrer' target='_blank'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4l0 -8'/> <path d='M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0'/> <path d='M16.5 7.5v.01'/> </svg></a>
+          <a aria-label='YouTube @akalpa.inovasi' href='https://youtube.com/@akalpa.inovasi' rel='noopener noreferrer' target='_blank'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-brand-youtube' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M2 8a4 4 0 0 1 4 -4h12a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-12a4 4 0 0 1 -4 -4v-8'/> <path d='M10 9l5 3l-5 3l0 -6'/> </svg></a>
+          <a aria-label='TikTok @akalpa.inovasi' href='https://tiktok.com/@akalpa.inovasi' rel='noopener noreferrer' target='_blank'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-brand-tiktok' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M21 7.917v4.034a9.948 9.948 0 0 1 -5 -1.951v4.5a6.5 6.5 0 1 1 -8 -6.326v4.326a2.5 2.5 0 1 0 4 2v-11.5h4.083a6.005 6.005 0 0 0 4.917 4.917'/> </svg></a>
+          <a aria-label='GitHub' href='https://github.com/akalpainovasi' rel='noopener noreferrer' target='_blank'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-brand-github' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5'/> </svg></a>
+          <a aria-label='X Twitter @akalpa.inovasi' href='https://x.com/akalpa.inovasi' rel='noopener noreferrer' target='_blank'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-brand-x' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M4 4l11.733 16h4.267l-11.733 -16l-4.267 0'/> <path d='M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772'/> </svg></a>
+          <a aria-label='LinkedIn' href='https://linkedin.com/company/akalpa.inovasi' rel='noopener noreferrer' target='_blank'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-brand-linkedin' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M8 11v5'/> <path d='M8 8v.01'/> <path d='M12 16v-5'/> <path d='M16 16v-3a2 2 0 1 0 -4 0'/> <path d='M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4l0 -10'/> </svg></a>
         </div>
       </div>
-      <div class="footer-col">
+      <div class='footer-col'>
         <h4>Navigasi</h4>
-        <a href="#tentang" data-scroll="true">Tentang</a>
-        <a href="#fokus" data-scroll="true">Fokus</a>
-        <a href="#github" data-scroll="true">Open Source</a>
-        <a href="#testimoni" data-scroll="true">Testimoni</a>
-        <a href="#faq" data-scroll="true">FAQ</a>
+        <a data-scroll='true' href='#tentang'>Tentang</a>
+        <a data-scroll='true' href='#fokus'>Fokus</a>
+        <a data-scroll='true' href='#github'>Open Source</a>
+        <a data-scroll='true' href='#testimoni'>Testimoni</a>
+        <a data-scroll='true' href='#faq'>FAQ</a>
       </div>
-      <div class="footer-col">
+      <div class='footer-col'>
         <h4>Hubungi Kami</h4>
-        <a href="https://wa.me/6285191240994?text=Halo%20Akalpa!%20Saya%20ingin%20konsultasi%20pembuatan%20website%20%F0%9F%9A%80" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-whatsapp" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" /> <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" /> </svg> +62 851-9124-0994</a>
-        <a href="mailto:halo@akalpainovasi.com"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-mail" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10" /> <path d="M3 7l9 6l9 -6" /> </svg> halo@akalpainovasi.com</a>
-        <a href="https://instagram.com/akalpa.inovasi" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4l0 -8" /> <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /> <path d="M16.5 7.5v.01" /> </svg> @akalpa.inovasi</a>
-        <a href="#" aria-disabled="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-map-pin" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /> <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0" /> </svg> Yogyakarta, Indonesia</a>
-        <a href="/p/free-template"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-layout-grid" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M4 5a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -4" /> <path d="M14 5a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -4" /> <path d="M4 15a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -4" /> <path d="M14 15a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -4" /> </svg> Free Template</a>
+        <a href='https://wa.me/6285191240994?text=Halo%20Akalpa!%20Saya%20ingin%20konsultasi%20pembuatan%20website%20%F0%9F%9A%80' rel='noopener noreferrer' target='_blank'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-brand-whatsapp' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9'/> <path d='M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1'/> </svg> +62 851-9124-0994</a>
+        <a href='mailto:halo@akalpainovasi.com'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-mail' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10'/> <path d='M3 7l9 6l9 -6'/> </svg> halo@akalpainovasi.com</a>
+        <a href='https://instagram.com/akalpa.inovasi' rel='noopener noreferrer' target='_blank'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4l0 -8'/> <path d='M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0'/> <path d='M16.5 7.5v.01'/> </svg> @akalpa.inovasi</a>
+        <a aria-disabled='true' href='#'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-map-pin' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0'/> <path d='M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0'/> </svg> Yogyakarta, Indonesia</a>
+        <a href='/p/free-template'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-layout-grid' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M4 5a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -4'/> <path d='M14 5a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -4'/> <path d='M4 15a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -4'/> <path d='M14 15a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -4'/> </svg> Free Template</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>© <span id="year">2026</span> Akalpa Inovasi. Semua hak dilindungi. | Hand-crafted dengan <strong>Akalpa Web Builder</strong>.</span>
-      <button class="back-top" id="backTop"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-up" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 5l0 14" /> <path d="M18 11l-6 -6" /> <path d="M6 11l6 -6" /> </svg> Ke Atas</button>
+    <div class='footer-bottom'>
+      <span>&#169; <span id='year'>2026</span> Akalpa Inovasi. Semua hak dilindungi. | Hand-crafted dengan <strong>Akalpa Web Builder</strong>.</span>
+      <button class='back-top' id='backTop'><svg class='icon icon-tabler icons-tabler-outline icon-tabler-arrow-up' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'> <path d='M0 0h24v24H0z' fill='none' stroke='none'/> <path d='M12 5l0 14'/> <path d='M18 11l-6 -6'/> <path d='M6 11l6 -6'/> </svg> Ke Atas</button>
     </div>
   </div>
   </div>
@@ -3160,136 +3156,819 @@ setInterval(function(){
     </div>
 
     <!-- 2. FREE TEMPLATES SECTION -->
-    <div id="view-templates" class="akalpa-view" style="display:none">
+    <div class='akalpa-view' id='view-templates' style='display:none'>
 
 
-<main class="container">
-  <div class="page-head">
+<main class='container'>
+  <div class='page-head'>
     <h1>Template Gratis, <em>Siap Pakai</em></h1>
     <p>Pilih template, salin kodenya, lalu hubungi kami untuk mendapat akses penuh. Semua template open source di GitHub.</p>
   </div>
 
-  <div class="searchbar">
-    <input id="q" type="search" placeholder="Cari nama, kategori, atau kode… (contoh: AKA-002)" autocomplete="off" />
-    <span class="k"># KODE</span>
+  <div class='searchbar'>
+    <input autocomplete='off' id='q' placeholder='Cari nama, kategori, atau kode… (contoh: AKA-002)' type='search'/>
+    <span class='k'># KODE</span>
   </div>
-  <div class="meta" id="meta">Memuat template…</div>
-  <div class="chips" id="chips"></div>
-  <div class="grid" id="grid"></div>
-  <div class="empty" id="empty" hidden="true">
-    <div class="big">Template tidak ditemukan</div>
+  <div class='meta' id='meta'>Memuat template&#8230;</div>
+  <div class='chips' id='chips'/>
+  <div class='grid' id='grid'/>
+  <div class='empty' hidden='true' id='empty'>
+    <div class='big'>Template tidak ditemukan</div>
     <p>Coba kode lain, atau tanya langsung di WhatsApp | kami bantu cari yang pas.</p>
   </div>
 </main>
 
-<footer class="container">
-  <div>© <span id="year">2026</span> <strong>Akalpa Inovasi</strong> | Template gratis dibuat dengan <strong>Akalpa Web Builder</strong>.</div>
-  <a class="wa" href="https://wa.me/6285191240994?text=Halo%20Akalpa!%20Saya%20tertarik%20dengan%20template%20gratis" target="_blank" rel="noopener noreferrer">WhatsApp: +62 851-9124-0994</a>
+<footer class='container'>
+  <div>&#169; <span id='year'>2026</span> <strong>Akalpa Inovasi</strong> | Template gratis dibuat dengan <strong>Akalpa Web Builder</strong>.</div>
+  <a class='wa' href='https://wa.me/6285191240994?text=Halo%20Akalpa!%20Saya%20tertarik%20dengan%20template%20gratis' rel='noopener noreferrer' target='_blank'>WhatsApp: +62 851-9124-0994</a>
 </footer>
 
-<div class="toast" id="toast"></div>
+<div class='toast' id='toast'/>
     </div>
 
     <!-- 3. STUDIO CURATOR SECTION -->
-    <div id="view-curator" class="akalpa-view" style="display:none">
+    <div class='akalpa-view' id='view-curator' style='display:none'>
 <!-- VAULT SECURITY GATE -->
-<div class="gate" id="gate">
-  <div class="gatebox">
-    <div class="status-badge">VAULT SECURITY GATE</div>
-    <img src="https://lh3.googleusercontent.com/d/18scDBaMBz0pZ2lL-HRaqAC_EZHAqOsGF" alt="Logo Akalpa Inovasi" style="width:44px;height:44px;border-radius:11px;background:#fff;object-fit:contain;padding:3px;border:2px solid #f2a35c;margin-bottom:8px" />
+<div class='gate' id='gate'>
+  <div class='gatebox'>
+    <div class='status-badge'>VAULT SECURITY GATE</div>
+    <img alt='Logo Akalpa Inovasi' src='https://lh3.googleusercontent.com/d/18scDBaMBz0pZ2lL-HRaqAC_EZHAqOsGF' style='width:44px;height:44px;border-radius:11px;background:#fff;object-fit:contain;padding:3px;border:2px solid #f2a35c;margin-bottom:8px'/>
     <h1>Studio <span>Curator</span></h1>
     <p>Masukkan kode otorisasi untuk mengelola pustaka template.</p>
-    <input type="password" id="pass" placeholder="KODE AKSES" autocomplete="off" />
-    <div class="btns" style="justify-content:center"><button class="btn orange" id="unlock" style="width:100%;justify-content:center">Buka Vault</button></div>
-    <div class="err-msg" id="gateErr"></div>
-    <p style="margin-top:14px;font-size:.72rem;font-family:'JetBrains Mono',monospace;color:rgba(247,243,234,.4)">Proteksi Kriptografik WebCrypto SHA-256</p>
+    <input autocomplete='off' id='pass' placeholder='KODE AKSES' type='password'/>
+    <div class='btns' style='justify-content:center'><button class='btn orange' id='unlock' style='width:100%;justify-content:center'>Buka Vault</button></div>
+    <div class='err-msg' id='gateErr'/>
+    <p style='margin-top:14px;font-size:.72rem;font-family:&apos;JetBrains Mono&apos;,monospace;color:rgba(247,243,234,.4)'>Proteksi Kriptografik WebCrypto SHA-256</p>
   </div>
 </div>
 
 <!-- STUDIO CURATOR MAIN DASHBOARD -->
-<div class="curator-container" id="app" hidden="true">
-  <div class="curator-header">
+<div class='curator-container' hidden='true' id='app'>
+  <div class='curator-header'>
     <div>
-      <div class="status-badge">STUDIO CURATOR PORTAL</div>
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:4px">
-        <img src="https://lh3.googleusercontent.com/d/18scDBaMBz0pZ2lL-HRaqAC_EZHAqOsGF" alt="Logo Akalpa Inovasi" style="width:36px;height:36px;border-radius:9px;background:#fff;object-fit:contain;padding:2px;border:2px solid #f2a35c" />
+      <div class='status-badge'>STUDIO CURATOR PORTAL</div>
+      <div style='display:flex;align-items:center;gap:12px;margin-bottom:4px'>
+        <img alt='Logo Akalpa Inovasi' src='https://lh3.googleusercontent.com/d/18scDBaMBz0pZ2lL-HRaqAC_EZHAqOsGF' style='width:36px;height:36px;border-radius:9px;background:#fff;object-fit:contain;padding:2px;border:2px solid #f2a35c'/>
         <h1>Studio <span>Curator</span></h1>
       </div>
-      <div class="sub">Kelola pustaka template gratis | Terhubung <strong>realtime ke Google Sheets API</strong>.</div>
+      <div class='sub'>Kelola pustaka template gratis | Terhubung <strong>realtime ke Google Sheets API</strong>.</div>
     </div>
-    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
-      <a class="btn ghost mini" href="/p/free-template" target="_blank" rel="noopener">Katalog Publik ↗</a>
-      <button class="btn ghost mini" id="sync-btn">🔄 Refresh Data</button>
-      <button class="btn ghost mini" id="logout">Kunci Vault</button>
+    <div style='display:flex;gap:8px;flex-wrap:wrap;align-items:center'>
+      <a class='btn ghost mini' href='/p/free-template' rel='noopener' target='_blank'>Katalog Publik &#8599;</a>
+      <button class='btn ghost mini' id='sync-btn'>🔄 Refresh Data</button>
+      <button class='btn ghost mini' id='logout'>Kunci Vault</button>
     </div>
   </div>
 
-  <div class="grid">
+  <div class='grid'>
     <!-- FORM TAMBAH / EDIT TEMPLATE -->
-    <section class="panel">
-      <h2 id="formTitle">➕ Tambah Template Baru</h2>
-      <div class="row">
+    <section class='panel'>
+      <h2 id='formTitle'>&#10133; Tambah Template Baru</h2>
+      <div class='row'>
         <div>
           <label>Kode Template</label>
-          <input type="text" id="f-code" placeholder="#AKA-001" readonly="true" />
-          <div class="hint">Kode otomatis. Bisa disesuaikan manual.</div>
+          <input id='f-code' placeholder='#AKA-001' readonly='true' type='text'/>
+          <div class='hint'>Kode otomatis. Bisa disesuaikan manual.</div>
         </div>
         <div>
           <label>Kategori</label>
-          <input type="text" id="f-cat" list="cats" placeholder="Portofolio / Hero / UMKM" />
-          <datalist id="cats"></datalist>
+          <input id='f-cat' list='cats' placeholder='Portofolio / Hero / UMKM' type='text'/>
+          <datalist id='cats'/>
         </div>
       </div>
       <label>Nama Template</label>
-      <input type="text" id="f-name" placeholder="Hero Parallax Senja" />
-      <label>Deskripsi Singkat (1–2 kalimat)</label>
-      <textarea id="f-desc" placeholder="Jelaskan fitur utama dan keunggulan template ini…"></textarea>
+      <input id='f-name' placeholder='Hero Parallax Senja' type='text'/>
+      <label>Deskripsi Singkat (1&#8211;2 kalimat)</label>
+      <textarea id='f-desc' placeholder='Jelaskan fitur utama dan keunggulan template ini…'/>
       <label>Link GitHub (repository template)</label>
-      <input type="url" id="f-gh" placeholder="https://github.com/akalpainovasi/…" />
+      <input id='f-gh' placeholder='https://github.com/akalpainovasi/…' type='url'/>
       <label>Tags (pisahkan koma)</label>
-      <input type="text" id="f-tags" placeholder="parallax, hero, scroll" />
-      <label class="check"><input type="checkbox" id="f-feat" /> 🔥 Tandai sebagai <strong>Hot / Featured</strong></label>
-      <div class="btns">
-        <button class="btn orange" id="save" style="flex:1;justify-content:center">💾 Simpan &amp; Publikasikan</button>
-        <button class="btn ghost" id="cancel" hidden="true">Batal Edit</button>
-        <button class="btn ghost" id="clear">Reset</button>
+      <input id='f-tags' placeholder='parallax, hero, scroll' type='text'/>
+      <label class='check'><input id='f-feat' type='checkbox'/> 🔥 Tandai sebagai <strong>Hot / Featured</strong></label>
+      <div class='btns'>
+        <button class='btn orange' id='save' style='flex:1;justify-content:center'>💾 Simpan &amp; Publikasikan</button>
+        <button class='btn ghost' hidden='true' id='cancel'>Batal Edit</button>
+        <button class='btn ghost' id='clear'>Reset</button>
       </div>
     </section>
 
     <!-- KOLEKSI TEMPLATE &amp; BACKUP -->
-    <section class="panel">
+    <section class='panel'>
       <h2>
-        <span>📦 Pustaka Template (<span id="count">0</span>)</span>
-        <button class="btn danger mini" id="clearAll">🗑️ Kosongkan</button>
+        <span>📦 Pustaka Template (<span id='count'>0</span>)</span>
+        <button class='btn danger mini' id='clearAll'>🗑&#65039; Kosongkan</button>
       </h2>
-      <div id="list"></div>
-      <div class="export" style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(247,243,234,0.12)">
-        <h2>⇅ Ekspor / Impor Backup JSON</h2>
-        <div class="btns" style="flex-wrap:wrap">
-          <button class="btn orange mini" id="exp-dl">⬇ Unduh Backup JSON</button>
-          <button class="btn ghost mini" id="exp-copy">Salin JSON</button>
+      <div id='list'/>
+      <div class='export' style='margin-top:20px;padding-top:16px;border-top:1px solid rgba(247,243,234,0.12)'>
+        <h2>&#8645; Ekspor / Impor Backup JSON</h2>
+        <div class='btns' style='flex-wrap:wrap'>
+          <button class='btn orange mini' id='exp-dl'>&#11015; Unduh Backup JSON</button>
+          <button class='btn ghost mini' id='exp-copy'>Salin JSON</button>
         </div>
-        <label style="margin-top:12px">Impor Data JSON (Tempel JSON valid)</label>
-        <textarea class="exportbox" id="imp" placeholder='{"templates":[…]}'></textarea>
-        <div class="btns"><button class="btn ghost mini" id="imp-apply">Terapkan Impor JSON</button></div>
+        <label style='margin-top:12px'>Impor Data JSON (Tempel JSON valid)</label>
+        <textarea class='exportbox' id='imp' placeholder='{&quot;templates&quot;:[…]}'/>
+        <div class='btns'><button class='btn ghost mini' id='imp-apply'>Terapkan Impor JSON</button></div>
       </div>
     </section>
   </div>
 </div>
 
-<div class="toast" id="toast"></div>
+<div class='toast' id='toast'/>
     </div>
 
   </div>
 
   <b:section class='main' id='main' maxwidgets='1' name='Main' showaddelement='no'>
-    <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='1' visible='true'>
+    <b:widget id='Blog1' locked='true' title='Postingan Blog' type='Blog' version='1'>
       <b:widget-settings>
+        <b:widget-setting name='showDateHeader'>true</b:widget-setting>
+        <b:widget-setting name='style.textcolor'>#ffffff</b:widget-setting>
         <b:widget-setting name='showShareButtons'>false</b:widget-setting>
+        <b:widget-setting name='authorLabel'>By</b:widget-setting>
+        <b:widget-setting name='showCommentLink'>true</b:widget-setting>
+        <b:widget-setting name='style.urlcolor'>#ffffff</b:widget-setting>
+        <b:widget-setting name='showAuthor'>false</b:widget-setting>
+        <b:widget-setting name='style.linkcolor'>#ffffff</b:widget-setting>
+        <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
+        <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
+        <b:widget-setting name='reactionsLabel'/>
+        <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
+        <b:widget-setting name='style.layout'>1x1</b:widget-setting>
+        <b:widget-setting name='showLabels'>true</b:widget-setting>
+        <b:widget-setting name='showLocation'>true</b:widget-setting>
+        <b:widget-setting name='showTimestamp'>true</b:widget-setting>
+        <b:widget-setting name='postsPerAd'>3</b:widget-setting>
+        <b:widget-setting name='showBacklinks'>false</b:widget-setting>
+        <b:widget-setting name='style.bordercolor'>#ffffff</b:widget-setting>
+        <b:widget-setting name='showInlineAds'>true</b:widget-setting>
+        <b:widget-setting name='showReactions'>false</b:widget-setting>
       </b:widget-settings>
-      <b:includable id='main' var='top'></b:includable>
-      <b:includable id='mobile-main' var='top'></b:includable>
-      <b:includable id='mobile-post' var='top'></b:includable>
+      <b:includable id='main' var='top'/>
+      <b:includable id='backlinkDeleteIcon' var='backlink'/>
+      <b:includable id='backlinks' var='post'/>
+      <b:includable id='comment-form' var='post'>
+  <div class='comment-form'>
+    <a name='comment-form'/>
+    <b:if cond='data:mobile'>
+      <h4 id='comment-post-message'>
+        <a expr:id='data:widget.instanceId + &quot;_comment-editor-toggle-link&quot;' href='javascript:void(0)'><data:postCommentMsg/></a></h4>
+      <p><data:blogCommentMessage/></p>
+      <data:blogTeamBlogMessage/>
+      <a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
+      <iframe allowtransparency='true' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight' frameborder='0' id='comment-editor' name='comment-editor' src='' style='display: none' width='100%'/>
+    <b:else/>
+      <h4 id='comment-post-message'><data:postCommentMsg/></h4>
+      <p><data:blogCommentMessage/></p>
+      <data:blogTeamBlogMessage/>
+      <a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
+      <iframe allowtransparency='true' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight' frameborder='0' id='comment-editor' name='comment-editor' src='' width='100%'/>
+    </b:if>
+    <data:post.cmtfpIframe/>
+    <script type='text/javascript'>
+      BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);
+    </script>
+  </div>
+</b:includable>
+      <b:includable id='commentDeleteIcon' var='comment'>
+  <span expr:class='&quot;item-control &quot; + data:comment.adminClass'>
+    <b:if cond='data:showCmtPopup'>
+      <div class='goog-toggle-button'>
+        <div class='goog-inline-block comment-action-icon'/>
+      </div>
+    <b:else/>
+      <a class='comment-delete' expr:href='data:comment.deleteUrl' expr:title='data:top.deleteCommentMsg'>
+        <img src='https://resources.blogblog.com/img/icon_delete13.gif'/>
+      </a>
+    </b:if>
+  </span>
+</b:includable>
+      <b:includable id='comment_count_picker' var='post'>
+  <a class='comment-link' expr:href='data:post.addCommentUrl' expr:onclick='data:post.addCommentOnclick'>
+    <data:post.commentLabelFull/>:
+  </a>
+</b:includable>
+      <b:includable id='comment_picker' var='post'>
+  <b:if cond='data:post.showThreadedComments'>
+    <b:include data='post' name='threaded_comments'/>
+  <b:else/>
+    <b:include data='post' name='comments'/>
+  </b:if>
+</b:includable>
+      <b:includable id='comments' var='post'>
+  <div class='comments' id='comments'>
+    <a name='comments'/>
+    <b:if cond='data:post.allowComments'>
+      <h4><data:post.commentLabelFull/>:</h4>
+
+      <b:if cond='data:post.commentPagingRequired'>
+        <span class='paging-control-container'>
+          <b:if cond='data:post.hasOlderLinks'>
+            <a expr:class='data:post.oldLinkClass' expr:href='data:post.oldestLinkUrl'><data:post.oldestLinkText/></a>
+              &#160;
+            <a expr:class='data:post.oldLinkClass' expr:href='data:post.olderLinkUrl'><data:post.olderLinkText/></a>
+              &#160;
+          </b:if>
+
+          <data:post.commentRangeText/>
+
+          <b:if cond='data:post.hasNewerLinks'>
+            &#160;
+            <a expr:class='data:post.newLinkClass' expr:href='data:post.newerLinkUrl'><data:post.newerLinkText/></a>
+            &#160;
+            <a expr:class='data:post.newLinkClass' expr:href='data:post.newestLinkUrl'><data:post.newestLinkText/></a>
+          </b:if>
+        </span>
+      </b:if>
+
+      <div expr:id='data:widget.instanceId + &quot;_comments-block-wrapper&quot;'>
+        <dl expr:class='data:post.avatarIndentClass' id='comments-block'>
+          <b:loop values='data:post.comments' var='comment'>
+            <dt expr:class='&quot;comment-author &quot; + data:comment.authorClass' expr:id='data:comment.anchorName'>
+              <b:if cond='data:comment.favicon'>
+                <img expr:src='data:comment.favicon' height='16px' style='margin-bottom:-2px;' width='16px'/>
+              </b:if>
+              <a expr:name='data:comment.anchorName'/>
+              <b:if cond='data:blog.enabledCommentProfileImages'>
+                <data:comment.authorAvatarImage/>
+              </b:if>
+              <b:if cond='data:comment.authorUrl'>
+                <a expr:href='data:comment.authorUrl' rel='nofollow'><data:comment.author/></a>
+              <b:else/>
+                <data:comment.author/>
+              </b:if>
+              <data:commentPostedByMsg/>
+            </dt>
+            <dd class='comment-body' expr:id='data:widget.instanceId + data:comment.cmtBodyIdPostfix'>
+              <b:if cond='data:comment.isDeleted'>
+                <span class='deleted-comment'><data:comment.body/></span>
+              <b:else/>
+                <p>
+                  <data:comment.body/>
+                </p>
+              </b:if>
+            </dd>
+            <dd class='comment-footer'>
+              <span class='comment-timestamp'>
+                <a expr:href='data:comment.url' title='comment permalink'>
+                  <data:comment.timestamp/>
+                </a>
+                <b:include data='comment' name='commentDeleteIcon'/>
+              </span>
+            </dd>
+          </b:loop>
+        </dl>
+      </div>
+
+      <b:if cond='data:post.commentPagingRequired'>
+        <span class='paging-control-container'>
+          <a expr:class='data:post.oldLinkClass' expr:href='data:post.oldestLinkUrl'>
+            <data:post.oldestLinkText/>
+          </a>
+          <a expr:class='data:post.oldLinkClass' expr:href='data:post.olderLinkUrl'>
+            <data:post.olderLinkText/>
+          </a>
+          &#160;
+          <data:post.commentRangeText/>
+          &#160;
+          <a expr:class='data:post.newLinkClass' expr:href='data:post.newerLinkUrl'>
+            <data:post.newerLinkText/>
+          </a>
+          <a expr:class='data:post.newLinkClass' expr:href='data:post.newestLinkUrl'>
+            <data:post.newestLinkText/>
+          </a>
+        </span>
+      </b:if>
+
+      <p class='comment-footer'>
+        <b:if cond='data:post.embedCommentForm'>
+          <b:if cond='data:post.allowNewComments'>
+            <b:include data='post' name='comment-form'/>
+          <b:else/>
+            <data:post.noNewCommentsText/>
+          </b:if>
+        <b:elseif cond='data:post.allowComments'/>
+          <a expr:href='data:post.addCommentUrl' expr:onclick='data:post.addCommentOnclick'><data:postCommentMsg/></a>
+        </b:if>
+      </p>
+    </b:if>
+    <b:if cond='data:showCmtPopup'>
+      <div id='comment-popup'>
+        <iframe allowtransparency='true' frameborder='0' id='comment-actions' name='comment-actions' scrolling='no'>
+        </iframe>
+      </div>
+    </b:if>
+
+  </div>
+</b:includable>
+      <b:includable id='feedLinks'>
+  <b:if cond='data:blog.pageType != &quot;item&quot;'> <!-- Blog feed links -->
+    <b:if cond='data:feedLinks'>
+      <div class='blog-feeds'>
+        <b:include data='feedLinks' name='feedLinksBody'/>
+      </div>
+    </b:if>
+
+  <b:else/> <!--Post feed links -->
+    <div class='post-feeds'>
+      <b:loop values='data:posts' var='post'>
+        <b:include cond='data:post.allowComments and data:post.feedLinks' data='post.feedLinks' name='feedLinksBody'/>
+      </b:loop>
+    </div>
+  </b:if>
+</b:includable>
+      <b:includable id='feedLinksBody' var='links'>
+  <div class='feed-links'>
+  <data:feedLinksMsg/>
+  <b:loop values='data:links' var='f'>
+     <a class='feed-link' expr:href='data:f.url' expr:type='data:f.mimeType' target='_blank'><data:f.name/> (<data:f.feedType/>)</a>
+  </b:loop>
+  </div>
+</b:includable>
+      <b:includable id='iframe_comments' var='post'>
+  <!-- G+ comments, no longer available. The includable is retained for backwards-compatibility. -->
+</b:includable>
+      <b:includable id='mobile-index-post' var='post'>
+  <div class='mobile-date-outer date-outer'>
+    <b:if cond='data:post.dateHeader'>
+      <div class='date-header'>
+        <span><data:post.dateHeader/></span>
+      </div>
+    </b:if>
+
+    <div class='mobile-post-outer'>
+      <a expr:href='data:post.url'>
+        <h3 class='mobile-index-title entry-title' itemprop='name'>
+          <data:post.title/>
+        </h3>
+
+        <div class='mobile-index-arrow'>&amp;rsaquo;</div>
+
+        <div class='mobile-index-contents'>
+          <b:if cond='data:post.thumbnailUrl'>
+            <div class='mobile-index-thumbnail'>
+              <div class='Image'>
+                <img expr:src='data:post.thumbnailUrl'/>
+              </div>
+            </div>
+          </b:if>
+
+          <div class='post-body'>
+            <b:if cond='data:post.snippet'><data:post.snippet/></b:if>
+          </div>
+        </div>
+
+        <div style='clear: both;'/>
+      </a>
+
+      <div class='mobile-index-comment'>
+        <b:include cond='data:blog.pageType != &quot;static_page&quot;                          and data:post.allowComments                          and data:post.numComments != 0' data='post' name='comment_count_picker'/>
+      </div>
+    </div>
+  </div>
+</b:includable>
+      <b:includable id='mobile-main' var='top'/>
+      <b:includable id='mobile-nextprev'>
+  <div class='blog-pager' id='blog-pager'>
+    <b:if cond='data:newerPageUrl'>
+      <div class='mobile-link-button' id='blog-pager-newer-link'>
+      <a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:newerPageTitle'>&amp;lsaquo;</a>
+      </div>
+    </b:if>
+
+    <b:if cond='data:olderPageUrl'>
+      <div class='mobile-link-button' id='blog-pager-older-link'>
+      <a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:olderPageTitle'>&amp;rsaquo;</a>
+      </div>
+    </b:if>
+
+    <div class='mobile-link-button' id='blog-pager-home-link'>
+    <a class='home-link' expr:href='data:blog.homepageUrl'><data:homeMsg/></a>
+    </div>
+
+    <div class='mobile-desktop-link'>
+      <a class='home-link' expr:href='data:desktopLinkUrl'><data:desktopLinkMsg/></a>
+    </div>
+
+  </div>
+  <div class='clear'/>
+</b:includable>
+      <b:includable id='mobile-post' var='top'/>
+      <b:includable id='nextprev'>
+  <div class='blog-pager' id='blog-pager'>
+    <b:if cond='data:newerPageUrl'>
+      <span id='blog-pager-newer-link'>
+      <a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:newerPageTitle'><data:newerPageTitle/></a>
+      </span>
+    </b:if>
+
+    <b:if cond='data:olderPageUrl'>
+      <span id='blog-pager-older-link'>
+      <a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:olderPageTitle'><data:olderPageTitle/></a>
+      </span>
+    </b:if>
+
+    <a class='home-link' expr:href='data:blog.homepageUrl'><data:homeMsg/></a>
+
+    <b:if cond='data:mobileLinkUrl'>
+      <div class='blog-mobile-link'>
+        <a expr:href='data:mobileLinkUrl'><data:mobileLinkMsg/></a>
+      </div>
+    </b:if>
+
+  </div>
+  <div class='clear'/>
+</b:includable>
+      <b:includable id='post' var='post'>
+  <div class='post hentry uncustomized-post-template' itemprop='blogPost' itemscope='itemscope' itemtype='http://schema.org/BlogPosting'>
+    <b:if cond='data:post.firstImageUrl'>
+      <meta expr:content='data:post.firstImageUrl' itemprop='image_url'/>
+    </b:if>
+    <meta expr:content='data:blog.blogId' itemprop='blogId'/>
+    <meta expr:content='data:post.id' itemprop='postId'/>
+
+    <a expr:name='data:post.id'/>
+    <b:if cond='data:post.title'>
+      <h3 class='post-title entry-title' itemprop='name'>
+      <b:if cond='data:post.link or (data:post.url and data:blog.url != data:post.url)'>
+        <a expr:href='data:post.link ? data:post.link : data:post.url'><data:post.title/></a>
+      <b:else/>
+        <data:post.title/>
+      </b:if>
+      </h3>
+    </b:if>
+
+    <div class='post-header'>
+    <div class='post-header-line-1'/>
+    </div>
+
+    <!-- Then use the post body as the schema.org description, for good G+/FB snippeting. -->
+    <div class='post-body entry-content' expr:id='&quot;post-body-&quot; + data:post.id' expr:itemprop='(data:blog.metaDescription ? &quot;&quot; : &quot;description &quot;) + &quot;articleBody&quot;'>
+      <data:post.body/>
+      <div style='clear: both;'/> <!-- clear for photos floats -->
+    </div>
+
+    <b:if cond='data:post.hasJumpLink'>
+      <div class='jump-link'>
+        <a expr:href='data:post.url + &quot;#more&quot;' expr:title='data:post.title'><data:post.jumpText/></a>
+      </div>
+    </b:if>
+
+    <div class='post-footer'>
+    <div class='post-footer-line post-footer-line-1'>
+      <span class='post-author vcard'>
+        <b:if cond='data:top.showAuthor'>
+          <data:top.authorLabel/>
+            <b:if cond='data:post.authorProfileUrl'>
+              <span class='fn' itemprop='author' itemscope='itemscope' itemtype='http://schema.org/Person'>
+                <meta expr:content='data:post.authorProfileUrl' itemprop='url'/>
+                <a class='g-profile' expr:href='data:post.authorProfileUrl' rel='author' title='author profile'>
+                  <span itemprop='name'><data:post.author/></span>
+                </a>
+              </span>
+            <b:else/>
+              <span class='fn' itemprop='author' itemscope='itemscope' itemtype='http://schema.org/Person'>
+                <span itemprop='name'><data:post.author/></span>
+              </span>
+            </b:if>
+        </b:if>
+      </span>
+
+      <span class='post-timestamp'>
+        <b:if cond='data:top.showTimestamp'>
+          <data:top.timestampLabel/>
+          <b:if cond='data:post.url'>
+            <meta expr:content='data:post.url.canonical' itemprop='url'/>
+            <a class='timestamp-link' expr:href='data:post.url' rel='bookmark' title='permanent link'><abbr class='published' expr:title='data:post.timestampISO8601' itemprop='datePublished'><data:post.timestamp/></abbr></a>
+          </b:if>
+        </b:if>
+      </span>
+
+      <span class='post-comment-link'>
+        <b:include cond='data:blog.pageType not in {&quot;item&quot;,&quot;static_page&quot;}                          and data:post.allowComments' data='post' name='comment_count_picker'/>
+      </span>
+
+      <span class='post-icons'>
+        <!-- email post links -->
+        <b:if cond='data:post.emailPostUrl'>
+          <span class='item-action'>
+          <a expr:href='data:post.emailPostUrl' expr:title='data:top.emailPostMsg'>
+            <img alt='' class='icon-action' height='13' src='https://resources.blogblog.com/img/icon18_email.gif' width='18'/>
+          </a>
+          </span>
+        </b:if>
+
+        <!-- quickedit pencil -->
+        <b:include data='post' name='postQuickEdit'/>
+      </span>
+
+      <!-- share buttons -->
+      <div class='post-share-buttons goog-inline-block'>
+        <b:include cond='data:post.sharePostUrl' data='post' name='shareButtons'/>
+      </div>
+
+      </div>
+
+      <div class='post-footer-line post-footer-line-2'>
+      <span class='post-labels'>
+        <b:if cond='data:top.showPostLabels and data:post.labels'>
+          <data:postLabelsLabel/>
+          <b:loop values='data:post.labels' var='label'>
+            <a expr:href='data:label.url' rel='tag'><data:label.name/></a><b:if cond='not data:label.isLast'>,</b:if>
+          </b:loop>
+        </b:if>
+      </span>
+      </div>
+
+      <div class='post-footer-line post-footer-line-3'>
+      <span class='post-location'>
+        <b:if cond='data:top.showLocation and data:post.location'>
+          <data:postLocationLabel/>
+          <a expr:href='data:post.location.mapsUrl' target='_blank'><data:post.location.name/></a>
+        </b:if>
+      </span>
+      </div>
+      <b:if cond='data:post.authorAboutMe'>
+        <div class='author-profile' itemprop='author' itemscope='itemscope' itemtype='http://schema.org/Person'>
+          <b:if cond='data:post.authorPhoto.url'>
+            <img expr:src='data:post.authorPhoto.url' itemprop='image' width='50px'/>
+          </b:if>
+          <div>
+            <a class='g-profile' expr:href='data:post.authorProfileUrl' itemprop='url' rel='author' title='author profile'>
+              <span itemprop='name'><data:post.author/></span>
+            </a>
+          </div>
+          <span itemprop='description'><data:post.authorAboutMe/></span>
+        </div>
+      </b:if>
+    </div>
+  </div>
+</b:includable>
+      <b:includable id='postQuickEdit' var='post'>
+  <b:if cond='data:post.editUrl'>
+    <span expr:class='&quot;item-control &quot; + data:post.adminClass'>
+      <a expr:href='data:post.editUrl' expr:title='data:top.editPostMsg'>
+        <img alt='' class='icon-action' height='18' src='https://resources.blogblog.com/img/icon18_edit_allbkg.gif' width='18'/>
+      </a>
+    </span>
+  </b:if>
+</b:includable>
+      <b:includable id='shareButtons' var='post'>
+  <b:if cond='data:top.showEmailButton'><a class='goog-inline-block share-button sb-email' expr:href='data:post.sharePostUrl + &quot;&amp;target=email&quot;' expr:title='data:top.emailThisMsg' target='_blank'><span class='share-button-link-text'><data:top.emailThisMsg/></span></a></b:if><b:if cond='data:top.showBlogThisButton'><a class='goog-inline-block share-button sb-blog' expr:href='data:post.sharePostUrl + &quot;&amp;target=blog&quot;' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=270,width=475\&quot;); return false;&quot;' expr:title='data:top.blogThisMsg' target='_blank'><span class='share-button-link-text'><data:top.blogThisMsg/></span></a></b:if><b:if cond='data:top.showTwitterButton'><a class='goog-inline-block share-button sb-twitter' expr:href='data:post.sharePostUrl + &quot;&amp;target=twitter&quot;' expr:title='data:top.shareToTwitterMsg' target='_blank'><span class='share-button-link-text'><data:top.shareToTwitterMsg/></span></a></b:if><b:if cond='data:top.showFacebookButton'><a class='goog-inline-block share-button sb-facebook' expr:href='data:post.sharePostUrl + &quot;&amp;target=facebook&quot;' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=430,width=640\&quot;); return false;&quot;' expr:title='data:top.shareToFacebookMsg' target='_blank'><span class='share-button-link-text'><data:top.shareToFacebookMsg/></span></a></b:if><b:if cond='data:top.showPinterestButton'><a class='goog-inline-block share-button sb-pinterest' expr:href='data:post.sharePostUrl + &quot;&amp;target=pinterest&quot;' expr:title='data:top.shareToPinterestMsg' target='_blank'><span class='share-button-link-text'><data:top.shareToPinterestMsg/></span></a></b:if>
+</b:includable>
+      <b:includable id='status-message'>
+  <b:if cond='data:navMessage'>
+  <div class='status-msg-wrap'>
+    <div class='status-msg-body'>
+      <data:navMessage/>
+    </div>
+    <div class='status-msg-border'>
+      <div class='status-msg-bg'>
+        <div class='status-msg-hidden'><data:navMessage/></div>
+      </div>
+    </div>
+  </div>
+  <div style='clear: both;'/>
+  </b:if>
+</b:includable>
+      <b:includable id='threaded-comment-form' var='post'>
+  <div class='comment-form'>
+    <a name='comment-form'/>
+    <b:if cond='data:mobile'>
+      <p><data:blogCommentMessage/></p>
+      <data:blogTeamBlogMessage/>
+      <a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
+      <iframe allowtransparency='true' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight' frameborder='0' id='comment-editor' name='comment-editor' src='' style='display: none' width='100%'/>
+    <b:else/>
+      <p><data:blogCommentMessage/></p>
+      <data:blogTeamBlogMessage/>
+      <a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
+      <iframe allowtransparency='true' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight' frameborder='0' id='comment-editor' name='comment-editor' src='' width='100%'/>
+    </b:if>
+    <data:post.cmtfpIframe/>
+    <script type='text/javascript'>
+      BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);
+    </script>
+  </div>
+</b:includable>
+      <b:includable id='threaded_comment_js' var='post'>
+  <script async='async' expr:src='data:post.commentSrc' type='text/javascript'/>
+
+  <script type='text/javascript'>
+    (function() {
+      var items = <data:post.commentJso/>;
+      var msgs = <data:post.commentMsgs/>;
+      var config = <data:post.commentConfig/>;
+
+// <![CDATA[
+      var cursor = null;
+      if (items && items.length > 0) {
+        cursor = parseInt(items[items.length - 1].timestamp) + 1;
+      }
+
+      var bodyFromEntry = function(entry) {
+        var text = (entry &&
+                    ((entry.content && entry.content.$t) ||
+                     (entry.summary && entry.summary.$t))) ||
+            '';
+        if (entry && entry.gd$extendedProperty) {
+          for (var k in entry.gd$extendedProperty) {
+            if (entry.gd$extendedProperty[k].name == 'blogger.contentRemoved') {
+              return '<span class="deleted-comment">' + text + '</span>';
+            }
+          }
+        }
+        return text;
+      }
+
+      var parse = function(data) {
+        cursor = null;
+        var comments = [];
+        if (data && data.feed && data.feed.entry) {
+          for (var i = 0, entry; entry = data.feed.entry[i]; i++) {
+            var comment = {};
+            // comment ID, parsed out of the original id format
+            var id = /blog-(\d+).post-(\d+)/.exec(entry.id.$t);
+            comment.id = id ? id[2] : null;
+            comment.body = bodyFromEntry(entry);
+            comment.timestamp = Date.parse(entry.published.$t) + '';
+            if (entry.author && entry.author.constructor === Array) {
+              var auth = entry.author[0];
+              if (auth) {
+                comment.author = {
+                  name: (auth.name ? auth.name.$t : undefined),
+                  profileUrl: (auth.uri ? auth.uri.$t : undefined),
+                  avatarUrl: (auth.gd$image ? auth.gd$image.src : undefined)
+                };
+              }
+            }
+            if (entry.link) {
+              if (entry.link[2]) {
+                comment.link = comment.permalink = entry.link[2].href;
+              }
+              if (entry.link[3]) {
+                var pid = /.*comments\/default\/(\d+)\?.*/.exec(entry.link[3].href);
+                if (pid && pid[1]) {
+                  comment.parentId = pid[1];
+                }
+              }
+            }
+            comment.deleteclass = 'item-control blog-admin';
+            if (entry.gd$extendedProperty) {
+              for (var k in entry.gd$extendedProperty) {
+                if (entry.gd$extendedProperty[k].name == 'blogger.itemClass') {
+                  comment.deleteclass += ' ' + entry.gd$extendedProperty[k].value;
+                } else if (entry.gd$extendedProperty[k].name == 'blogger.displayTime') {
+                  comment.displayTime = entry.gd$extendedProperty[k].value;
+                }
+              }
+            }
+            comments.push(comment);
+          }
+        }
+        return comments;
+      };
+
+      var paginator = function(callback) {
+        if (hasMore()) {
+          var url = config.feed + '?alt=json&v=2&orderby=published&reverse=false&max-results=50';
+          if (cursor) {
+            url += '&published-min=' + new Date(cursor).toISOString();
+          }
+          window.bloggercomments = function(data) {
+            var parsed = parse(data);
+            cursor = parsed.length < 50 ? null
+                : parseInt(parsed[parsed.length - 1].timestamp) + 1
+            callback(parsed);
+            window.bloggercomments = null;
+          }
+          url += '&callback=bloggercomments';
+          var script = document.createElement('script');
+          script.type = 'text/javascript';
+          script.src = url;
+          document.getElementsByTagName('head')[0].appendChild(script);
+        }
+      };
+      var hasMore = function() {
+        return !!cursor;
+      };
+      var getMeta = function(key, comment) {
+        if ('iswriter' == key) {
+          var matches = !!comment.author
+              && comment.author.name == config.authorName
+              && comment.author.profileUrl == config.authorUrl;
+          return matches ? 'true' : '';
+        } else if ('deletelink' == key) {
+          return config.baseUri + '/comment/delete/'
+               + config.blogId + '/' + comment.id;
+        } else if ('deleteclass' == key) {
+          return comment.deleteclass;
+        }
+        return '';
+      };
+
+      var replybox = null;
+      var replyUrlParts = null;
+      var replyParent = undefined;
+
+      var onReply = function(commentId, domId) {
+        if (replybox == null) {
+          // lazily cache replybox, and adjust to suit this style:
+          replybox = document.getElementById('comment-editor');
+          if (replybox != null) {
+            replybox.height = '250px';
+            replybox.style.display = 'block';
+            replyUrlParts = replybox.src.split('#');
+          }
+        }
+        if (replybox && (commentId !== replyParent)) {
+          replybox.src = '';
+          document.getElementById(domId).insertBefore(replybox, null);
+          replybox.src = replyUrlParts[0]
+              + (commentId ? '&parentID=' + commentId : '')
+              + '#' + replyUrlParts[1];
+          replyParent = commentId;
+        }
+      };
+
+      var hash = (window.location.hash || '#').substring(1);
+      var startThread, targetComment;
+      if (/^comment-form_/.test(hash)) {
+        startThread = hash.substring('comment-form_'.length);
+      } else if (/^c[0-9]+$/.test(hash)) {
+        targetComment = hash.substring(1);
+      }
+
+      // Configure commenting API:
+      var configJso = {
+        'maxDepth': config.maxThreadDepth
+      };
+      var provider = {
+        'id': config.postId,
+        'data': items,
+        'loadNext': paginator,
+        'hasMore': hasMore,
+        'getMeta': getMeta,
+        'onReply': onReply,
+        'rendered': true,
+        'initComment': targetComment,
+        'initReplyThread': startThread,
+        'config': configJso,
+        'messages': msgs
+      };
+
+      var render = function() {
+        if (window.goog && window.goog.comments) {
+          var holder = document.getElementById('comment-holder');
+          window.goog.comments.render(holder, provider);
+        }
+      };
+
+      // render now, or queue to render when library loads:
+      if (window.goog && window.goog.comments) {
+        render();
+      } else {
+        window.goog = window.goog || {};
+        window.goog.comments = window.goog.comments || {};
+        window.goog.comments.loadQueue = window.goog.comments.loadQueue || [];
+        window.goog.comments.loadQueue.push(render);
+      }
+    })();
+// ]]>
+  </script>
+</b:includable>
+      <b:includable id='threaded_comments' var='post'>
+  <div class='comments' id='comments'>
+    <a name='comments'/>
+    <h4><data:post.commentLabelFull/>:</h4>
+
+    <div class='comments-content'>
+      <b:include cond='data:post.embedCommentForm' data='post' name='threaded_comment_js'/>
+      <div id='comment-holder'>
+         <data:post.commentHtml/>
+      </div>
+    </div>
+
+    <p class='comment-footer'>
+      <b:if cond='data:post.allowNewComments'>
+        <b:include data='post' name='threaded-comment-form'/>
+      <b:else/>
+        <data:post.noNewCommentsText/>
+      </b:if>
+    </p>
+
+    <b:if cond='data:showCmtPopup'>
+      <div id='comment-popup'>
+        <iframe allowtransparency='true' frameborder='0' id='comment-actions' name='comment-actions' scrolling='no'>
+        </iframe>
+      </div>
+    </b:if>
+
+    <div id='backlinks-container'>
+    <div expr:id='data:widget.instanceId + &quot;_backlinks-container&quot;'>
+    </div>
+    </div>
+  </div>
+</b:includable>
     </b:widget>
   </b:section>
 
