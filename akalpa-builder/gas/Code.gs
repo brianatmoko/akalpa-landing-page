@@ -107,7 +107,10 @@ function jsonOut(obj, status) {
 function getSheet() {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   var sheet = ss.getSheetByName(CONFIG.SHEET_NAME);
-  if (!sheet) throw new Error("Sheet '" + CONFIG.SHEET_NAME + "' tidak ditemukan. Jalankan setupSheet() dulu.");
+  if (!sheet) {
+    setupSheet();
+    sheet = ss.getSheetByName(CONFIG.SHEET_NAME);
+  }
   return sheet;
 }
 

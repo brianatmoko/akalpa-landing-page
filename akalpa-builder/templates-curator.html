@@ -314,9 +314,11 @@ function resetForm(){
   $("#cancel").hidden=true;
 }
 
+var DEFAULT_GAS_URL = "https://script.google.com/macros/s/AKfycbyaQsklH020izNbtsCLSCQK-bNI079gZTWo13UTWfyi08H2Yi4VzPm-cFkqkLSWwM3D/exec";
+
 function gasConf(){
   return{
-    url:localStorage.getItem(LS_GAS_URL)||"",
+    url:localStorage.getItem(LS_GAS_URL)||DEFAULT_GAS_URL,
     token:localStorage.getItem(LS_GAS_TOKEN)||""
   };
 }
@@ -537,12 +539,11 @@ function enter(){
   load();buildCatList();resetForm();
   lastActivityTime=Date.now();
   // Load GAS config ke input fields
-  var savedUrl=localStorage.getItem(LS_GAS_URL)||"";
+  var savedUrl=localStorage.getItem(LS_GAS_URL)||DEFAULT_GAS_URL;
   var savedToken=localStorage.getItem(LS_GAS_TOKEN)||"";
-  if(savedUrl) $("#gas-url").value=savedUrl;
+  $("#gas-url").value=savedUrl;
   if(savedToken) $("#gas-token").value=savedToken;
-  if(savedUrl) gasStatus("✅ GAS terkonfigurasi: "+savedUrl.substring(0,50)+"…",true);
-  else gasStatus("⚠️ GAS belum dikonfigurasi. Masukkan URL dan Token di atas.",false);
+  gasStatus("✅ GAS terhubung: "+savedUrl.substring(0,55)+"…",true);
 }
 
 /* Inactivity Auto-logout */

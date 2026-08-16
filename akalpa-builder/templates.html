@@ -163,15 +163,17 @@ function buildChips(){
 window.WPB={copy:copyCode};
 q.addEventListener("input",render);
 
+var DEFAULT_GAS_URL = "https://script.google.com/macros/s/AKfycbyaQsklH020izNbtsCLSCQK-bNI079gZTWo13UTWfyi08H2Yi4VzPm-cFkqkLSWwM3D/exec";
+
 function loadData(){
   var gasUrl="";
   var localItems=[];
-  try{gasUrl=localStorage.getItem("aka_gas_url")||"";}catch(e){}
+  try{gasUrl=localStorage.getItem("aka_gas_url")||DEFAULT_GAS_URL;}catch(e){gasUrl=DEFAULT_GAS_URL;}
   try{localItems=JSON.parse(localStorage.getItem("aka_curator_v1")||"[]");}catch(e){}
 
-  // Sumber data prioritas: GAS API > localStorage > templates.json statis
-  var primaryUrl=gasUrl||"templates/templates.json";
-  var isGAS=!!gasUrl;
+  // Sumber data prioritas: GAS API > localStorage
+  var primaryUrl=gasUrl||DEFAULT_GAS_URL;
+  var isGAS=true;
 
   fetch(primaryUrl,{cache:"no-store"}).then(function(r){
     if(!r.ok)throw 0;
