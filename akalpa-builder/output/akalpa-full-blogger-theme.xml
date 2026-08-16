@@ -1222,7 +1222,7 @@ body.hero-dark .site-header:not(.is-scrolled) .brand-badge {
 @media (max-width: 900px) {
   .site-header .nav-inner { padding-left: 16px; padding-right: 10px; }
   .nav-links { display: none; }
-  .nav-actions { gap: 8px; }
+  .nav-actions { gap: 8px; margin-left: auto; }
   .nav-burger { display: inline-flex; padding: 6px; margin-right: -2px; }
   .faq-layout { grid-template-columns: 1fr; gap: 36px; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
@@ -1252,7 +1252,7 @@ body.hero-dark .site-header:not(.is-scrolled) .brand-badge {
 
 @media (max-width: 640px) {
   .site-header .nav-inner { padding-left: 12px; padding-right: 6px; }
-  .nav-actions { gap: 6px; }
+  .nav-actions { gap: 6px; margin-left: auto; }
   .focus-grid { grid-template-columns: 1fr; }
   .repo-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
